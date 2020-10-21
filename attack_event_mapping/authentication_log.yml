@@ -1,0 +1,25 @@
+name: Authentication log
+definition: Information about accounts' (Local or Domain) attempts to access network
+  resources interactively or over the network.
+collection_layers:
+- host
+platforms:
+- Windows
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+data_components:
+- name: authentication success
+  type: activity
+  relationships:
+  - name: User authenticated Host
+    id: C07F53CF-A125-40F8-BE5C-E42017A57C0F
+    source_data_element: user
+    relationship: authenticated
+    target_data_element: host
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 4624
+      - 4778
+references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/basic-audit-logon-events

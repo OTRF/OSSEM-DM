@@ -1,0 +1,28 @@
+name: Service
+definition: Information about software programs that run in the background and typically
+  start with the operating system.
+collection_layers:
+- host
+platforms:
+- Windows
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+data_components:
+- name: service creation
+  type: activity
+  relationships:
+  - name: User created Service
+    id: BB243122-F345-4ED6-97A7-FBA2A1AF7C38
+    source_data_element: user
+    relationship: created
+    target_data_element: service
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 4697
+    - event_provider: System
+      event_id:
+      - 7045
+references:
+- https://docs.microsoft.com/en-us/dotnet/framework/windows-services/introduction-to-windows-service-applications
+- https://www.linux.com/news/introduction-services-runlevels-and-rcd-scripts/

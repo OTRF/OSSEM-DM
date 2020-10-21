@@ -1,0 +1,198 @@
+name: Process
+definition: Information about instances of computer programs that are being executed
+  by at least one thread.
+collection_layers:
+- host
+platforms:
+- Windows
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+data_components:
+- name: process creation
+  type: activity
+  relationships:
+  - name: User created Process
+    id: D206A4A4-B387-4324-AA00-C72BB1904BB7
+    source_data_element: user
+    relationship: created
+    target_data_element: process
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 4688
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 1
+  - name: Process created Process
+    id: DE5A1D57-9569-4BA7-B2DC-27760F999A9A
+    source_data_element: process
+    relationship: created
+    target_data_element: process
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 4688
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 1
+- name: process modification
+  type: activity
+  relationships:
+  - name: Process wrote to Process
+    id: B4D84249-7408-49C3-AC5A-99F3FAED83FC
+    source_data_element: process
+    relationship: wrote to
+    target_data_element: process
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 8
+- name: process access
+  type: activity
+  relationships:
+  - name: Process accessed Process
+    id: 7FC7AD70-A886-4C69-8393-1288CC46E923
+    source_data_element: process
+    relationship: accessed
+    target_data_element: process
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 4663
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 10
+  - name: Process requested access Process
+    id: ACF0ADB6-A919-49B0-BB17-AC8B6C3ADAB5
+    source_data_element: process
+    relationship: requested access
+    target_data_element: process
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 4656
+- name: process network connection
+  type: activity
+  relationships:
+  - name: Process connected to Port
+    id: 56B242BF-1237-48DA-A699-BA64237CAF7F
+    source_data_element: process
+    relationship: connected to
+    target_data_element: port
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 5156
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: Process connected to Ip
+    id: D8EE542C-1F6B-4101-96E8-5E1E0926FAB6
+    source_data_element: process
+    relationship: connected to
+    target_data_element: ip
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 5156
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: Process connected to Host
+    id: 274AAFC5-F543-4FC5-A1EC-A493AA5AACFB
+    source_data_element: process
+    relationship: connected to
+    target_data_element: host
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: Process connected from Port
+    id: 0324FC13-7801-487D-896E-663A4A34B7C5
+    source_data_element: process
+    relationship: connected from
+    target_data_element: port
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 5156
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: Process connected from Ip
+    id: 66087F46-16C7-44A9-AB11-53FEB47832D5
+    source_data_element: process
+    relationship: connected from
+    target_data_element: ip
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 5156
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: Process connected from Host
+    id: 7F6A780F-2EA1-4DE1-847C-D5C8C7B8ECC4
+    source_data_element: process
+    relationship: connected from
+    target_data_element: host
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: User connected to Port
+    id: 476BC008-CB94-485F-A37A-3DBE7192E95F
+    source_data_element: user
+    relationship: connected to
+    target_data_element: port
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: User connected to Ip
+    id: 3162D376-D8BE-4A00-AD91-3FA134807912
+    source_data_element: user
+    relationship: connected to
+    target_data_element: ip
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: User connected to Host
+    id: 1D256254-C930-4D06-A5C8-433092BEEE68
+    source_data_element: user
+    relationship: connected to
+    target_data_element: host
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: User connected from Port
+    id: 6E411F60-E386-4DAE-99E4-C83BDFF76628
+    source_data_element: user
+    relationship: connected from
+    target_data_element: port
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: User connected from Ip
+    id: 23203EE4-BED7-4A93-8409-D2287AD6B5CA
+    source_data_element: user
+    relationship: connected from
+    target_data_element: ip
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+  - name: User connected from Host
+    id: 5C175E6C-D491-4014-B437-A4FA08731BF6
+    source_data_element: user
+    relationship: connected from
+    target_data_element: host
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 3
+references:
+- https://docs.microsoft.com/en-us/windows/win32/procthread/processes-and-threads

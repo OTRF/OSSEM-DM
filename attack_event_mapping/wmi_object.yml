@@ -1,0 +1,84 @@
+name: WMI object
+definition: Information about objects from the system classes, such as filters and
+  consumers, that support Windows Management Instrumentation activitites.
+collection_layers:
+- host
+platforms:
+- Windows
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+data_components:
+- name: wmi object context
+  type: information
+  relationships:
+  - name: Wmi subscription created
+    id: F3B6DD23-4DBE-4214-A2D7-10E7103D815F
+    source_data_element: wmi subscription
+    relationship: created
+    target_data_element: null
+    telemetry:
+    - event_provider: Microsoft-Windows-WMI-Activity/Operational
+      event_id:
+      - 5861
+- name: wmi object creation
+  type: activity
+  relationships:
+  - name: User created Wmi filter
+    id: AE378A1D-E665-461A-B478-539AFB5E37EF
+    source_data_element: user
+    relationship: created
+    target_data_element: wmi filter
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 19
+  - name: User created Wmi consumer
+    id: B5CD1D3E-3947-453B-ADEA-896A8F110A64
+    source_data_element: user
+    relationship: created
+    target_data_element: wmi consumer
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 20
+  - name: User created Wmi subscription
+    id: 73A84308-955C-43E7-B882-81EA1C8092D4
+    source_data_element: user
+    relationship: created
+    target_data_element: wmi subscription
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 21
+- name: wmi object deletion
+  type: activity
+  relationships:
+  - name: User deleted Wmi filter
+    id: 6BBC4A14-71C5-464E-B8EB-2EEC13D4A2CA
+    source_data_element: user
+    relationship: deleted
+    target_data_element: wmi filter
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 19
+  - name: User deleted Wmi consumer
+    id: 769B2E5F-40E1-4F12-B66D-70E80E831C9E
+    source_data_element: user
+    relationship: deleted
+    target_data_element: wmi consumer
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 20
+  - name: User deleted Wmi subscription
+    id: 17366962-DB60-4048-A2E1-2B51AC53FF52
+    source_data_element: user
+    relationship: deleted
+    target_data_element: wmi subscription
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 21
+references:
+- https://docs.microsoft.com/en-us/windows/win32/wmisdk/wmi-system-classes

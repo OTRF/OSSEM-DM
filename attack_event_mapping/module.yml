@@ -1,0 +1,34 @@
+name: Module
+definition: Information about portable executable files, such as a dll or an executable,
+  consisting of one or more classes and interfaces.
+collection_layers:
+- host
+platforms:
+- Windows
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+data_components:
+- name: module load
+  type: activity
+  relationships:
+  - name: Process loaded Dll
+    id: 109A870F-84A2-4CE4-948A-4773CD283F76
+    source_data_element: process
+    relationship: loaded
+    target_data_element: dll
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 7
+  - name: Process loaded Executable
+    id: 71F08C96-4ABE-47DE-A972-DEA470496FD4
+    source_data_element: process
+    relationship: loaded
+    target_data_element: executable
+    telemetry:
+    - event_provider: Microsoft-Windows-Sysmon/Operational
+      event_id:
+      - 7
+references:
+- https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya
+- https://docs.microsoft.com/en-us/dotnet/api/system.reflection.module?view=netcore-3.1

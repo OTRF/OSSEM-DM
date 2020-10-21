@@ -1,0 +1,24 @@
+name: User Account
+definition: Security principal or entity that represents a person or machine and can
+  be authenticated by an operating system or platform.
+collection_layers:
+- host
+platforms:
+- Windows
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+data_components:
+- name: user account creation
+  type: activity
+  relationships:
+  - name: User created User
+    id: 0C55D5FB-1FCC-454B-9C4A-0E72116D4BE3
+    source_data_element: user
+    relationship: created
+    target_data_element: user
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 4720
+references:
+- https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/security-principals

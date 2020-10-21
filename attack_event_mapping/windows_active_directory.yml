@@ -1,0 +1,54 @@
+name: Windows active directory
+definition: Information about objects on a domain network such as a user, a group,
+  or a workstation.
+collection_layers:
+- host
+platforms:
+- Windows
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+data_components:
+- name: active directory service access
+  type: activity
+  relationships:
+  - name: User accessed AD Object
+    id: 8F2A7CAF-7886-4485-8DBB-BCFDA5A181B9
+    source_data_element: user
+    relationship: accessed
+    target_data_element: ad object
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 4662
+  - name: User requested access AD Object
+    id: 6C0080E5-BDC2-41AD-8048-3DBAD16C2A5A
+    source_data_element: user
+    relationship: requested access
+    target_data_element: ad object
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 4661
+  - name: Process requested access AD Object
+    id: 5F004D87-AA2D-4C2A-8016-3BE661DA5D50
+    source_data_element: process
+    relationship: requested access
+    target_data_element: ad object
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 4661
+- name: active directory service modification
+  type: activity
+  relationships:
+  - name: User modified AD Object
+    id: C993F59C-9BC7-49CE-AD75-E3F22796719E
+    source_data_element: user
+    relationship: modified
+    target_data_element: ad object
+    telemetry:
+    - event_provider: Microsoft-Windows-Security-Auditing
+      event_id:
+      - 5136
+references:
+- https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/ad-ds-getting-started

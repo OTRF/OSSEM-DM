@@ -1,0 +1,55 @@
+name: Powershell log
+definition: Information about PowerShell operations related to PowerShell engine,
+  providers, and cmdlets.
+collection_layers:
+- host
+platforms:
+- Windows
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+data_components:
+- name: powershell context
+  type: information
+  relationships:
+  - name: Application host started
+    id: 489EB588-AF22-4981-BBE9-B2662260B4E9
+    source_data_element: application host
+    relationship: started
+    target_data_element: null
+    telemetry:
+    - event_provider: Windows PowerShell
+      event_id:
+      - 400
+  - name: Application domain started
+    id: 4E1ACF5F-D021-4618-9E9E-D96E91025A90
+    source_data_element: application domain
+    relationship: started
+    target_data_element: null
+    telemetry:
+    - event_provider: Microsoft-Windows-PowerShell/Operational
+      event_id:
+      - 53504
+- name: powershell execution
+  type: activity
+  relationships:
+  - name: User started Application host
+    id: A8429FAF-D8F2-435E-A45F-01DAE7B1FCDD
+    source_data_element: user
+    relationship: started
+    target_data_element: application host
+    telemetry:
+    - event_provider: Microsoft-Windows-PowerShell/Operational
+      event_id:
+      - 4103
+  - name: Process executed Command
+    id: 086914CC-2D38-4BFE-A8F0-879E70A33917
+    source_data_element: process
+    relationship: executed
+    target_data_element: command
+    telemetry:
+    - event_provider: Microsoft-Windows-PowerShell/Operational
+      event_id:
+      - 4103
+      - 4104
+references:
+- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logging_windows?view=powershell-7
