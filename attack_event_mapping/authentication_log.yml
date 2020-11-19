@@ -1,12 +1,12 @@
 name: Authentication log
-definition: Information about accounts' (Local or Domain) attempts to access network
-  resources interactively or over the network.
+definition: Information about accounts' (Local or Domain) attempts to access network resources interactively or over the network.
 collection_layers:
 - host
 platforms:
 - Windows
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
 data_components:
 - name: authentication success
   type: activity
@@ -17,9 +17,15 @@ data_components:
     relationship: authenticated
     target_data_element: host
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 4624
-      - 4778
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Logon/Logoff
+      audit_sub_category: Logon
+      event_id: 4624
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Logon/Logoff
+      audit_sub_category: Other Logon/Logoff Events
+      event_id: 4778
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/basic-audit-logon-events

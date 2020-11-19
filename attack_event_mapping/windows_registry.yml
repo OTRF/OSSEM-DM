@@ -6,6 +6,7 @@ platforms:
 - Windows
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
 data_components:
 - name: windows registry key creation
   type: activity
@@ -13,21 +14,23 @@ data_components:
   - name: Process created Windows registry key
     id: 07EBB983-0817-4A07-813D-4137CE1C847A
     source_data_element: process
-    relationship: creted
+    relationship: created
     target_data_element: windows registry key
     telemetry:
-    - event_provider: Microsoft-Windows-Sysmon/Operational
-      event_id:
-      - 12
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: RegistryEvent
+      event_id: 12
   - name: Process created Windows registry key value
     id: 7A5B583D-BEA3-4733-96EB-928E881FD218
     source_data_element: process
-    relationship: creted
+    relationship: created
     target_data_element: windows registry key value
     telemetry:
-    - event_provider: Microsoft-Windows-Sysmon/Operational
-      event_id:
-      - 12
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: RegistryEvent
+      event_id: 12
 - name: windows registry key deletion
   type: activity
   relationships:
@@ -37,18 +40,20 @@ data_components:
     relationship: deleted
     target_data_element: windows registry key
     telemetry:
-    - event_provider: Microsoft-Windows-Sysmon/Operational
-      event_id:
-      - 12
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: RegistryEvent
+      event_id: 12
   - name: Process deleted Windows registry key value
     id: D571E46E-523E-4F52-BAB3-D9B43BFFB8AA
     source_data_element: process
     relationship: deleted
     target_data_element: windows registry key value
     telemetry:
-    - event_provider: Microsoft-Windows-Sysmon/Operational
-      event_id:
-      - 12
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: RegistryEvent
+      event_id: 12
 - name: windows registry key modification
   type: activity
   relationships:
@@ -58,32 +63,44 @@ data_components:
     relationship: modified
     target_data_element: windows registry key
     telemetry:
-    - event_provider: Microsoft-Windows-Sysmon/Operational
-      event_id:
-      - 13
-      - 14
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: RegistryEvent
+      event_id: 13
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: RegistryEvent
+      event_id: 14
   - name: Process modified Windows registry key value
     id: 25EE8F70-C82B-4C43-A939-10CF156FBBFA
     source_data_element: process
     relationship: modified
     target_data_element: windows registry key value
     telemetry:
-    - event_provider: Microsoft-Windows-Sysmon/Operational
-      event_id:
-      - 13
-      - 14
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 4657
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: RegistryEvent
+      event_id: 13
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: RegistryEvent
+      event_id: 14
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Registry
+      event_id: 4657
   - name: User modified Windows registry key value
     id: 229AB2D2-FA13-40AA-AB50-23F26093715C
     source_data_element: user
     relationship: modified
     target_data_element: windows registry key value
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 4657
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Registry
+      event_id: 4657
 - name: Windows registry key access
   type: activity
   relationships:
@@ -93,35 +110,43 @@ data_components:
     relationship: accessed
     target_data_element: windows registry key
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 4663
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Registry
+      event_id: 4663
   - name: User accessed Windows registry key
     id: 6CDE6D13-4873-4E88-9F16-72CE2F7ACC84
     source_data_element: user
     relationship: accessed
     target_data_element: windows registry key
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 4663
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Registry
+      event_id: 4663
   - name: Process requested access Windows registry key
     id: 9DF48A52-109C-47E9-BA9B-B9C27CFCAACF
     source_data_element: process
     relationship: requested access
     target_data_element: windows registry key
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 4656
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Registry
+      event_id: 4656
   - name: User requested access Windows registry key
     id: D2E1050F-F94E-4273-B9A5-044E835CF913
     source_data_element: user
     relationship: requested access
     target_data_element: windows registry key
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 4656
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Registry
+      event_id: 4656
 references:
 - https://docs.microsoft.com/en-us/windows/win32/sysinfo/registry

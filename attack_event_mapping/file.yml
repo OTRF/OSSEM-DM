@@ -1,12 +1,12 @@
 name: File
-definition: Information about file objects that represent computer resources that
-  can be managed by the I/O system.
+definition: Information about file objects that represent computer resources that can be managed by the I/O system.
 collection_layers:
 - host
 platforms:
 - Windows
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
 data_components:
 - name: file creation
   type: activity
@@ -17,9 +17,10 @@ data_components:
     relationship: created
     target_data_element: file
     telemetry:
-    - event_provider: Microsoft-Windows-Sysmon/Operational
-      event_id:
-      - 11
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: FileCreate
+      event_id:  11
 - name: file deletion
   type: activity
   relationships:
@@ -29,9 +30,10 @@ data_components:
     relationship: deleted
     target_data_element: file
     telemetry:
-    - event_provider: Microsoft-Windows-Sysmon/Operational
-      event_id:
-      - 23
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: FileDelete
+      event_id: 23
 - name: file share access
   type: activity
   relationships:
@@ -41,9 +43,11 @@ data_components:
     relationship: accessed
     target_data_element: file share
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 5140
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File Share
+      event_id: 5140
 - name: file access
   type: activity
   relationships:
@@ -53,40 +57,73 @@ data_components:
     relationship: accessed
     target_data_element: file
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 5145
-      - 4663
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Detailed File Share
+      event_id: 5145
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File System
+      event_id: 4663
   - name: Process accessed File
     id: EFC133E3-6B8B-434E-8B80-821AAC2B88F8
     source_data_element: process
     relationship: accessed
     target_data_element: file
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 4663
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File System
+      event_id: 4663
   - name: User requested access File
     id: B0056295-3FA1-4B9F-890D-1D26EF740934
     source_data_element: user
     relationship: requested access
     target_data_element: file
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 4656
-      - 4661
-      - 4674
-      - 4692
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File System
+      event_id: 4656
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: DS Access
+      audit_sub_category: Directory Service Access
+      event_id: 4661
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: SAM
+      event_id: 4661
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Detailed Tracking
+      audit_sub_category: DPAPI Activity
+      event_id: 4692
   - name: Process requested access File
     id: 90C1EAE9-0433-4694-9E0E-A0C77736F6C2
     source_data_element: process
     relationship: requested access
     target_data_element: file
     telemetry:
-    - event_provider: Microsoft-Windows-Security-Auditing
-      event_id:
-      - 4656
-      - 4661
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File System
+      event_id: 4656
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: DS Access
+      audit_sub_category: Directory Service Access
+      event_id: 4661
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: SAM
+      event_id: 4661
 references:
 - https://docs.microsoft.com/en-us/windows/win32/fileio/file-management

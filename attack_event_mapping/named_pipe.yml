@@ -1,13 +1,12 @@
 name: Named pipe
-definition: Information about mechanisms that allow inter-process communication locally
-  or over the network. A named pipe is usually found as a file and processes attach
-  to it.
+definition: Information about mechanisms that allow inter-process communication locally or over the network. A named pipe is usually found as a file and processes attach to it.
 collection_layers:
 - host
 platforms:
 - Windows
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
 data_components:
 - name: named pipe creation
   relationships:
@@ -17,8 +16,9 @@ data_components:
     relationship: created
     target_data_element: pipe
     telemetry:
-    - event_provider: Microsoft-Windows-Sysmon/Operational
-      event_id:
-      - 17
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: PipeEvent
+      event_id: 17
 references:
 - https://docs.microsoft.com/en-us/windows/win32/ipc/named-pipes
