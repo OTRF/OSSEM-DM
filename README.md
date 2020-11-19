@@ -9,8 +9,8 @@ This part of the project focuses on defining the required data in form of data o
 ## Available documents
 |File|Description|
 |---|---|
-|[ATT&CK Data Sources Definitions](docs/attack_ds_definitions.md)|Official definitions extracted from the ATT&CK framework||
-|[ATT&CK Event Mappings](docs/attack_ds_event_mappings.md)|Security event logs mapped to ATT&CK Data Sources Objects||
+|[ATT&CK Data Sources Definitions](docs/mitre_attack/data_sources.md)|Official definitions extracted from the ATT&CK framework||
+|[ATT&CK Event Mappings](docs/mitre_attack/security_events_mappings.md)|Security event logs mapped to ATT&CK Data Sources Objects||
 |[ATT&CK Event Mappings (Yaml files)](attack_event_mapping)|Extension of the official ATT&CK Data Sources Objects||
 
 ## References
