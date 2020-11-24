@@ -8,6 +8,20 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 data_components:
+- name: file context
+  type: information
+  relationships:
+  - name: Driver loaded
+    id: 09D3525B-CDBF-4EC3-835A-E76E4B759101
+    source_data_element: driver
+    relationship: loaded
+    target_data_element: null
+    telemetry:
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: DriverLoad
+      event_id: 6
+      event_name: Driver loaded.
 - name: file creation
   type: activity
   relationships:
@@ -20,7 +34,8 @@ data_components:
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: FileCreate
-      event_id:  11
+      event_id: 11
+      event_name: FileCreate.
 - name: file deletion
   type: activity
   relationships:
@@ -34,20 +49,30 @@ data_components:
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: FileDelete
       event_id: 23
-- name: file share access
-  type: activity
-  relationships:
-  - name: User accessed File Share
-    id: 53DE6467-D39D-434B-9EF7-69C7F4098DF9
-    source_data_element: user
-    relationship: accessed
-    target_data_element: file share
-    telemetry:
+      event_name: FileDelete (A file delete was detected).
     - log_provider: Microsoft-Windows-Security-Auditing
       log_channel: Security
       audit_category: Object Access
-      audit_sub_category: File Share
-      event_id: 5140
+      audit_sub_category: File System
+      event_id: 4660
+      event_name: An object was deleted.
+  - name: User deleted File
+    id: F2D0F238-A7AF-457E-8A03-9D796A7FFD0D
+    source_data_element: user
+    relationship: deleted
+    target_data_element: file
+    telemetry:
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: FileDelete
+      event_id: 23
+      event_name: FileDelete (A file delete was detected).
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File System
+      event_id: 4660
+      event_name: An object was deleted.
 - name: file access
   type: activity
   relationships:
@@ -62,11 +87,13 @@ data_components:
       audit_category: Object Access
       audit_sub_category: Detailed File Share
       event_id: 5145
+      event_name: A network share object was checked to see whether client can be granted desired access.
     - log_provider: Microsoft-Windows-Security-Auditing
       log_channel: Security
       audit_category: Object Access
       audit_sub_category: File System
       event_id: 4663
+      event_name: An attempt was made to access an object.
   - name: Process accessed File
     id: EFC133E3-6B8B-434E-8B80-821AAC2B88F8
     source_data_element: process
@@ -78,6 +105,7 @@ data_components:
       audit_category: Object Access
       audit_sub_category: File System
       event_id: 4663
+      event_name: An attempt was made to access an object.
   - name: User requested access File
     id: B0056295-3FA1-4B9F-890D-1D26EF740934
     source_data_element: user
@@ -89,21 +117,25 @@ data_components:
       audit_category: Object Access
       audit_sub_category: File System
       event_id: 4656
+      event_name: A handle to an object was requested.
     - log_provider: Microsoft-Windows-Security-Auditing
       log_channel: Security
       audit_category: DS Access
       audit_sub_category: Directory Service Access
       event_id: 4661
+      event_name: A handle to an object was requested.
     - log_provider: Microsoft-Windows-Security-Auditing
       log_channel: Security
       audit_category: Object Access
       audit_sub_category: SAM
       event_id: 4661
+      event_name: A handle to an object was requested.
     - log_provider: Microsoft-Windows-Security-Auditing
       log_channel: Security
       audit_category: Detailed Tracking
       audit_sub_category: DPAPI Activity
       event_id: 4692
+      event_name: Backup of data protection master key was attempted.
   - name: Process requested access File
     id: 90C1EAE9-0433-4694-9E0E-A0C77736F6C2
     source_data_element: process
@@ -115,15 +147,115 @@ data_components:
       audit_category: Object Access
       audit_sub_category: File System
       event_id: 4656
+      event_name: A handle to an object was requested.
     - log_provider: Microsoft-Windows-Security-Auditing
       log_channel: Security
       audit_category: DS Access
       audit_sub_category: Directory Service Access
       event_id: 4661
+      event_name: A handle to an object was requested.
     - log_provider: Microsoft-Windows-Security-Auditing
       log_channel: Security
       audit_category: Object Access
       audit_sub_category: SAM
       event_id: 4661
+      event_name: A handle to an object was requested.
+- name: file modification
+  type: activity
+  relationships:
+  - name: Process modified File
+    id: 1823C53C-2A80-47C8-9272-61349FE33732
+    source_data_element: process
+    relationship: modified
+    target_data_element: file
+    telemetry:
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: FileCreateTime
+      event_id: 2
+      event_name: A process changed a file creation time.
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: FileCreate
+      event_id: 11
+      event_name: FileCreate.
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File System
+      event_id: 4670
+      event_name: Permissions on an object were changed.
+  - name: User modified File
+    id: 7DEE0D9E-9D19-41E1-AC64-58F1A3ACAB0B
+    source_data_element: user
+    relationship: modified
+    target_data_element: file
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File System
+      event_id: 4670
+      event_name: Permissions on an object were changed.
+- name: file share creation
+  type: activity
+  relationships:
+  - name: User created File Share
+    id: 6B0899AA-6934-44D9-9161-0812E6C25C26
+    source_data_element: user
+    relationship: created
+    target_data_element: file share
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File Share
+      event_id: 5142
+      event_name: A network share object was added.
+- name: file share deletion
+  type: activity
+  relationships:
+  - name: User deleted File Share
+    id: 9EFE56A0-851D-4CB6-9B3C-0961F7582BBF
+    source_data_element: user
+    relationship: deleted
+    target_data_element: file share
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File Share
+      event_id: 5144
+      event_name: A network share object was deleted.
+- name: file share access
+  type: activity
+  relationships:
+  - name: User accessed File Share
+    id: 53DE6467-D39D-434B-9EF7-69C7F4098DF9
+    source_data_element: user
+    relationship: accessed
+    target_data_element: file share
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File Share
+      event_id: 5140
+      event_name: A network share object was accessed.
+- name: file share modification
+  type: activity
+  relationships:
+  - name: User modified File Share
+    id: 180A1B2C-5348-4157-8080-1B1754B9F2EE
+    source_data_element: user
+    relationship: modified
+    target_data_element: file share
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: File Share
+      event_id: 5143
+      event_name: A network share object was modified.
 references:
 - https://docs.microsoft.com/en-us/windows/win32/fileio/file-management

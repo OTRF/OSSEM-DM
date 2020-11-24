@@ -19,7 +19,9 @@ data_components:
     telemetry:
     - log_provider: PowerShell
       log_channel: Windows PowerShell
+      audit_category: Engine Lifecycle
       event_id: 400
+      event_name: Engine state is changed from None to Available.
   - name: Application domain started
     id: 4E1ACF5F-D021-4618-9E9E-D96E91025A90
     source_data_element: application domain
@@ -28,7 +30,9 @@ data_components:
     telemetry:
     - log_provider: Microsoft-Windows-PowerShell
       log_channel: Microsoft-Windows-PowerShell/Operational
+      audit_category: PowerShell Named Pipe IPC
       event_id: 53504
+      event_name: Windows PowerShell has started an IPC listening thread on a process in AppDomain.
 - name: powershell execution
   type: activity
   relationships:
@@ -40,7 +44,9 @@ data_components:
     telemetry:
     - log_provider: Microsoft-Windows-PowerShell
       log_channel: Microsoft-Windows-PowerShell/Operational
+      audit_category: Executing Pipeline
       event_id: 4103
+      event_name: Module logging.
   - name: Process executed Command
     id: 086914CC-2D38-4BFE-A8F0-879E70A33917
     source_data_element: process
@@ -49,9 +55,13 @@ data_components:
     telemetry:
     - log_provider: Microsoft-Windows-PowerShell
       log_channel: Microsoft-Windows-PowerShell/Operational
+      audit_category: Executing Pipeline
       event_id: 4103
+      event_name: Module logging.
     - log_provider: Microsoft-Windows-PowerShell
       log_channel: Microsoft-Windows-PowerShell/Operational
+      audit_category: Execute a Remote Command
       event_id: 4104
+      event_name: Script Block Logging.
 references:
 - https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logging_windows?view=powershell-7

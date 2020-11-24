@@ -22,8 +22,234 @@
         audit_category: Account Management
         audit_sub_category: User Account Management
         event_id: 4720
+        event_name: A user account was created.
+  - name: user account deletion
+    type: activity
+    relationships:
+    - name: User deleted User
+      id: B215E53A-D35F-4ED2-BBFE-9516C30B9F96
+      source_data_element: user
+      relationship: deleted
+      target_data_element: user
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Account Management
+        audit_sub_category: User Account Management
+        event_id: 4726
+        event_name: A user account was deleted.
+  - name: user account enable
+    type: activity
+    relationships:
+    - name: User enabled User
+      id: B3F266ED-866B-4263-8551-C0FBCE341805
+      source_data_element: user
+      relationship: enabled
+      target_data_element: user
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Account Management
+        audit_sub_category: User Account Management
+        event_id: 4722
+        event_name: A user account was enabled.
+  - name: user account disable
+    type: activity
+    relationships:
+    - name: User disabled User
+      id: 2B984BA0-4788-4FAA-8E10-F6C1DC07C35E
+      source_data_element: user
+      relationship: disabled
+      target_data_element: user
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Account Management
+        audit_sub_category: User Account Management
+        event_id: 4725
+        event_name: A user account was disabled.
+  - name: user account lock
+    type: activity
+    relationships:
+    - name: User locked User
+      id: 8F03BCE0-7EAB-41BA-976F-FBA406412A16
+      source_data_element: user
+      relationship: locked
+      target_data_element: user
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Account Management
+        audit_sub_category: User Account Management
+        event_id: 4740
+        event_name: A user account was locked out.
+  - name: user account unlock
+    type: activity
+    relationships:
+    - name: User unlocked User
+      id: A8F3BFD4-9037-4026-BA8B-6821CB45DCA2
+      source_data_element: user
+      relationship: unlocked
+      target_data_element: user
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Account Management
+        audit_sub_category: User Account Management
+        event_id: 4767
+        event_name: A user account was unlocked.
+  - name: user account modification
+    type: activity
+    relationships:
+    - name: User requested modification User
+      id: 0A769014-276D-4847-B5F0-0C64B187E995
+      source_data_element: user
+      relationship: requested modification
+      target_data_element: user
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Account Management
+        audit_sub_category: User Account Management
+        event_id: 4723
+        event_name: An attempt was made to change an account's password.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Account Management
+        audit_sub_category: User Account Management
+        event_id: 4724
+        event_name: An attempt was made to reset an account's password.
+    - name: User modified User
+      id: 45BCFC2F-A331-4A60-83B7-E92F252F1E69
+      source_data_element: user
+      relationship: modified
+      target_data_element: user
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Account Management
+        audit_sub_category: User Account Management
+        event_id: 4738
+        event_name: A user account was changed.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Account Management
+        audit_sub_category: User Account Management
+        event_id: 4781
+        event_name: The name of an account was changed.
+    - name: User granted acess User
+      id: E3EC6019-8B77-4447-82D9-EAF2C7B2E8B2
+      source_data_element: user
+      relationship: granted access
+      target_data_element: user
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Policy Change
+        audit_sub_category: Authentication Policy Change
+        event_id: 4717
+        event_name: System security access was granted to an account.
+    - name: User removed acess User
+      id: D14AAB55-4D5E-4A35-AE5C-0C2968E57F16
+      source_data_element: user
+      relationship: removed access
+      target_data_element: user
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Policy Change
+        audit_sub_category: Authentication Policy Change
+        event_id: 4718
+        event_name: System security access was removed from an account.
   references:
   - https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/security-principals
+- name: Schedule Task
+  definition: Information about scheduled work that the Task Scheduler service performs.
+  collection_layers:
+  - host
+  platforms:
+  - Windows
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  data_components:
+  - name: schedule task creation
+    type: activity
+    relationships:
+    - name: User created Schedule Task
+      id: 531DFF17-B01D-468B-9473-7424D7A28F97
+      source_data_element: user
+      relationship: created
+      target_data_element: schedule task
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Other Object Access Events
+        event_id: 4698
+        event_name: A scheduled task was created.
+  - name: schedule task deletion
+    type: activity
+    relationships:
+    - name: User deleted Schedule Task
+      id: 3B56C3D1-EE97-4949-A9AF-C14E8C3F17C1
+      source_data_element: user
+      relationship: deleted
+      target_data_element: schedule task
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Other Object Access Events
+        event_id: 4699
+        event_name: A scheduled task was deleted.
+  - name: schedule task enable
+    type: activity
+    relationships:
+    - name: User enabled Schedule Task
+      id: 6E010AF1-00A5-49D2-BE18-025FA4FA143A
+      source_data_element: user
+      relationship: enabled
+      target_data_element: schedule task
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Other Object Access Events
+        event_id: 4700
+        event_name: A scheduled task was enabled.
+  - name: schedule task disable
+    type: activity
+    relationships:
+    - name: User disabled Schedule Task
+      id: 59F82E54-16DB-428E-9DCE-93594215FC5F
+      source_data_element: user
+      relationship: disabled
+      target_data_element: schedule task
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Other Object Access Events
+        event_id: 4701
+        event_name: A scheduled task was disabled.
+  - name: schedule task modification
+    type: activity
+    relationships:
+    - name: User modified Schedule Task
+      id: 07C1DF5C-DD86-47CB-9663-92E1C19F3181
+      source_data_element: user
+      relationship: modified
+      target_data_element: schedule task
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Other Object Access Events
+        event_id: 4702
+        event_name: A scheduled task was updated.
+  references:
+  - https://docs.microsoft.com/en-us/windows/win32/taskschd/tasks
 - name: WMI object
   definition: Information about objects from the system classes, such as filters and consumers, that support Windows Management Instrumentation activitites.
   collection_layers:
@@ -46,6 +272,7 @@
       - log_provider: Microsoft-Windows-WMI-Activity
         log_channel: Microsoft-Windows-WMI-Activity/Operational
         event_id: 5861
+        event_name: WMI permanent event created.
   - name: wmi object creation
     type: activity
     relationships:
@@ -57,7 +284,9 @@
       telemetry:
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: WmiEvent
         event_id: 19
+        event_name: WmiEvent (WmiEventFilter activity detected).
     - name: User created Wmi consumer
       id: B5CD1D3E-3947-453B-ADEA-896A8F110A64
       source_data_element: user
@@ -66,7 +295,9 @@
       telemetry:
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: WmiEvent
         event_id: 20
+        event_name: WmiEvent (WmiEventConsumer activity detected).
     - name: User created Wmi subscription
       id: 73A84308-955C-43E7-B882-81EA1C8092D4
       source_data_element: user
@@ -75,7 +306,9 @@
       telemetry:
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: WmiEvent
         event_id: 21
+        event_name: WmiEvent (WmiEventConsumerToFilter activity detected).
   - name: wmi object deletion
     type: activity
     relationships:
@@ -87,7 +320,9 @@
       telemetry:
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: WmiEvent
         event_id: 19
+        event_name: WmiEvent (WmiEventFilter activity detected).
     - name: User deleted Wmi consumer
       id: 769B2E5F-40E1-4F12-B66D-70E80E831C9E
       source_data_element: user
@@ -96,7 +331,9 @@
       telemetry:
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: WmiEvent
         event_id: 20
+        event_name: WmiEvent (WmiEventConsumer activity detected).
     - name: User deleted Wmi subscription
       id: 17366962-DB60-4048-A2E1-2B51AC53FF52
       source_data_element: user
@@ -105,7 +342,9 @@
       telemetry:
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: WmiEvent
         event_id: 21
+        event_name: WmiEvent (WmiEventConsumerToFilter activity detected).
   references:
   - https://docs.microsoft.com/en-us/windows/win32/wmisdk/wmi-system-classes
 - name: Process
@@ -118,6 +357,20 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   data_components:
+  - name: process context
+    type: information
+    relationships:
+    - name: Process terminated
+      id: E9F9F627-BAF9-4AAE-B83A-E152F0492CA6
+      source_data_element: process
+      relationship: terminated
+      target_data_element: null
+      telemetry:
+      - log_provider: Microsoft-Windows-Sysmon
+        log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: ProcessTerminate
+        event_id: 5
+        event_name: Process terminated.
   - name: process creation
     type: activity
     relationships:
@@ -132,10 +385,12 @@
         audit_category: Detailed Tracking
         audit_sub_category: Process Creation
         event_id: 4688
+        event_name: A new process has been created.
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: ProcessCreate
         event_id: 1
+        event_name: Process Creation.
     - name: Process created Process
       id: DE5A1D57-9569-4BA7-B2DC-27760F999A9A
       source_data_element: process
@@ -147,10 +402,38 @@
         audit_category: Detailed Tracking
         audit_sub_category: Process Creation
         event_id: 4688
+        event_name: A new process has been created.
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: ProcessCreate
         event_id: 1
+        event_name: Process Creation.
+    - name: Process created Thread
+      id: BC626D9F-BDFC-471D-8E61-941F8FEDD629
+      source_data_element: process
+      relationship: created
+      target_data_element: thread
+      telemetry:
+      - log_provider: Microsoft-Windows-Sysmon
+        log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: CreateRemoteThread
+        event_id: 8
+        event_name: CreateRemoteThread.
+  - name: process termination
+    type: activity
+    relationships:
+    - name: User terminated Process
+      id: F4EBB146-7DE4-423F-A6F8-B5FF45BEF892
+      source_data_element: user
+      relationship: terminated
+      target_data_element: process
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Detailed Tracking
+        audit_sub_category: Process Termination
+        event_id: 4689
+        event_name: A process has exited.
   - name: process access
     type: activity
     relationships:
@@ -165,14 +448,12 @@
         audit_category: Object Access
         audit_sub_category: Kernel Object
         event_id: 4663
+        event_name: An attempt was made to access an object.
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: ProcessAccess
         event_id: 10
-      - log_provider: Microsoft-Windows-Sysmon
-        log_channel: Microsoft-Windows-Sysmon/Operational
-        audit_category: CreateRemoteThread
-        event_id: 8
+        event_name: ProcessAccess.
     - name: Process requested access Process
       id: ACF0ADB6-A919-49B0-BB17-AC8B6C3ADAB5
       source_data_element: process
@@ -184,6 +465,7 @@
         audit_category: Object Access
         audit_sub_category: Kernel Object
         event_id: 4656
+        event_name: A handle to an object was requested.
   - name: process network connection
     type: activity
     relationships:
@@ -198,10 +480,12 @@
         audit_category: Object Access
         audit_sub_category: Filtering Platform Connection
         event_id: 5156
+        event_name: The Windows Filtering Platform has permitted a connection.
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: Process connected to Ip
       id: D8EE542C-1F6B-4101-96E8-5E1E0926FAB6
       source_data_element: process
@@ -213,10 +497,12 @@
         audit_category: Object Access
         audit_sub_category: Filtering Platform Connection
         event_id: 5156
+        event_name: The Windows Filtering Platform has permitted a connection.
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: Process connected to Host
       id: 274AAFC5-F543-4FC5-A1EC-A493AA5AACFB
       source_data_element: process
@@ -227,6 +513,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: Process connected from Port
       id: 0324FC13-7801-487D-896E-663A4A34B7C5
       source_data_element: process
@@ -238,10 +525,12 @@
         audit_category: Object Access
         audit_sub_category: Filtering Platform Connection
         event_id: 5156
+        event_name: The Windows Filtering Platform has permitted a connection.
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: Process connected from Ip
       id: 66087F46-16C7-44A9-AB11-53FEB47832D5
       source_data_element: process
@@ -253,10 +542,12 @@
         audit_category: Object Access
         audit_sub_category: Filtering Platform Connection
         event_id: 5156
+        event_name: The Windows Filtering Platform has permitted a connection.
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: Process connected from Host
       id: 7F6A780F-2EA1-4DE1-847C-D5C8C7B8ECC4
       source_data_element: process
@@ -267,6 +558,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: User connected to Port
       id: 476BC008-CB94-485F-A37A-3DBE7192E95F
       source_data_element: user
@@ -277,6 +569,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: User connected to Ip
       id: 3162D376-D8BE-4A00-AD91-3FA134807912
       source_data_element: user
@@ -287,6 +580,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: User connected to Host
       id: 1D256254-C930-4D06-A5C8-433092BEEE68
       source_data_element: user
@@ -297,6 +591,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: User connected from Port
       id: 6E411F60-E386-4DAE-99E4-C83BDFF76628
       source_data_element: user
@@ -307,6 +602,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: User connected from Ip
       id: 23203EE4-BED7-4A93-8409-D2287AD6B5CA
       source_data_element: user
@@ -317,6 +613,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
     - name: User connected from Host
       id: 5C175E6C-D491-4014-B437-A4FA08731BF6
       source_data_element: user
@@ -327,6 +624,331 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: NetworkConnect
         event_id: 3
+        event_name: Network connection.
+    - name: Host blocked connection on Process
+      id: 6F36A7F4-44E4-4DB1-9FCB-30C156B39A96
+      source_data_element: host
+      relationship: blocked connection on
+      target_data_element: process
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5031
+        event_name: The Windows Firewall Service blocked an application from accepting incoming connections on the network.
+    - name: Host blocked connection to Process
+      id: 3EA4708D-AF9F-4CC2-B34E-90EFBAF6B531
+      source_data_element: host
+      relationship: blocked connection to
+      target_data_element: process
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5157
+        event_name: The Windows Filtering Platform has blocked a connection.
+    - name: Host blocked connection to Ip
+      id: C7DAA98B-BAAD-4AFC-B8CD-41AF2799D336
+      source_data_element: host
+      relationship: blocked connection to
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5157
+        event_name: The Windows Filtering Platform has blocked a connection.
+    - name: Host blocked connection to Port
+      id: 29C5602C-A8C0-47BE-AA16-D1A33998B749
+      source_data_element: host
+      relationship: blocked connection to
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5157
+        event_name: The Windows Filtering Platform has blocked a connection.
+    - name: Host blocked connection from Process
+      id: A0FAF08C-4F74-4167-8EAD-A1BE903465E6
+      source_data_element: host
+      relationship: blocked connection from
+      target_data_element: process
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5157
+        event_name: The Windows Filtering Platform has blocked a connection.
+    - name: Host blocked connection from Ip
+      id: 67156B5B-10B8-4D16-BF80-FC122944CBCA
+      source_data_element: host
+      relationship: blocked connection from
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5157
+        event_name: The Windows Filtering Platform has blocked a connection.
+    - name: Host blocked connection from Port
+      id: E7173FC1-C0EE-4B9F-8D44-DE6576A4F3FC
+      source_data_element: host
+      relationship: blocked connection from
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5157
+        event_name: The Windows Filtering Platform has blocked a connection.
+    - name: Process attempted connection to Ip
+      id: 74822139-671F-4518-83A0-BC5755EA1695
+      source_data_element: process
+      relationship: attempted connection to
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5157
+        event_name: The Windows Filtering Platform has blocked a connection.
+    - name: Process attempted connection to Port
+      id: 6680C132-C956-4866-9704-0B8E4186CF30
+      source_data_element: process
+      relationship: attempted connection to
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5157
+        event_name: The Windows Filtering Platform has blocked a connection.
+    - name: Process attempted connection from Ip
+      id: AE2257D4-7FFC-426C-95D5-6FEF45EAE48A
+      source_data_element: process
+      relationship: attempted connection from
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5157
+        event_name: The Windows Filtering Platform has blocked a connection.
+    - name: Process attempted connection from Port
+      id: B22955FA-36BA-4A6D-96D4-B9E2189BB95A
+      source_data_element: process
+      relationship: attempted connection from
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5157
+        event_name: The Windows Filtering Platform has blocked a connection.
+    - name: Host permitted listener on Process
+      id: 7FA94E11-88E0-4E47-B9ED-62F237402CD8
+      source_data_element: host
+      relationship: permitted listener on
+      target_data_element: process
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5154
+        event_name: The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+    - name: Host permitted listener on Ip
+      id: CC4FC49D-8190-41DE-8B1F-9DB8EB43A5C2
+      source_data_element: host
+      relationship: permitted listener on
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5154
+        event_name: The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+    - name: Host permitted listener on Port
+      id: FD2AC6C4-1746-4DE5-AC33-A95A53E8E967
+      source_data_element: host
+      relationship: permitted listener on
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5154
+        event_name: The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+    - name: Process listened on Port
+      id: 77891533-45F4-4232-9508-E6C6BE67E971
+      source_data_element: process
+      relationship: listened on
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5154
+        event_name: The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+    - name: Host blocked listener on Process
+      id: 46E07B05-4F97-4452-A29E-A12FA4041166
+      source_data_element: host
+      relationship: blocked listener on
+      target_data_element: process
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5155
+        event_name: The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.
+    - name: Host blocked listener on Ip
+      id: 5D001FB1-BA5A-47C9-98C2-1121D9B5B712
+      source_data_element: host
+      relationship: blocked listener on
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5155
+        event_name: The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.
+    - name: Host blocked listener on Port
+      id: 53E79E00-79EB-4B11-A503-3504F80BF8C6
+      source_data_element: host
+      relationship: blocked listener on
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5155
+        event_name: The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.
+    - name: Process attempted to listen on Port
+      id: 0E1C3500-7A0D-431A-9E92-343BA36146AC
+      source_data_element: process
+      relationship: attempted to listen on
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5155
+        event_name: The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.
+    - name: Host permitted local port bind on Process
+      id: 7B81383F-7001-4598-91B5-672AAB7E2754
+      source_data_element: host
+      relationship: permitted local port bind on
+      target_data_element: process
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5158
+        event_name: The Windows Filtering Platform has permitted a bind to a local port.
+    - name: Host permitted local port bind on Ip
+      id: 1C3A4799-DFFA-44BF-AE79-F34C849F3E6E
+      source_data_element: host
+      relationship: permitted local port bind on
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5158
+        event_name: The Windows Filtering Platform has permitted a bind to a local port.
+    - name: Host permitted local port bind on Port
+      id: 2A0F9416-3BD8-4A68-A519-B8A9BB5737F0
+      source_data_element: host
+      relationship: permitted local port bind on
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5158
+        event_name: The Windows Filtering Platform has permitted a bind to a local port.
+    - name: Process bound to Port
+      id: 4E374721-791B-49F4-B5F2-8C7ECE630873
+      source_data_element: process
+      relationship: bound to
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5158
+        event_name: The Windows Filtering Platform has permitted a bind to a local port.
+    - name: Host blocked local port bind on Process
+      id: 31C3AEB1-08D6-4C8C-9BB5-A8832F6E8E06
+      source_data_element: host
+      relationship: blocked local port bind on
+      target_data_element: process
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5159
+        event_name: The Windows Filtering Platform has blocked a bind to a local port.
+    - name: Host blocked local port bind on Ip
+      id: D04FA65F-C31A-4812-9869-A47845827B21
+      source_data_element: host
+      relationship: blocked local port bind on
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5159
+        event_name: The Windows Filtering Platform has blocked a bind to a local port.
+    - name: Host blocked local port bind on Port
+      id: F0A00C6A-4913-4590-AC7C-E12040A494FE
+      source_data_element: host
+      relationship: blocked local port bind on
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5159
+        event_name: The Windows Filtering Platform has blocked a bind to a local port.
+    - name: Process attempted to bind on Port
+      id: F0BB9633-4090-4A31-BE92-D1EF6E5EE59B
+      source_data_element: process
+      relationship: attempted to bind on
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Filtering Platform Connection
+        event_id: 5159
+        event_name: The Windows Filtering Platform has blocked a bind to a local port.
   references:
   - https://docs.microsoft.com/en-us/windows/win32/procthread/processes-and-threads
 - name: Module
@@ -352,6 +974,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: ImageLoad
         event_id: 7
+        event_name: Image loaded.
     - name: Process loaded Executable
       id: 71F08C96-4ABE-47DE-A972-DEA470496FD4
       source_data_element: process
@@ -362,6 +985,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: ImageLoad
         event_id: 7
+        event_name: Image loaded.
   references:
   - https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya
   - https://docs.microsoft.com/en-us/dotnet/api/system.reflection.module?view=netcore-3.1
@@ -375,6 +999,43 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   data_components:
+  - name: service context
+    type: information
+    relationships:
+    - name: Service started
+      id: BF3DC21D-D397-491A-B3E5-DB938A4D727D
+      source_data_element: service
+      relationship: started
+      target_data_element: null
+      telemetry:
+      - log_provider: Microsoft-Windows-Sysmon
+        log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: ServiceStateChange
+        event_id: 4
+        event_name: Sysmon service state changed.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: System
+        audit_sub_category: Other System Events
+        event_id: 5024
+        event_name: The Windows Firewall Service has started successfully.
+    - name: Service stopped
+      id: 56280AC8-28C1-4A71-A9DC-4352C48118E4
+      source_data_element: service
+      relationship: stopped
+      target_data_element: null
+      telemetry:
+      - log_provider: Microsoft-Windows-Sysmon
+        log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: ServiceStateChange
+        event_id: 4
+        event_name: Sysmon service state changed.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: System
+        audit_sub_category: Other System Events
+        event_id: 5025
+        event_name: The Windows Firewall Service has been stopped.
   - name: service creation
     type: activity
     relationships:
@@ -389,9 +1050,26 @@
         audit_category: System
         audit_sub_category: Security System Extension
         event_id: 4697
+        event_name: A service was installed in the system.
       - log_provider: Service Control Manager
         log_channel: System
         event_id: 7045
+        event_name: A new service was installed in the system.
+  - name: service access
+    type: activity
+    relationships:
+    - name: User requested access Service
+      id: 9A519D98-E0E8-4368-83EA-0A14D9A84479
+      source_data_element: user
+      relationship: requested access
+      target_data_element: service
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Other Object Access Events
+        event_id: 4656
+        event_name: A handle to an object was requested.
   references:
   - https://docs.microsoft.com/en-us/dotnet/framework/windows-services/introduction-to-windows-service-applications
   - https://www.linux.com/news/introduction-services-runlevels-and-rcd-scripts/
@@ -405,6 +1083,20 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   data_components:
+  - name: file context
+    type: information
+    relationships:
+    - name: Driver loaded
+      id: 09D3525B-CDBF-4EC3-835A-E76E4B759101
+      source_data_element: driver
+      relationship: loaded
+      target_data_element: null
+      telemetry:
+      - log_provider: Microsoft-Windows-Sysmon
+        log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: DriverLoad
+        event_id: 6
+        event_name: Driver loaded.
   - name: file creation
     type: activity
     relationships:
@@ -418,6 +1110,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: FileCreate
         event_id: 11
+        event_name: FileCreate.
   - name: file deletion
     type: activity
     relationships:
@@ -431,20 +1124,30 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: FileDelete
         event_id: 23
-  - name: file share access
-    type: activity
-    relationships:
-    - name: User accessed File Share
-      id: 53DE6467-D39D-434B-9EF7-69C7F4098DF9
-      source_data_element: user
-      relationship: accessed
-      target_data_element: file share
-      telemetry:
+        event_name: FileDelete (A file delete was detected).
       - log_provider: Microsoft-Windows-Security-Auditing
         log_channel: Security
         audit_category: Object Access
-        audit_sub_category: File Share
-        event_id: 5140
+        audit_sub_category: File System
+        event_id: 4660
+        event_name: An object was deleted.
+    - name: User deleted File
+      id: F2D0F238-A7AF-457E-8A03-9D796A7FFD0D
+      source_data_element: user
+      relationship: deleted
+      target_data_element: file
+      telemetry:
+      - log_provider: Microsoft-Windows-Sysmon
+        log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: FileDelete
+        event_id: 23
+        event_name: FileDelete (A file delete was detected).
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: File System
+        event_id: 4660
+        event_name: An object was deleted.
   - name: file access
     type: activity
     relationships:
@@ -459,11 +1162,13 @@
         audit_category: Object Access
         audit_sub_category: Detailed File Share
         event_id: 5145
+        event_name: A network share object was checked to see whether client can be granted desired access.
       - log_provider: Microsoft-Windows-Security-Auditing
         log_channel: Security
         audit_category: Object Access
         audit_sub_category: File System
         event_id: 4663
+        event_name: An attempt was made to access an object.
     - name: Process accessed File
       id: EFC133E3-6B8B-434E-8B80-821AAC2B88F8
       source_data_element: process
@@ -475,6 +1180,7 @@
         audit_category: Object Access
         audit_sub_category: File System
         event_id: 4663
+        event_name: An attempt was made to access an object.
     - name: User requested access File
       id: B0056295-3FA1-4B9F-890D-1D26EF740934
       source_data_element: user
@@ -486,21 +1192,25 @@
         audit_category: Object Access
         audit_sub_category: File System
         event_id: 4656
+        event_name: A handle to an object was requested.
       - log_provider: Microsoft-Windows-Security-Auditing
         log_channel: Security
         audit_category: DS Access
         audit_sub_category: Directory Service Access
         event_id: 4661
+        event_name: A handle to an object was requested.
       - log_provider: Microsoft-Windows-Security-Auditing
         log_channel: Security
         audit_category: Object Access
         audit_sub_category: SAM
         event_id: 4661
+        event_name: A handle to an object was requested.
       - log_provider: Microsoft-Windows-Security-Auditing
         log_channel: Security
         audit_category: Detailed Tracking
         audit_sub_category: DPAPI Activity
         event_id: 4692
+        event_name: Backup of data protection master key was attempted.
     - name: Process requested access File
       id: 90C1EAE9-0433-4694-9E0E-A0C77736F6C2
       source_data_element: process
@@ -512,16 +1222,116 @@
         audit_category: Object Access
         audit_sub_category: File System
         event_id: 4656
+        event_name: A handle to an object was requested.
       - log_provider: Microsoft-Windows-Security-Auditing
         log_channel: Security
         audit_category: DS Access
         audit_sub_category: Directory Service Access
         event_id: 4661
+        event_name: A handle to an object was requested.
       - log_provider: Microsoft-Windows-Security-Auditing
         log_channel: Security
         audit_category: Object Access
         audit_sub_category: SAM
         event_id: 4661
+        event_name: A handle to an object was requested.
+  - name: file modification
+    type: activity
+    relationships:
+    - name: Process modified File
+      id: 1823C53C-2A80-47C8-9272-61349FE33732
+      source_data_element: process
+      relationship: modified
+      target_data_element: file
+      telemetry:
+      - log_provider: Microsoft-Windows-Sysmon
+        log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: FileCreateTime
+        event_id: 2
+        event_name: A process changed a file creation time.
+      - log_provider: Microsoft-Windows-Sysmon
+        log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: FileCreate
+        event_id: 11
+        event_name: FileCreate.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: File System
+        event_id: 4670
+        event_name: Permissions on an object were changed.
+    - name: User modified File
+      id: 7DEE0D9E-9D19-41E1-AC64-58F1A3ACAB0B
+      source_data_element: user
+      relationship: modified
+      target_data_element: file
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: File System
+        event_id: 4670
+        event_name: Permissions on an object were changed.
+  - name: file share creation
+    type: activity
+    relationships:
+    - name: User created File Share
+      id: 6B0899AA-6934-44D9-9161-0812E6C25C26
+      source_data_element: user
+      relationship: created
+      target_data_element: file share
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: File Share
+        event_id: 5142
+        event_name: A network share object was added.
+  - name: file share deletion
+    type: activity
+    relationships:
+    - name: User deleted File Share
+      id: 9EFE56A0-851D-4CB6-9B3C-0961F7582BBF
+      source_data_element: user
+      relationship: deleted
+      target_data_element: file share
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: File Share
+        event_id: 5144
+        event_name: A network share object was deleted.
+  - name: file share access
+    type: activity
+    relationships:
+    - name: User accessed File Share
+      id: 53DE6467-D39D-434B-9EF7-69C7F4098DF9
+      source_data_element: user
+      relationship: accessed
+      target_data_element: file share
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: File Share
+        event_id: 5140
+        event_name: A network share object was accessed.
+  - name: file share modification
+    type: activity
+    relationships:
+    - name: User modified File Share
+      id: 180A1B2C-5348-4157-8080-1B1754B9F2EE
+      source_data_element: user
+      relationship: modified
+      target_data_element: file share
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: File Share
+        event_id: 5143
+        event_name: A network share object was modified.
   references:
   - https://docs.microsoft.com/en-us/windows/win32/fileio/file-management
 - name: Windows active directory
@@ -534,31 +1344,51 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   data_components:
+  - name: active directory service creation
+    type: activity
+    relationships:
+    - name: User created AD Object
+      id: 3AEC4990-67B1-4EFF-9961-F263AA70090C
+      source_data_element: user
+      relationship: created
+      target_data_element: ad object
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: DS Access
+        audit_sub_category: Directory Service Changes
+        event_id: 5137
+        event_name: A directory service object was created.
+  - name: active directory service deletion
+    type: activity
+    relationships:
+    - name: User deleted AD Object
+      id: EACE1AAD-4BDA-440C-84ED-7E960D510777
+      source_data_element: user
+      relationship: deleted
+      target_data_element: ad object
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: DS Access
+        audit_sub_category: Directory Service Changes
+        event_id: 5141
+        event_name: A directory service object was deleted.
+    - name: User undeleted AD Object
+      id: AFD6B0D7-462D-40A5-A4D9-A5A9AC4F6E4C
+      source_data_element: user
+      relationship: undeleted
+      target_data_element: ad object
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: DS Access
+        audit_sub_category: Directory Service Changes
+        event_id: 5138
+        event_name: A directory service object was undeleted.
   - name: active directory service access
     type: activity
     relationships:
-    - name: User accessed AD Object
-      id: 8F2A7CAF-7886-4485-8DBB-BCFDA5A181B9
-      source_data_element: user
-      relationship: accessed
-      target_data_element: ad object
-      telemetry:
-      - log_provider: Microsoft-Windows-Security-Auditing
-        log_channel: Security
-        audit_category: DS Access
-        audit_sub_category: Directory Service Access
-        event_id: 4662
-    - name: User requested access AD Object
-      id: 6C0080E5-BDC2-41AD-8048-3DBAD16C2A5A
-      source_data_element: user
-      relationship: requested access
-      target_data_element: ad object
-      telemetry:
-      - log_provider: Microsoft-Windows-Security-Auditing
-        log_channel: Security
-        audit_category: DS Access
-        audit_sub_category: Directory Service Access
-        event_id: 4661
     - name: Process requested access AD Object
       id: 5F004D87-AA2D-4C2A-8016-3BE661DA5D50
       source_data_element: process
@@ -570,6 +1400,31 @@
         audit_category: DS Access
         audit_sub_category: Directory Service Access
         event_id: 4661
+        event_name: A handle to an object was requested.
+    - name: User requested access AD Object
+      id: 6C0080E5-BDC2-41AD-8048-3DBAD16C2A5A
+      source_data_element: user
+      relationship: requested access
+      target_data_element: ad object
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: DS Access
+        audit_sub_category: Directory Service Access
+        event_id: 4661
+        event_name: A handle to an object was requested.
+    - name: User accessed AD Object
+      id: 8F2A7CAF-7886-4485-8DBB-BCFDA5A181B9
+      source_data_element: user
+      relationship: accessed
+      target_data_element: ad object
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: DS Access
+        audit_sub_category: Directory Service Access
+        event_id: 4662
+        event_name: An operation was performed on an object.
   - name: active directory service modification
     type: activity
     relationships:
@@ -584,6 +1439,13 @@
         audit_category: DS Access
         audit_sub_category: Directory Service Changes
         event_id: 5136
+        event_name: A directory service object was modified.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: DS Access
+        audit_sub_category: Directory Service Changes
+        event_id: 5139
+        event_name: A directory service object was moved.
   references:
   - https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/ad-ds-getting-started
 - name: Named pipe
@@ -608,6 +1470,20 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: PipeEvent
         event_id: 17
+        event_name: PipeEvent (Pipe Created).
+  - name: named pipe connection
+    relationships:
+    - name: Process connected to Pipe
+      id: F24B07DA-B34F-451B-BE2E-B54EE3D65242
+      source_data_element: process
+      relationship: connected to
+      target_data_element: pipe
+      telemetry:
+      - log_provider: Microsoft-Windows-Sysmon
+        log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: PipeEvent
+        event_id: 18
+        event_name: PipeEvent (Pipe Connected).
   references:
   - https://docs.microsoft.com/en-us/windows/win32/ipc/named-pipes
 - name: Windows registry
@@ -633,6 +1509,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: RegistryEvent
         event_id: 12
+        event_name: RegistryEvent (Object create and delete).
     - name: Process created Windows registry key value
       id: 7A5B583D-BEA3-4733-96EB-928E881FD218
       source_data_element: process
@@ -643,9 +1520,22 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: RegistryEvent
         event_id: 12
+        event_name: RegistryEvent (Object create and delete).
   - name: windows registry key deletion
     type: activity
     relationships:
+    - name: User deleted Windows registry key
+      id: 30E06E16-8B71-4EB9-999C-BEE83843A49F
+      source_data_element: user
+      relationship: deleted
+      target_data_element: windows registry key
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Registry
+        event_id: 4660
+        event_name: An object was deleted.
     - name: Process deleted Windows registry key
       id: F4A1B2A9-3DBE-4E5F-9577-356E17F37AB6
       source_data_element: process
@@ -656,6 +1546,13 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: RegistryEvent
         event_id: 12
+        event_name: RegistryEvent (Object create and delete).
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Registry
+        event_id: 4660
+        event_name: An object was deleted.
     - name: Process deleted Windows registry key value
       id: D571E46E-523E-4F52-BAB3-D9B43BFFB8AA
       source_data_element: process
@@ -666,6 +1563,7 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: RegistryEvent
         event_id: 12
+        event_name: RegistryEvent (Object create and delete).
   - name: windows registry key modification
     type: activity
     relationships:
@@ -679,10 +1577,18 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: RegistryEvent
         event_id: 13
+        event_name: RegistryEvent (Value Set).
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: RegistryEvent
         event_id: 14
+        event_name: RegistryEvent (Key and Value Rename).
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Registry
+        event_id: 4670
+        event_name: Permissions on an object were changed.
     - name: Process modified Windows registry key value
       id: 25EE8F70-C82B-4C43-A939-10CF156FBBFA
       source_data_element: process
@@ -693,15 +1599,30 @@
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: RegistryEvent
         event_id: 13
+        event_name: RegistryEvent (Value Set).
       - log_provider: Microsoft-Windows-Sysmon
         log_channel: Microsoft-Windows-Sysmon/Operational
         audit_category: RegistryEvent
         event_id: 14
+        event_name: RegistryEvent (Key and Value Rename).
       - log_provider: Microsoft-Windows-Security-Auditing
         log_channel: Security
         audit_category: Object Access
         audit_sub_category: Registry
         event_id: 4657
+        event_name: A registry value was modified.
+    - name: User modified Windows registry key
+      id: B24BE219-A4DE-4B2F-90FB-D83F42BDF6DF
+      source_data_element: user
+      relationship: modified
+      target_data_element: windows registry key
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Object Access
+        audit_sub_category: Registry
+        event_id: 4670
+        event_name: Permissions on an object were changed.
     - name: User modified Windows registry key value
       id: 229AB2D2-FA13-40AA-AB50-23F26093715C
       source_data_element: user
@@ -713,6 +1634,7 @@
         audit_category: Object Access
         audit_sub_category: Registry
         event_id: 4657
+        event_name: A registry value was modified.
   - name: Windows registry key access
     type: activity
     relationships:
@@ -727,6 +1649,7 @@
         audit_category: Object Access
         audit_sub_category: Registry
         event_id: 4663
+        event_name: An attempt was made to access an object.
     - name: User accessed Windows registry key
       id: 6CDE6D13-4873-4E88-9F16-72CE2F7ACC84
       source_data_element: user
@@ -738,6 +1661,7 @@
         audit_category: Object Access
         audit_sub_category: Registry
         event_id: 4663
+        event_name: An attempt was made to access an object.
     - name: Process requested access Windows registry key
       id: 9DF48A52-109C-47E9-BA9B-B9C27CFCAACF
       source_data_element: process
@@ -749,6 +1673,7 @@
         audit_category: Object Access
         audit_sub_category: Registry
         event_id: 4656
+        event_name: A handle to an object was requested.
     - name: User requested access Windows registry key
       id: D2E1050F-F94E-4273-B9A5-044E835CF913
       source_data_element: user
@@ -760,10 +1685,11 @@
         audit_category: Object Access
         audit_sub_category: Registry
         event_id: 4656
+        event_name: A handle to an object was requested.
   references:
   - https://docs.microsoft.com/en-us/windows/win32/sysinfo/registry
-- name: Authentication log
-  definition: Information about accounts' (Local or Domain) attempts to access network resources interactively or over the network.
+- name: Logon session
+  definition: Information about logon sessions being created or terminated by accounts (Local or Domain), interactively or over the network, in order to interact with network resources, applications, or services.
   collection_layers:
   - host
   platforms:
@@ -772,25 +1698,195 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   data_components:
-  - name: authentication success
+  - name: logon session context
+    type: information
+    relationships:
+    - name: Logon session modified
+      id: 2FF0BB1D-679B-44DB-830F-D24EA3918B28
+      source_data_element: logon session
+      relationship: modified
+      target_data_element: null
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Special Logon
+        event_id: 4672
+        event_name: Special privileges assigned to new logon.
+  - name: logon session creation
     type: activity
     relationships:
-    - name: User authenticated Host
+    - name: User requested creation Logon session
+      id: 085C5A0C-5C65-42B5-8FA4-41F5D083E7AA
+      source_data_element: user
+      relationship: requested creation
+      target_data_element: logon session
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Logon
+        event_id: 4648
+        event_name: A logon was attempted using explicit credentials.
+    - name: User requested logon session creation from Ip
+      id: 03A0C78B-1AF8-464F-9C73-B7943960048B
+      source_data_element: user
+      relationship: requested logon session creation from
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Logon
+        event_id: 4648
+        event_name: A logon was attempted using explicit credentials.
+    - name: User requested logon session creation from Port
+      id: B969729C-DFA5-46EC-9234-3492252F16EF
+      source_data_element: user
+      relationship: requested logon session creation from
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Logon
+        event_id: 4648
+        event_name: A logon was attempted using explicit credentials.
+    - name: User created Logon session
       id: C07F53CF-A125-40F8-BE5C-E42017A57C0F
       source_data_element: user
-      relationship: authenticated
-      target_data_element: host
+      relationship: created
+      target_data_element: logon session
       telemetry:
       - log_provider: Microsoft-Windows-Security-Auditing
         log_channel: Security
         audit_category: Logon/Logoff
         audit_sub_category: Logon
         event_id: 4624
+        event_name: An account was successfully logged on.
       - log_provider: Microsoft-Windows-Security-Auditing
         log_channel: Security
         audit_category: Logon/Logoff
         audit_sub_category: Other Logon/Logoff Events
         event_id: 4778
+        event_name: A session was reconnected to a Window Station.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Special Logon
+        event_id: 4964
+        event_name: Special groups have been assigned to a new logon.
+    - name: User created logon session from Ip
+      id: 327D0BD5-26CF-4F5A-B610-8FCCA38C2071
+      source_data_element: user
+      relationship: created logon session from
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Logon
+        event_id: 4624
+        event_name: An account was successfully logged on.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Other Logon/Logoff Events
+        event_id: 4778
+        event_name: A session was reconnected to a Window Station.
+    - name: User created logon session from Port
+      id: 261FC782-F525-454A-83F3-E129F4DD6C2A
+      source_data_element: user
+      relationship: created logon session from
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Logon
+        event_id: 4624
+        event_name: An account was successfully logged on.
+    - name: User failed creation Logon session
+      id: 999AFA9B-9861-442D-8630-491DC8C46003
+      source_data_element: user
+      relationship: failed creation
+      target_data_element: host
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Logon
+        event_id: 4625
+        event_name: An account failed to log on.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Account Lockout
+        event_id: 4625
+        event_name: An account failed to log on.
+    - name: User failed logon session creation from Ip
+      id: 44A07E84-D6C4-4674-8D79-00A9255CB8B3
+      source_data_element: user
+      relationship: failed logon session creation from
+      target_data_element: ip
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Logon
+        event_id: 4625
+        event_name: An account failed to log on.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Account Lockout
+        event_id: 4625
+        event_name: An account failed to log on.
+    - name: User failed logon session creation from Port
+      id: EB38D62D-B486-4302-85BF-AFD02CDCF68F
+      source_data_element: user
+      relationship: failed logon session creation from
+      target_data_element: port
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Logon
+        event_id: 4625
+        event_name: An account failed to log on.
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Account Lockout
+        event_id: 4625
+        event_name: An account failed to log on.
+  - name: logon session termination
+    type: activity
+    relationships:
+    - name: User requested termination Logon session
+      id: B26745E0-56F1-4490-B2C7-4D65123B4458
+      source_data_element: user
+      relationship: requested termination
+      target_data_element: logon session
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Logoff
+        event_id: 4647
+        event_name: User initiated logoff.
+    - name: User terminated Logon session
+      id: 2755886A-B42D-498F-8F69-9A3A7C1B38D5
+      source_data_element: user
+      relationship: terminated
+      target_data_element: logon session
+      telemetry:
+      - log_provider: Microsoft-Windows-Security-Auditing
+        log_channel: Security
+        audit_category: Logon/Logoff
+        audit_sub_category: Logoff
+        event_id: 4634
+        event_name: An account was logged off.
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/basic-audit-logon-events
 - name: Powershell log
@@ -814,7 +1910,9 @@
       telemetry:
       - log_provider: PowerShell
         log_channel: Windows PowerShell
+        audit_category: Engine Lifecycle
         event_id: 400
+        event_name: Engine state is changed from None to Available.
     - name: Application domain started
       id: 4E1ACF5F-D021-4618-9E9E-D96E91025A90
       source_data_element: application domain
@@ -823,7 +1921,9 @@
       telemetry:
       - log_provider: Microsoft-Windows-PowerShell
         log_channel: Microsoft-Windows-PowerShell/Operational
+        audit_category: PowerShell Named Pipe IPC
         event_id: 53504
+        event_name: Windows PowerShell has started an IPC listening thread on a process in AppDomain.
   - name: powershell execution
     type: activity
     relationships:
@@ -835,7 +1935,9 @@
       telemetry:
       - log_provider: Microsoft-Windows-PowerShell
         log_channel: Microsoft-Windows-PowerShell/Operational
+        audit_category: Executing Pipeline
         event_id: 4103
+        event_name: Module logging.
     - name: Process executed Command
       id: 086914CC-2D38-4BFE-A8F0-879E70A33917
       source_data_element: process
@@ -844,9 +1946,39 @@
       telemetry:
       - log_provider: Microsoft-Windows-PowerShell
         log_channel: Microsoft-Windows-PowerShell/Operational
+        audit_category: Executing Pipeline
         event_id: 4103
+        event_name: Module logging.
       - log_provider: Microsoft-Windows-PowerShell
         log_channel: Microsoft-Windows-PowerShell/Operational
+        audit_category: Execute a Remote Command
         event_id: 4104
+        event_name: Script Block Logging.
   references:
   - https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logging_windows?view=powershell-7
+- name: DNS
+  definition: Information about the Domain Name System (DNS) protocol that provides resources (Such as computers or services) names-to- IP address mapping name resolution services.
+  collection_layers:
+  - host
+  platforms:
+  - Windows
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  data_components:
+  - name: dns query execution
+    type: activity
+    relationships:
+    - name: Process executed Dns query
+      id: CCD4F241-FB56-49F0-8335-8B65F107DA83
+      source_data_element: process
+      relationship: executed
+      target_data_element: dns query
+      telemetry:
+      - log_provider: Microsoft-Windows-Sysmon
+        log_channel: Microsoft-Windows-Sysmon/Operational
+        audit_category: DNSQuery
+        event_id: 22
+        event_name: DNSEvent (DNS query).
+  references:
+  - https://docs.microsoft.com/en-us/windows-server/networking/dns/dns-top

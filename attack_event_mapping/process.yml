@@ -8,6 +8,20 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 data_components:
+- name: process context
+  type: information
+  relationships:
+  - name: Process terminated
+    id: E9F9F627-BAF9-4AAE-B83A-E152F0492CA6
+    source_data_element: process
+    relationship: terminated
+    target_data_element: null
+    telemetry:
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: ProcessTerminate
+      event_id: 5
+      event_name: Process terminated.
 - name: process creation
   type: activity
   relationships:
@@ -22,10 +36,12 @@ data_components:
       audit_category: Detailed Tracking
       audit_sub_category: Process Creation
       event_id: 4688
+      event_name: A new process has been created.
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: ProcessCreate
       event_id: 1
+      event_name: Process Creation.
   - name: Process created Process
     id: DE5A1D57-9569-4BA7-B2DC-27760F999A9A
     source_data_element: process
@@ -37,10 +53,38 @@ data_components:
       audit_category: Detailed Tracking
       audit_sub_category: Process Creation
       event_id: 4688
+      event_name: A new process has been created.
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: ProcessCreate
       event_id: 1
+      event_name: Process Creation.
+  - name: Process created Thread
+    id: BC626D9F-BDFC-471D-8E61-941F8FEDD629
+    source_data_element: process
+    relationship: created
+    target_data_element: thread
+    telemetry:
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: CreateRemoteThread
+      event_id: 8
+      event_name: CreateRemoteThread.
+- name: process termination
+  type: activity
+  relationships:
+  - name: User terminated Process
+    id: F4EBB146-7DE4-423F-A6F8-B5FF45BEF892
+    source_data_element: user
+    relationship: terminated
+    target_data_element: process
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Detailed Tracking
+      audit_sub_category: Process Termination
+      event_id: 4689
+      event_name: A process has exited.
 - name: process access
   type: activity
   relationships:
@@ -55,14 +99,12 @@ data_components:
       audit_category: Object Access
       audit_sub_category: Kernel Object
       event_id: 4663
+      event_name: An attempt was made to access an object.
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: ProcessAccess
       event_id: 10
-    - log_provider: Microsoft-Windows-Sysmon
-      log_channel: Microsoft-Windows-Sysmon/Operational
-      audit_category: CreateRemoteThread
-      event_id: 8
+      event_name: ProcessAccess.
   - name: Process requested access Process
     id: ACF0ADB6-A919-49B0-BB17-AC8B6C3ADAB5
     source_data_element: process
@@ -74,6 +116,7 @@ data_components:
       audit_category: Object Access
       audit_sub_category: Kernel Object
       event_id: 4656
+      event_name: A handle to an object was requested.
 - name: process network connection
   type: activity
   relationships:
@@ -88,10 +131,12 @@ data_components:
       audit_category: Object Access
       audit_sub_category: Filtering Platform Connection
       event_id: 5156
+      event_name: The Windows Filtering Platform has permitted a connection.
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: Process connected to Ip
     id: D8EE542C-1F6B-4101-96E8-5E1E0926FAB6
     source_data_element: process
@@ -103,10 +148,12 @@ data_components:
       audit_category: Object Access
       audit_sub_category: Filtering Platform Connection
       event_id: 5156
+      event_name: The Windows Filtering Platform has permitted a connection.
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: Process connected to Host
     id: 274AAFC5-F543-4FC5-A1EC-A493AA5AACFB
     source_data_element: process
@@ -117,6 +164,7 @@ data_components:
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: Process connected from Port
     id: 0324FC13-7801-487D-896E-663A4A34B7C5
     source_data_element: process
@@ -128,10 +176,12 @@ data_components:
       audit_category: Object Access
       audit_sub_category: Filtering Platform Connection
       event_id: 5156
+      event_name: The Windows Filtering Platform has permitted a connection.
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: Process connected from Ip
     id: 66087F46-16C7-44A9-AB11-53FEB47832D5
     source_data_element: process
@@ -143,10 +193,12 @@ data_components:
       audit_category: Object Access
       audit_sub_category: Filtering Platform Connection
       event_id: 5156
+      event_name: The Windows Filtering Platform has permitted a connection.
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: Process connected from Host
     id: 7F6A780F-2EA1-4DE1-847C-D5C8C7B8ECC4
     source_data_element: process
@@ -157,6 +209,7 @@ data_components:
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: User connected to Port
     id: 476BC008-CB94-485F-A37A-3DBE7192E95F
     source_data_element: user
@@ -167,6 +220,7 @@ data_components:
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: User connected to Ip
     id: 3162D376-D8BE-4A00-AD91-3FA134807912
     source_data_element: user
@@ -177,6 +231,7 @@ data_components:
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: User connected to Host
     id: 1D256254-C930-4D06-A5C8-433092BEEE68
     source_data_element: user
@@ -187,6 +242,7 @@ data_components:
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: User connected from Port
     id: 6E411F60-E386-4DAE-99E4-C83BDFF76628
     source_data_element: user
@@ -197,6 +253,7 @@ data_components:
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: User connected from Ip
     id: 23203EE4-BED7-4A93-8409-D2287AD6B5CA
     source_data_element: user
@@ -207,6 +264,7 @@ data_components:
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
   - name: User connected from Host
     id: 5C175E6C-D491-4014-B437-A4FA08731BF6
     source_data_element: user
@@ -217,5 +275,330 @@ data_components:
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: NetworkConnect
       event_id: 3
+      event_name: Network connection.
+  - name: Host blocked connection on Process
+    id: 6F36A7F4-44E4-4DB1-9FCB-30C156B39A96
+    source_data_element: host
+    relationship: blocked connection on
+    target_data_element: process
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5031
+      event_name: The Windows Firewall Service blocked an application from accepting incoming connections on the network.
+  - name: Host blocked connection to Process
+    id: 3EA4708D-AF9F-4CC2-B34E-90EFBAF6B531
+    source_data_element: host
+    relationship: blocked connection to
+    target_data_element: process
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5157
+      event_name: The Windows Filtering Platform has blocked a connection.
+  - name: Host blocked connection to Ip
+    id: C7DAA98B-BAAD-4AFC-B8CD-41AF2799D336
+    source_data_element: host
+    relationship: blocked connection to
+    target_data_element: ip
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5157
+      event_name: The Windows Filtering Platform has blocked a connection.
+  - name: Host blocked connection to Port
+    id: 29C5602C-A8C0-47BE-AA16-D1A33998B749
+    source_data_element: host
+    relationship: blocked connection to
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5157
+      event_name: The Windows Filtering Platform has blocked a connection.
+  - name: Host blocked connection from Process
+    id: A0FAF08C-4F74-4167-8EAD-A1BE903465E6
+    source_data_element: host
+    relationship: blocked connection from
+    target_data_element: process
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5157
+      event_name: The Windows Filtering Platform has blocked a connection.
+  - name: Host blocked connection from Ip
+    id: 67156B5B-10B8-4D16-BF80-FC122944CBCA
+    source_data_element: host
+    relationship: blocked connection from
+    target_data_element: ip
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5157
+      event_name: The Windows Filtering Platform has blocked a connection.
+  - name: Host blocked connection from Port
+    id: E7173FC1-C0EE-4B9F-8D44-DE6576A4F3FC
+    source_data_element: host
+    relationship: blocked connection from
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5157
+      event_name: The Windows Filtering Platform has blocked a connection.
+  - name: Process attempted connection to Ip
+    id: 74822139-671F-4518-83A0-BC5755EA1695
+    source_data_element: process
+    relationship: attempted connection to
+    target_data_element: ip
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5157
+      event_name: The Windows Filtering Platform has blocked a connection.
+  - name: Process attempted connection to Port
+    id: 6680C132-C956-4866-9704-0B8E4186CF30
+    source_data_element: process
+    relationship: attempted connection to
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5157
+      event_name: The Windows Filtering Platform has blocked a connection.
+  - name: Process attempted connection from Ip
+    id: AE2257D4-7FFC-426C-95D5-6FEF45EAE48A
+    source_data_element: process
+    relationship: attempted connection from
+    target_data_element: ip
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5157
+      event_name: The Windows Filtering Platform has blocked a connection.
+  - name: Process attempted connection from Port
+    id: B22955FA-36BA-4A6D-96D4-B9E2189BB95A
+    source_data_element: process
+    relationship: attempted connection from
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5157
+      event_name: The Windows Filtering Platform has blocked a connection.
+  - name: Host permitted listener on Process
+    id: 7FA94E11-88E0-4E47-B9ED-62F237402CD8
+    source_data_element: host
+    relationship: permitted listener on
+    target_data_element: process
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5154
+      event_name: The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+  - name: Host permitted listener on Ip
+    id: CC4FC49D-8190-41DE-8B1F-9DB8EB43A5C2
+    source_data_element: host
+    relationship: permitted listener on
+    target_data_element: ip
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5154
+      event_name: The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+  - name: Host permitted listener on Port
+    id: FD2AC6C4-1746-4DE5-AC33-A95A53E8E967
+    source_data_element: host
+    relationship: permitted listener on
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5154
+      event_name: The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+  - name: Process listened on Port
+    id: 77891533-45F4-4232-9508-E6C6BE67E971
+    source_data_element: process
+    relationship: listened on
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5154
+      event_name: The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+  - name: Host blocked listener on Process
+    id: 46E07B05-4F97-4452-A29E-A12FA4041166
+    source_data_element: host
+    relationship: blocked listener on
+    target_data_element: process
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5155
+      event_name: The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.
+  - name: Host blocked listener on Ip
+    id: 5D001FB1-BA5A-47C9-98C2-1121D9B5B712
+    source_data_element: host
+    relationship: blocked listener on
+    target_data_element: ip
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5155
+      event_name: The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.
+  - name: Host blocked listener on Port
+    id: 53E79E00-79EB-4B11-A503-3504F80BF8C6
+    source_data_element: host
+    relationship: blocked listener on
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5155
+      event_name: The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.
+  - name: Process attempted to listen on Port
+    id: 0E1C3500-7A0D-431A-9E92-343BA36146AC
+    source_data_element: process
+    relationship: attempted to listen on
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5155
+      event_name: The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.
+  - name: Host permitted local port bind on Process
+    id: 7B81383F-7001-4598-91B5-672AAB7E2754
+    source_data_element: host
+    relationship: permitted local port bind on
+    target_data_element: process
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5158
+      event_name: The Windows Filtering Platform has permitted a bind to a local port.
+  - name: Host permitted local port bind on Ip
+    id: 1C3A4799-DFFA-44BF-AE79-F34C849F3E6E
+    source_data_element: host
+    relationship: permitted local port bind on
+    target_data_element: ip
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5158
+      event_name: The Windows Filtering Platform has permitted a bind to a local port.
+  - name: Host permitted local port bind on Port
+    id: 2A0F9416-3BD8-4A68-A519-B8A9BB5737F0
+    source_data_element: host
+    relationship: permitted local port bind on
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5158
+      event_name: The Windows Filtering Platform has permitted a bind to a local port.
+  - name: Process bound to Port
+    id: 4E374721-791B-49F4-B5F2-8C7ECE630873
+    source_data_element: process
+    relationship: bound to
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5158
+      event_name: The Windows Filtering Platform has permitted a bind to a local port.
+  - name: Host blocked local port bind on Process
+    id: 31C3AEB1-08D6-4C8C-9BB5-A8832F6E8E06
+    source_data_element: host
+    relationship: blocked local port bind on
+    target_data_element: process
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5159
+      event_name: The Windows Filtering Platform has blocked a bind to a local port.
+  - name: Host blocked local port bind on Ip
+    id: D04FA65F-C31A-4812-9869-A47845827B21
+    source_data_element: host
+    relationship: blocked local port bind on
+    target_data_element: ip
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5159
+      event_name: The Windows Filtering Platform has blocked a bind to a local port.
+  - name: Host blocked local port bind on Port
+    id: F0A00C6A-4913-4590-AC7C-E12040A494FE
+    source_data_element: host
+    relationship: blocked local port bind on
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5159
+      event_name: The Windows Filtering Platform has blocked a bind to a local port.
+  - name: Process attempted to bind on Port
+    id: F0BB9633-4090-4A31-BE92-D1EF6E5EE59B
+    source_data_element: process
+    relationship: attempted to bind on
+    target_data_element: port
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Filtering Platform Connection
+      event_id: 5159
+      event_name: The Windows Filtering Platform has blocked a bind to a local port.
 references:
 - https://docs.microsoft.com/en-us/windows/win32/procthread/processes-and-threads

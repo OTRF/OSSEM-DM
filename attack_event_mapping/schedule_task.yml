@@ -1,0 +1,87 @@
+name: Schedule Task
+definition: Information about scheduled work that the Task Scheduler service performs.
+collection_layers:
+- host
+platforms:
+- Windows
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+data_components:
+- name: schedule task creation
+  type: activity
+  relationships:
+  - name: User created Schedule Task
+    id: 531DFF17-B01D-468B-9473-7424D7A28F97
+    source_data_element: user
+    relationship: created
+    target_data_element: schedule task
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Other Object Access Events
+      event_id: 4698
+      event_name: A scheduled task was created.
+- name: schedule task deletion
+  type: activity
+  relationships:
+  - name: User deleted Schedule Task
+    id: 3B56C3D1-EE97-4949-A9AF-C14E8C3F17C1
+    source_data_element: user
+    relationship: deleted
+    target_data_element: schedule task
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Other Object Access Events
+      event_id: 4699
+      event_name: A scheduled task was deleted.
+- name: schedule task enable
+  type: activity
+  relationships:
+  - name: User enabled Schedule Task
+    id: 6E010AF1-00A5-49D2-BE18-025FA4FA143A
+    source_data_element: user
+    relationship: enabled
+    target_data_element: schedule task
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Other Object Access Events
+      event_id: 4700
+      event_name: A scheduled task was enabled.
+- name: schedule task disable
+  type: activity
+  relationships:
+  - name: User disabled Schedule Task
+    id: 59F82E54-16DB-428E-9DCE-93594215FC5F
+    source_data_element: user
+    relationship: disabled
+    target_data_element: schedule task
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Other Object Access Events
+      event_id: 4701
+      event_name: A scheduled task was disabled.
+- name: schedule task modification
+  type: activity
+  relationships:
+  - name: User modified Schedule Task
+    id: 07C1DF5C-DD86-47CB-9663-92E1C19F3181
+    source_data_element: user
+    relationship: modified
+    target_data_element: schedule task
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Other Object Access Events
+      event_id: 4702
+      event_name: A scheduled task was updated.
+references:
+- https://docs.microsoft.com/en-us/windows/win32/taskschd/tasks

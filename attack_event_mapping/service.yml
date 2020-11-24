@@ -8,6 +8,43 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 data_components:
+- name: service context
+  type: information
+  relationships:
+  - name: Service started
+    id: BF3DC21D-D397-491A-B3E5-DB938A4D727D
+    source_data_element: service
+    relationship: started
+    target_data_element: null
+    telemetry:
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: ServiceStateChange
+      event_id: 4
+      event_name: Sysmon service state changed.
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: System
+      audit_sub_category: Other System Events
+      event_id: 5024
+      event_name: The Windows Firewall Service has started successfully.
+  - name: Service stopped
+    id: 56280AC8-28C1-4A71-A9DC-4352C48118E4
+    source_data_element: service
+    relationship: stopped
+    target_data_element: null
+    telemetry:
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: ServiceStateChange
+      event_id: 4
+      event_name: Sysmon service state changed.
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: System
+      audit_sub_category: Other System Events
+      event_id: 5025
+      event_name: The Windows Firewall Service has been stopped.
 - name: service creation
   type: activity
   relationships:
@@ -22,9 +59,26 @@ data_components:
       audit_category: System
       audit_sub_category: Security System Extension
       event_id: 4697
+      event_name: A service was installed in the system.
     - log_provider: Service Control Manager
       log_channel: System
       event_id: 7045
+      event_name: A new service was installed in the system.
+- name: service access
+  type: activity
+  relationships:
+  - name: User requested access Service
+    id: 9A519D98-E0E8-4368-83EA-0A14D9A84479
+    source_data_element: user
+    relationship: requested access
+    target_data_element: service
+    telemetry:
+    - log_provider: Microsoft-Windows-Security-Auditing
+      log_channel: Security
+      audit_category: Object Access
+      audit_sub_category: Other Object Access Events
+      event_id: 4656
+      event_name: A handle to an object was requested.
 references:
 - https://docs.microsoft.com/en-us/dotnet/framework/windows-services/introduction-to-windows-service-applications
 - https://www.linux.com/news/introduction-services-runlevels-and-rcd-scripts/

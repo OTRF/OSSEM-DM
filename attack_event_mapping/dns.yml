@@ -1,0 +1,26 @@
+name: DNS
+definition: Information about the Domain Name System (DNS) protocol that provides resources (Such as computers or services) names-to- IP address mapping name resolution services.
+collection_layers:
+- host
+platforms:
+- Windows
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+data_components:
+- name: dns query execution
+  type: activity
+  relationships:
+  - name: Process executed Dns query
+    id: CCD4F241-FB56-49F0-8335-8B65F107DA83
+    source_data_element: process
+    relationship: executed
+    target_data_element: dns query
+    telemetry:
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: DNSQuery
+      event_id: 22
+      event_name: DNSEvent (DNS query).
+references:
+- https://docs.microsoft.com/en-us/windows-server/networking/dns/dns-top

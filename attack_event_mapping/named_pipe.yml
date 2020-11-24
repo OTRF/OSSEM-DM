@@ -20,5 +20,19 @@ data_components:
       log_channel: Microsoft-Windows-Sysmon/Operational
       audit_category: PipeEvent
       event_id: 17
+      event_name: PipeEvent (Pipe Created).
+- name: named pipe connection
+  relationships:
+  - name: Process connected to Pipe
+    id: F24B07DA-B34F-451B-BE2E-B54EE3D65242
+    source_data_element: process
+    relationship: connected to
+    target_data_element: pipe
+    telemetry:
+    - log_provider: Microsoft-Windows-Sysmon
+      log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: PipeEvent
+      event_id: 18
+      event_name: PipeEvent (Pipe Connected).
 references:
 - https://docs.microsoft.com/en-us/windows/win32/ipc/named-pipes

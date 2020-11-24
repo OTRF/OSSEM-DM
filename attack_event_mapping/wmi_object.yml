@@ -20,6 +20,7 @@ data_components:
     - log_provider: Microsoft-Windows-WMI-Activity
       log_channel: Microsoft-Windows-WMI-Activity/Operational
       event_id: 5861
+      event_name: WMI permanent event created.
 - name: wmi object creation
   type: activity
   relationships:
@@ -31,7 +32,9 @@ data_components:
     telemetry:
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: WmiEvent
       event_id: 19
+      event_name: WmiEvent (WmiEventFilter activity detected).
   - name: User created Wmi consumer
     id: B5CD1D3E-3947-453B-ADEA-896A8F110A64
     source_data_element: user
@@ -40,7 +43,9 @@ data_components:
     telemetry:
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: WmiEvent
       event_id: 20
+      event_name: WmiEvent (WmiEventConsumer activity detected).
   - name: User created Wmi subscription
     id: 73A84308-955C-43E7-B882-81EA1C8092D4
     source_data_element: user
@@ -49,7 +54,9 @@ data_components:
     telemetry:
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: WmiEvent
       event_id: 21
+      event_name: WmiEvent (WmiEventConsumerToFilter activity detected).
 - name: wmi object deletion
   type: activity
   relationships:
@@ -61,7 +68,9 @@ data_components:
     telemetry:
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: WmiEvent
       event_id: 19
+      event_name: WmiEvent (WmiEventFilter activity detected).
   - name: User deleted Wmi consumer
     id: 769B2E5F-40E1-4F12-B66D-70E80E831C9E
     source_data_element: user
@@ -70,7 +79,9 @@ data_components:
     telemetry:
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: WmiEvent
       event_id: 20
+      event_name: WmiEvent (WmiEventConsumer activity detected).
   - name: User deleted Wmi subscription
     id: 17366962-DB60-4048-A2E1-2B51AC53FF52
     source_data_element: user
@@ -79,6 +90,8 @@ data_components:
     telemetry:
     - log_provider: Microsoft-Windows-Sysmon
       log_channel: Microsoft-Windows-Sysmon/Operational
+      audit_category: WmiEvent
       event_id: 21
+      event_name: WmiEvent (WmiEventConsumerToFilter activity detected).
 references:
 - https://docs.microsoft.com/en-us/windows/win32/wmisdk/wmi-system-classes
