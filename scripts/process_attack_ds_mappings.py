@@ -53,3 +53,42 @@ for ds in all_ds_files:
 data_model_relationships_render = copy.deepcopy(relationships)
 data_model_relationships_markdown = data_model_relationships_template.render(all_relationships=data_model_relationships_render)
 open('../docs/data_model/relationships.md', 'w').write(data_model_relationships_markdown)
+
+# CREATE CSV FILE
+print(f"[+] Creating ATT&CK data source event mappings CSV file..")
+import csv 
+
+processed_ds = []
+
+for ds in all_ds_files:
+    for dc in ds['data_components']:
+        for dr in dc['relationships']:
+            for t in dr['telemetry']:
+                record = dict()
+                record['Data Source'] = ds['name']
+                record['Component'] = dc['name']
+                record['Source'] = dr['source_data_element']
+                record['Relationship'] = dr['relationship']
+                record['Target'] = dr['target_data_element']
+                record['EventID'] = t['event_id']
+                record['Log Provider'] = t['log_provider']
+                record['Log Channel'] = t['log_channel']
+                record['Audit Category'] = t.get('audit_category', 'NA')
+                record['Audit Sub-Category'] = t.get('audit_sub_category', 'NA')
+                if t['log_channel'] == "Security":
+                    record['Enable Commands'] = f"auditpol /set /subcategory:{t['audit_sub_category']} /success:enable /failure:enable"
+                elif t['log_channel'] == "Microsoft-Windows-Sysmon/Operational":
+                    record['Enable Commands'] = f"<{t['audit_category']} onmatch='exclude' />"
+                else:
+                    record['Enable Commands'] = 'NA'
+                if t['log_channel'] == "Security":
+                    record['GPO Audit Policy'] = f"Computer Configuration -> Windows Settings -> Security Settings -> Advanced Audit Policy Configuration -> System Audit Policies -> {t['audit_category']} -> Audit {t['audit_sub_category']}"
+                else:
+                    record['GPO Audit Policy'] = 'NA'
+                processed_ds.append(record)
+
+header_fields = ['Data Source', 'Component', 'Source', 'Relationship', 'Target', 'EventID', 'Log Provider', 'Log Channel', 'Audit Category', 'Audit Sub-Category', 'Enable Commands',  'GPO Audit Policy' ]
+with open('../docs/mitre_attack/security_events_mappings.csv', 'w', newline='')  as output_file:
+    dict_writer = csv.DictWriter(output_file, header_fields)
+    dict_writer.writeheader()
+    dict_writer.writerows(processed_ds)
