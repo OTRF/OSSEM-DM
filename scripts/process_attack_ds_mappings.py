@@ -71,6 +71,7 @@ for ds in all_ds_files:
                 record['Relationship'] = dr['relationship']
                 record['Target'] = dr['target_data_element']
                 record['EventID'] = t['event_id']
+                record['Event Name'] = t['event_name']
                 record['Log Provider'] = t['log_provider']
                 record['Log Channel'] = t['log_channel']
                 record['Audit Category'] = t.get('audit_category', 'NA')
@@ -87,7 +88,7 @@ for ds in all_ds_files:
                     record['GPO Audit Policy'] = 'NA'
                 processed_ds.append(record)
 
-header_fields = ['Data Source', 'Component', 'Source', 'Relationship', 'Target', 'EventID', 'Log Provider', 'Log Channel', 'Audit Category', 'Audit Sub-Category', 'Enable Commands',  'GPO Audit Policy' ]
+header_fields = ['Data Source', 'Component', 'Source', 'Relationship', 'Target', 'EventID', 'Event Name', 'Log Provider', 'Log Channel', 'Audit Category', 'Audit Sub-Category', 'Enable Commands',  'GPO Audit Policy' ]
 with open('../docs/mitre_attack/security_events_mappings.csv', 'w', newline='')  as output_file:
     dict_writer = csv.DictWriter(output_file, header_fields)
     dict_writer.writeheader()
