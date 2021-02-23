@@ -1,0 +1,25 @@
+name: Service started
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Service
+  data_component: service context
+relationship:
+  source: service
+  link: started
+  target: null
+security_events:
+- name: Sysmon service state changed.
+  event_id: 4
+  platform: Windows
+  audit_category: ServiceStateChange
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon
+- name: The Windows Firewall Service has started successfully.
+  event_id: 5024
+  platform: Windows
+  audit_category: System
+  audit_sub_category: Other System Events
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

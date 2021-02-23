@@ -1,0 +1,25 @@
+name: User deleted File
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: File
+  data_component: file deletion
+relationship:
+  source: user
+  link: deleted
+  target: file
+security_events:
+- name: FileDelete (A file delete was detected).
+  event_id: 23
+  platform: Windows
+  audit_category: FileDelete
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon
+- name: An object was deleted.
+  event_id: 4660
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: File System
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

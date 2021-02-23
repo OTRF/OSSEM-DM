@@ -1,0 +1,26 @@
+name: User accessed File
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: File
+  data_component: file access
+relationship:
+  source: user
+  link: accessed
+  target: file
+security_events:
+- name: A network share object was checked to see whether client can be granted desired access.
+  event_id: 5145
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Detailed File Share
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- name: An attempt was made to access an object.
+  event_id: 4663
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: File System
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

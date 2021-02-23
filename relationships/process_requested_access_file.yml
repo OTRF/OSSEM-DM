@@ -1,0 +1,33 @@
+name: Process requested access File
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: File
+  data_component: file access
+relationship:
+  source: process
+  link: requested access
+  target: file
+security_events:
+- name: A handle to an object was requested.
+  event_id: 4656
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: File System
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- name: A handle to an object was requested.
+  event_id: 4661
+  platform: Windows
+  audit_category: DS Access
+  audit_sub_category: Directory Service Access
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- name: A handle to an object was requested.
+  event_id: 4661
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: SAM
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

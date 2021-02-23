@@ -1,0 +1,18 @@
+name: Process created Thread
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Process
+  data_component: process creation
+relationship:
+  source: process
+  link: created
+  target: thread
+security_events:
+- name: CreateRemoteThread.
+  event_id: 8
+  platform: Windows
+  audit_category: CreateRemoteThread
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon

@@ -1,0 +1,19 @@
+name: User terminated Process
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Process
+  data_component: process termination
+relationship:
+  source: user
+  link: terminated
+  target: process
+security_events:
+- name: A process has exited.
+  event_id: 4689
+  platform: Windows
+  audit_category: Detailed Tracking
+  audit_sub_category: Process Termination
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

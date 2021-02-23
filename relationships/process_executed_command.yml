@@ -1,0 +1,24 @@
+name: Process executed Command
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Powershell log
+  data_component: powershell execution
+relationship:
+  source: process
+  link: executed
+  target: command
+security_events:
+- name: Module logging.
+  event_id: 4103
+  platform: Windows
+  audit_category: Executing Pipeline
+  log_channel: Microsoft-Windows-PowerShell/Operational
+  log_provider: Microsoft-Windows-PowerShell
+- name: Script Block Logging.
+  event_id: 4104
+  platform: Windows
+  audit_category: Execute a Remote Command
+  log_channel: Microsoft-Windows-PowerShell/Operational
+  log_provider: Microsoft-Windows-PowerShell

@@ -1,0 +1,18 @@
+name: User started Application host
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Powershell log
+  data_component: powershell execution
+relationship:
+  source: user
+  link: started
+  target: application host
+security_events:
+- name: Module logging.
+  event_id: 4103
+  platform: Windows
+  audit_category: Executing Pipeline
+  log_channel: Microsoft-Windows-PowerShell/Operational
+  log_provider: Microsoft-Windows-PowerShell

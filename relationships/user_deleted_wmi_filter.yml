@@ -1,0 +1,18 @@
+name: User deleted Wmi filter
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: WMI object
+  data_component: wmi object deletion
+relationship:
+  source: user
+  link: deleted
+  target: wmi filter
+security_events:
+- name: WmiEvent (WmiEventFilter activity detected).
+  event_id: 19
+  platform: Windows
+  audit_category: WmiEvent
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon

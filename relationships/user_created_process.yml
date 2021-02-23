@@ -1,0 +1,25 @@
+name: User created Process
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Process
+  data_component: process creation
+relationship:
+  source: user
+  link: created
+  target: process
+security_events:
+- name: A new process has been created.
+  event_id: 4688
+  platform: Windows
+  audit_category: Detailed Tracking
+  audit_sub_category: Process Creation
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- name: Process Creation.
+  event_id: 1
+  platform: Windows
+  audit_category: ProcessCreate
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon

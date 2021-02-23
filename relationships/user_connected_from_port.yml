@@ -1,0 +1,18 @@
+name: User connected from Port
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Process
+  data_component: process network connection
+relationship:
+  source: user
+  link: connected from
+  target: port
+security_events:
+- name: Network connection.
+  event_id: 3
+  platform: Windows
+  audit_category: NetworkConnect
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon

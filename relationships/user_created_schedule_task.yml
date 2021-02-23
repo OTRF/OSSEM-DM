@@ -1,0 +1,19 @@
+name: User created Schedule Task
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Schedule Task
+  data_component: schedule task creation
+relationship:
+  source: user
+  link: created
+  target: schedule task
+security_events:
+- name: A scheduled task was created.
+  event_id: 4698
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Other Object Access Events
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
