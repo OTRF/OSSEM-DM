@@ -1,0 +1,19 @@
+name: Host permitted listener on Process
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Process
+  data_component: process network connection
+relationship:
+  source: host
+  link: permitted listener on
+  target: process
+security_events:
+- name: The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+  event_id: 5154
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Filtering Platform Connection
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

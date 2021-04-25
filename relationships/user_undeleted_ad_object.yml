@@ -1,0 +1,19 @@
+name: User undeleted AD Object
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Windows active directory
+  data_component: active directory service deletion
+relationship:
+  source: user
+  link: undeleted
+  target: ad object
+security_events:
+- name: A directory service object was undeleted.
+  event_id: 5138
+  platform: Windows
+  audit_category: DS Access
+  audit_sub_category: Directory Service Changes
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

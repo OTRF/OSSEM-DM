@@ -1,0 +1,31 @@
+name: Process modified Windows registry key
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Windows registry
+  data_component: windows registry key modification
+relationship:
+  source: process
+  link: modified
+  target: windows registry key
+security_events:
+- name: RegistryEvent (Value Set).
+  event_id: 13
+  platform: Windows
+  audit_category: RegistryEvent
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon
+- name: RegistryEvent (Key and Value Rename).
+  event_id: 14
+  platform: Windows
+  audit_category: RegistryEvent
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon
+- name: Permissions on an object were changed.
+  event_id: 4670
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Registry
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

@@ -1,0 +1,18 @@
+name: Process created File
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: File
+  data_component: file creation
+relationship:
+  source: process
+  link: created
+  target: file
+security_events:
+- name: FileCreate.
+  event_id: 11
+  platform: Windows
+  audit_category: FileCreate
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon

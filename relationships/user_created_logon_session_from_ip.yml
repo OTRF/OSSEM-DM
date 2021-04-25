@@ -1,0 +1,26 @@
+name: User created logon session from Ip
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Logon session
+  data_component: logon session creation
+relationship:
+  source: user
+  link: created logon session from
+  target: ip
+security_events:
+- name: An account was successfully logged on.
+  event_id: 4624
+  platform: Windows
+  audit_category: Logon/Logoff
+  audit_sub_category: Logon
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- name: A session was reconnected to a Window Station.
+  event_id: 4778
+  platform: Windows
+  audit_category: Logon/Logoff
+  audit_sub_category: Other Logon/Logoff Events
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

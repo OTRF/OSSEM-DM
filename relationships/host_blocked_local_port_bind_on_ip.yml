@@ -1,0 +1,19 @@
+name: Host blocked local port bind on Ip
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Process
+  data_component: process network connection
+relationship:
+  source: host
+  link: blocked local port bind on
+  target: ip
+security_events:
+- name: The Windows Filtering Platform has blocked a bind to a local port.
+  event_id: 5159
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Filtering Platform Connection
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

@@ -1,0 +1,18 @@
+name: User created Wmi subscription
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: WMI object
+  data_component: wmi object creation
+relationship:
+  source: user
+  link: created
+  target: wmi subscription
+security_events:
+- name: WmiEvent (WmiEventConsumerToFilter activity detected).
+  event_id: 21
+  platform: Windows
+  audit_category: WmiEvent
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon

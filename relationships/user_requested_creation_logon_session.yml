@@ -1,0 +1,19 @@
+name: User requested creation Logon session
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Logon session
+  data_component: logon session creation
+relationship:
+  source: user
+  link: requested creation
+  target: logon session
+security_events:
+- name: A logon was attempted using explicit credentials.
+  event_id: 4648
+  platform: Windows
+  audit_category: Logon/Logoff
+  audit_sub_category: Logon
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

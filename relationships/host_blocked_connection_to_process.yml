@@ -1,0 +1,19 @@
+name: Host blocked connection to Process
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Process
+  data_component: process network connection
+relationship:
+  source: host
+  link: blocked connection to
+  target: process
+security_events:
+- name: The Windows Filtering Platform has blocked a connection.
+  event_id: 5157
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Filtering Platform Connection
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

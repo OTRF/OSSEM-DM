@@ -1,0 +1,19 @@
+name: User unlocked User
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: User Account
+  data_component: user account unlock
+relationship:
+  source: user
+  link: unlocked
+  target: user
+security_events:
+- name: A user account was unlocked.
+  event_id: 4767
+  platform: Windows
+  audit_category: Account Management
+  audit_sub_category: User Account Management
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing

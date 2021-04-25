@@ -1,0 +1,25 @@
+name: Process connected to Ip
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Process
+  data_component: process network connection
+relationship:
+  source: process
+  link: connected to
+  target: ip
+security_events:
+- name: The Windows Filtering Platform has permitted a connection.
+  event_id: 5156
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Filtering Platform Connection
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- name: Network connection.
+  event_id: 3
+  platform: Windows
+  audit_category: NetworkConnect
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon
