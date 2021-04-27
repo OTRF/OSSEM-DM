@@ -1,0 +1,21 @@
+name: User disabled Schedule job
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Schedule Job
+  data_component: schedule job modification
+behavior:
+  source: user
+  relationship: disabled
+  target: schedule job
+security_events:
+- event_id: 4701
+  name: A scheduled task was disabled.
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Other Object Access Events
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:

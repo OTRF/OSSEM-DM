@@ -5,14 +5,16 @@ contributors:
 attack:
   data_source: Process
   data_component: process creation
-relationship:
+behavior:
   source: process
-  link: created
+  relationship: created
   target: thread
 security_events:
-- name: CreateRemoteThread.
-  event_id: 8
+- event_id: 8
+  name: CreateRemoteThread.
   platform: Windows
   audit_category: CreateRemoteThread
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+references:
+notes:

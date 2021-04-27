@@ -5,15 +5,17 @@ contributors:
 attack:
   data_source: User Account
   data_component: user account creation
-relationship:
+behavior:
   source: user
-  link: created
+  relationship: created
   target: user
 security_events:
-- name: A user account was created.
-  event_id: 4720
+- event_id: 4720
+  name: A user account was created.
   platform: Windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:

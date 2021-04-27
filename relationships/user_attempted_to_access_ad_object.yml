@@ -1,0 +1,20 @@
+name: User attempted to access AD Object
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+behavior:
+  source: user
+  relationship: attempted to access
+  target: ad object
+security_events:
+- event_id: 4662
+  name: An operation was performed on an object.
+  platform: Windows
+  audit_category: DS Access
+  audit_sub_category: Directory Service Access
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:
+- Potential contribution for ATT&CK - Active Directory / active directory object access

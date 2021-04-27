@@ -3,17 +3,19 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Windows registry
+  data_source: Windows Registry
   data_component: windows registry key deletion
-relationship:
+behavior:
   source: user
-  link: deleted
+  relationship: deleted
   target: windows registry key
 security_events:
-- name: An object was deleted.
-  event_id: 4660
+- event_id: 4660
+  name: An object was deleted.
   platform: Windows
   audit_category: Object Access
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:

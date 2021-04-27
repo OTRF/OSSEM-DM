@@ -3,16 +3,17 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: File
-  data_component: file context
-relationship:
+behavior:
   source: driver
-  link: loaded
+  relationship: loaded
   target: null
 security_events:
-- name: Driver loaded.
-  event_id: 6
+- event_id: 6
+  name: Driver loaded.
   platform: Windows
   audit_category: DriverLoad
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+references:
+notes:
+- Potential contribution for ATT&CK - Driver / driver metadata

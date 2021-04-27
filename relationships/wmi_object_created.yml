@@ -1,0 +1,18 @@
+name: Wmi object created
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+behavior:
+  source: wmi object
+  relationship: created
+  target: null
+security_events:
+- event_id: 5861
+  name: WMI permanent event created.
+  platform: Windows
+  log_channel: Microsoft-Windows-WMI-Activity/Operational
+  log_provider: Microsoft-Windows-WMI-Activity
+references:
+notes:
+- Potential contribution for ATT&CK - WMI / wmi metadata

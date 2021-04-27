@@ -3,16 +3,18 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Process
-  data_component: process network connection
-relationship:
+  data_source: Network Traffic
+  data_component: network connection creation
+behavior:
   source: process
-  link: connected from
+  relationship: connected from
   target: host
 security_events:
-- name: Network connection.
-  event_id: 3
+- event_id: 3
+  name: Network connection.
   platform: Windows
   audit_category: NetworkConnect
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+references:
+notes:
