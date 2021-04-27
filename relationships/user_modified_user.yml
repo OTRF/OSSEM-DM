@@ -5,22 +5,24 @@ contributors:
 attack:
   data_source: User Account
   data_component: user account modification
-relationship:
+behavior:
   source: user
-  link: modified
+  relationship: modified
   target: user
 security_events:
-- name: A user account was changed.
-  event_id: 4738
+- event_id: 4738
+  name: A user account was changed.
   platform: Windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
-- name: The name of an account was changed.
-  event_id: 4781
+- event_id: 4781
+  name: The name of an account was changed.
   platform: Windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:

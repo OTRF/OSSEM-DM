@@ -1,0 +1,21 @@
+name: User created Network Share
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Network Share
+  data_component: network share creation
+behavior:
+  source: user
+  relationship: created
+  target: network share
+security_events:
+- event_id: 5142
+  name: A network share object was added.
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: File Share
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:

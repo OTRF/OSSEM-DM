@@ -3,17 +3,19 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Windows registry
+  data_source: Windows Registry
   data_component: windows registry key modification
-relationship:
+behavior:
   source: user
-  link: modified
+  relationship: modified
   target: windows registry key
 security_events:
-- name: Permissions on an object were changed.
-  event_id: 4670
+- event_id: 4670
+  name: Permissions on an object were changed.
   platform: Windows
   audit_category: Object Access
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:

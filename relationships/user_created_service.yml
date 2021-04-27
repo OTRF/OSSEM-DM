@@ -5,20 +5,22 @@ contributors:
 attack:
   data_source: Service
   data_component: service creation
-relationship:
+behavior:
   source: user
-  link: created
+  relationship: created
   target: service
 security_events:
-- name: A service was installed in the system.
-  event_id: 4697
+- event_id: 4697
+  name: A service was installed in the system.
   platform: Windows
   audit_category: System
   audit_sub_category: Security System Extension
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
-- name: A new service was installed in the system.
-  event_id: 7045
+- event_id: 7045
+  name: A new service was installed in the system.
   platform: Windows
   log_channel: System
   log_provider: Service Control Manager
+references:
+notes:

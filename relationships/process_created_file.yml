@@ -5,14 +5,16 @@ contributors:
 attack:
   data_source: File
   data_component: file creation
-relationship:
+behavior:
   source: process
-  link: created
+  relationship: created
   target: file
 security_events:
-- name: FileCreate.
-  event_id: 11
+- event_id: 11
+  name: FileCreate.
   platform: Windows
   audit_category: FileCreate
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+references:
+notes:

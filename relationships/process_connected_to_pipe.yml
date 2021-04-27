@@ -3,16 +3,17 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Named pipe
-  data_component: named pipe connection
-relationship:
+behavior:
   source: process
-  link: connected to
+  relationship: connected to
   target: pipe
 security_events:
-- name: PipeEvent (Pipe Connected).
-  event_id: 18
+- event_id: 18
+  name: PipeEvent (Pipe Connected).
   platform: Windows
   audit_category: PipeEvent
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+references:
+notes:
+- Potential contribution for ATT&CK - Named Pipe / named pipe connection

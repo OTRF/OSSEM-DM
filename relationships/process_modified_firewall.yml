@@ -1,0 +1,26 @@
+name: Process modified Firewall
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+behavior:
+  source: process
+  relationship: modified
+  target: firewall
+security_events:
+- event_id: 2002
+  name: A Windows Defender Firewall setting has changed.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+  log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
+- event_id: 2003
+  name: A Windows Defender Firewall setting in the Private profile has changed.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+  log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
+references:
+notes:
+- Potential contribution for ATT&CK - Firewall / firewall modification (New data component and relationship)

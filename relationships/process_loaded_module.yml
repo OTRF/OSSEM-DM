@@ -1,0 +1,20 @@
+name: Process loaded Module
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Module
+  data_component: module load
+behavior:
+  source: process
+  relationship: loaded
+  target: module
+security_events:
+- event_id: 7
+  name: Image loaded.
+  platform: Windows
+  audit_category: ImageLoad
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon
+references:
+notes:

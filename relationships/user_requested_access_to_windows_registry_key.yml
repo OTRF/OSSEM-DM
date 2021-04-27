@@ -1,0 +1,21 @@
+name: User requested access to Windows registry key
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Windows Registry
+  data_component: windows registry key access
+behavior:
+  source: user
+  relationship: requested access to
+  target: windows registry key
+security_events:
+- event_id: 4656
+  name: A handle to an object was requested.
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Registry
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+note:

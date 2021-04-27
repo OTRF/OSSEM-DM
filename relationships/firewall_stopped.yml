@@ -1,0 +1,19 @@
+name: Firewall stopped
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+behavior:
+  source: firewall
+  relationship: stopped
+  target: null
+security_events:
+- event_id: 5025
+  name: The Windows Firewall Service has been stopped.
+  platform: Windows
+  audit_category: System
+  audit_sub_category: Other System Events
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:
+- Potential contribution for ATT&CK - Firewall / firewall metadata

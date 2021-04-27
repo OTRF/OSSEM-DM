@@ -4,16 +4,18 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
   data_source: User Account
-  data_component: user account enable
-relationship:
+  data_component: user account modification
+behavior:
   source: user
-  link: enabled
+  relationship: enabled
   target: user
 security_events:
-- name: A user account was enabled.
-  event_id: 4722
+- event_id: 4722
+  name: A user account was enabled.
   platform: Windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:
