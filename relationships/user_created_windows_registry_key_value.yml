@@ -1,0 +1,18 @@
+name: User created Windows registry key value
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+behavior:
+  source: user
+  relationship: created
+  target: windows registry key value
+security_events:
+- event_id: DeviceRegistryEvents
+  name: DeviceRegistryEvents
+  platform: Windows
+  audit_category: null
+  log_channel: null
+  log_provider: Windows Defender Advanced Threat Protection
+references:
+notes:
+- Potential contribution for ATT&CK - Windows Registry / windows registry key creation
