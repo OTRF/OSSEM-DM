@@ -1,0 +1,19 @@
+name: User modified cloud service from Ip
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+behavior:
+  source: user
+  relationship: modified cloud service from
+  target: ip
+security_events:
+- event_id: UpdateTrail
+  name: UpdateTrail
+  platform: AWS
+  audit_category: AwsApiCall
+  audit_sub_category: null
+  log_channel: null
+  log_provider: CloudTrail
+references:
+notes:
+- Potential contribution for ATT&CK - Cloud Service / cloud service modification
