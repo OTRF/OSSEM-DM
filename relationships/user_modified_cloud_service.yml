@@ -1,0 +1,20 @@
+name: User modified Cloud service
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+  data_source: Cloud Service
+  data_component: cloud service modification
+behavior:
+  source: user
+  relationship: modified
+  target: cloud service
+security_events:
+- event_id: UpdateTrail
+  name: UpdateTrail
+  platform: AWS
+  audit_category: AwsApiCall
+  audit_sub_category: null
+  log_channel: null
+  log_provider: CloudTrail
+references:
+notes:
