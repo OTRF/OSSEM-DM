@@ -10,8 +10,8 @@ security_events:
 - event_id: PasswordUpdated
   name: PasswordUpdated
   platform: AWS
-  audit_category: Non-API Events
-  audit_sub_category: AwsConsoleSignin
+  audit_category: AwsConsoleSignin
+  audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
 references:

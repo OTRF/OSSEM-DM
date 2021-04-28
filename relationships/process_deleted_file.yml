@@ -11,9 +11,15 @@ behavior:
   target: file
 security_events:
 - event_id: 23
-  name: FileDelete (A file delete was detected).
+  name: File Delete archived.
   platform: Windows
   audit_category: FileDelete
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon
+- event_id: 26
+  name: File Delete logged.
+  platform: Windows
+  audit_category: FileDeleteDetected
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
 - event_id: 4660
