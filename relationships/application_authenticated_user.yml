@@ -1,0 +1,20 @@
+name: Application authenticated User
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+behavior:
+  source: application
+  relationship: authenticated
+  target: user
+security_events:
+- event_id: ConsoleLogin
+  name: ConsoleLogin
+  platform: AWS
+  audit_category: Non-API Events
+  audit_sub_category: AwsConsoleSignin
+  log_channel: null
+  log_provider: CloudTrail
+references:
+- https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
+notes:
+- Potential contribution for ATT&CK - User Account / user account authentication

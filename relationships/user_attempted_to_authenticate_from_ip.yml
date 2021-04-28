@@ -31,5 +31,13 @@ security_events:
   audit_sub_category: Logon
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+- event_id: ConsoleLogin
+  name: ConsoleLogin
+  platform: AWS
+  audit_category: Non-API Events
+  audit_sub_category: AwsConsoleSignin
+  log_channel: null
+  log_provider: CloudTrail
 references:
+- https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
 notes:
