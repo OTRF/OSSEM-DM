@@ -16,5 +16,12 @@ security_events:
   audit_sub_category: null
   log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
+- event_id: DeleteRuleGroup
+  name: DeleteRuleGroup
+  platform: AWS
+  audit_category: AwsApiCall
+  audit_sub_category: null
+  log_channel: null
+  log_provider: CloudTrail
 references:
 notes:
