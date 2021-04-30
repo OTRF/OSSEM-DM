@@ -1,0 +1,68 @@
+name: Process
+definition: Information about instances of computer programs that are being executed by at least one thread.
+collection_layers:
+  - host
+platforms:
+  - Windows
+  - Linux
+  - MacOS
+contributors: 
+  - ATT&CK
+  - CTID
+data_components:
+  - name: process metadata
+    type: information
+    description: Data and information that describe a process (Such as environment variables) and activity around it.
+    relationships:
+      - source_data_element: user
+        relationship: retrieved information about
+        target_data_element: process
+  - name: process creation
+    type: activity
+    description: A process was created.
+    relationships:
+      - source_data_element: user
+        relationship: created
+        target_data_element: process
+      - source_data_element: process
+        relationship: created
+        target_data_element: process
+      - source_data_element: process
+        relationship: created
+        target_data_element: thread
+  - name: process termination
+    type: activity
+    description: A process was terminated.
+    relationships:
+      - source_data_element: user
+        relationship: terminated
+        target_data_element: process
+  - name: process modification
+    type: activity
+    description: A process was modified.
+    relationships:
+      - source_data_element: process
+        relationship: modified
+        target_data_element: process
+  - name: process access
+    type: activity
+    description: A process was accessed.
+    relationships:
+      - source_data_element: process
+        relationship: accessed
+        target_data_element: process
+      - source_data_element: process
+        relationship: requested access to
+        target_data_element: process
+  - name: OS api execution
+    type: activity
+    description: A process executed operating system api functions.
+    relationships:
+      - source_data_element: process
+        relationship: executed
+        target_data_element: api call
+      - source_data_element: process
+        relationship: executed
+        target_data_element: system call
+references:
+  - https://docs.microsoft.com/en-us/windows/win32/procthread/processes-and-threads

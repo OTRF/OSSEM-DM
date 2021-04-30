@@ -1,0 +1,44 @@
+name: Module
+definition: Information about module files consisting of one or more classes and interfaces, such as portable executable (PE) format executables/dynamic link libraries (DLL), executable and linkable format (ELF) executables/shared libraries, and Mach-O format executables/shared libraries.
+collection_layers:
+  - host
+platforms:
+  - Windows
+  - Linux
+  - MacOS
+contributors: 
+  - ATT&CK
+  - CTID
+data_components:
+  - name: module content
+    type: information
+    description: Data contained in a module such as sections and segments.
+    relationships:
+      - source_data_element: user
+        relationship: retrieved information about
+        target_data_element: module
+      - source_data_element: process
+        relationship: retrieved information about
+        target_data_element: module
+  - name: module metadata
+    type: information
+    description: Data and information that describe a module and activity around it such as header and signature.
+    relationships:
+      - source_data_element: user
+        relationship: retrieved information about
+        target_data_element: module
+      - source_data_element: process
+        relationship: retrieved information about
+        target_data_element: module
+  - name: module load
+    type: activity
+    description: A module was loaded into a process.
+    relationships:
+      - source_data_element: process
+        relationship: loaded
+        target_data_element: module
+references:
+  - https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya
+  - https://docs.microsoft.com/en-us/dotnet/api/system.reflection.module?view=netcore-3.1
+  - https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
+  - https://elinux.org/Executable_and_Linkable_Format_(ELF)
