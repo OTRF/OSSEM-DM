@@ -1,0 +1,20 @@
+name: User restored AD Object
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+behavior:
+  source: user
+  relationship: restored
+  target: ad object
+security_events:
+- event_id: 5138
+  name: A directory service object was undeleted.
+  platform: Windows
+  audit_category: DS Access
+  audit_sub_category: Directory Service Changes
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:
+- Potential contribution for ATT&CK - Active Directory / active directory object deletion

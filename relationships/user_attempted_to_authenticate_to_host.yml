@@ -1,0 +1,34 @@
+name: User attempted to authenticate to host
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+behavior:
+  source: user
+  relationship: attempted to authenticate to
+  target: host
+security_events:
+- event_id: 4625
+  name: An account failed to log on.
+  platform: Windows
+  audit_category: Logon/Logoff
+  audit_sub_category: Logon
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- event_id: 4625
+  name: An account failed to log on.
+  platform: Windows
+  audit_category: Logon/Logoff
+  audit_sub_category: Account Lockout
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- event_id: 4648
+  name: A logon was attempted using explicit credentials.
+  platform: Windows
+  audit_category: Logon/Logoff
+  audit_sub_category: Logon
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+notes:
+- Potential contribution for ATT&CK - User Account / user account authentication

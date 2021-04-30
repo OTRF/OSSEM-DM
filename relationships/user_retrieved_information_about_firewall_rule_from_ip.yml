@@ -1,0 +1,19 @@
+name: User retrieved information about firewall rule from Ip
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+behavior:
+  source: user
+  relationship: retrieved information about firewall rule from
+  target: ip
+security_events:
+- event_id: DescribeRuleGroup
+  name: DescribeRuleGroup
+  platform: AWS
+  audit_category: AwsApiCall
+  audit_sub_category: null
+  log_channel: null
+  log_provider: CloudTrail
+references:
+notes:
+- Potential contribution for ATT&CK - Firewall / firewall metadata

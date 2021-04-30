@@ -1,0 +1,21 @@
+name: User attempted to authenticate to Application
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+  data_source: User Account
+  data_component: user account authentication
+behavior:
+  source: user
+  relationship: attempted to authenticate to
+  target: application
+security_events:
+- event_id: ConsoleLogin
+  name: ConsoleLogin
+  platform: AWS
+  audit_category: AwsConsoleSignin
+  audit_sub_category: null
+  log_channel: null
+  log_provider: CloudTrail
+references:
+- https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
+notes:

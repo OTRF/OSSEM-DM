@@ -3,29 +3,37 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Windows registry
+  data_source: Windows Registry
   data_component: windows registry key modification
-relationship:
+behavior:
   source: process
-  link: modified
+  relationship: modified
   target: windows registry key value
 security_events:
-- name: RegistryEvent (Value Set).
-  event_id: 13
+- event_id: 13
+  name: RegistryEvent (Value Set).
   platform: Windows
   audit_category: RegistryEvent
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
-- name: RegistryEvent (Key and Value Rename).
-  event_id: 14
+- event_id: 14
+  name: RegistryEvent (Key and Value Rename).
   platform: Windows
   audit_category: RegistryEvent
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
-- name: A registry value was modified.
-  event_id: 4657
+- event_id: 4657
+  name: A registry value was modified.
   platform: Windows
   audit_category: Object Access
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+- event_id: DeviceRegistryEvents
+  name: DeviceRegistryEvents
+  platform: Windows
+  audit_category: null
+  log_channel: null
+  log_provider: Windows Defender Advanced Threat Protection
+references:
+notes:

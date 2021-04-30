@@ -5,27 +5,35 @@ contributors:
 attack:
   data_source: File
   data_component: file modification
-relationship:
+behavior:
   source: process
-  link: modified
+  relationship: modified
   target: file
 security_events:
-- name: A process changed a file creation time.
-  event_id: 2
+- event_id: 2
+  name: A process changed a file creation time.
   platform: Windows
   audit_category: FileCreateTime
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
-- name: FileCreate.
-  event_id: 11
+- event_id: 11
+  name: FileCreate.
   platform: Windows
   audit_category: FileCreate
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
-- name: Permissions on an object were changed.
-  event_id: 4670
+- event_id: 4670
+  name: Permissions on an object were changed.
   platform: Windows
   audit_category: Object Access
   audit_sub_category: File System
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+- event_id: DeviceFileEvents
+  name: DeviceFileEvents
+  platform: Windows
+  audit_category: null
+  log_channel: null
+  log_provider: Windows Defender Advanced Threat Protection
+references:
+notes:

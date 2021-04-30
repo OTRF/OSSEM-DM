@@ -24,15 +24,15 @@ for ds_file in attack_ds_files:
             rdict['attack'] = dict()
             rdict['attack']['data_source'] = yaml_file['name']
             rdict['attack']['data_component'] = data_component['name']
-            rdict['relationship'] = dict()
-            rdict['relationship']['source'] = relationship['source_data_element']
-            rdict['relationship']['link'] = relationship['relationship']
-            rdict['relationship']['target'] = relationship['target_data_element']
+            rdict['behavior'] = dict()
+            rdict['behavior']['source'] = relationship['source_data_element']
+            rdict['behavior']['relationship'] = relationship['relationship']
+            rdict['behavior']['target'] = relationship['target_data_element']
             rdict['security_events'] = []
             for event in relationship['telemetry']:
                 event_dict = dict()
-                event_dict['name'] = event['event_name']
                 event_dict['event_id'] = event['event_id']
+                event_dict['name'] = event['event_name']
                 event_dict['platform'] = yaml_file['platforms'][0]
                 if 'audit_category' in event.keys():
                     event_dict['audit_category'] = event['audit_category']

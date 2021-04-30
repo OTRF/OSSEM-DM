@@ -5,21 +5,29 @@ contributors:
 attack:
   data_source: Process
   data_component: process creation
-relationship:
+behavior:
   source: user
-  link: created
+  relationship: created
   target: process
 security_events:
-- name: A new process has been created.
-  event_id: 4688
+- event_id: 4688
+  name: A new process has been created.
   platform: Windows
   audit_category: Detailed Tracking
   audit_sub_category: Process Creation
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
-- name: Process Creation.
-  event_id: 1
+- event_id: 1
+  name: Process Creation.
   platform: Windows
   audit_category: ProcessCreate
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+- event_id: DeviceProcessEvents
+  name: DeviceProcessEvents
+  platform: Windows
+  audit_category: null
+  log_channel: null
+  log_provider: Windows Defender Advanced Threat Protection
+references:
+notes:

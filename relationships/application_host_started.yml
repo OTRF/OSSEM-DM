@@ -3,16 +3,17 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Powershell log
-  data_component: powershell context
-relationship:
+behavior:
   source: application host
-  link: started
+  relationship: started
   target: null
 security_events:
-- name: Engine state is changed from None to Available.
-  event_id: 400
+- event_id: 400
+  name: Engine state is changed from None to Available.
   platform: Windows
   audit_category: Engine Lifecycle
   log_channel: Windows PowerShell
   log_provider: PowerShell
+references:
+notes:
+- Potential contribution for ATT&CK - Command / command context

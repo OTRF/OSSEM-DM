@@ -1,0 +1,43 @@
+name: User attempted to authenticate from Ip
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: User Account
+  data_component: user account authentication
+behavior:
+  source: user
+  relationship: attempted to authenticate from
+  target: ip
+security_events:
+- event_id: 4625
+  name: An account failed to log on.
+  platform: Windows
+  audit_category: Logon/Logoff
+  audit_sub_category: Logon
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- event_id: 4625
+  name: An account failed to log on.
+  platform: Windows
+  audit_category: Logon/Logoff
+  audit_sub_category: Account Lockout
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- event_id: 4648
+  name: A logon was attempted using explicit credentials.
+  platform: Windows
+  audit_category: Logon/Logoff
+  audit_sub_category: Logon
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- event_id: ConsoleLogin
+  name: ConsoleLogin
+  platform: AWS
+  audit_category: AwsConsoleSignin
+  audit_sub_category: null
+  log_channel: null
+  log_provider: CloudTrail
+references:
+- https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
+notes:

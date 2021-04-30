@@ -3,16 +3,17 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: DNS
-  data_component: dns query execution
-relationship:
+behavior:
   source: process
-  link: executed
+  relationship: executed
   target: dns query
 security_events:
-- name: DNSEvent (DNS query).
-  event_id: 22
+- event_id: 22
+  name: DNSEvent (DNS query).
   platform: Windows
   audit_category: DNSQuery
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+references:
+notes:
+- Potential contribution for ATT&CK - Network Traffic / network traffic content

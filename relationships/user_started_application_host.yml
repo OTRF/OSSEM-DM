@@ -3,16 +3,17 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Powershell log
-  data_component: powershell execution
-relationship:
+behavior:
   source: user
-  link: started
+  relationship: started
   target: application host
 security_events:
-- name: Module logging.
-  event_id: 4103
+- event_id: 4103
+  name: Module logging.
   platform: Windows
   audit_category: Executing Pipeline
   log_channel: Microsoft-Windows-PowerShell/Operational
   log_provider: Microsoft-Windows-PowerShell
+references:
+notes:
+- Potential contribution for ATT&CK - Command / command execution
