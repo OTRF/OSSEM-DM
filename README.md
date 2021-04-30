@@ -13,7 +13,7 @@ This part of the project focuses on defining the required data in form of data o
 |[ATT&CK Data Sources Definitions](docs/mitre_attack/data_sources_definition.md)|Official definitions extracted from the ATT&CK framework||
 |[ATT&CK Event Mappings (MD file)](docs/mitre_attack/attack_events_mappings.md)|Security event logs mapped to ATT&CK Data Sources Objects||
 |[ATT&CK Event Mappings (YAML file)](docs/mitre_attack/attack_relationships.yml)|Security event logs mapped to ATT&CK Data Sources Objects||
-|[ATT&CK Event Mappings (CVS file)](docs/mitre_attack/attack_events_mappings.cvs)|Security event logs mapped to ATT&CK Data Sources Objects||
+|[ATT&CK Event Mappings (CVS file)](docs/mitre_attack/attack_events_mappings.csv)|Security event logs mapped to ATT&CK Data Sources Objects||
 
 ## References
 * [Defining ATT&CK Data Sources, Part I: Enhancing the Current State](https://medium.com/mitre-attack/defining-attack-data-sources-part-i-4c39e581454f)
