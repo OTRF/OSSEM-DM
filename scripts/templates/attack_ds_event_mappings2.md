@@ -1,6 +1,0 @@
-# ATT&CK DS Event Mappings
-
-|Data Source|Component|Source|Relationship|Target|EventID|Event Name|Log Provider|Log Channel|Audit Category|Audit Sub-Category|Enable Commands| GPO Audit Policy|
-| :---| :---| :---| :---| :---| :---| :---| :---| :---| :---| :---| :---| :---|
-{% for ds in ds_event_mappings|sort(attribute='name') %}{% for sc in ds['security_events'] %}|{{ds['name']}}|{{ds['attack'].data_component}}|{{ds['behavior'].source}}|{{ds['behavior'].relationship}}|{{ds['behavior'].target}}|{{sc['event_id']}}|{{sc['name']}}|{{sc['log_provider']}}|{{sc['log_channel']}}|{{sc['audit_category']|default('NA')}}|{{sc['audit_sub_category']|default('NA')}}|{% if sc['log_channel'] == "Security" %} `auditpol /set /subcategory:"{{t['audit_sub_category']}}" /success:enable /failure:enable` {% elif sc['log_channel'] == "Microsoft-Windows-Sysmon/Operational" %} `<{{sc['audit_category']}} onmatch="exclude" />` {% else %}NA{% endif %}|{% if sc['log_channel'] == "Security" %} Computer Configuration -> Windows Settings -> Security Settings -> Advanced Audit Policy Configuration -> System Audit Policies -> {{sc['audit_category']}} -> Audit {{sc['audit_sub_category']}} {% else %}NA{% endif %}|
-{% endfor %}{% endfor %}
