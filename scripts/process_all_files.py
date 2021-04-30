@@ -10,6 +10,12 @@ from os import path
 import json
 from jinja2 import Template
 
+from attackcti import attack_client
+import pandas as pd
+from pandas import json_normalize
+pd.set_option("max_colwidth", None)
+yaml.Dumper.ignore_aliases = lambda *args : True
+
 # ******** Process aat&ck yaml Files ****************
 
 # Aggregating all data sources yaml files
@@ -116,3 +122,50 @@ with open('../docs/mitre_attack/attack_events_mapping.csv', 'w', newline='')  as
     dict_writer = csv.DictWriter(output_file, header_fields)
     dict_writer.writeheader()
     dict_writer.writerows(processed_dr)
+
+
+# ******** Creating (Sub)Techniques to Security Events mapping yaml file ****************
+
+# Getting ATT&CK - Enterprise Matrix
+print("[+] Getting ATT&CK - Enterprise form TAXII Server..")
+
+# Instantiating attack_client class
+lift = attack_client()
+# Getting techniques for windows platform - enterprise matrix
+attck = lift.get_enterprise_techniques(stix_format = False)
+# Removing revoked techniques
+attck = lift.remove_revoked(attck)
+# Creating Dataframe
+attck = json_normalize(attck)
+attck = attck[['technique_id','x_mitre_is_subtechnique','technique','tactic','platform','data_sources']]
+attck = attck.explode('data_sources').reset_index(drop = True)
+attck[['data_source','data_component']] = attck.data_sources.str.split(pat = ": ", expand = True)
+attck = attck.drop(columns = ['data_sources'])
+attck['data_source'] = attck['data_source'].str.lower()
+attck['data_component'] = attck['data_component'].str.lower()
+
+print("[+] Getting ATT&CK relationships events mapping..")
+yamlFile = open('../docs/mitre_attack/attack_relationships.yml', 'r') # Accessing yaml file
+dict = yaml.safe_load(yamlFile) # Loading names of data sources into a dictionary object
+yamlFile.close() # Closing yaml file
+attck_mapping = pd.DataFrame(dict)
+attck_mapping = attck_mapping[['name','attack','behavior','security_events']]
+attck_mapping = attck_mapping.explode('security_events').reset_index(drop = True)
+
+print("[+] Merging ATT&CK framework & relationships events mapping..")
+attack = attck_mapping['attack'].apply(pd.Series)
+behavior = attck_mapping['behavior'].apply(pd.Series)
+security_events = attck_mapping['security_events'].apply(pd.Series).rename(columns={'name':'event_name','platform':'event_platform'})
+attck_mapping = pd.concat([attck_mapping,attack,behavior,security_events], axis = 1).drop(['attack','behavior','security_events'], axis = 1)
+attck_mapping = attck_mapping.reindex(columns = ['data_source', 'data_component','name','source', 'relationship','target', 'event_id', 'event_name', 'event_platform', 'audit_category','audit_sub_category','log_channel', 'log_provider'])
+attck_mapping['data_source'] = attck_mapping['data_source'].str.lower()
+attck_mapping['data_component'] = attck_mapping['data_component'].str.lower()
+
+technique_to_events = pd.merge(attck, attck_mapping, how = 'left', on = ['data_source','data_component'])
+technique_to_events_dict = technique_to_events.reset_index().to_dict(orient = 'records')
+for x in technique_to_events_dict:
+    x.pop('index')
+
+print("[+] Creating (Sub)Technqiues to Security Events mapping Yaml file..")
+with open("../docs/mitre_attack/techniques_to_events_mapping.yaml", 'w') as yamlfile:
+    data = yaml.dump(technique_to_events_dict, yamlfile,sort_keys = False, default_flow_style = False)
