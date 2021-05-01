@@ -1,0 +1,19 @@
+name: User created instance from Ip
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+behavior:
+  source: user
+  relationship: created instance from
+  target: ip
+security_events:
+- event_id: RunInstances
+  name: RunInstances
+  platform: AWS
+  audit_category: AwsApiCall
+  audit_sub_category: null
+  log_channel: null
+  log_provider: CloudTrail
+references:
+notes:
+- Potential contribution for ATT&CK - Instance / instance creation

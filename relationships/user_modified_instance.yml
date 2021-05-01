@@ -1,0 +1,20 @@
+name: User modified Instance
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+  data_source: Instance
+  data_component: instance modification
+behavior:
+  source: user
+  relationship: modified
+  target: instance
+security_events:
+- event_id: ModifyInstanceAttribute
+  name: ModifyInstanceAttribute
+  platform: AWS
+  audit_category: AwsApiCall
+  audit_sub_category: null
+  log_channel: null
+  log_provider: CloudTrail
+references:
+notes:
