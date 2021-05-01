@@ -1,0 +1,20 @@
+name: User created Instance
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+  data_source: Instance
+  data_component: instance creation
+behavior:
+  source: user
+  relationship: created
+  target: instance
+security_events:
+- event_id: RunInstances
+  name: RunInstances
+  platform: AWS
+  audit_category: AwsApiCall
+  audit_sub_category: null
+  log_channel: null
+  log_provider: CloudTrail
+references:
+notes:
