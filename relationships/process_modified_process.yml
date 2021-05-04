@@ -1,0 +1,20 @@
+name: Process modified Process
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: Process
+  data_component: process modification
+behavior:
+  source: process
+  relationship: modified
+  target: process
+security_events:
+- event_id: 8
+  name: CreateRemoteThread.
+  platform: Windows
+  audit_category: CreateRemoteThread
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon
+references:
+notes:
