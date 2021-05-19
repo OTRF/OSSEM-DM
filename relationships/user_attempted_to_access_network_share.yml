@@ -3,6 +3,8 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
+  data_source: Network Share
+  data_component: network share access
 behavior:
   source: user
   relationship: attempted to access
