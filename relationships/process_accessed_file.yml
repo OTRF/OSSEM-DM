@@ -1,0 +1,21 @@
+name: Process accessed File
+contributors:
+  - Reid Gilman @reidgilman
+attack:
+  data_source: file
+  data_component: file access
+behavior:
+  source: process
+  relationship: accessed
+  target: file
+security_events:
+  - event_id: 4663
+    name: An attempt was made to access an object.
+    platform: Windows
+    audit_category: 
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditin
+references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
+notes:
+  - Event 4663 includes the following caveat "This event generates only if object’s SACL has required ACE to handle specific access right use."
