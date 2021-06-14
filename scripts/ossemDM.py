@@ -124,3 +124,7 @@ for x in technique_to_events_dict:
 print("[+] Creating (Sub)Technqiues to Security Events mapping Yaml file..")
 with open("../use-cases/mitre_attack/techniques_to_events_mapping.yaml", 'w') as yamlfile:
     data = yaml.dump(technique_to_events_dict, yamlfile,sort_keys = False, default_flow_style = False)
+
+print("[+] Creating (Sub)Technqiues to Security Events mapping JSON file..")
+with open("../use-cases/mitre_attack/techniques_to_events_mapping.json", 'w') as jsonfile:
+    data = json.dump(technique_to_events_dict, jsonfile, indent=4)
