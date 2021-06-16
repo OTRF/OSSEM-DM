@@ -3,7 +3,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Scheduled job
+  data_source: Scheduled Job
   data_component: scheduled job modification
 behavior:
   source: user
