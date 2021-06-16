@@ -1,14 +1,14 @@
-name: User created Schedule job
+name: User created Scheduled job
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Schedule Job
-  data_component: schedule job creation
+  data_source: Scheduled Job
+  data_component: scheduled job creation
 behavior:
   source: user
   relationship: created
-  target: schedule job
+  target: scheduled job
 security_events:
 - event_id: 4698
   name: A scheduled task was created.

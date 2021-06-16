@@ -1,14 +1,14 @@
-name: User deleted Schedule job
+name: User deleted Scheduled job
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Schedule Job
-  data_component: schedule job deletion
+  data_source: Scheduled Job
+  data_component: scheduled job deletion
 behavior:
   source: user
   relationship: deleted
-  target: schedule job
+  target: scheduled job
 security_events:
 - event_id: 4699
   name: A scheduled task was deleted.

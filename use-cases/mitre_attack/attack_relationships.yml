@@ -1687,17 +1687,17 @@
     log_provider: Windows Defender Advanced Threat Protection
   references: null
   notes: null
-- name: User created Schedule job
+- name: User created Scheduled job
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Schedule Job
-    data_component: schedule job creation
+    data_source: Scheduled Job
+    data_component: scheduled job creation
   behavior:
     source: user
     relationship: created
-    target: schedule job
+    target: scheduled job
   security_events:
   - event_id: 4698
     name: A scheduled task was created.
@@ -1862,17 +1862,17 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User deleted Schedule job
+- name: User deleted Scheduled job
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Schedule Job
-    data_component: schedule job deletion
+    data_source: Scheduled Job
+    data_component: scheduled job deletion
   behavior:
     source: user
     relationship: deleted
-    target: schedule job
+    target: scheduled job
   security_events:
   - event_id: 4699
     name: A scheduled task was deleted.
@@ -1957,17 +1957,17 @@
     log_provider: Microsoft-Windows-Sysmon
   references: null
   notes: null
-- name: User disabled Schedule job
+- name: User disabled Scheduled job
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Schedule Job
-    data_component: schedule job modification
+    data_source: Scheduled Job
+    data_component: scheduled job modification
   behavior:
     source: user
     relationship: disabled
-    target: schedule job
+    target: scheduled job
   security_events:
   - event_id: 4701
     name: A scheduled task was disabled.
@@ -1999,17 +1999,17 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User enabled Schedule job
+- name: User enabled Scheduled job
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Schedule job
-    data_component: schedule job modification
+    data_source: Scheduled job
+    data_component: scheduled job modification
   behavior:
     source: user
     relationship: enabled
-    target: schedule job
+    target: scheduled job
   security_events:
   - event_id: 4700
     name: A scheduled task was enabled.
