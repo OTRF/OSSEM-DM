@@ -2,6 +2,8 @@ name: User accessed Windows registry key
 contributors:
   - Reid Gilman @reidgilman
 attack:
+  data_source: Windows Registry
+  data_component: windows registry key access
 behavior:
   source: user 
   relationship: accessed
@@ -14,28 +16,7 @@ security_events:
     audit_sub_category: Registry
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: 12
-    name: RegistryEvent (Object create and delete)
-    platform: Windows
-    audit_category: RegistryEvent
-    audit_sub_category: Object create and delete
-    log_channel: Sysmon
-    log_provider: Microsoft-Windows-Sysmon/Operational
-  - event_id: 13
-    name: RegistryEvent (Value Set)
-    platform: Windows
-    audit_category: RegistryEvent
-    audit_sub_category: Value Set
-    log_channel: Sysmon
-    log_provider: Microsoft-Windows-Sysmon/Operational
-  - event_id: 14
-    name: RegistryEvent (Key and Value Rename)
-    platform: Windows
-    audit_category: RegistryEvent
-    audit_sub_category: Key and Value Rename
-    log_channel: Sysmon
-    log_provider: Microsoft-Windows-Sysmon/Operational
 references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
-  - Sysmon events will not show access when it is only used to read a registry key. Event 4663 will report on the
-    handle opening but does not confirm that it was ever used
+  - Event 4663 includes the following caveat "This event generates only if object’s SACL has required ACE to handle specific access right use."
