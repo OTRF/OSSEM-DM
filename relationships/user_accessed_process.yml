@@ -1,11 +1,10 @@
-name: User attempted to access Process
+name: User accessed Process
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
-- Roberto Rodriguez @Cyb3rWard0g
 attack:
 behavior:
   source: user
-  relationship: attempted to access
+  relationship: accessed
   target: process
 security_events:
 - event_id: 4663
@@ -16,5 +15,7 @@ security_events:
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
 - Potential contribution for ATT&CK - Process / process access
+- Event 4663, this event generates only if object’s SACL has required ACE to handle specific access right use.
