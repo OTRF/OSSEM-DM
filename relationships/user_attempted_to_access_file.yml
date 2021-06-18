@@ -8,13 +8,6 @@ behavior:
   relationship: attempted to access
   target: file
 security_events:
-- event_id: 4663
-  name: An attempt was made to access an object.
-  platform: Windows
-  audit_category: Object Access
-  audit_sub_category: File System
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
 - event_id: 4692
   name: Backup of data protection master key was attempted.
   platform: Windows

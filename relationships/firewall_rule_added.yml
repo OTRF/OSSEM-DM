@@ -1,0 +1,20 @@
+name: Firewall Rule added
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+attack:
+behavior:
+  source: firewall rule
+  relationship: added
+  target: null
+security_events:
+- event_id: 4946
+  name: A change has been made to Windows Firewall exception list. A rule was added.
+  platform: Windows
+  audit_category: Policy Change
+  audit_sub_category: MPSSVC Rule-Level Policy Change
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4946
+notes:
+- Potential contribution for ATT&CK - Firewall / firewall metadata
