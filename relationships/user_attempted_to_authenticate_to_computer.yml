@@ -1,4 +1,4 @@
-name: User attempted to authenticate to computer
+name: User attempted to authenticate to Host
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
@@ -7,7 +7,7 @@ attack:
 behavior:
   source: user
   relationship: attempted to authenticate to
-  target: computer
+  target: host
 security_events:
 - event_id: 4624
   name: An account was successfully logged on.
