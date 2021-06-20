@@ -23,6 +23,10 @@ security_events:
   audit_sub_category: Kernel Object
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  filter_in:
+    ObjectType: Process
+    AccessList:
+      - '%%4416'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
