@@ -17,5 +17,7 @@ security_events:
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  filter_in:
+    ObjectType: Key
 references:
 note:
