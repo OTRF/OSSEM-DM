@@ -29,4 +29,7 @@ security_events:
   filter_in:
     ObjectType: SAM
 references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4661
 notes:
+  - 'Event 4656: This event generates only if object’s SACL has required ACE to handle specific access right use.'
