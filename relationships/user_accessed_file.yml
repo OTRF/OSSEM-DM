@@ -16,6 +16,8 @@ security_events:
     audit_sub_category: File System
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
+    filter_in:
+      - ObjectType: File
 references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
