@@ -1431,16 +1431,7 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
     filter_in:
-      ObjectType: File
-  - event_id: 4661
-    name: A handle to an object was requested.
-    platform: Windows
-    audit_category: Object Access
-    audit_sub_category: SAM
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-    filter_in:
-      ObjectType: SAM
+    - ObjectType: File
   references: null
   notes: null
 - name: Process requested access to Process
@@ -1463,7 +1454,7 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
     filter_in:
-      ObjectType: Process
+    - ObjectType: Process
   references: null
   notes: null
 - name: Process requested access to Windows registry key
@@ -1486,7 +1477,7 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
     filter_in:
-      ObjectType: Key
+    - ObjectType: Key
   references: null
   notes: null
 - name: Process terminated
@@ -1589,6 +1580,8 @@
     audit_sub_category: File System
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
+    filter_in:
+    - ObjectType: File
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -1610,6 +1603,8 @@
     audit_sub_category: Kernel Object
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
+    filter_in:
+    - ObjectType: Process
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -1634,6 +1629,8 @@
     audit_sub_category: Registry
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
+    filter_in:
+    - ObjectType: Key
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -3029,9 +3026,7 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
     filter_in:
-      ObjectType: Process
-      AccessList:
-      - '%%4416'
+    - ObjectType: Process
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -3057,9 +3052,7 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
     filter_in:
-      ObjectType: Key
-      AccessList:
-      - '%%4416'
+    - ObjectType: Key
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -3751,8 +3744,12 @@
     log_provider: Microsoft-Windows-Security-Auditing
     filter_in:
       ObjectType: SAM
-  references: null
-  notes: null
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4661
+  notes:
+  - "Event 4656: This event generates only if object\u2019s SACL has required ACE\
+    \ to handle specific access right use."
 - name: User requested access to Service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH

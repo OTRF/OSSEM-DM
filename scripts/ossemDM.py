@@ -112,7 +112,7 @@ attack = attck_mapping['attack'].apply(pd.Series)
 behavior = attck_mapping['behavior'].apply(pd.Series)
 security_events = attck_mapping['security_events'].apply(pd.Series).rename(columns={'name':'event_name','platform':'event_platform'})
 attck_mapping = pd.concat([attck_mapping,attack,behavior,security_events], axis = 1).drop(['attack','behavior','security_events'], axis = 1)
-attck_mapping = attck_mapping.reindex(columns = ['data_source', 'data_component','name','source', 'relationship','target', 'event_id', 'event_name', 'event_platform', 'audit_category','audit_sub_category','log_channel', 'log_provider'])
+attck_mapping = attck_mapping.reindex(columns = ['data_source', 'data_component','name','source', 'relationship','target', 'event_id', 'event_name', 'event_platform', 'audit_category','audit_sub_category','log_channel', 'log_provider','filter_in'])
 attck_mapping['data_source'] = attck_mapping['data_source'].str.lower()
 attck_mapping['data_component'] = attck_mapping['data_component'].str.lower()
 

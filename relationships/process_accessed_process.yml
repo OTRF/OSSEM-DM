@@ -24,9 +24,7 @@ security_events:
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
   filter_in:
-    ObjectType: Process
-    AccessList:
-      - '%%4416'
+    - ObjectType: Process
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
