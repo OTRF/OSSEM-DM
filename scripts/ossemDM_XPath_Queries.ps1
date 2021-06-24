@@ -1,5 +1,3 @@
-
-
 # Set current directory
 [Environment]::CurrentDirectory=(Get-Location -PSProvider FileSystem).ProviderPath
 # Set json file url
@@ -110,3 +108,33 @@ foreach ($ds in $allMappings.Keys){
     $StringWriter.ToString() | out-file $fileName
     $xmlWriter.Close()
 }
+# Creating json file with OSSEM Detection Relationship for Azure Sentinel To-Go
+$allFiles = Get-ChildItem -Path *.xml
+
+$AllDataSources = @()
+$DataSource = [ordered]@{}
+# Name of Data Source
+$DataSource['Name'] = "eventLogsDataSource"
+# Transfer Period
+$DataSource['scheduledTransferPeriod'] = "PT1M"
+# Streams
+$DataSource['streams'] = @(
+    "Microsoft-SecurityEvent"
+)
+# Process XPath Queries
+$DataSource['xPathQueries'] = @()
+foreach ($file in $allFiles){
+    [xml]$XmlQuery = Get-Content -path $file
+    $queries = $xmlQuery.QueryList.Query
+    ForEach ($query in $queries){
+        $QueryString = "$(-join ($query.Select.Path, '!', $query.Select.'#text'))"
+        if ("$QueryString" -notin $DataSource['xPathQueries']){
+            $DataSource['xPathQueries'] += $QueryString
+        } 
+    }
+}
+$AllDataSources += $DataSource
+
+@{
+    windowsEventLogs = $AllDataSources
+} | Convertto-Json -Depth 4 | Set-Content "ossem-attack.json" -Encoding UTF8
