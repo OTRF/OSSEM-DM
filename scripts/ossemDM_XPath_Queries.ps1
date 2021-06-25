@@ -8,6 +8,9 @@ $wc = new-object System.Net.WebClient
 # Download json file
 $wc.DownloadFile($uri, "techniques_to_events_mapping.json")
 
+# Read JSON File
+$mappings = Get-Content .\techniques_to_events_mapping.json | ConvertFrom-Json
+
 # Extract metadata from json file
 $allMappings = @{}
 foreach ($item in $mappings) {
@@ -137,4 +140,4 @@ $AllDataSources += $DataSource
 
 @{
     windowsEventLogs = $AllDataSources
-} | Convertto-Json -Depth 4 | Set-Content "ossem-attack.json" -Encoding UTF8
+} | Convertto-Json -Depth 4 | ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) } | Set-Content "ossem-attack.json"
