@@ -2,6 +2,7 @@ name: Process attempted connection from Port
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: Network Traffic
   data_component: network connection creation
@@ -17,5 +18,11 @@ security_events:
   audit_sub_category: Filtering Platform Connection
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+- event_id: ConnectionRequest
+  name: ConnectionRequest
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceNetworkEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:

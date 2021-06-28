@@ -1,6 +1,7 @@
 name: Process created Thread
 contributors:
   - Reid Gilman @reidgilman
+  - Olaf Hartong @olafhartong
 attack:
   data_source: Process
   data_component: process creation
@@ -15,5 +16,11 @@ security_events:
     audit_category: CreateRemoteThread
     log_channel: Microsoft-Windows-Sysmon/Operational
     log_provider: Microsoft-Windows-Sysmon
+  - event_id: CreateRemoteThreadApiCall
+    name: CreateRemoteThreadApiCall
+    platform: Windows
+    audit_category: null
+    log_channel: DeviceEvents
+    log_provider: Microsoft Defender for Endpoint
 references:
 notes:

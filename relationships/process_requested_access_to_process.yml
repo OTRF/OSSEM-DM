@@ -2,6 +2,7 @@ name: Process requested access to Process
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: Process
   data_component: process access
@@ -19,5 +20,17 @@ security_events:
   log_provider: Microsoft-Windows-Security-Auditing
   filter_in:
     - ObjectType: Process
+- event_id: 10
+  name: Process Access.
+  platform: Windows
+  audit_category: ProcessAccess
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon
+- event_id: OpenProcessApiCall
+  name: OpenProcessApiCall
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:

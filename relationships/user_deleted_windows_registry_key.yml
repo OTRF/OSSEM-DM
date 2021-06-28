@@ -2,6 +2,7 @@ name: User deleted Windows registry key
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: Windows Registry
   data_component: windows registry key deletion
@@ -17,5 +18,11 @@ security_events:
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+- event_id: RegistryKeyDeleted
+  name: RegistryKeyDeleted
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceRegistryEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:

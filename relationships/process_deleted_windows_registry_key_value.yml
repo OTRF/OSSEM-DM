@@ -2,6 +2,7 @@ name: Process deleted Windows registry key value
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: Windows Registry
   data_component: windows registry key deletion
@@ -16,5 +17,11 @@ security_events:
   audit_category: RegistryEvent
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+- event_id: RegistryValueDeleted
+  name: RegistryValueDeleted
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceRegistryEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:

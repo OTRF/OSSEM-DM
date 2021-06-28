@@ -2,6 +2,7 @@ name: Process loaded Module
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: Module
   data_component: module load
@@ -16,11 +17,11 @@ security_events:
   audit_category: ImageLoad
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
-- event_id: DeviceImageLoadEvents
-  name: DeviceImageLoadEvents
+- event_id: ImageLoaded
+  name: ImageLoaded
   platform: Windows
   audit_category: null
-  log_channel: null
-  log_provider: Windows Defender Advanced Threat Protection
+  log_channel: DeviceImageLoadEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:

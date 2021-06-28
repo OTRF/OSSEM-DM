@@ -2,6 +2,7 @@ name: User created User
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: User Account
   data_component: user account creation
@@ -17,5 +18,11 @@ security_events:
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+- event_id: UserAccountCreated
+  name: UserAccountCreated
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:

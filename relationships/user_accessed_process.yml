@@ -1,6 +1,7 @@
 name: User accessed Process
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
+- Olaf Hartong @olafhartong
 attack:
 behavior:
   source: user
@@ -16,6 +17,12 @@ security_events:
   log_provider: Microsoft-Windows-Security-Auditing
   filter_in:
       - ObjectType: Process
+- event_id: OpenProcessApiCall
+  name: OpenProcessApiCall
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
