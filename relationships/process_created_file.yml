@@ -2,6 +2,7 @@ name: Process created File
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: File
   data_component: file creation
@@ -16,11 +17,11 @@ security_events:
   audit_category: FileCreate
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
-- event_id: DeviceFileEvents
-  name: DeviceFileEvents
+- event_id: FileCreated
+  name: FileCreated
   platform: Windows
   audit_category: null
-  log_channel: null
-  log_provider: Windows Defender Advanced Threat Protection
+  log_channel: DeviceFileEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:

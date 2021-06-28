@@ -2,6 +2,7 @@ name: Process connected from Ip
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: Network Traffic
   data_component: network connection creation
@@ -23,5 +24,11 @@ security_events:
   audit_category: NetworkConnect
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+- event_id: InboundConnectionAccepted
+  name: InboundConnectionAccepted
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceNetworkEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:

@@ -2,6 +2,7 @@ name: Driver loaded
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
 behavior:
   source: driver
@@ -14,6 +15,12 @@ security_events:
   audit_category: DriverLoad
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+- event_id: DriverLoaded
+  name: DriverLoaded
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:
 - Potential contribution for ATT&CK - Driver / driver metadata

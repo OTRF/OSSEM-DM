@@ -2,6 +2,7 @@ name: Process modified File
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: File
   data_component: file modification
@@ -29,11 +30,17 @@ security_events:
   audit_sub_category: File System
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
-- event_id: DeviceFileEvents
-  name: DeviceFileEvents
+- event_id: FileModified
+  name: FileModified
   platform: Windows
   audit_category: null
-  log_channel: null
-  log_provider: Windows Defender Advanced Threat Protection
+  log_channel: DeviceFileEvents
+  log_provider: Microsoft Defender for Endpoint
+- event_id: FileRenamed
+  name: FileRenamed
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceFileEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:

@@ -28,5 +28,11 @@ security_events:
   audit_category: WmiEvent
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+- event_id: WmiBindEventFilterToConsumer
+  name: WmiBindEventFilterToConsumer
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceREvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:
