@@ -2,6 +2,7 @@ name: User executed Command
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: Command
   data_component: command execution
@@ -29,11 +30,11 @@ security_events:
   audit_category: Executing Pipeline
   log_channel: Microsoft-Windows-PowerShell/Operational
   log_provider: Microsoft-Windows-PowerShell
-- event_id: DeviceProcessEvents
-  name: DeviceProcessEvents
+- event_id: ProcessCreated
+  name: ProcessCreated
   platform: Windows
   audit_category: null
-  log_channel: null
-  log_provider: Windows Defender Advanced Threat Protection
+  log_channel: DeviceProcessEvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:

@@ -2,6 +2,7 @@ name: Wmi object created
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
 behavior:
   source: wmi object
@@ -13,6 +14,12 @@ security_events:
   platform: Windows
   log_channel: Microsoft-Windows-WMI-Activity/Operational
   log_provider: Microsoft-Windows-WMI-Activity
+- event_id: WmiBindEventFilterToConsumer
+  name: WmiBindEventFilterToConsumer
+  platform: Windows
+  audit_category: null
+  log_channel: DeviceREvents
+  log_provider: Microsoft Defender for Endpoint
 references:
 notes:
 - Potential contribution for ATT&CK - WMI / wmi metadata

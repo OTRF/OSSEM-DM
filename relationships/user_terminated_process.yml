@@ -2,6 +2,7 @@ name: User terminated Process
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
 attack:
   data_source: Process
   data_component: process termination
