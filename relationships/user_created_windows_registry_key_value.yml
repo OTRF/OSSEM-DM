@@ -8,12 +8,6 @@ behavior:
   relationship: created
   target: windows registry key value
 security_events:
-- event_id: 12
-  name: RegistryEvent (Object create and delete).
-  platform: Windows
-  audit_category: RegistryEvent
-  log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
 - event_id: RegistryValueSet
   name: RegistryValueSet
   platform: Windows
