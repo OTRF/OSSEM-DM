@@ -124,12 +124,6 @@
     audit_sub_category: Process Termination
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: 5
-    name: Process terminated.
-    platform: Windows
-    audit_category: ProcessTerminate
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
   references: null
   notes: null
 - name: User modified
@@ -156,7 +150,9 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Olaf Hartong @olafhartong
-  attack: null
+  attack:
+    data_source: Process
+    data_component: process access
   behavior:
     source: user
     relationship: accessed
@@ -372,12 +368,6 @@
     audit_category: null
     log_channel: DeviceImageLoadEvents
     log_provider: Microsoft Defender for Endpoint
-  - event_id: 7
-    name: Image loaded.
-    platform: Windows
-    audit_category: ImageLoad
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
   references: null
   notes:
   - Potential contribution for ATT&CK - Module / module load
@@ -648,7 +638,9 @@
 - name: Firewall Rule added
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
-  attack: null
+  attack:
+    data_source: Firewall
+    data_component: firewall rule modification
   behavior:
     source: firewall rule
     relationship: modified
@@ -663,8 +655,7 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4947
-  notes:
-  - Potential contribution for ATT&CK - Firewall / firewall metadata
+  notes: null
 - name: User modified Cloud service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -882,6 +873,26 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
+- name: Firewall disabled
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  attack:
+    data_source: Firewall
+    data_component: firewall disable
+  behavior:
+    source: firewall
+    relationship: disabled
+    target: null
+  security_events:
+  - event_id: 5025
+    name: The Windows Firewall Service has been stopped.
+    platform: Windows
+    audit_category: System
+    audit_sub_category: Other System Events
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references: null
+  notes: null
 - name: Process requested access to File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1014,7 +1025,9 @@
 - name: User created File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
-  attack: null
+  attack:
+    data_source: File
+    data_component: file creation
   behavior:
     source: user
     relationship: created
@@ -1027,8 +1040,7 @@
     log_channel: null
     log_provider: Windows Defender Advanced Threat Protection
   references: null
-  notes:
-  - Potential contribution for ATT&CK - File / file creation
+  notes: null
 - name: User created logon session from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1109,13 +1121,15 @@
   notes:
   - "Event 4663 includes the following caveat \"This event generates only if object\u2019\
     s SACL has required ACE to handle specific access right use.\""
-- name: Firewall started
+- name: Firewall enabled
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
-  attack: null
+  attack:
+    data_source: Firewall
+    data_component: firewall enable
   behavior:
     source: firewall
-    relationship: started
+    relationship: enabled
     target: null
   security_events:
   - event_id: 5024
@@ -1126,8 +1140,7 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
-  notes:
-  - Potential contribution for ATT&CK - Firewall / firewall metadata
+  notes: null
 - name: Process connected from Host
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1548,6 +1561,27 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
+- name: Firewall Rule added
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  attack:
+    data_source: Firewall
+    data_component: firewall rule modification
+  behavior:
+    source: firewall rule
+    relationship: removed
+    target: null
+  security_events:
+  - event_id: 4948
+    name: A change has been made to Windows Firewall exception list. A rule was deleted.
+    platform: Windows
+    audit_category: Policy Change
+    audit_sub_category: MPSSVC Rule-Level Policy Change
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4948
+  notes: null
 - name: Host blocked connection from Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1746,7 +1780,9 @@
 - name: Firewall Rule added
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
-  attack: null
+  attack:
+    data_source: Firewall
+    data_component: firewall rule modification
   behavior:
     source: firewall rule
     relationship: added
@@ -1761,8 +1797,7 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4946
-  notes:
-  - Potential contribution for ATT&CK - Firewall / firewall metadata
+  notes: null
 - name: User deleted Wmi object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1860,6 +1895,28 @@
   notes:
   - Events 4661 and 4662 require a SACL (https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists)
     to be for an object or they will not generate
+- name: Application attempted to authenticate User
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  attack:
+    data_source: User Account
+    data_component: user account authentication
+  behavior:
+    source: application
+    relationship: attempted to authenticate
+    target: user
+  security_events:
+  - event_id: ConsoleLogin
+    name: ConsoleLogin
+    platform: AWS
+    audit_category: AwsConsoleSignin
+    audit_sub_category: null
+    log_channel: null
+    log_provider: CloudTrail
+  references:
+  - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
+  notes:
+  - Potential contribution for ATT&CK - User Account / user account authentication
 - name: User stopped Cloud service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -2073,24 +2130,6 @@
     platform: Windows
     log_channel: Microsoft-Windows-WMI-Activity/Operational
     log_provider: Microsoft-Windows-WMI-Activity
-  - event_id: 19
-    name: WmiEvent (WmiEventFilter activity detected).
-    platform: Windows
-    audit_category: WmiEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
-  - event_id: 20
-    name: WmiEvent (WmiEventConsumer activity detected).
-    platform: Windows
-    audit_category: WmiEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
-  - event_id: 21
-    name: WmiEvent (WmiEventConsumerToFilter activity detected).
-    platform: Windows
-    audit_category: WmiEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
   - event_id: WmiBindEventFilterToConsumer
     name: WmiBindEventFilterToConsumer
     platform: Windows
@@ -2297,12 +2336,6 @@
     relationship: created
     target: windows registry key value
   security_events:
-  - event_id: 12
-    name: RegistryEvent (Object create and delete).
-    platform: Windows
-    audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
   - event_id: RegistryValueSet
     name: RegistryValueSet
     platform: Windows
@@ -2791,7 +2824,9 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
-  attack: null
+  attack:
+    data_source: Driver
+    data_component: driver load
   behavior:
     source: driver
     relationship: loaded
@@ -2810,28 +2845,7 @@
     log_channel: DeviceEvents
     log_provider: Microsoft Defender for Endpoint
   references: null
-  notes:
-  - Potential contribution for ATT&CK - Driver / driver metadata
-- name: Application authenticated User
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  attack: null
-  behavior:
-    source: application
-    relationship: authenticated
-    target: user
-  security_events:
-  - event_id: ConsoleLogin
-    name: ConsoleLogin
-    platform: AWS
-    audit_category: AwsConsoleSignin
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  references:
-  - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
-  notes:
-  - Potential contribution for ATT&CK - User Account / user account authentication
+  notes: null
 - name: Host blocked listener on Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -2964,25 +2978,6 @@
     audit_sub_category: null
     log_channel: null
     log_provider: CloudTrail
-  references: null
-  notes:
-  - Potential contribution for ATT&CK - Firewall / firewall metadata
-- name: Firewall stopped
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  attack: null
-  behavior:
-    source: firewall
-    relationship: stopped
-    target: null
-  security_events:
-  - event_id: 5025
-    name: The Windows Firewall Service has been stopped.
-    platform: Windows
-    audit_category: System
-    audit_sub_category: Other System Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall metadata
@@ -3373,7 +3368,9 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
-  attack: null
+  attack:
+    data_source: Logon Session
+    data_component: logon session modification
   behavior:
     source: logon session
     relationship: modified
@@ -3387,8 +3384,7 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
-  notes:
-  - Potential contribution for ATT&CK - Logon Session / logon session metadata
+  notes: null
 - name: Process executed Api call
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -3627,12 +3623,6 @@
     relationship: created
     target: windows registry key
   security_events:
-  - event_id: 12
-    name: RegistryEvent (Object create and delete).
-    platform: Windows
-    audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
   - event_id: RegistryKeyCreated
     name: RegistryKeyCreated
     platform: Windows
@@ -3645,7 +3635,9 @@
 - name: User created instance from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
-  attack: null
+  attack:
+    data_source: Instance
+    data_component: instance creation
   behavior:
     source: user
     relationship: created instance from
@@ -3659,8 +3651,7 @@
     log_channel: null
     log_provider: CloudTrail
   references: null
-  notes:
-  - Potential contribution for ATT&CK - Instance / instance creation
+  notes: null
 - name: Host blocked listener on Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -3850,26 +3841,6 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Firewall Rule added
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  attack: null
-  behavior:
-    source: firewall rule
-    relationship: deleted
-    target: null
-  security_events:
-  - event_id: 4948
-    name: A change has been made to Windows Firewall exception list. A rule was deleted.
-    platform: Windows
-    audit_category: Policy Change
-    audit_sub_category: MPSSVC Rule-Level Policy Change
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4948
-  notes:
-  - Potential contribution for ATT&CK - Firewall / firewall metadata
 - name: User added Firewall rule
   contributors:
   - Jose Rodriguez @Cyb3rPandaH

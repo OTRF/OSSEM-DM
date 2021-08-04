@@ -2,6 +2,8 @@ name: User created instance from Ip
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
+  data_source: Instance
+  data_component: instance creation
 behavior:
   source: user
   relationship: created instance from
@@ -16,4 +18,3 @@ security_events:
   log_provider: CloudTrail
 references:
 notes:
-- Potential contribution for ATT&CK - Instance / instance creation

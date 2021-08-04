@@ -2,6 +2,8 @@ name: User created File
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
+  data_source: File
+  data_component: file creation
 behavior:
   source: user
   relationship: created
@@ -15,4 +17,3 @@ security_events:
   log_provider: Windows Defender Advanced Threat Protection
 references:
 notes:
-- Potential contribution for ATT&CK - File / file creation

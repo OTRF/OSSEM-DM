@@ -1,10 +1,12 @@
-name: Application authenticated User
+name: Application attempted to authenticate User
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
+  data_source: User Account
+  data_component: user account authentication
 behavior:
   source: application
-  relationship: authenticated
+  relationship: attempted to authenticate
   target: user
 security_events:
 - event_id: ConsoleLogin

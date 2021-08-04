@@ -3,6 +3,8 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
+  data_source: Logon Session
+  data_component: logon session modification
 behavior:
   source: logon session
   relationship: modified
@@ -17,4 +19,3 @@ security_events:
   log_provider: Microsoft-Windows-Security-Auditing
 references:
 notes:
-- Potential contribution for ATT&CK - Logon Session / logon session metadata

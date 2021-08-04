@@ -2,6 +2,8 @@ name: Firewall Rule added
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
+  data_source: Firewall
+  data_component: firewall rule modification
 behavior:
   source: firewall rule
   relationship: added
@@ -17,4 +19,3 @@ security_events:
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4946
 notes:
-- Potential contribution for ATT&CK - Firewall / firewall metadata

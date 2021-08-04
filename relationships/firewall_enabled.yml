@@ -1,10 +1,12 @@
-name: Firewall started
+name: Firewall enabled
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
+  data_source: Firewall
+  data_component: firewall enable
 behavior:
   source: firewall
-  relationship: started
+  relationship: enabled
   target: null
 security_events:
 - event_id: 5024
@@ -16,4 +18,3 @@ security_events:
   log_provider: Microsoft-Windows-Security-Auditing
 references:
 notes:
-- Potential contribution for ATT&CK - Firewall / firewall metadata

@@ -3,6 +3,8 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Olaf Hartong @olafhartong
 attack:
+  data_source: Process
+  data_component: process access
 behavior:
   source: user
   relationship: accessed
