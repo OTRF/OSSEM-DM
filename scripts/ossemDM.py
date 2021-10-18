@@ -4,23 +4,30 @@
 # License: GNU General Public License v3 (GPLv3)
 
 import yaml
-import copy
 import glob
-from os import path
+import os
 import json
-from jinja2 import Template
 from attackcti import attack_client
 import pandas as pd
 from pandas import json_normalize
 pd.set_option("max_colwidth", None)
 yaml.Dumper.ignore_aliases = lambda *args : True
 
-# ******** Process Relationships yaml Files ****************
+###### Variables #####
+current_directory = os.path.dirname(__file__)
+relationships_directory = os.path.join(current_directory, '../relationships')
+usecases_directory = os.path.join(current_directory, '../use-cases')
+all_relationships_file = os.path.join(relationships_directory, '_all_ossem_relationships.yml')
+attack_relationships_file = os.path.join(usecases_directory, 'mitre_attack/attack_relationships.yml')
+attack_events_mappings_file = os.path.join(usecases_directory, 'mitre_attack/attack_events_mapping.csv')
+techniques_to_events_yaml = os.path.join(usecases_directory, 'mitre_attack/techniques_to_events_mapping.yaml')
+techniques_to_events_json = os.path.join(usecases_directory, 'mitre_attack/techniques_to_events_mapping.json')
+entities_directory = os.path.join(current_directory, "../../docs/cdm/entities")
 
 # Aggregating relationships yaml files (all relationships and ATT&CK)
 
 print("[+] Opening relationships yaml files..")
-relationships_files = glob.glob(path.join(path.dirname(__file__), "..", "relationships", "[!_]*.yml"))
+relationships_files = glob.glob(os.path.join(relationships_directory, "[!_]*.yml"))
 all_relationships_files = []
 attack_relationships_files = []
 
@@ -32,11 +39,11 @@ for relationship_file in relationships_files:
         attack_relationships_files.append(relationship_yaml)
 
 print("[+] Creating aggregated yaml file with all relationships..")
-with open(f'../relationships/_all_ossem_relationships.yml', 'w') as file:
+with open(all_relationships_file, 'w') as file:
     yaml.dump(all_relationships_files, file, sort_keys = False)
 
 print("[+] Creating aggregated yaml file with relationships mapped to ATT&CK..")
-with open(f'../use-cases/mitre_attack/attack_relationships.yml', 'w') as file:
+with open(attack_relationships_file, 'w') as file:
     yaml.dump(attack_relationships_files, file, sort_keys = False)
 
 # Creating ATT&CK data source event mappings cvs file
@@ -73,7 +80,7 @@ for dr in attack_relationships_files:
         processed_dr.append(record)
 
 header_fields = ['Data Source', 'Component', 'Source', 'Relationship', 'Target', 'EventID', 'Event Name', 'Event Platform', 'Log Provider', 'Log Channel', 'Audit Category', 'Audit Sub-Category', 'Enable Commands',  'GPO Audit Policy' ]
-with open('../use-cases/mitre_attack/attack_events_mapping.csv', 'w', newline='')  as output_file:
+with open(attack_events_mappings_file, 'w', newline='')  as output_file:
     dict_writer = csv.DictWriter(output_file, header_fields)
     dict_writer.writeheader()
     dict_writer.writerows(processed_dr)
@@ -100,7 +107,7 @@ attck['data_source'] = attck['data_source'].str.lower()
 attck['data_component'] = attck['data_component'].str.lower()
 
 print("[+] Getting ATT&CK relationships events mapping..")
-yamlFile = open('../use-cases/mitre_attack/attack_relationships.yml', 'r') # Accessing yaml file
+yamlFile = open(attack_relationships_file, 'r') # Accessing yaml file
 dict = yaml.safe_load(yamlFile) # Loading names of data sources into a dictionary object
 yamlFile.close() # Closing yaml file
 attck_mapping = pd.DataFrame(dict)
@@ -122,9 +129,9 @@ for x in technique_to_events_dict:
     x.pop('index')
 
 print("[+] Creating (Sub)Technqiues to Security Events mapping Yaml file..")
-with open("../use-cases/mitre_attack/techniques_to_events_mapping.yaml", 'w') as yamlfile:
+with open(techniques_to_events_yaml, 'w') as yamlfile:
     data = yaml.dump(technique_to_events_dict, yamlfile,sort_keys = False, default_flow_style = False)
 
 print("[+] Creating (Sub)Technqiues to Security Events mapping JSON file..")
-with open("../use-cases/mitre_attack/techniques_to_events_mapping.json", 'w') as jsonfile:
+with open(techniques_to_events_json, 'w') as jsonfile:
     data = json.dump(technique_to_events_dict, jsonfile, indent=4)

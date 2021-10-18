@@ -14,6 +14,12 @@ security_events:
   audit_category: ProcessTerminate
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+- event_id: 5
+  name: Process terminated.
+  platform: Linux
+  audit_category: ProcessTerminate
+  log_channel: Linux-Sysmon/Operational
+  log_provider: Lonux-Sysmon
 references:
 notes:
 - Potential contribution for ATT&CK - Process / process metadata

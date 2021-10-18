@@ -17,6 +17,12 @@ security_events:
   audit_category: FileDelete
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+- event_id: 23
+  name: File Delete archived.
+  platform: Linux
+  audit_category: FileDelete
+  log_channel: Linux-Sysmon/Operational
+  log_provider: Linux-Sysmon
 - event_id: 26
   name: File Delete logged.
   platform: Windows

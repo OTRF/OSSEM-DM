@@ -24,6 +24,12 @@ security_events:
   audit_category: ProcessCreate
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+- event_id: 1
+  name: Process Creation.
+  platform: Linux
+  audit_category: ProcessCreate
+  log_channel: Linux-Sysmon/Operational
+  log_provider: Linux-Sysmon
 - event_id: ProcessCreated
   name: ProcessCreated
   platform: Windows
