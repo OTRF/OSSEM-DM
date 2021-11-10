@@ -2,8 +2,6 @@ name: Firewall enabled
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Firewall
-  data_component: firewall enable
 behavior:
   source: firewall
   relationship: enabled
@@ -18,3 +16,4 @@ security_events:
   log_provider: Microsoft-Windows-Security-Auditing
 references:
 notes:
+- Potential contribution for ATT&CK - Firewall / firewall enable
