@@ -3,11 +3,19 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Olaf Hartong @olafhartong
 attack:
+  data_source: Module
+  data_component: module load
 behavior:
   source: user
   relationship: loaded
   target: module
 security_events:
+- event_id: 7
+  name: Image loaded.
+  platform: Windows
+  audit_category: ImageLoad
+  log_channel: Microsoft-Windows-Sysmon/Operational
+  log_provider: Microsoft-Windows-Sysmon
 - event_id: ImageLoaded
   name: ImageLoaded
   platform: Windows

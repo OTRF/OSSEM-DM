@@ -126,6 +126,12 @@
     log_provider: Microsoft-Windows-Security-Auditing
   - event_id: 5
     name: Process terminated.
+    platform: Windows
+    audit_category: ProcessTerminate
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  - event_id: 5
+    name: Process terminated.
     platform: Linux
     audit_category: ProcessTerminate
     log_channel: Linux-Sysmon/Operational
@@ -325,6 +331,33 @@
       ObjectType: Key
   references: null
   note: null
+- name: User loaded Module
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Olaf Hartong @olafhartong
+  attack:
+    data_source: Module
+    data_component: module load
+  behavior:
+    source: user
+    relationship: loaded
+    target: module
+  security_events:
+  - event_id: 7
+    name: Image loaded.
+    platform: Windows
+    audit_category: ImageLoad
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  - event_id: ImageLoaded
+    name: ImageLoaded
+    platform: Windows
+    audit_category: null
+    log_channel: DeviceImageLoadEvents
+    log_provider: Microsoft Defender for Endpoint
+  references: null
+  notes:
+  - Potential contribution for ATT&CK - Module / module load
 - name: User requested access to AD Object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1789,6 +1822,33 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
+- name: User created Windows registry key value
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Olaf Hartong @olafhartong
+  attack:
+    data_source: Windows Registry
+    data_component: windows registry key creation
+  behavior:
+    source: user
+    relationship: created
+    target: windows registry key value
+  security_events:
+  - event_id: 12
+    name: RegistryEvent (Object create and delete).
+    platform: Windows
+    audit_category: RegistryEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  - event_id: RegistryValueSet
+    name: RegistryValueSet
+    platform: Windows
+    audit_category: null
+    log_channel: DeviceRegistryEvents
+    log_provider: Microsoft Defender for Endpoint
+  references: null
+  notes:
+  - Potential contribution for ATT&CK - Windows Registry / windows registry key creation
 - name: User attempted to authenticate to Application
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -2193,6 +2253,12 @@
     relationship: deleted
     target: windows registry key
   security_events:
+  - event_id: 12
+    name: RegistryEvent (Object create and delete).
+    platform: Windows
+    audit_category: RegistryEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
   - event_id: 4660
     name: An object was deleted.
     platform: Windows
@@ -2921,6 +2987,33 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service metadata
+- name: User created Windows registry key
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Olaf Hartong @olafhartong
+  attack:
+    data_source: Windows Registry
+    data_component: windows registry key creation
+  behavior:
+    source: user
+    relationship: created
+    target: windows registry key
+  security_events:
+  - event_id: 12
+    name: RegistryEvent (Object create and delete).
+    platform: Windows
+    audit_category: RegistryEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  - event_id: RegistryKeyCreated
+    name: RegistryKeyCreated
+    platform: Windows
+    audit_category: null
+    log_channel: DeviceRegistryEvents
+    log_provider: Microsoft Defender for Endpoint
+  references: null
+  notes:
+  - Potential contribution for ATT&CK - Windows Registry / windows registry key creation
 - name: User created instance from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
