@@ -2,7 +2,10 @@ name: User attempted to modify User
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Ruben Bouman @rubinatorz
 attack:
+  data_source: User Account
+  data_component: user account modification
 behavior:
   source: user
   relationship: attempted to modify
@@ -24,4 +27,3 @@ security_events:
   log_provider: Microsoft-Windows-Security-Auditing
 references:
 notes:
-- Potential contribution for ATT&CK - User Account / user account modification

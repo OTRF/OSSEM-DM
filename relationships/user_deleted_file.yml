@@ -3,6 +3,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
+- Ruben Bouman @rubinatorz
 attack:
   data_source: File
   data_component: file deletion
@@ -42,5 +43,14 @@ security_events:
   audit_category: null
   log_channel: DeviceFileEvents
   log_provider: Microsoft Defender for Endpoint
+- event_id: 4663
+  name: An attempt was made to access an object.
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: File System
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
 references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
+- Event ID 4663 logs attempts of accesses to objects. Look for file creations by searching for "Accesses=Delete".
