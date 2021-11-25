@@ -53,4 +53,4 @@ security_events:
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
-- Event ID 4663 logs attempts of accesses to objects. Look for file creations by searching for "Accesses=Delete".
+- Event ID 4663 logs attempts of accesses to objects. Look for files deletion by searching for "Accesses=Delete".
