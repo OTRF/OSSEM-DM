@@ -34,4 +34,4 @@ references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
 notes:
 - Potential contribution for ATT&CK - Named Pipe / named pipe creation
-- Event ID 4656 logs handles to objects. Look for named pipe by searching for "Accesses=CreatePipeInstance".
+- Event ID 4656 logs handles to objects. Look for named pipe creation by searching for "Accesses=CreatePipeInstance".
