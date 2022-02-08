@@ -11,7 +11,7 @@ behavior:
 security_events:
   - event_id: 4662
     name: An operation was performed on an object.
-    platform: Windows
+    platform: windows
     audit_category: DS Access
     audit_sub_category: Directory Service Access
     log_channel: Security

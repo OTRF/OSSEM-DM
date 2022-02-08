@@ -11,13 +11,13 @@ behavior:
 security_events:
 - event_id: 11
   name: FileCreate.
-  platform: Linux
+  platform: linux
   audit_category: FileCreate
   log_channel: Linux-Sysmon/Operational
   log_provider: Linux-Sysmon
 - event_id: DeviceFileEvents
   name: DeviceFileEvents
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: null
   log_provider: Windows Defender Advanced Threat Protection

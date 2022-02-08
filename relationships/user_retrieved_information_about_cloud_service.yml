@@ -11,35 +11,35 @@ behavior:
 security_events:
 - event_id: GetTrail
   name: GetTrail
-  platform: AWS
+  platform: aws
   audit_category: AwsApiCall
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
 - event_id: GetTrailStatus
   name: GetTrailStatus
-  platform: AWS
+  platform: aws
   audit_category: AwsApiCall
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
 - event_id: DescribeTrails
   name: DescribeTrails
-  platform: AWS
+  platform: aws
   audit_category: AwsApiCall
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
 - event_id: GetEventSelectors
   name: GetEventSelectors
-  platform: AWS
+  platform: aws
   audit_category: AwsApiCall
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
 - event_id: GetInsightSelectors
   name: GetInsightSelectors
-  platform: AWS
+  platform: aws
   audit_category: AwsApiCall
   audit_sub_category: null
   log_channel: null

@@ -11,14 +11,14 @@ behavior:
 security_events:
 - event_id: DescribeFirewall
   name: DescribeFirewall
-  platform: AWS
+  platform: aws
   audit_category: AwsApiCall
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
 - event_id: DescribeFirewallPolicy
   name: DescribeFirewallPolicy
-  platform: AWS
+  platform: aws
   audit_category: AwsApiCall
   audit_sub_category: null
   log_channel: null

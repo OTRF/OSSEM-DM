@@ -13,26 +13,26 @@ behavior:
 security_events:
 - event_id: 4688
   name: A new process has been created.
-  platform: Windows
+  platform: windows
   audit_category: Detailed Tracking
   audit_sub_category: Process Creation
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: 1
   name: Process Creation.
-  platform: Windows
+  platform: windows
   audit_category: ProcessCreate
   log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_provider: sysmon
 - event_id: 1
   name: Process Creation.
-  platform: Windows
+  platform: windows
   audit_category: ProcessCreate
   log_channel: Linux-Sysmon/Operational
   log_provider: Linux-Sysmon
 - event_id: ProcessCreated
   name: ProcessCreated
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceProcessEvents
   log_provider: Microsoft Defender for Endpoint

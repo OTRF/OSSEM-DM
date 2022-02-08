@@ -12,13 +12,13 @@ behavior:
 security_events:
 - event_id: 7
   name: Image loaded.
-  platform: Windows
+  platform: windows
   audit_category: ImageLoad
   log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_provider: sysmon
 - event_id: ImageLoaded
   name: ImageLoaded
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceImageLoadEvents
   log_provider: Microsoft Defender for Endpoint

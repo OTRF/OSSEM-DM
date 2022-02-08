@@ -10,13 +10,13 @@ behavior:
 security_events:
 - event_id: 5
   name: Process terminated.
-  platform: Windows
+  platform: windows
   audit_category: ProcessTerminate
   log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_provider: sysmon
 - event_id: 5
   name: Process terminated.
-  platform: Linux
+  platform: linux
   audit_category: ProcessTerminate
   log_channel: Linux-Sysmon/Operational
   log_provider: Lonux-Sysmon

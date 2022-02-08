@@ -11,7 +11,7 @@ behavior:
 security_events:
 - event_id: 4948
   name: A change has been made to Windows Firewall exception list. A rule was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Policy Change
   audit_sub_category: MPSSVC Rule-Level Policy Change
   log_channel: Security

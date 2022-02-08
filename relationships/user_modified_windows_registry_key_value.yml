@@ -13,14 +13,14 @@ behavior:
 security_events:
 - event_id: 4657
   name: A registry value was modified.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: RegistryValueSet
   name: RegistryValueSet
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceRegistryEvents
   log_provider: Microsoft Defender for Endpoint

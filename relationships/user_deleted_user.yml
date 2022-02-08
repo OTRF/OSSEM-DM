@@ -13,14 +13,14 @@ behavior:
 security_events:
 - event_id: 4726
   name: A user account was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: UserAccountDeleted
   name: UserAccountDeleted
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceEvents
   log_provider: Microsoft Defender for Endpoint

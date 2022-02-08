@@ -13,14 +13,14 @@ behavior:
 security_events:
 - event_id: 4702
   name: A scheduled task was updated.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Other Object Access Events
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: ScheduledTaskUpdated
   name: ScheduledTaskUpdated
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceEvents
   log_provider: Microsoft Defender for Endpoint

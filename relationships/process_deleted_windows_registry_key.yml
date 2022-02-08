@@ -13,20 +13,20 @@ behavior:
 security_events:
 - event_id: 12
   name: RegistryEvent (Object create and delete).
-  platform: Windows
+  platform: windows
   audit_category: RegistryEvent
   log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_provider: sysmon
 - event_id: 4660
   name: An object was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: RegistryKeyDeleted
   name: RegistryKeyDeleted
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceRegistryEvents
   log_provider: Microsoft Defender for Endpoint

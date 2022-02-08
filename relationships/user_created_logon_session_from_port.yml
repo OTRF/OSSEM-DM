@@ -13,14 +13,14 @@ behavior:
 security_events:
 - event_id: 4624
   name: An account was successfully logged on.
-  platform: Windows
+  platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: LogonSuccess
   name: LogonSuccess
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceLogonEvents
   log_provider: Microsoft Defender for Endpoint

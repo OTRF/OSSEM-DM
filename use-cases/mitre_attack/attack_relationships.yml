@@ -129,7 +129,7 @@
     platform: Windows
     audit_category: ProcessTerminate
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 5
     name: Process terminated.
     platform: Linux
@@ -196,7 +196,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -348,7 +348,7 @@
     platform: Windows
     audit_category: ImageLoad
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: ImageLoaded
     name: ImageLoaded
     platform: Windows
@@ -404,7 +404,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -444,7 +444,7 @@
     platform: Windows
     audit_category: ProcessCreate
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 4103
     name: Module logging.
     platform: Windows
@@ -498,7 +498,7 @@
     platform: Windows
     audit_category: FileDelete
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 23
     name: File Delete archived.
     platform: Linux
@@ -510,7 +510,7 @@
     platform: Windows
     audit_category: FileDeleteDetected
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 4660
     name: An object was deleted.
     platform: Windows
@@ -952,7 +952,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -1013,7 +1013,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -1192,13 +1192,13 @@
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 14
     name: RegistryEvent (Key and Value Rename).
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 4657
     name: A registry value was modified.
     platform: Windows
@@ -1409,19 +1409,19 @@
     platform: Windows
     audit_category: WmiEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 20
     name: WmiEvent (WmiEventConsumer activity detected).
     platform: Windows
     audit_category: WmiEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 21
     name: WmiEvent (WmiEventConsumerToFilter activity detected).
     platform: Windows
     audit_category: WmiEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: WmiBindEventFilterToConsumer
     name: WmiBindEventFilterToConsumer
     platform: Windows
@@ -1468,19 +1468,19 @@
     platform: Windows
     audit_category: WmiEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 20
     name: WmiEvent (WmiEventConsumer activity detected).
     platform: Windows
     audit_category: WmiEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 21
     name: WmiEvent (WmiEventConsumerToFilter activity detected).
     platform: Windows
     audit_category: WmiEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   references: null
   notes: null
 - name: User removed acess from User
@@ -1667,7 +1667,7 @@
     platform: Windows
     audit_category: ServiceStateChange
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   references: null
   notes: null
 - name: User created Service
@@ -1752,7 +1752,7 @@
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: RegistryValueDeleted
     name: RegistryValueDeleted
     platform: Windows
@@ -1807,7 +1807,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -1839,7 +1839,7 @@
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: RegistryValueSet
     name: RegistryValueSet
     platform: Windows
@@ -1908,7 +1908,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -1999,7 +1999,7 @@
     platform: Windows
     audit_category: ProcessAccess
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: OpenProcessApiCall
     name: OpenProcessApiCall
     platform: Windows
@@ -2061,7 +2061,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -2219,7 +2219,7 @@
     platform: Windows
     audit_category: ProcessAccess
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 4663
     name: An attempt was made to access an object.
     platform: Windows
@@ -2258,7 +2258,7 @@
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 4660
     name: An object was deleted.
     platform: Windows
@@ -2313,7 +2313,7 @@
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: RegistryValueSet
     name: RegistryValueSet
     platform: Windows
@@ -2340,7 +2340,7 @@
     platform: Windows
     audit_category: DriverLoad
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: DriverLoaded
     name: DriverLoaded
     platform: Windows
@@ -2396,7 +2396,7 @@
     platform: Windows
     audit_category: ProcessCreate
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 1
     name: Process Creation.
     platform: Linux
@@ -2435,7 +2435,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -2517,7 +2517,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -2573,7 +2573,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -2606,7 +2606,7 @@
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 4660
     name: An object was deleted.
     platform: Windows
@@ -2640,7 +2640,7 @@
     platform: Windows
     audit_category: CreateRemoteThread
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: CreateRemoteThreadApiCall
     name: CreateRemoteThreadApiCall
     platform: Windows
@@ -2667,7 +2667,7 @@
     platform: Windows
     audit_category: FileDelete
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 23
     name: File Delete archived.
     platform: Linux
@@ -2679,7 +2679,7 @@
     platform: Windows
     audit_category: FileDeleteDetected
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 4660
     name: An object was deleted.
     platform: Windows
@@ -2748,7 +2748,7 @@
     platform: Windows
     audit_category: ProcessCreate
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 1
     name: Process Creation.
     platform: Windows
@@ -2830,7 +2830,7 @@
     platform: Windows
     audit_category: CreateRemoteThread
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: CreateRemoteThreadApiCall
     name: CreateRemoteThreadApiCall
     platform: Windows
@@ -2856,7 +2856,7 @@
     platform: Windows
     audit_category: CreateRemoteThread
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: CreateRemoteThreadApiCall
     name: CreateRemoteThreadApiCall
     platform: Windows
@@ -2883,7 +2883,7 @@
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: RegistryKeyCreated
     name: RegistryKeyCreated
     platform: Windows
@@ -2910,13 +2910,13 @@
     platform: Windows
     audit_category: FileCreateTime
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 11
     name: FileCreate.
     platform: Windows
     audit_category: FileCreate
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 4670
     name: Permissions on an object were changed.
     platform: Windows
@@ -3004,7 +3004,7 @@
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: RegistryKeyCreated
     name: RegistryKeyCreated
     platform: Windows
@@ -3102,7 +3102,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -3192,7 +3192,7 @@
     platform: Windows
     audit_category: NetworkConnect
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 3
     name: Network connection.
     platform: Linux
@@ -3429,7 +3429,7 @@
     platform: Windows
     audit_category: ProcessCreate
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 1
     name: Process Creation.
     platform: Linux
@@ -3490,13 +3490,13 @@
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 14
     name: RegistryEvent (Key and Value Rename).
     platform: Windows
     audit_category: RegistryEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 4670
     name: Permissions on an object were changed.
     platform: Windows
@@ -3530,7 +3530,7 @@
     platform: Windows
     audit_category: ImageLoad
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: ImageLoaded
     name: ImageLoaded
     platform: Windows
@@ -3584,7 +3584,7 @@
     platform: Windows
     audit_category: FileCreate
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   - event_id: 11
     name: FileCreate.
     platform: Linux
@@ -3685,7 +3685,7 @@
     platform: Windows
     audit_category: ServiceStateChange
     log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_provider: sysmon
   references: null
   notes: null
 - name: User created Logon session

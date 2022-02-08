@@ -5,13 +5,13 @@ attack:
   data_source: Windows Registry
   data_component: windows registry key access
 behavior:
-  source: user 
+  source: user
   relationship: accessed
   target: windows registry key
 security_events:
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
     log_channel: Security

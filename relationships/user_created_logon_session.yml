@@ -13,28 +13,28 @@ behavior:
 security_events:
 - event_id: 4624
   name: An account was successfully logged on.
-  platform: Windows
+  platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: 4778
   name: A session was reconnected to a Window Station.
-  platform: Windows
+  platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Other Logon/Logoff Events
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: 4964
   name: Special groups have been assigned to a new logon.
-  platform: Windows
+  platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Special Logon
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: LogonSuccess
   name: LogonSuccess
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceLogonEvents
   log_provider: Microsoft Defender for Endpoint

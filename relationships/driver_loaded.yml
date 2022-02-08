@@ -13,13 +13,13 @@ behavior:
 security_events:
 - event_id: 6
   name: Driver loaded.
-  platform: Windows
+  platform: windows
   audit_category: DriverLoad
   log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_provider: sysmon
 - event_id: DriverLoaded
   name: DriverLoaded
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceEvents
   log_provider: Microsoft Defender for Endpoint

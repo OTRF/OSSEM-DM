@@ -14,34 +14,34 @@ behavior:
 security_events:
 - event_id: 4624
   name: An account was successfully logged on.
-  platform: Windows
+  platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: 4625
   name: An account failed to log on.
-  platform: Windows
+  platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Account Lockout
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: 4648
   name: A logon was attempted using explicit credentials.
-  platform: Windows
+  platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: LogonSuccess
   name: LogonSuccess
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceLogonEvents
   log_provider: Microsoft Defender for Endpoint
 - event_id: ConsoleLogin
   name: ConsoleLogin
-  platform: AWS
+  platform: aws
   audit_category: AwsConsoleSignin
   audit_sub_category: null
   log_channel: null

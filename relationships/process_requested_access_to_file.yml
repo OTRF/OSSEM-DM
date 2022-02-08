@@ -12,7 +12,7 @@ behavior:
 security_events:
 - event_id: 4656
   name: A handle to an object was requested.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File System
   log_channel: Security

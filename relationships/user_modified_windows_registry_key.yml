@@ -13,14 +13,14 @@ behavior:
 security_events:
 - event_id: 4670
   name: Permissions on an object were changed.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: RegistryKeySet
   name: RegistryKeySet
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceRegistryEvents
   log_provider: Microsoft Defender for Endpoint

@@ -13,13 +13,13 @@ behavior:
 security_events:
 - event_id: 10
   name: ProcessAccess.
-  platform: Windows
+  platform: windows
   audit_category: ProcessAccess
   log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_provider: sysmon
 - event_id: 4663
   name: An attempt was made to access an object.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Kernel Object
   log_channel: Security
@@ -28,7 +28,7 @@ security_events:
     - ObjectType: Process
 - event_id: OpenProcessApiCall
   name: OpenProcessApiCall
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceEvents
   log_provider: Microsoft Defender for Endpoint

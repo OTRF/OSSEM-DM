@@ -9,14 +9,14 @@ behavior:
 security_events:
 - event_id: 2002
   name: A Windows Defender Firewall setting has changed.
-  platform: Windows
+  platform: windows
   audit_category: null
   audit_sub_category: null
   log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
 - event_id: 2003
   name: A Windows Defender Firewall setting in the Private profile has changed.
-  platform: Windows
+  platform: windows
   audit_category: null
   audit_sub_category: null
   log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall

@@ -5,13 +5,13 @@ attack:
   data_source: File
   data_component: file access
 behavior:
-  source: user 
+  source: user
   relationship: accessed
   target: file
 security_events:
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
     log_channel: Security

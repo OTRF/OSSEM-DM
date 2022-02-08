@@ -11,7 +11,7 @@ behavior:
 security_events:
 - event_id: ConsoleLogin
   name: ConsoleLogin
-  platform: AWS
+  platform: aws
   audit_category: AwsConsoleSignin
   audit_sub_category: null
   log_channel: null

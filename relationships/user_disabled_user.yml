@@ -13,14 +13,14 @@ behavior:
 security_events:
 - event_id: 4725
   name: A user account was disabled.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: UserAccountModified
   name: UserAccountModified
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceEvents
   log_provider: Microsoft Defender for Endpoint

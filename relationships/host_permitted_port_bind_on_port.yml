@@ -10,7 +10,7 @@ behavior:
 security_events:
 - event_id: 5158
   name: The Windows Filtering Platform has permitted a bind to a local port.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Filtering Platform Connection
   log_channel: Security

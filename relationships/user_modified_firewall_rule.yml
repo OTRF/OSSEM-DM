@@ -11,14 +11,14 @@ behavior:
 security_events:
 - event_id: 2005
   name: A rule has been modified in the Windows Defender Firewall exception list.
-  platform: Windows
+  platform: windows
   audit_category: null
   audit_sub_category: null
   log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
 - event_id: UpdateRuleGroup
   name: UpdateRuleGroup
-  platform: AWS
+  platform: aws
   audit_category: AwsApiCall
   audit_sub_category: null
   log_channel: null

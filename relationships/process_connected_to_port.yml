@@ -13,26 +13,26 @@ behavior:
 security_events:
 - event_id: 5156
   name: The Windows Filtering Platform has permitted a connection.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Filtering Platform Connection
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
 - event_id: 3
   name: Network connection.
-  platform: Windows
+  platform: windows
   audit_category: NetworkConnect
   log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_provider: sysmon
 - event_id: 3
   name: Network connection.
-  platform: Linux
+  platform: linux
   audit_category: NetworkConnect
   log_channel: Linux-Sysmon/Operational
   log_provider: Linux-Sysmon
 - event_id: ConnectionSuccess
   name: ConnectionSuccess
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceNetworkEvents
   log_provider: Microsoft Defender for Endpoint

@@ -11,12 +11,12 @@ behavior:
 security_events:
 - event_id: 5861
   name: WMI permanent event created.
-  platform: Windows
+  platform: windows
   log_channel: Microsoft-Windows-WMI-Activity/Operational
   log_provider: Microsoft-Windows-WMI-Activity
 - event_id: WmiBindEventFilterToConsumer
   name: WmiBindEventFilterToConsumer
-  platform: Windows
+  platform: windows
   audit_category: null
   log_channel: DeviceREvents
   log_provider: Microsoft Defender for Endpoint

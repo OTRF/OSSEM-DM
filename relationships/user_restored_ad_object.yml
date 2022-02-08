@@ -10,7 +10,7 @@ behavior:
 security_events:
 - event_id: 5138
   name: A directory service object was undeleted.
-  platform: Windows
+  platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Changes
   log_channel: Security

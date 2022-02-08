@@ -9,7 +9,7 @@ behavior:
 security_events:
 - event_id: UpdateRuleGroup
   name: UpdateRuleGroup
-  platform: AWS
+  platform: aws
   audit_category: AwsApiCall
   audit_sub_category: null
   log_channel: null

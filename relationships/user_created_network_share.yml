@@ -12,7 +12,7 @@ behavior:
 security_events:
 - event_id: 5142
   name: A network share object was added.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File Share
   log_channel: Security
