@@ -3,7 +3,7 @@ contributors:
   - Hamza OUADIÂ @Cyb3rSn0rlax
 attack:
   data_source: Process
-  data_component: ldap access
+  data_component: null
 behavior:
   source: process 
   relationship: searched
