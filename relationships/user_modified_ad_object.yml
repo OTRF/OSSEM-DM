@@ -2,6 +2,7 @@ name: User modified AD Object
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Ruben Bouman @rubinatorz
 attack:
   data_source: Active Directory
   data_component: active directory object modification
@@ -24,5 +25,15 @@ security_events:
   audit_sub_category: Directory Service Changes
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+- event_id: 4719
+  name: System audit policy was changed.
+  platform: Windows
+  audit_category: Policy Change
+  audit_sub_category: Policy Change
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
 references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5136
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5139
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4719
 notes:

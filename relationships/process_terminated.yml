@@ -19,7 +19,7 @@ security_events:
   platform: Linux
   audit_category: ProcessTerminate
   log_channel: Linux-Sysmon/Operational
-  log_provider: Lonux-Sysmon
+  log_provider: Linux-Sysmon
 references:
 notes:
 - Potential contribution for ATT&CK - Process / process metadata

@@ -2,6 +2,7 @@ name: User created Wmi object
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Ruben Bouman @rubinatorz
 attack:
   data_source: WMI
   data_component: wmi creation
@@ -32,7 +33,42 @@ security_events:
   name: WmiBindEventFilterToConsumer
   platform: Windows
   audit_category: null
-  log_channel: DeviceREvents
+  log_channel: DeviceEvents
   log_provider: Microsoft Defender for Endpoint
+- event_id: 5860
+  name: WMI temporary event created.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Microsoft-Windows-WMI-Activity/Operational
+  log_provider: Microsoft-Windows-WMI-Activity
+- event_id: 5861
+  name: WMI permanent event created.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Microsoft-Windows-WMI-Activity/Operational
+  log_provider: Microsoft-Windows-WMI-Activity
+- event_id: 5857
+  name: WMIProv provider started.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Microsoft-Windows-WMI-Activity/Operational
+  log_provider: Microsoft-Windows-WMI-Activity
+- event_id: 5858
+  name: WMI Query Error.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Microsoft-Windows-WMI-Activity/Operational
+  log_provider: Microsoft-Windows-WMI-Activity
+- event_id: 5859
+  name: WMI Event.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Microsoft-Windows-WMI-Activity/Operational
+  log_provider: Microsoft-Windows-WMI-Activity
 references:
 notes:

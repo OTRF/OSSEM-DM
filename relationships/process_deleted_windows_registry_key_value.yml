@@ -3,6 +3,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
+- Ruben Bouman @rubinatorz
 attack:
   data_source: Windows Registry
   data_component: windows registry key deletion
@@ -23,5 +24,13 @@ security_events:
   audit_category: null
   log_channel: DeviceRegistryEvents
   log_provider: Microsoft Defender for Endpoint
+- event_id: 4657
+  name: A registry value was modified.
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Registry
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
 references:
 notes:
+- Event ID 4657 is logged for Creation, Modification and Deletion of registry key values. Use "Operation Type=Registry value deleted" to look for deletions.

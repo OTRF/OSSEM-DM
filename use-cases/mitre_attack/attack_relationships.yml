@@ -46,6 +46,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: User Account
     data_component: user account creation
@@ -61,19 +62,29 @@
     audit_sub_category: User Account Management
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4741
+    name: A computer account was created.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Computer Account Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
   - event_id: UserAccountCreated
     name: UserAccountCreated
     platform: Windows
     audit_category: null
     log_channel: DeviceEvents
     log_provider: Microsoft Defender for Endpoint
-  references: null
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4720
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4741
   notes: null
 - name: User modified User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: User Account
     data_component: user account modification
@@ -96,13 +107,23 @@
     audit_sub_category: User Account Management
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4742
+    name: A computer account was changed.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Computer Account Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
   - event_id: UserAccountModified
     name: UserAccountModified
     platform: Windows
     audit_category: null
     log_channel: DeviceEvents
     log_provider: Microsoft Defender for Endpoint
-  references: null
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4738
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4781
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4742
   notes: null
 - name: User terminated Process
   contributors:
@@ -135,7 +156,7 @@
     platform: Linux
     audit_category: ProcessTerminate
     log_channel: Linux-Sysmon/Operational
-    log_provider: Lonux-Sysmon
+    log_provider: Linux-Sysmon
   references: null
   notes: null
 - name: User accessed Process
@@ -485,6 +506,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: File
     data_component: file deletion
@@ -524,8 +546,18 @@
     audit_category: null
     log_channel: DeviceFileEvents
     log_provider: Microsoft Defender for Endpoint
-  references: null
-  notes: null
+  - event_id: 4663
+    name: An attempt was made to access an object.
+    platform: Windows
+    audit_category: Object Access
+    audit_sub_category: File System
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
+  notes:
+  - Event ID 4663 logs attempts of accesses to objects. Look for file creations by
+    searching for "Accesses=Delete".
 - name: Host blocked listener on Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -760,6 +792,7 @@
 - name: Firewall disabled
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Firewall
     data_component: firewall disable
@@ -775,7 +808,16 @@
     audit_sub_category: Other System Events
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
-  references: null
+  - event_id: 5034
+    name: The Windows Firewall Driver was stopped.
+    platform: Windows
+    audit_category: System
+    audit_sub_category: Other System Events
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5025
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5034
   notes: null
 - name: Process requested access to File
   contributors:
@@ -799,6 +841,42 @@
     filter_in:
     - ObjectType: File
   references: null
+  notes: null
+- name: User created Group
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Group
+    data_component: group creation
+  behavior:
+    source: user
+    relationship: created
+    target: group
+  security_events:
+  - event_id: 4727
+    name: A security-enabled global group was created.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4731
+    name: A security-enabled local group was created.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4754
+    name: A security-enabled universal group was created.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4731
   notes: null
 - name: User modified File
   contributors:
@@ -851,6 +929,7 @@
 - name: User created File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: File
     data_component: file creation
@@ -871,7 +950,53 @@
     audit_category: null
     log_channel: null
     log_provider: Windows Defender Advanced Threat Protection
-  references: null
+  - event_id: 4663
+    name: An attempt was made to access an object.
+    platform: Windows
+    audit_category: Object Access
+    audit_sub_category: File System
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
+  notes:
+  - Event ID 4663 logs attempts of accesses to objects. Look for file creations by
+    searching for "Accesses=WriteData".
+- name: User deleted Group
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Group
+    data_component: group deletion
+  behavior:
+    source: user
+    relationship: deleted
+    target: group
+  security_events:
+  - event_id: 4730
+    name: A security-enabled global group was deleted.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4734
+    name: A security-enabled local group was deleted.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4758
+    name: A security-enabled universal group was deleted.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4734
   notes: null
 - name: User created logon session from Ip
   contributors:
@@ -934,6 +1059,75 @@
   notes:
   - "Event 4663 includes the following caveat \"This event generates only if object\u2019\
     s SACL has required ACE to handle specific access right use.\""
+- name: Logon Session Metadata
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Logon Session
+    data_component: logon session metadata
+  behavior:
+    source: logon session
+    relationship: metadata
+    target: null
+  security_events:
+  - event_id: 4703
+    name: A token right was adjusted.
+    platform: Windows
+    audit_category: Policy Change
+    audit_sub_category: Authorization Policy Change
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4673
+    name: A privileged service was called.
+    platform: Windows
+    audit_category: Privilege Use
+    audit_sub_category: Sensitive Privilege Use
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4674
+    name: An operation was attempted on a privileged object.
+    platform: Windows
+    audit_category: Privilege Use
+    audit_sub_category: Sensitive Privilege Use
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4610
+    name: An authentication package has been loaded by the Local Security Authority.
+    platform: Windows
+    audit_category: System
+    audit_sub_category: Security System Extension
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4611
+    name: A trusted logon process has been registered with the Local Security Authority.
+    platform: Windows
+    audit_category: System
+    audit_sub_category: Security System Extension
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4614
+    name: A notification package has been loaded by the Security Account Manager.
+    platform: Windows
+    audit_category: System
+    audit_sub_category: Security System Extension
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4622
+    name: A security package has been loaded by the Local Security Authority.
+    platform: Windows
+    audit_category: System
+    audit_sub_category: Security System Extension
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4703
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4673
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4674
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4610
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4611
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4614
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4622
+  notes: null
 - name: Process connected from Host
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1055,6 +1249,73 @@
     log_channel: DeviceLogonEvents
     log_provider: Microsoft Defender for Endpoint
   references: null
+  notes: null
+- name: Sensor Health changed
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Sensor Health
+    data_component: host status
+  behavior:
+    source: sensor health
+    relationship: changed
+    target: null
+  security_events:
+  - event_id: 1100
+    name: The event logging service has shut down.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Security
+    log_provider: Eventlog
+  - event_id: 1101
+    name: Audit events have been dropped by the transport.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Security
+    log_provider: Eventlog
+  - event_id: 1102
+    name: The audit log was cleared.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Security
+    log_provider: Eventlog
+  - event_id: 1104
+    name: The security Log is now full.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Security
+    log_provider: Eventlog
+  - event_id: 6005
+    name: The Event log service was started.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: System
+    log_provider: Eventlog
+  - event_id: 6006
+    name: The Event log service was stopped.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: System
+    log_provider: Eventlog
+  - event_id: 4616
+    name: The system time was changed.
+    platform: Windows
+    audit_category: System
+    audit_sub_category: Security State Change
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1100
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1102
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1104
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1105
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4616
   notes: null
 - name: User deleted AD Object
   contributors:
@@ -1179,6 +1440,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Windows Registry
     data_component: windows registry key modification
@@ -1213,7 +1475,9 @@
     log_channel: DeviceRegistryEvents
     log_provider: Microsoft Defender for Endpoint
   references: null
-  notes: null
+  notes:
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=Existing registry value modified" to look for modifications.
 - name: Firewall Rule added
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1259,6 +1523,7 @@
 - name: User accessed File
   contributors:
   - Reid Gilman @reidgilman
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: File
     data_component: file access
@@ -1281,6 +1546,8 @@
   notes:
   - "Event 4663 includes the following caveat \"This event generates only if object\u2019\
     s SACL has required ACE to handle specific access right use.\""
+  - Event ID 4663 logs attempts of accesses to objects. Look for file access by searching
+    for "ObjectType=File".
 - name: User modified Network share
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1396,6 +1663,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: WMI
     data_component: wmi creation
@@ -1426,8 +1694,43 @@
     name: WmiBindEventFilterToConsumer
     platform: Windows
     audit_category: null
-    log_channel: DeviceREvents
+    log_channel: DeviceEvents
     log_provider: Microsoft Defender for Endpoint
+  - event_id: 5860
+    name: WMI temporary event created.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Microsoft-Windows-WMI-Activity/Operational
+    log_provider: Microsoft-Windows-WMI-Activity
+  - event_id: 5861
+    name: WMI permanent event created.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Microsoft-Windows-WMI-Activity/Operational
+    log_provider: Microsoft-Windows-WMI-Activity
+  - event_id: 5857
+    name: WMIProv provider started.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Microsoft-Windows-WMI-Activity/Operational
+    log_provider: Microsoft-Windows-WMI-Activity
+  - event_id: 5858
+    name: WMI Query Error.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Microsoft-Windows-WMI-Activity/Operational
+    log_provider: Microsoft-Windows-WMI-Activity
+  - event_id: 5859
+    name: WMI Event.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Microsoft-Windows-WMI-Activity/Operational
+    log_provider: Microsoft-Windows-WMI-Activity
   references: null
   notes: null
 - name: Firewall Rule added
@@ -1528,6 +1831,7 @@
 - name: User accessed AD Object
   contributors:
   - Reid Gilman @reidgilman
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Active Directory
     data_component: active directory object access
@@ -1543,8 +1847,16 @@
     audit_sub_category: Directory Service Access
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4932
+    name: Synchronization of a replica of an Active Directory naming context has begun.
+    platform: Windows
+    audit_category: DS Access
+    audit_sub_category: Directory Service Replication
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4662
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4932
   notes:
   - Events 4661 and 4662 require a SACL (https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists)
     to be for an object or they will not generate
@@ -1650,6 +1962,43 @@
   notes:
   - "Event 4656: This event generates only if object\u2019s SACL has required ACE\
     \ to handle specific access right use."
+- name: Process created Pipe
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Named Pipe
+    data_component: named pipe metadata
+  behavior:
+    source: process
+    relationship: created
+    target: pipe
+  security_events:
+  - event_id: 17
+    name: PipeEvent (Pipe Created).
+    platform: Windows
+    audit_category: PipeEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  - event_id: 18
+    name: PipeEvent (Pipe Connected).
+    platform: Windows
+    audit_category: PipeEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  - event_id: 4656
+    name: A handle to an object was requested.
+    platform: Windows
+    audit_category: Object Access
+    audit_sub_category: Detailed File Share
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
+  notes:
+  - Potential contribution for ATT&CK - Named Pipe / named pipe creation
+  - Event ID 4656 logs handles to objects. Look for named pipe by searching for "Accesses=CreatePipeInstance".
 - name: Service stopped
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1669,6 +2018,51 @@
     log_channel: Microsoft-Windows-Sysmon/Operational
     log_provider: Microsoft-Windows-Sysmon
   references: null
+  notes: null
+- name: Drive modified
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Drive
+    data_component: drive modification
+  behavior:
+    source: drive
+    relationship: modified
+    target: null
+  security_events:
+  - event_id: 6419
+    name: A request was made to disable a device.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 6420
+    name: A device was disabled.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 6421
+    name: A request was made to enable a device.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 6422
+    name: A device was enabled.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6419
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6420
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6421
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6422
   notes: null
 - name: User created Service
   contributors:
@@ -1702,6 +2096,44 @@
     log_channel: DeviceEvents
     log_provider: Microsoft Defender for Endpoint
   references: null
+  notes: null
+- name: Drive created
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Drive
+    data_component: drive creation
+  behavior:
+    source: drive
+    relationship: created
+    target: null
+  security_events:
+  - event_id: 6416
+    name: A new external device was recognized by the system.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 6423
+    name: The installation of this device is forbidden by system policy.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 6424
+    name: The installation of this device was allowed, after having previously been
+      forbidden by policy.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6416
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6423
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6424
   notes: null
 - name: User requested AD Credential
   contributors:
@@ -1739,6 +2171,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Windows Registry
     data_component: windows registry key deletion
@@ -1759,8 +2192,17 @@
     audit_category: null
     log_channel: DeviceRegistryEvents
     log_provider: Microsoft Defender for Endpoint
+  - event_id: 4657
+    name: A registry value was modified.
+    platform: Windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
   references: null
-  notes: null
+  notes:
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=Registry value deleted" to look for deletions.
 - name: Process bound to Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1826,6 +2268,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Windows Registry
     data_component: windows registry key creation
@@ -1846,9 +2289,18 @@
     audit_category: null
     log_channel: DeviceRegistryEvents
     log_provider: Microsoft Defender for Endpoint
+  - event_id: 4657
+    name: A registry value was modified.
+    platform: Windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes:
   - Potential contribution for ATT&CK - Windows Registry / windows registry key creation
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=New registry value created" to look for creations.
 - name: User attempted to authenticate to Application
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1949,6 +2401,26 @@
     audit_category: null
     log_channel: DeviceEvents
     log_provider: Microsoft Defender for Endpoint
+  references: null
+  notes: null
+- name: Firewall Policy loaded
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Firewall
+    data_component: firewall metadata
+  behavior:
+    source: firewall policy
+    relationship: loaded
+    target: null
+  security_events:
+  - event_id: 2009
+    name: The Windows Firewall service failed to load Group Policy.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    log_provider: Windows Firewall With Advanced Security
   references: null
   notes: null
 - name: User requested access to Service
@@ -2121,6 +2593,7 @@
 - name: User removed Firewall rule
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Firewall
     data_component: firewall rule modification
@@ -2143,6 +2616,14 @@
     audit_sub_category: null
     log_channel: null
     log_provider: CloudTrail
+  - event_id: 2033
+    name: All rules have been deleted from the Windows Firewall configuration on this
+      computer.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
   references: null
   notes: null
 - name: User modified Schedule job
@@ -2300,6 +2781,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Windows Registry
     data_component: windows registry key creation
@@ -2320,8 +2802,17 @@
     audit_category: null
     log_channel: DeviceRegistryEvents
     log_provider: Microsoft Defender for Endpoint
+  - event_id: 4657
+    name: A registry value was modified.
+    platform: Windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
   references: null
-  notes: null
+  notes:
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=New registry value created" to look for creations.
 - name: Driver loaded
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -2371,6 +2862,86 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
+- name: User created Pipe
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Named Pipe
+    data_component: named pipe metadata
+  behavior:
+    source: user
+    relationship: created
+    target: pipe
+  security_events:
+  - event_id: 17
+    name: PipeEvent (Pipe Created).
+    platform: Windows
+    audit_category: PipeEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  - event_id: 18
+    name: PipeEvent (Pipe Connected).
+    platform: Windows
+    audit_category: PipeEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  - event_id: 4656
+    name: A handle to an object was requested.
+    platform: Windows
+    audit_category: Object Access
+    audit_sub_category: Detailed File Share
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 5145
+    name: A network share object was checked to see whether client can be granted
+      desired access.
+    platform: Windows
+    audit_category: multiple
+    audit_sub_category: multiple
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5145
+  notes:
+  - Potential contribution for ATT&CK - Named Pipe / named pipe creation
+  - Event ID 5145 logs accesses of network share objects. Look for named pipe by searching
+    for "Accesses=CreatePipeInstance".
+  - Event ID 4656 logs handles to objects. Look for named pipe by searching for "Accesses=CreatePipeInstance".
+- name: User deleted Windows registry key value
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Windows Registry
+    data_component: windows registry key deletion
+  behavior:
+    source: user
+    relationship: deleted
+    target: windows registry key value
+  security_events:
+  - event_id: 12
+    name: RegistryEvent (Object create and delete).
+    platform: Windows
+    audit_category: RegistryEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  - event_id: RegistryValueDeleted
+    name: RegistryValueDeleted
+    platform: Windows
+    audit_category: null
+    log_channel: DeviceRegistryEvents
+    log_provider: Microsoft Defender for Endpoint
+  - event_id: 4657
+    name: A registry value was modified.
+    platform: Windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references: null
+  notes:
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=Registry value deleted" to look for deletions.
 - name: Process executed Command
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -2415,6 +2986,35 @@
     audit_category: null
     log_channel: DeviceProcessEvents
     log_provider: Microsoft Defender for Endpoint
+  references: null
+  notes: null
+- name: User attempted to modify User
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: User Account
+    data_component: user account modification
+  behavior:
+    source: user
+    relationship: attempted to modify
+    target: user
+  security_events:
+  - event_id: 4723
+    name: An attempt was made to change an account's password.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: User Account Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4724
+    name: An attempt was made to reset an account's password.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: User Account Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
 - name: User connected to Port
@@ -2535,6 +3135,7 @@
 - name: Process accessed File
   contributors:
   - Reid Gilman @reidgilman
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: File
     data_component: file access
@@ -2555,6 +3156,8 @@
   notes:
   - "Event 4663 includes the following caveat \"This event generates only if object\u2019\
     s SACL has required ACE to handle specific access right use.\""
+  - Event ID 4663 logs attempts of accesses to objects. Look for file access by searching
+    for "ObjectType=File".
 - name: Process connected to Host
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -2654,6 +3257,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: File
     data_component: file deletion
@@ -2693,13 +3297,24 @@
     audit_category: null
     log_channel: DeviceFileEvents
     log_provider: Microsoft Defender for Endpoint
-  references: null
-  notes: null
+  - event_id: 4663
+    name: An attempt was made to access an object.
+    platform: Windows
+    audit_category: Object Access
+    audit_sub_category: File System
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
+  notes:
+  - Event ID 4663 logs attempts of accesses to objects. Look for file creations by
+    searching for "Accesses=Delete".
 - name: User modified Windows registry key value
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Windows Registry
     data_component: windows registry key modification
@@ -2708,6 +3323,18 @@
     relationship: modified
     target: windows registry key value
   security_events:
+  - event_id: 13
+    name: RegistryEvent (Value Set).
+    platform: Windows
+    audit_category: RegistryEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  - event_id: 14
+    name: RegistryEvent (Key and Value Rename).
+    platform: Windows
+    audit_category: RegistryEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
   - event_id: 4657
     name: A registry value was modified.
     platform: Windows
@@ -2722,7 +3349,9 @@
     log_channel: DeviceRegistryEvents
     log_provider: Microsoft Defender for Endpoint
   references: null
-  notes: null
+  notes:
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=Existing registry value modified" to look for modifications.
 - name: User created Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -3121,6 +3750,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Active Directory
     data_component: active directory object modification
@@ -3143,7 +3773,17 @@
     audit_sub_category: Directory Service Changes
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
-  references: null
+  - event_id: 4719
+    name: System audit policy was changed.
+    platform: Windows
+    audit_category: Policy Change
+    audit_sub_category: Policy Change
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5136
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5139
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4719
   notes: null
 - name: Host permitted listener on Process
   contributors:
@@ -3166,6 +3806,35 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
+  notes: null
+- name: User enumerated Group
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Group
+    data_component: group enumeration
+  behavior:
+    source: user
+    relationship: enumerated
+    target: group
+  security_events:
+  - event_id: 4798
+    name: A user's local group membership was enumerated.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: User Account Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4799
+    name: A security-enabled local group membership was enumerated.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4798
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4799
   notes: null
 - name: Process connected from Ip
   contributors:
@@ -3338,6 +4007,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Logon Session
     data_component: logon session termination
@@ -3353,7 +4023,16 @@
     audit_sub_category: Logoff
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
-  references: null
+  - event_id: 4647
+    name: User initiated logoff.
+    platform: Windows
+    audit_category: Logon/Logoff
+    audit_sub_category: Logoff
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4634
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4647
   notes: null
 - name: Host blocked connection to Ip
   contributors:
@@ -3449,6 +4128,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: User Account
     data_component: user account deletion
@@ -3464,13 +4144,22 @@
     audit_sub_category: User Account Management
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4743
+    name: A computer account was deleted.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Computer Account Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
   - event_id: UserAccountDeleted
     name: UserAccountDeleted
     platform: Windows
     audit_category: null
     log_channel: DeviceEvents
     log_provider: Microsoft Defender for Endpoint
-  references: null
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4726
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4743
   notes: null
 - name: Process modified Windows registry key
   contributors:
@@ -3571,6 +4260,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: File
     data_component: file creation
@@ -3597,8 +4287,18 @@
     audit_category: null
     log_channel: DeviceFileEvents
     log_provider: Microsoft Defender for Endpoint
-  references: null
-  notes: null
+  - event_id: 4663
+    name: An attempt was made to access an object.
+    platform: Windows
+    audit_category: Object Access
+    audit_sub_category: File System
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
+  notes:
+  - Event ID 4663 logs attempts of accesses to objects. Look for file creations by
+    searching for "Accesses=WriteData".
 - name: User retrieved information about Cloud service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -3688,11 +4388,100 @@
     log_provider: Microsoft-Windows-Sysmon
   references: null
   notes: null
+- name: User modified Group
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Group
+    data_component: group modification
+  behavior:
+    source: user
+    relationship: modified
+    target: group
+  security_events:
+  - event_id: 4737
+    name: A security-enabled global group was changed.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4728
+    name: A member was added to a security-enabled global group.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4729
+    name: A member was removed from a security-enabled global group.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4732
+    name: A member was added to a security-enabled local group.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4733
+    name: A member was removed from a security-enabled local group.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4735
+    name: A security-enabled local group was changed.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4764
+    name: A groups type was changed.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4755
+    name: A security-enabled universal group was changed.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4756
+    name: A member was added to a security-enabled universal group.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4757
+    name: A member was removed from a security-enabled universal group.
+    platform: Windows
+    audit_category: Account Management
+    audit_sub_category: Security Group Management
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4732
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4733
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4735
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4764
+  notes: null
 - name: User created Logon session
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
   attack:
     data_source: Logon Session
     data_component: logon session creation
@@ -3722,11 +4511,22 @@
     audit_sub_category: Special Logon
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 4776
+    name: The domain controller attempted to validate the credentials for an account.
+    platform: Windows
+    audit_category: Account Logon
+    audit_sub_category: Credential Validation
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
   - event_id: LogonSuccess
     name: LogonSuccess
     platform: Windows
     audit_category: null
     log_channel: DeviceLogonEvents
     log_provider: Microsoft Defender for Endpoint
-  references: null
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4778
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4964
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
   notes: null

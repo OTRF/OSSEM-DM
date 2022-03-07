@@ -1,11 +1,12 @@
 name: User accessed File
 contributors:
   - Reid Gilman @reidgilman
+  - Ruben Bouman @rubinatorz
 attack:
   data_source: File
   data_component: file access
 behavior:
-  source: user 
+  source: user
   relationship: accessed
   target: file
 security_events:
@@ -22,3 +23,4 @@ references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
   - Event 4663 includes the following caveat "This event generates only if object’s SACL has required ACE to handle specific access right use."
+  - Event ID 4663 logs attempts of accesses to objects. Look for file access by searching for "ObjectType=File".

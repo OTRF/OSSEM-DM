@@ -48,7 +48,7 @@ with open(attack_relationships_file, 'w') as file:
 
 # Creating ATT&CK data source event mappings cvs file
 print(f"[+] Creating ATT&CK data source event mappings CSV file..")
-import csv 
+import csv
 
 processed_dr = []
 
@@ -89,7 +89,7 @@ with open(attack_events_mappings_file, 'w', newline='')  as output_file:
 # ******** Creating (Sub)Techniques to Security Events mapping yaml file ****************
 
 # Getting ATT&CK - Enterprise Matrix
-print("[+] Getting ATT&CK - Enterprise form TAXII Server..")
+print("[+] Getting ATT&CK - Enterprise from TAXII Server..")
 
 # Instantiating attack_client class
 lift = attack_client()

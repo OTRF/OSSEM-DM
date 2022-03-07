@@ -1,0 +1,45 @@
+name: Drive modified
+contributors:
+- Ruben Bouman @rubinatorz
+attack:
+  data_source: Drive
+  data_component: drive modification
+behavior:
+  source: drive
+  relationship: modified
+  target: null
+security_events:
+- event_id: 6419
+  name: A request was made to disable a device.
+  platform: Windows
+  audit_category: Detailed Tracking
+  audit_sub_category: PNP Activity
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- event_id: 6420
+  name: A device was disabled.
+  platform: Windows
+  audit_category: Detailed Tracking
+  audit_sub_category: PNP Activity
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- event_id: 6421
+  name: A request was made to enable a device.
+  platform: Windows
+  audit_category: Detailed Tracking
+  audit_sub_category: PNP Activity
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+- event_id: 6422
+  name: A device was enabled.
+  platform: Windows
+  audit_category: Detailed Tracking
+  audit_sub_category: PNP Activity
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6419
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6420
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6421
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6422
+notes:

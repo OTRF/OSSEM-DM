@@ -1,0 +1,67 @@
+name: Sensor Health changed
+contributors:
+- Ruben Bouman @rubinatorz
+attack:
+  data_source: Sensor Health
+  data_component: host status
+behavior:
+  source: sensor health
+  relationship: changed
+  target: null
+security_events:
+- event_id: 1100
+  name: The event logging service has shut down.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Security
+  log_provider: Eventlog
+- event_id: 1101
+  name: Audit events have been dropped by the transport.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Security
+  log_provider: Eventlog
+- event_id: 1102
+  name: The audit log was cleared.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Security
+  log_provider: Eventlog
+- event_id: 1104
+  name: The security Log is now full.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: Security
+  log_provider: Eventlog
+- event_id: 6005
+  name: The Event log service was started.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: System
+  log_provider: Eventlog
+- event_id: 6006
+  name: The Event log service was stopped.
+  platform: Windows
+  audit_category: null
+  audit_sub_category: null
+  log_channel: System
+  log_provider: Eventlog
+- event_id: 4616
+  name: The system time was changed.
+  platform: Windows
+  audit_category: System
+  audit_sub_category: Security State Change
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1100
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1102
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1104
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1105
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4616
+notes:
