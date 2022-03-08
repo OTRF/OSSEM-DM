@@ -1,4 +1,5 @@
-- name: User attempted to authenticate from Port
+- relationship_id: REL-2022-0001
+  name: User attempted to authenticate from Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -41,7 +42,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User created User
+- relationship_id: REL-2022-0002
+  name: User created User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -79,7 +81,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4720
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4741
   notes: null
-- name: User modified User
+- relationship_id: REL-2022-0003
+  name: User modified User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -125,7 +128,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4781
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4742
   notes: null
-- name: User terminated Process
+- relationship_id: REL-2022-0004
+  name: User terminated Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -159,7 +163,8 @@
     log_provider: Linux-Sysmon
   references: null
   notes: null
-- name: User modified
+- relationship_id: REL-2022-0005
+  name: User modified
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -179,7 +184,8 @@
   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
   notes:
   - Potential contribution for ATT&CK - User Account / user account metadata
-- name: User accessed Process
+- relationship_id: REL-2022-0006
+  name: User accessed Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Olaf Hartong @olafhartong
@@ -212,7 +218,8 @@
   - Potential contribution for ATT&CK - Process / process access
   - "Event 4663, this event generates only if object\u2019s SACL has required ACE\
     \ to handle specific access right use."
-- name: Process connected from Port
+- relationship_id: REL-2022-0007
+  name: Process connected from Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -252,7 +259,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User retrieved information about Firewall
+- relationship_id: REL-2022-0008
+  name: User retrieved information about Firewall
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -279,7 +287,8 @@
     log_provider: CloudTrail
   references: null
   notes: null
-- name: User locked User
+- relationship_id: REL-2022-0009
+  name: User locked User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -300,7 +309,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Host blocked port bind on Port
+- relationship_id: REL-2022-0010
+  name: Host blocked port bind on Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -321,7 +331,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Application host started
+- relationship_id: REL-2022-0011
+  name: Application host started
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -340,7 +351,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Command / command context
-- name: Process attempted connection to Port
+- relationship_id: REL-2022-0012
+  name: Process attempted connection to Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -368,7 +380,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User requested access to Windows registry key
+- relationship_id: REL-2022-0013
+  name: User requested access to Windows registry key
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -391,7 +404,8 @@
       ObjectType: Key
   references: null
   note: null
-- name: User loaded Module
+- relationship_id: REL-2022-0014
+  name: User loaded Module
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Olaf Hartong @olafhartong
@@ -418,7 +432,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Module / module load
-- name: User requested access to AD Object
+- relationship_id: REL-2022-0015
+  name: User requested access to AD Object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -439,7 +454,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User started Application host
+- relationship_id: REL-2022-0016
+  name: User started Application host
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -458,7 +474,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Command / command execution
-- name: Process connected to Ip
+- relationship_id: REL-2022-0017
+  name: Process connected to Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -498,7 +515,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User executed Command
+- relationship_id: REL-2022-0018
+  name: User executed Command
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -538,7 +556,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User unlocked User
+- relationship_id: REL-2022-0019
+  name: User unlocked User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -559,7 +578,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Process deleted File
+- relationship_id: REL-2022-0020
+  name: Process deleted File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -616,7 +636,8 @@
   notes:
   - Event ID 4663 logs attempts of accesses to objects. Look for files deletion by
     searching for "Accesses=Delete".
-- name: User stopped cloud service from Ip
+- relationship_id: REL-2022-0021
+  name: User stopped cloud service from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -635,7 +656,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service stop - new component
-- name: Host blocked listener on Ip
+- relationship_id: REL-2022-0022
+  name: Host blocked listener on Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -657,7 +679,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Host permitted local bind on Process
+- relationship_id: REL-2022-0023
+  name: Host permitted local bind on Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -677,7 +700,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Network Traffic / network connection creation
-- name: User enabled User
+- relationship_id: REL-2022-0024
+  name: User enabled User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -705,7 +729,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Firewall Rule added
+- relationship_id: REL-2022-0025
+  name: Firewall Rule added
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -726,7 +751,8 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4947
   notes: null
-- name: User modified Cloud service
+- relationship_id: REL-2022-0026
+  name: User modified Cloud service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -746,7 +772,8 @@
     log_provider: CloudTrail
   references: null
   notes: null
-- name: User added firewall rule from Ip
+- relationship_id: REL-2022-0027
+  name: User added firewall rule from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -765,7 +792,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall rule modification
-- name: Host blocked connection from Port
+- relationship_id: REL-2022-0028
+  name: Host blocked connection from Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -793,7 +821,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process terminated
+- relationship_id: REL-2022-0029
+  name: Process terminated
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -818,7 +847,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Process / process metadata
-- name: User created Scheduled job
+- relationship_id: REL-2022-0030
+  name: User created Scheduled job
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -846,7 +876,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User modified cloud service from Ip
+- relationship_id: REL-2022-0031
+  name: User modified cloud service from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -865,7 +896,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service modification
-- name: User listed Firewall rule
+- relationship_id: REL-2022-0032
+  name: User listed Firewall rule
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -885,7 +917,8 @@
     log_provider: CloudTrail
   references: null
   notes: null
-- name: Host blocked connection to Process
+- relationship_id: REL-2022-0033
+  name: Host blocked connection to Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -921,7 +954,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User deleted Scheduled job
+- relationship_id: REL-2022-0034
+  name: User deleted Scheduled job
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -949,7 +983,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Firewall disabled
+- relationship_id: REL-2022-0035
+  name: Firewall disabled
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Ruben Bouman @rubinatorz
@@ -979,7 +1014,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5025
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5034
   notes: null
-- name: Process requested access to File
+- relationship_id: REL-2022-0036
+  name: Process requested access to File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1002,7 +1038,8 @@
     - ObjectType: File
   references: null
   notes: null
-- name: User created Group
+- relationship_id: REL-2022-0037
+  name: User created Group
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -1038,7 +1075,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4731
   notes: null
-- name: Process removed Firewall rule
+- relationship_id: REL-2022-0038
+  name: Process removed Firewall rule
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -1057,7 +1095,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall rule modification
-- name: Host permitted port bind on Ip
+- relationship_id: REL-2022-0039
+  name: Host permitted port bind on Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1077,7 +1116,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Network Traffic / network connection creation
-- name: User retrieved information about Firewall rule
+- relationship_id: REL-2022-0040
+  name: User retrieved information about Firewall rule
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -1096,7 +1136,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall metadata
-- name: User modified File
+- relationship_id: REL-2022-0041
+  name: User modified File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1123,7 +1164,8 @@
     log_provider: Windows Defender Advanced Threat Protection
   references: null
   notes: null
-- name: User granted acess to User
+- relationship_id: REL-2022-0042
+  name: User granted acess to User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1144,7 +1186,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User created File
+- relationship_id: REL-2022-0043
+  name: User created File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Ruben Bouman @rubinatorz
@@ -1182,7 +1225,8 @@
     s SACL has required ACE to handle specific access right use.\""
   - Event ID 4663 logs attempts of accesses to objects. Look for file creations by
     searching for "Accesses=WriteData".
-- name: User enabled Drive
+- relationship_id: REL-2022-0044
+  name: User enabled Drive
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -1203,7 +1247,8 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6422
   notes: null
-- name: User deleted Group
+- relationship_id: REL-2022-0045
+  name: User deleted Group
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -1239,7 +1284,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4734
   notes: null
-- name: User created logon session from Ip
+- relationship_id: REL-2022-0046
+  name: User created logon session from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1274,7 +1320,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User listed firewall rule from Ip
+- relationship_id: REL-2022-0047
+  name: User listed firewall rule from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -1293,7 +1340,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall enumeration
-- name: Process accessed Windows registry key
+- relationship_id: REL-2022-0048
+  name: Process accessed Windows registry key
   contributors:
   - Reid Gilman @reidgilman
   - Jose Rodriguez @Cyb3rPandaH
@@ -1319,10 +1367,13 @@
   notes:
   - "Event 4663 includes the following caveat \"This event generates only if object\u2019\
     s SACL has required ACE to handle specific access right use.\""
-- name: Firewall enabled
+- relationship_id: REL-2022-0049
+  name: Firewall enabled
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
-  attack: null
+  attack:
+    data_source: Firewall
+    data_component: firewall metadata
   behavior:
     source: firewall
     relationship: enabled
@@ -1338,7 +1389,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall enable
-- name: Logon Session Metadata
+- relationship_id: REL-2022-0050
+  name: Logon Session Metadata
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -1407,7 +1459,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4614
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4622
   notes: null
-- name: Process connected from Host
+- relationship_id: REL-2022-0051
+  name: Process connected from Host
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1440,7 +1493,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User attempted to authenticate to Host
+- relationship_id: REL-2022-0052
+  name: User attempted to authenticate to Host
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1475,7 +1529,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - User Account / user account authentication
-- name: User attempted to disable Drive
+- relationship_id: REL-2022-0053
+  name: User attempted to disable Drive
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -1496,7 +1551,8 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6419
   notes: null
-- name: User attempted to access File
+- relationship_id: REL-2022-0054
+  name: User attempted to access File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1516,7 +1572,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - File / file access
-- name: Application domain started
+- relationship_id: REL-2022-0055
+  name: Application domain started
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1535,7 +1592,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Command / command context
-- name: Process attempted connection to Ip
+- relationship_id: REL-2022-0056
+  name: Process attempted connection to Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1563,7 +1621,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User connected to Ip
+- relationship_id: REL-2022-0057
+  name: User connected to Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1596,7 +1655,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Host permitted port bind on Port
+- relationship_id: REL-2022-0058
+  name: Host permitted port bind on Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1616,7 +1676,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Network Traffic / network connection creation
-- name: User created logon session from Port
+- relationship_id: REL-2022-0059
+  name: User created logon session from Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1644,7 +1705,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process connected to Pipe
+- relationship_id: REL-2022-0060
+  name: Process connected to Pipe
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1666,7 +1728,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Named Pipe / named pipe connection
-- name: Sensor Health changed
+- relationship_id: REL-2022-0061
+  name: Sensor Health changed
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -1739,7 +1802,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1105
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4616
   notes: null
-- name: User modified firewall rule from Ip
+- relationship_id: REL-2022-0062
+  name: User modified firewall rule from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -1758,7 +1822,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall rule modification
-- name: User deleted AD Object
+- relationship_id: REL-2022-0063
+  name: User deleted AD Object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1779,7 +1844,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User disabled Drive
+- relationship_id: REL-2022-0064
+  name: User disabled Drive
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -1800,7 +1866,8 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6420
   notes: null
-- name: User authenticated from Ip
+- relationship_id: REL-2022-0065
+  name: User authenticated from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -1820,7 +1887,8 @@
   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
   notes:
   - Potential contribution for ATT&CK - User Account / user account authentication
-- name: Process executed Script
+- relationship_id: REL-2022-0066
+  name: Process executed Script
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1865,7 +1933,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User attempted to enable Drive
+- relationship_id: REL-2022-0067
+  name: User attempted to enable Drive
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -1886,7 +1955,8 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6421
   notes: null
-- name: Process listened on Port
+- relationship_id: REL-2022-0068
+  name: Process listened on Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1915,7 +1985,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User attempted to install Drive
+- relationship_id: REL-2022-0069
+  name: User attempted to install Drive
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -1936,7 +2007,8 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6423
   notes: null
-- name: Process requested access to Windows registry key
+- relationship_id: REL-2022-0070
+  name: Process requested access to Windows registry key
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1959,7 +2031,8 @@
     - ObjectType: Key
   references: null
   notes: null
-- name: Process modified Windows registry key value
+- relationship_id: REL-2022-0071
+  name: Process modified Windows registry key value
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2002,7 +2075,8 @@
   notes:
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
     values. Use "Operation Type=Existing registry value modified" to look for modifications.
-- name: Firewall Rule added
+- relationship_id: REL-2022-0072
+  name: Firewall Rule added
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -2023,7 +2097,8 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4948
   notes: null
-- name: Process searched LDAP
+- relationship_id: REL-2022-0073
+  name: Process searched LDAP
   contributors:
   - "Hamza OUADI\xC2 @Cyb3rSn0rlax"
   attack:
@@ -2052,7 +2127,8 @@
   notes:
   - Host-based ETW provieder for LDAP search filter performed by a process. This event
     provides valuable data like PID, search filter and attributes.
-- name: Host blocked connection from Process
+- relationship_id: REL-2022-0074
+  name: Host blocked connection from Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2073,7 +2149,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User accessed File
+- relationship_id: REL-2022-0075
+  name: User accessed File
   contributors:
   - Reid Gilman @reidgilman
   - Ruben Bouman @rubinatorz
@@ -2101,7 +2178,8 @@
     s SACL has required ACE to handle specific access right use.\""
   - Event ID 4663 logs attempts of accesses to objects. Look for file access by searching
     for "ObjectType=File".
-- name: User modified Network share
+- relationship_id: REL-2022-0076
+  name: User modified Network share
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2122,7 +2200,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User accessed Windows registry key
+- relationship_id: REL-2022-0077
+  name: User accessed Windows registry key
   contributors:
   - Reid Gilman @reidgilman
   attack:
@@ -2147,7 +2226,8 @@
   notes:
   - "Event 4663 includes the following caveat \"This event generates only if object\u2019\
     s SACL has required ACE to handle specific access right use.\""
-- name: User attempted to access Network Share
+- relationship_id: REL-2022-0078
+  name: User attempted to access Network Share
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2184,7 +2264,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Network Share / network share access
-- name: Process attempted connection from Ip
+- relationship_id: REL-2022-0079
+  name: Process attempted connection from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2212,7 +2293,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User created Wmi object
+- relationship_id: REL-2022-0080
+  name: User created Wmi object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2286,7 +2368,8 @@
     log_provider: Microsoft-Windows-WMI-Activity
   references: null
   notes: null
-- name: Firewall Rule added
+- relationship_id: REL-2022-0081
+  name: Firewall Rule added
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -2307,7 +2390,8 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4946
   notes: null
-- name: User deleted Wmi object
+- relationship_id: REL-2022-0082
+  name: User deleted Wmi object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2339,7 +2423,8 @@
     log_provider: Microsoft-Windows-Sysmon
   references: null
   notes: null
-- name: User removed acess from User
+- relationship_id: REL-2022-0083
+  name: User removed acess from User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2360,7 +2445,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Host blocked port bind on Process
+- relationship_id: REL-2022-0084
+  name: Host blocked port bind on Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2381,7 +2467,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User accessed AD Object
+- relationship_id: REL-2022-0085
+  name: User accessed AD Object
   contributors:
   - Reid Gilman @reidgilman
   - Ruben Bouman @rubinatorz
@@ -2413,7 +2500,8 @@
   notes:
   - Events 4661 and 4662 require a SACL (https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists)
     to be for an object or they will not generate
-- name: Application attempted to authenticate User
+- relationship_id: REL-2022-0086
+  name: Application attempted to authenticate User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -2435,7 +2523,8 @@
   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
   notes:
   - Potential contribution for ATT&CK - User Account / user account authentication
-- name: User stopped Cloud service
+- relationship_id: REL-2022-0087
+  name: User stopped Cloud service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -2454,7 +2543,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service stop - new component
-- name: Process added Firewall rule
+- relationship_id: REL-2022-0088
+  name: Process added Firewall rule
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -2473,7 +2563,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall rule modification
-- name: User restored AD Object
+- relationship_id: REL-2022-0089
+  name: User restored AD Object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2494,7 +2585,8 @@
   notes:
   - Potential contribution for ATT&CK - Active Directory / active directory object
     deletion
-- name: Host permitted listener on Ip
+- relationship_id: REL-2022-0090
+  name: Host permitted listener on Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2516,7 +2608,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Process attempted to listen on Port
+- relationship_id: REL-2022-0091
+  name: Process attempted to listen on Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2538,7 +2631,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User requested access to File
+- relationship_id: REL-2022-0092
+  name: User requested access to File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2574,7 +2668,8 @@
   notes:
   - "Event 4656: This event generates only if object\u2019s SACL has required ACE\
     \ to handle specific access right use."
-- name: Process created Pipe
+- relationship_id: REL-2022-0093
+  name: Process created Pipe
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2606,7 +2701,8 @@
   - Potential contribution for ATT&CK - Named Pipe / named pipe creation
   - Event ID 4656 logs handles to objects. Look for named pipe creation by searching
     for "Accesses=CreatePipeInstance".
-- name: Service stopped
+- relationship_id: REL-2022-0094
+  name: Service stopped
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2633,7 +2729,8 @@
     log_provider: Eventlog
   references: null
   notes: null
-- name: Process modified Firewall rule
+- relationship_id: REL-2022-0095
+  name: Process modified Firewall rule
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -2652,7 +2749,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall rule modification
-- name: Wmi object created
+- relationship_id: REL-2022-0096
+  name: Wmi object created
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2677,7 +2775,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - WMI / wmi metadata
-- name: User created Service
+- relationship_id: REL-2022-0097
+  name: User created Service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2710,7 +2809,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User connected to Pipe
+- relationship_id: REL-2022-0098
+  name: User connected to Pipe
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -2730,7 +2830,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Named Pipe / named pipe creation
-- name: Process requested access to AD Object
+- relationship_id: REL-2022-0099
+  name: Process requested access to AD Object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2751,7 +2852,8 @@
   notes:
   - Potential contribution for ATT&CK - Active Directory / active directory object
     access
-- name: User requested AD Credential
+- relationship_id: REL-2022-0100
+  name: User requested AD Credential
   contributors:
   - Reid Gilman @reidgilman
   attack:
@@ -2782,7 +2884,8 @@
   - https://www.cyberark.com/resources/threat-research-blog/detecting-pass-the-hash-with-windows-event-viewer
   - https://stealthbits.com/blog/how-to-detect-pass-the-hash-attacks/
   notes: null
-- name: User started Cloud service
+- relationship_id: REL-2022-0101
+  name: User started Cloud service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -2802,7 +2905,8 @@
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service start - new
     component
-- name: Process deleted Windows registry key value
+- relationship_id: REL-2022-0102
+  name: Process deleted Windows registry key value
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2839,7 +2943,8 @@
   notes:
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
     values. Use "Operation Type=Registry value deleted" to look for deletions.
-- name: Process bound to Port
+- relationship_id: REL-2022-0103
+  name: Process bound to Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2867,7 +2972,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User connected to Host
+- relationship_id: REL-2022-0104
+  name: User connected to Host
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -2900,7 +3006,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User created Windows registry key value
+- relationship_id: REL-2022-0105
+  name: User created Windows registry key value
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Olaf Hartong @olafhartong
@@ -2937,7 +3044,8 @@
   - Potential contribution for ATT&CK - Windows Registry / windows registry key creation
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
     values. Use "Operation Type=New registry value created" to look for creations.
-- name: User attempted to authenticate to Application
+- relationship_id: REL-2022-0106
+  name: User attempted to authenticate to Application
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -2958,7 +3066,8 @@
   references:
   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
   notes: null
-- name: User created Instance
+- relationship_id: REL-2022-0107
+  name: User created Instance
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -2978,7 +3087,8 @@
     log_provider: CloudTrail
   references: null
   notes: null
-- name: User connected from Port
+- relationship_id: REL-2022-0108
+  name: User connected from Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3011,7 +3121,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User disabled User
+- relationship_id: REL-2022-0109
+  name: User disabled User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3039,7 +3150,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User requested access to Service
+- relationship_id: REL-2022-0110
+  name: User requested access to Service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3060,7 +3172,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Process requested access to Process
+- relationship_id: REL-2022-0111
+  name: Process requested access to Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3096,7 +3209,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process attempted connection from Port
+- relationship_id: REL-2022-0112
+  name: Process attempted connection from Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3124,7 +3238,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process connected to Port
+- relationship_id: REL-2022-0113
+  name: Process connected to Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3164,7 +3279,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User installed Drive
+- relationship_id: REL-2022-0114
+  name: User installed Drive
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -3194,7 +3310,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6416
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6424
   notes: null
-- name: Host permitted listener on Port
+- relationship_id: REL-2022-0115
+  name: Host permitted listener on Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3216,7 +3333,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User removed firewall rule from Ip
+- relationship_id: REL-2022-0116
+  name: User removed firewall rule from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -3235,7 +3353,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall rule modification
-- name: User modified Instance
+- relationship_id: REL-2022-0117
+  name: User modified Instance
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -3255,7 +3374,8 @@
     log_provider: CloudTrail
   references: null
   notes: null
-- name: User removed Firewall rule
+- relationship_id: REL-2022-0118
+  name: User removed Firewall rule
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Ruben Bouman @rubinatorz
@@ -3291,7 +3411,8 @@
     log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
   references: null
   notes: null
-- name: User modified Schedule job
+- relationship_id: REL-2022-0119
+  name: User modified Schedule job
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3319,7 +3440,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User modified Windows registry key
+- relationship_id: REL-2022-0120
+  name: User modified Windows registry key
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3347,7 +3469,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process accessed Process
+- relationship_id: REL-2022-0121
+  name: Process accessed Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3386,7 +3509,8 @@
   notes:
   - "Event 4663, this event generates only if object\u2019s SACL has required ACE\
     \ to handle specific access right use."
-- name: User attempted to authenticate from Device
+- relationship_id: REL-2022-0122
+  name: User attempted to authenticate from Device
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -3408,7 +3532,8 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
   notes: null
-- name: User deleted Windows registry key
+- relationship_id: REL-2022-0123
+  name: User deleted Windows registry key
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3442,7 +3567,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Host blocked port bind on Ip
+- relationship_id: REL-2022-0124
+  name: Host blocked port bind on Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3463,7 +3589,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Process created Windows registry key value
+- relationship_id: REL-2022-0125
+  name: Process created Windows registry key value
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3500,7 +3627,8 @@
   notes:
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
     values. Use "Operation Type=New registry value created" to look for creations.
-- name: Driver loaded
+- relationship_id: REL-2022-0126
+  name: Driver loaded
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3527,7 +3655,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Firewall attempted to load Policy
+- relationship_id: REL-2022-0127
+  name: Firewall attempted to load Policy
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -3547,7 +3676,8 @@
     log_provider: Windows Firewall With Advanced Security
   references: null
   notes: null
-- name: Host blocked listener on Process
+- relationship_id: REL-2022-0128
+  name: Host blocked listener on Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3569,7 +3699,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User created Pipe
+- relationship_id: REL-2022-0129
+  name: User created Pipe
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -3609,7 +3740,8 @@
   - Event ID 5145 logs accesses of network share objects. Look for named pipe by searching
     for "Accesses=CreatePipeInstance".
   - Event ID 4656 logs handles to objects. Look for named pipe by searching for "Accesses=CreatePipeInstance".
-- name: User deleted Windows registry key value
+- relationship_id: REL-2022-0130
+  name: User deleted Windows registry key value
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -3643,7 +3775,8 @@
   notes:
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
     values. Use "Operation Type=Registry value deleted" to look for deletions.
-- name: Process executed Command
+- relationship_id: REL-2022-0131
+  name: Process executed Command
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3689,7 +3822,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User attempted to log off from host
+- relationship_id: REL-2022-0132
+  name: User attempted to log off from host
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3709,7 +3843,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Logon Session / logon session termination
-- name: User attempted to modify User
+- relationship_id: REL-2022-0133
+  name: User attempted to modify User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3738,7 +3873,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User retrieved information about firewall from Ip
+- relationship_id: REL-2022-0134
+  name: User retrieved information about firewall from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -3764,7 +3900,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall metadata
-- name: User connected to Port
+- relationship_id: REL-2022-0135
+  name: User connected to Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3797,7 +3934,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User created AD Object
+- relationship_id: REL-2022-0136
+  name: User created AD Object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3818,7 +3956,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Host blocked connection to Port
+- relationship_id: REL-2022-0137
+  name: Host blocked connection to Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3846,7 +3985,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User connected from Host
+- relationship_id: REL-2022-0138
+  name: User connected from Host
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3879,7 +4019,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process accessed File
+- relationship_id: REL-2022-0139
+  name: Process accessed File
   contributors:
   - Reid Gilman @reidgilman
   - Ruben Bouman @rubinatorz
@@ -3905,7 +4046,8 @@
     s SACL has required ACE to handle specific access right use.\""
   - Event ID 4663 logs attempts of accesses to objects. Look for file access by searching
     for "ObjectType=File".
-- name: User retrieved information about firewall rule from Ip
+- relationship_id: REL-2022-0140
+  name: User retrieved information about firewall rule from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -3924,7 +4066,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall metadata
-- name: Process connected to Host
+- relationship_id: REL-2022-0141
+  name: Process connected to Host
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3957,7 +4100,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process deleted Windows registry key
+- relationship_id: REL-2022-0142
+  name: Process deleted Windows registry key
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -3991,7 +4135,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process modified Process
+- relationship_id: REL-2022-0143
+  name: Process modified Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4018,7 +4163,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User deleted File
+- relationship_id: REL-2022-0144
+  name: User deleted File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4075,7 +4221,8 @@
   notes:
   - Event ID 4663 logs attempts of accesses to objects. Look for file creations by
     searching for "Accesses=Delete".
-- name: User modified Windows registry key value
+- relationship_id: REL-2022-0145
+  name: User modified Windows registry key value
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4118,7 +4265,8 @@
   notes:
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
     values. Use "Operation Type=Existing registry value modified" to look for modifications.
-- name: User created Process
+- relationship_id: REL-2022-0146
+  name: User created Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4158,7 +4306,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User started cloud service from Ip
+- relationship_id: REL-2022-0147
+  name: User started cloud service from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -4178,7 +4327,8 @@
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service start - new
     component
-- name: User enabled Scheduled job
+- relationship_id: REL-2022-0148
+  name: User enabled Scheduled job
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4206,7 +4356,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Logon Session modified
+- relationship_id: REL-2022-0149
+  name: Logon Session modified
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4227,7 +4378,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Process executed Api call
+- relationship_id: REL-2022-0150
+  name: Process executed Api call
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4254,7 +4406,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process executed Dns query
+- relationship_id: REL-2022-0151
+  name: Process executed Dns query
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4280,7 +4433,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Network Traffic / network traffic content
-- name: User modified Firewall
+- relationship_id: REL-2022-0152
+  name: User modified Firewall
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -4307,7 +4461,8 @@
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall modification (New data
     component and relationship)
-- name: Process created Thread
+- relationship_id: REL-2022-0153
+  name: Process created Thread
   contributors:
   - Reid Gilman @reidgilman
   - Olaf Hartong @olafhartong
@@ -4333,7 +4488,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process created Windows registry key
+- relationship_id: REL-2022-0154
+  name: Process created Windows registry key
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4360,7 +4516,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process modified File
+- relationship_id: REL-2022-0155
+  name: Process modified File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4406,7 +4563,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User retrieved information about cloud service from Ip
+- relationship_id: REL-2022-0156
+  name: User retrieved information about cloud service from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -4455,7 +4613,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service metadata
-- name: User created Windows registry key
+- relationship_id: REL-2022-0157
+  name: User created Windows registry key
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Olaf Hartong @olafhartong
@@ -4482,7 +4641,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Windows Registry / windows registry key creation
-- name: User created instance from Ip
+- relationship_id: REL-2022-0158
+  name: User created instance from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -4502,7 +4662,8 @@
     log_provider: CloudTrail
   references: null
   notes: null
-- name: Host blocked listener on Port
+- relationship_id: REL-2022-0159
+  name: Host blocked listener on Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4524,7 +4685,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Host blocked connection from Ip
+- relationship_id: REL-2022-0160
+  name: Host blocked connection from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4552,7 +4714,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User connected from Ip
+- relationship_id: REL-2022-0161
+  name: User connected from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4585,7 +4748,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User modified AD Object
+- relationship_id: REL-2022-0162
+  name: User modified AD Object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4624,7 +4788,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5139
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4719
   notes: null
-- name: User authenticated from Device
+- relationship_id: REL-2022-0163
+  name: User authenticated from Device
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -4646,7 +4811,8 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
   notes: null
-- name: Host permitted listener on Process
+- relationship_id: REL-2022-0164
+  name: Host permitted listener on Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4668,7 +4834,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User enumerated Group
+- relationship_id: REL-2022-0165
+  name: User enumerated Group
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -4697,7 +4864,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4798
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4799
   notes: null
-- name: Process connected from Ip
+- relationship_id: REL-2022-0166
+  name: Process connected from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4737,7 +4905,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User disabled Scheduled job
+- relationship_id: REL-2022-0167
+  name: User disabled Scheduled job
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4765,7 +4934,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User added Firewall rule
+- relationship_id: REL-2022-0168
+  name: User added Firewall rule
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -4792,7 +4962,8 @@
     log_provider: CloudTrail
   references: null
   notes: null
-- name: User created Network Share
+- relationship_id: REL-2022-0169
+  name: User created Network Share
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4813,7 +4984,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: User attempted to authenticate from Ip
+- relationship_id: REL-2022-0170
+  name: User attempted to authenticate from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4864,7 +5036,8 @@
   references:
   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
   notes: null
-- name: User modified instance from Ip
+- relationship_id: REL-2022-0171
+  name: User modified instance from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -4883,7 +5056,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Instance / instance modification
-- name: User terminated Logon session
+- relationship_id: REL-2022-0172
+  name: User terminated Logon session
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4914,7 +5088,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4634
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4647
   notes: null
-- name: Host blocked connection to Ip
+- relationship_id: REL-2022-0173
+  name: Host blocked connection to Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4942,7 +5117,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User deleted Network share
+- relationship_id: REL-2022-0174
+  name: User deleted Network share
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4963,7 +5139,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Process created Process
+- relationship_id: REL-2022-0175
+  name: Process created Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -5003,7 +5180,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User deleted User
+- relationship_id: REL-2022-0176
+  name: User deleted User
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -5041,7 +5219,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4726
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4743
   notes: null
-- name: Process modified Windows registry key
+- relationship_id: REL-2022-0177
+  name: Process modified Windows registry key
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -5081,7 +5260,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Process loaded Module
+- relationship_id: REL-2022-0178
+  name: Process loaded Module
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -5108,7 +5288,8 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: User modified Firewall rule
+- relationship_id: REL-2022-0179
+  name: User modified Firewall rule
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -5135,7 +5316,8 @@
     log_provider: CloudTrail
   references: null
   notes: null
-- name: Process modified Firewall
+- relationship_id: REL-2022-0180
+  name: Process modified Firewall
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack: null
@@ -5162,7 +5344,8 @@
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall modification (New data
     component and relationship)
-- name: Process created File
+- relationship_id: REL-2022-0181
+  name: Process created File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -5206,7 +5389,8 @@
   notes:
   - Event ID 4663 logs attempts of accesses to objects. Look for file creations by
     searching for "Accesses=WriteData".
-- name: User retrieved information about Cloud service
+- relationship_id: REL-2022-0182
+  name: User retrieved information about Cloud service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
@@ -5254,7 +5438,8 @@
     log_provider: CloudTrail
   references: null
   notes: null
-- name: Process attempted to bind on Port
+- relationship_id: REL-2022-0183
+  name: Process attempted to bind on Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -5275,7 +5460,8 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
-- name: Service started
+- relationship_id: REL-2022-0184
+  name: Service started
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -5302,7 +5488,8 @@
     log_provider: Eventlog
   references: null
   notes: null
-- name: User modified Group
+- relationship_id: REL-2022-0185
+  name: User modified Group
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
@@ -5390,7 +5577,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4735
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4764
   notes: null
-- name: User created Logon session
+- relationship_id: REL-2022-0186
+  name: User created Logon session
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g

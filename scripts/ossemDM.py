@@ -9,9 +9,12 @@ import os
 import json
 from attackcti import attack_client
 import pandas as pd
-from pandas import json_normalize
+from pandas import NA, json_normalize
 pd.set_option("max_colwidth", None)
 yaml.Dumper.ignore_aliases = lambda *args : True
+# To avoid taxi logs when downloading the framework
+import logging
+logging.getLogger('taxii2client').setLevel(logging.CRITICAL)
 
 ###### Variables #####
 current_directory = os.path.dirname(__file__)
@@ -60,6 +63,7 @@ for dr in attack_relationships_files:
         record['Source'] = dr['behavior']['source']
         record['Relationship'] = dr['behavior']['relationship']
         record['Target'] = dr['behavior']['target']
+        record['OSSEM Id'] = dr['relationship_id']
         record['EventID'] = t['event_id']
         record['Event Name'] = t['name']
         record['Event Platform'] = t['platform']
@@ -79,7 +83,7 @@ for dr in attack_relationships_files:
             record['GPO Audit Policy'] = None
         processed_dr.append(record)
 
-header_fields = ['Data Source', 'Component', 'Source', 'Relationship', 'Target', 'EventID', 'Event Name', 'Event Platform', 'Log Provider', 'Log Channel', 'Audit Category', 'Audit Sub-Category', 'Enable Commands',  'GPO Audit Policy' ]
+header_fields = ['Data Source', 'Component', 'Source', 'Relationship', 'Target', 'OSSEM Id', 'EventID', 'Event Name', 'Event Platform', 'Log Provider', 'Log Channel', 'Audit Category', 'Audit Sub-Category', 'Enable Commands',  'GPO Audit Policy' ]
 with open(attack_events_mappings_file, 'w', newline='')  as output_file:
     dict_writer = csv.DictWriter(output_file, header_fields)
     dict_writer.writeheader()
@@ -94,13 +98,19 @@ print("[+] Getting ATT&CK - Enterprise from TAXII Server..")
 # Instantiating attack_client class
 lift = attack_client()
 # Getting techniques for windows platform - enterprise matrix
-attck = lift.get_enterprise_techniques(stix_format = False)
+attck = lift.get_enterprise_techniques(stix_format = False, enrich_data_sources=True)
 # Creating Dataframe
 attck = json_normalize(attck)
 attck = attck[['technique_id','is_subtechnique','technique','tactic','platform','data_sources']]
+# Exploding List of data source objects
 attck = attck.explode('data_sources').reset_index(drop = True)
-attck[['data_source','data_component']] = attck.data_sources.str.split(pat = ": ", expand = True)
-attck = attck.drop(columns = ['data_sources'])
+data_source_component = attck['data_sources'].apply(pd.Series)[['name','data_components']].rename(columns={'name':'data_source','data_components':'data_component_data'})
+attck = pd.concat([attck,data_source_component],axis=1).drop(columns=['data_sources'])
+# Exploding List of data_components
+attck = attck.explode('data_component_data').reset_index(drop = True)
+component_data = attck['data_component_data'].apply(pd.Series)[['name']].rename(columns={'name':'data_component'})
+attck = pd.concat([attck,component_data],axis=1).drop(columns=['data_component_data'])
+# Data Sources and Data Components to lowercase --> to merge with mapping
 attck['data_source'] = attck['data_source'].str.lower()
 attck['data_component'] = attck['data_component'].str.lower()
 
@@ -109,7 +119,7 @@ yamlFile = open(attack_relationships_file, 'r') # Accessing yaml file
 dict = yaml.safe_load(yamlFile) # Loading names of data sources into a dictionary object
 yamlFile.close() # Closing yaml file
 attck_mapping = pd.DataFrame(dict)
-attck_mapping = attck_mapping[['name','attack','behavior','security_events']]
+attck_mapping = attck_mapping[['relationship_id','name','attack','behavior','security_events']]
 attck_mapping = attck_mapping.explode('security_events').reset_index(drop = True)
 
 print("[+] Merging ATT&CK framework & relationships events mapping..")
@@ -117,12 +127,17 @@ attack = attck_mapping['attack'].apply(pd.Series)
 behavior = attck_mapping['behavior'].apply(pd.Series)
 security_events = attck_mapping['security_events'].apply(pd.Series).rename(columns={'name':'event_name','platform':'event_platform'})
 attck_mapping = pd.concat([attck_mapping,attack,behavior,security_events], axis = 1).drop(['attack','behavior','security_events'], axis = 1)
-attck_mapping = attck_mapping.reindex(columns = ['data_source', 'data_component','name','source', 'relationship','target', 'event_id', 'event_name', 'event_platform', 'audit_category','audit_sub_category','log_channel', 'log_provider','filter_in'])
+attck_mapping = attck_mapping.reindex(columns = ['data_source', 'data_component','relationship_id','name','source', 'relationship','target', 'event_id', 'event_name', 'event_platform', 'audit_category','audit_sub_category','log_channel', 'log_provider','filter_in'])
 attck_mapping['data_source'] = attck_mapping['data_source'].str.lower()
 attck_mapping['data_component'] = attck_mapping['data_component'].str.lower()
 
-technique_to_events = pd.merge(attck, attck_mapping, how = 'left', on = ['data_source','data_component'])
-technique_to_events_dict = technique_to_events.reset_index().to_dict(orient = 'records')
+# Merging dataframes
+technique_to_events = pd.merge(attck, attck_mapping, how = 'left', on = ['data_source','data_component']).dropna(axis=0,how='any',subset='name')
+technique_to_events['Event_Platform_In_Technique'] = technique_to_events[['platform','event_platform']].apply(lambda x: 'yes' if x['event_platform'] in x['platform'] else 'no', axis=1)
+technique_to_events = technique_to_events[technique_to_events['Event_Platform_In_Technique'] == 'yes']
+technique_to_events_dict = technique_to_events.drop(columns=['Event_Platform_In_Technique']).reset_index().to_dict(orient = 'records')
+
+# Removing index from dictionary
 for x in technique_to_events_dict:
     x.pop('index')
 
