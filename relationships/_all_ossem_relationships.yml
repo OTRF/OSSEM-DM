@@ -614,7 +614,7 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
-  - Event ID 4663 logs attempts of accesses to objects. Look for file creations by
+  - Event ID 4663 logs attempts of accesses to objects. Look for files deletion by
     searching for "Accesses=Delete".
 - name: User stopped cloud service from Ip
   contributors:
@@ -1178,8 +1178,31 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
+  - "Event 4663 includes the following caveat \"This event generates only if object\u2019\
+    s SACL has required ACE to handle specific access right use.\""
   - Event ID 4663 logs attempts of accesses to objects. Look for file creations by
     searching for "Accesses=WriteData".
+- name: User enabled Drive
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Drive
+    data_component: drive modification
+  behavior:
+    source: user
+    relationship: enabled
+    target: drive
+  security_events:
+  - event_id: 6422
+    name: A device was enabled.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6422
+  notes: null
 - name: User deleted Group
   contributors:
   - Ruben Bouman @rubinatorz
@@ -1452,6 +1475,27 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - User Account / user account authentication
+- name: User attempted to disable Drive
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Drive
+    data_component: drive modification
+  behavior:
+    source: user
+    relationship: attempted to disable
+    target: drive
+  security_events:
+  - event_id: 6419
+    name: A request was made to disable a device.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6419
+  notes: null
 - name: User attempted to access File
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1604,7 +1648,10 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
-  attack: null
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Named Pipe
+    data_component: named pipe metadata
   behavior:
     source: process
     relationship: connected to
@@ -1630,6 +1677,12 @@
     relationship: changed
     target: null
   security_events:
+  - event_id: 4
+    name: Sysmon service state changed.
+    platform: Windows
+    audit_category: ServiceStateChange
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
   - event_id: 1100
     name: The event logging service has shut down.
     platform: Windows
@@ -1726,6 +1779,27 @@
     log_provider: Microsoft-Windows-Security-Auditing
   references: null
   notes: null
+- name: User disabled Drive
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Drive
+    data_component: drive modification
+  behavior:
+    source: user
+    relationship: disabled
+    target: drive
+  security_events:
+  - event_id: 6420
+    name: A device was disabled.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6420
+  notes: null
 - name: User authenticated from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1791,6 +1865,27 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
+- name: User attempted to enable Drive
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Drive
+    data_component: drive modification
+  behavior:
+    source: user
+    relationship: attempted to enable
+    target: drive
+  security_events:
+  - event_id: 6421
+    name: A request was made to enable a device.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6421
+  notes: null
 - name: Process listened on Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -1819,6 +1914,27 @@
     log_channel: DeviceNetworkEvents
     log_provider: Microsoft Defender for Endpoint
   references: null
+  notes: null
+- name: User attempted to install Drive
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Drive
+    data_component: drive creation
+  behavior:
+    source: user
+    relationship: attempted to install
+    target: drive
+  security_events:
+  - event_id: 6423
+    name: The installation of this device is forbidden by system policy.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6423
   notes: null
 - name: Process requested access to Windows registry key
   contributors:
@@ -1907,6 +2023,35 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4948
   notes: null
+- name: Process searched LDAP
+  contributors:
+  - "Hamza OUADI\xC2 @Cyb3rSn0rlax"
+  attack:
+    data_source: Process
+    data_component: null
+  behavior:
+    source: process
+    relationship: searched
+    target: ldap
+  security_events:
+  - event_id: 30
+    name: EventID(30)
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Microsoft-Windows-LDAP-Client/Debug
+    log_provider: Microsoft-Windows-LDAP-Client
+  - event_id: LdapSearch
+    name: LdapSearch
+    platform: Windows
+    audit_category: null
+    log_channel: DeviceEvents
+    log_provider: Microsoft Defender for Endpoint
+  references:
+  - null
+  notes:
+  - Host-based ETW provieder for LDAP search filter performed by a process. This event
+    provides valuable data like PID, search filter and attributes.
 - name: Host blocked connection from Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -2448,12 +2593,6 @@
     audit_category: PipeEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
     log_provider: Microsoft-Windows-Sysmon
-  - event_id: 18
-    name: PipeEvent (Pipe Connected).
-    platform: Windows
-    audit_category: PipeEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
   - event_id: 4656
     name: A handle to an object was requested.
     platform: Windows
@@ -2465,7 +2604,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
   notes:
   - Potential contribution for ATT&CK - Named Pipe / named pipe creation
-  - Event ID 4656 logs handles to objects. Look for named pipe by searching for "Accesses=CreatePipeInstance".
+  - Event ID 4656 logs handles to objects. Look for named pipe creation by searching
+    for "Accesses=CreatePipeInstance".
 - name: Service stopped
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -2484,6 +2624,13 @@
     audit_category: ServiceStateChange
     log_channel: Microsoft-Windows-Sysmon/Operational
     log_provider: Microsoft-Windows-Sysmon
+  - event_id: 6006
+    name: The Event log service was stopped.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: System
+    log_provider: Eventlog
   references: null
   notes: null
 - name: Process modified Firewall rule
@@ -2505,51 +2652,6 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall rule modification
-- name: Drive modified
-  contributors:
-  - Ruben Bouman @rubinatorz
-  attack:
-    data_source: Drive
-    data_component: drive modification
-  behavior:
-    source: drive
-    relationship: modified
-    target: null
-  security_events:
-  - event_id: 6419
-    name: A request was made to disable a device.
-    platform: Windows
-    audit_category: Detailed Tracking
-    audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: 6420
-    name: A device was disabled.
-    platform: Windows
-    audit_category: Detailed Tracking
-    audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: 6421
-    name: A request was made to enable a device.
-    platform: Windows
-    audit_category: Detailed Tracking
-    audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: 6422
-    name: A device was enabled.
-    platform: Windows
-    audit_category: Detailed Tracking
-    audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6419
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6420
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6421
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6422
-  notes: null
 - name: Wmi object created
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -2608,6 +2710,26 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
+- name: User connected to Pipe
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Named Pipe
+    data_component: named pipe metadata
+  behavior:
+    source: user
+    relationship: connected to
+    target: pipe
+  security_events:
+  - event_id: 18
+    name: PipeEvent (Pipe Connected).
+    platform: Windows
+    audit_category: PipeEvent
+    log_channel: Microsoft-Windows-Sysmon/Operational
+    log_provider: Microsoft-Windows-Sysmon
+  references: null
+  notes:
+  - Potential contribution for ATT&CK - Named Pipe / named pipe creation
 - name: Process requested access to AD Object
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -2629,44 +2751,6 @@
   notes:
   - Potential contribution for ATT&CK - Active Directory / active directory object
     access
-- name: Drive created
-  contributors:
-  - Ruben Bouman @rubinatorz
-  attack:
-    data_source: Drive
-    data_component: drive creation
-  behavior:
-    source: drive
-    relationship: created
-    target: null
-  security_events:
-  - event_id: 6416
-    name: A new external device was recognized by the system.
-    platform: Windows
-    audit_category: Detailed Tracking
-    audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: 6423
-    name: The installation of this device is forbidden by system policy.
-    platform: Windows
-    audit_category: Detailed Tracking
-    audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: 6424
-    name: The installation of this device was allowed, after having previously been
-      forbidden by policy.
-    platform: Windows
-    audit_category: Detailed Tracking
-    audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6416
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6423
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6424
-  notes: null
 - name: User requested AD Credential
   contributors:
   - Reid Gilman @reidgilman
@@ -2955,26 +3039,6 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
-- name: Firewall Policy loaded
-  contributors:
-  - Ruben Bouman @rubinatorz
-  attack:
-    data_source: Firewall
-    data_component: firewall metadata
-  behavior:
-    source: firewall policy
-    relationship: loaded
-    target: null
-  security_events:
-  - event_id: 2009
-    name: The Windows Firewall service failed to load Group Policy.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-    log_provider: Windows Firewall With Advanced Security
-  references: null
-  notes: null
 - name: User requested access to Service
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -3099,6 +3163,36 @@
     log_channel: DeviceNetworkEvents
     log_provider: Microsoft Defender for Endpoint
   references: null
+  notes: null
+- name: User installed Drive
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Drive
+    data_component: drive creation
+  behavior:
+    source: user
+    relationship: installed
+    target: drive
+  security_events:
+  - event_id: 6416
+    name: A new external device was recognized by the system.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  - event_id: 6424
+    name: The installation of this device was allowed, after having previously been
+      forbidden by policy.
+    platform: Windows
+    audit_category: Detailed Tracking
+    audit_sub_category: PNP Activity
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6416
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6424
   notes: null
 - name: Host permitted listener on Port
   contributors:
@@ -3292,6 +3386,28 @@
   notes:
   - "Event 4663, this event generates only if object\u2019s SACL has required ACE\
     \ to handle specific access right use."
+- name: User attempted to authenticate from Device
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: User Account
+    data_component: user account authentication
+  behavior:
+    source: user
+    relationship: attempted to authenticate from
+    target: device
+  security_events:
+  - event_id: 4776
+    name: The domain controller or local computer attempted to validate the credentials
+      for an account.
+    platform: Windows
+    audit_category: Account Logon
+    audit_sub_category: Credential Validation
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
+  notes: null
 - name: User deleted Windows registry key
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -3411,6 +3527,26 @@
     log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
+- name: Firewall attempted to load Policy
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: Firewall
+    data_component: firewall metadata
+  behavior:
+    source: firewall
+    relationship: attempted to load
+    target: policy
+  security_events:
+  - event_id: 2009
+    name: The Windows Firewall service failed to load Group Policy.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    log_provider: Windows Firewall With Advanced Security
+  references: null
+  notes: null
 - name: Host blocked listener on Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -3446,12 +3582,6 @@
   security_events:
   - event_id: 17
     name: PipeEvent (Pipe Created).
-    platform: Windows
-    audit_category: PipeEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
-  - event_id: 18
-    name: PipeEvent (Pipe Connected).
     platform: Windows
     audit_category: PipeEvent
     log_channel: Microsoft-Windows-Sysmon/Operational
@@ -4494,6 +4624,28 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5139
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4719
   notes: null
+- name: User authenticated from Device
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: User Account
+    data_component: user account authentication
+  behavior:
+    source: user
+    relationship: authenticated from
+    target: device
+  security_events:
+  - event_id: 4776
+    name: The domain controller or local computer attempted to validate the credentials
+      for an account.
+    platform: Windows
+    audit_category: Account Logon
+    audit_sub_category: Credential Validation
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
+  notes: null
 - name: Host permitted listener on Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
@@ -5141,6 +5293,13 @@
     audit_category: ServiceStateChange
     log_channel: Microsoft-Windows-Sysmon/Operational
     log_provider: Microsoft-Windows-Sysmon
+  - event_id: 6005
+    name: The Event log service was started.
+    platform: Windows
+    audit_category: null
+    audit_sub_category: null
+    log_channel: System
+    log_provider: Eventlog
   references: null
   notes: null
 - name: User modified Group
@@ -5266,13 +5425,6 @@
     audit_sub_category: Special Logon
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: 4776
-    name: The domain controller attempted to validate the credentials for an account.
-    platform: Windows
-    audit_category: Account Logon
-    audit_sub_category: Credential Validation
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
   - event_id: LogonSuccess
     name: LogonSuccess
     platform: Windows
@@ -5283,5 +5435,4 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4778
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4964
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
   notes: null

@@ -1,0 +1,21 @@
+name: User attempted to authenticate from Device
+contributors:
+- Ruben Bouman @rubinatorz
+attack:
+  data_source: User Account
+  data_component: user account authentication
+behavior:
+  source: user
+  relationship: attempted to authenticate from
+  target: device
+security_events:
+- event_id: 4776
+  name: The domain controller or local computer attempted to validate the credentials for an account.
+  platform: Windows
+  audit_category: Account Logon
+  audit_sub_category: Credential Validation
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
+notes:

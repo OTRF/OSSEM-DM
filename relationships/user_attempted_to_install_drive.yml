@@ -1,0 +1,21 @@
+name: User attempted to install Drive
+contributors:
+- Ruben Bouman @rubinatorz
+attack:
+  data_source: Drive
+  data_component: drive creation
+behavior:
+  source: user
+  relationship: attempted to install
+  target: drive
+security_events:
+- event_id: 6423
+  name: The installation of this device is forbidden by system policy.
+  platform: Windows
+  audit_category: Detailed Tracking
+  audit_sub_category: PNP Activity
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6423
+notes:

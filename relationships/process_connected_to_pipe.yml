@@ -2,7 +2,10 @@ name: Process connected to Pipe
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
+- Ruben Bouman @rubinatorz
 attack:
+  data_source: Named Pipe
+  data_component: named pipe metadata
 behavior:
   source: process
   relationship: connected to

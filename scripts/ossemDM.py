@@ -95,11 +95,9 @@ print("[+] Getting ATT&CK - Enterprise from TAXII Server..")
 lift = attack_client()
 # Getting techniques for windows platform - enterprise matrix
 attck = lift.get_enterprise_techniques(stix_format = False)
-# Removing revoked techniques
-attck = lift.remove_revoked(attck)
 # Creating Dataframe
 attck = json_normalize(attck)
-attck = attck[['technique_id','x_mitre_is_subtechnique','technique','tactic','platform','data_sources']]
+attck = attck[['technique_id','is_subtechnique','technique','tactic','platform','data_sources']]
 attck = attck.explode('data_sources').reset_index(drop = True)
 attck[['data_source','data_component']] = attck.data_sources.str.split(pat = ": ", expand = True)
 attck = attck.drop(columns = ['data_sources'])
