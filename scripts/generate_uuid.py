@@ -1,6 +1,7 @@
 import glob
 import os
 import re
+from datetime import date
 
 current_directory = os.path.dirname(__file__)
 relationships_directory = os.path.join(current_directory, '../relationships')
@@ -21,4 +22,5 @@ for n in num_id:
     if n > max_id: max_id = n
 # Generate relationship_id
 count = max_id+1
-print('relationship_id: REL-2022-' + '0'*(4 - len(str(count))) + str(count))
+current_date = date.today()
+print('relationship_id: REL-' + str(current_date.year) + '-' + '0'*(4 - len(str(count))) + str(count))
