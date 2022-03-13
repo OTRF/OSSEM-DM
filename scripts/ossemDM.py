@@ -21,6 +21,7 @@ current_directory = os.path.dirname(__file__)
 relationships_directory = os.path.join(current_directory, '../relationships')
 usecases_directory = os.path.join(current_directory, '../use-cases')
 all_relationships_file = os.path.join(relationships_directory, '_all_ossem_relationships.yml')
+all_relationships_json_file = os.path.join(relationships_directory, '_all_ossem_relationships.json')
 attack_relationships_file = os.path.join(usecases_directory, 'mitre_attack/attack_relationships.yml')
 attack_events_mappings_file = os.path.join(usecases_directory, 'mitre_attack/attack_events_mapping.csv')
 techniques_to_events_yaml = os.path.join(usecases_directory, 'mitre_attack/techniques_to_events_mapping.yaml')
@@ -44,6 +45,10 @@ for relationship_file in relationships_files:
 print("[+] Creating aggregated yaml file with all relationships..")
 with open(all_relationships_file, 'w') as file:
     yaml.dump(all_relationships_files, file, sort_keys = False)
+
+print("[+] Creating aggregated json file with all relationships..")
+with open(all_relationships_json_file, 'w') as relationshipsjsonfile:
+    data = json.dump(all_relationships_files, relationshipsjsonfile, indent=4)
 
 print("[+] Creating aggregated yaml file with relationships mapped to ATT&CK..")
 with open(attack_relationships_file, 'w') as file:
