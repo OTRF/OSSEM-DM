@@ -15,6 +15,9 @@ yaml.Dumper.ignore_aliases = lambda *args : True
 # To avoid taxi logs when downloading the framework
 import logging
 logging.getLogger('taxii2client').setLevel(logging.CRITICAL)
+# To add uuid to relationships files
+import re
+from datetime import date
 
 ###### Variables #####
 current_directory = os.path.dirname(__file__)
@@ -34,6 +37,42 @@ print("[+] Opening relationships yaml files..")
 relationships_files = glob.glob(os.path.join(relationships_directory, "[!_]*.yml"))
 all_relationships_files = []
 attack_relationships_files = []
+
+print("[+] Getting Current relationships IDs ..")
+num_id = dict() # a dictionary with year as key and list of numbers as values
+for relationship_file in relationships_files:
+    file = open(relationship_file,'r+')
+    first_line = file.readlines()[0].rstrip() # read first line
+    file.close()
+    if re.search("^relationship_id\:\sREL\-[\d]{4}\-\d{4}", first_line): # If file already has an ID
+        search = re.search("^relationship_id\:\sREL\-([\d]{4})\-([\d]{4})$", first_line) # Grab it
+        if search.group(1) not in num_id.keys(): # adding year as key of the dict
+            num_id[search.group(1)] = []
+        num_id[search.group(1)].append(int(search.group(2))) # adding number to corresponding key
+
+print("[+] Adding ID to new relationships files ..")
+current_date = date.today()
+year = str(current_date.year)
+for relationship_file in relationships_files:
+    file = open(relationship_file,'r+')
+    file_lines = file.readlines() # read current content
+
+    if re.search("^relationship_id\:\sREL\-[\d]{4}\-\d{4}", file_lines[0].rstrip()): # If file already has an ID
+        continue
+    else:
+        if year not in num_id.keys():
+            to_write = 'relationship_id: REL-' + year + '-' + '0001' + '\n' # First relationship of the year
+            num_id[year] = [1]
+        else:
+            number = max(num_id[year])+1
+            to_write = 'relationship_id: REL-' + year + '-' + '0'*(4 - len(str(number))) + str(number) + '\n'
+            num_id[year].append(number)
+        
+        file.seek(0) # Going to the beggining of the file
+        file.write(to_write) # write the new text
+        for line in file_lines:
+            file.write(line)
+        file.close()
 
 print("[+] Creating python lists (all relationships and ATT&CK) with yaml files content..")
 for relationship_file in relationships_files:

@@ -1141,6 +1141,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
   attack:
     data_source: File
     data_component: file modification
@@ -1156,12 +1157,12 @@
     audit_sub_category: File System
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: DeviceFileEvents
-    name: DeviceFileEvents
+  - event_id: FileModified
+    name: FileModified
     platform: Windows
     audit_category: null
-    log_channel: null
-    log_provider: Windows Defender Advanced Threat Protection
+    log_channel: DeviceFileEvents
+    log_provider: Microsoft Defender for Endpoint
   references: null
   notes: null
 - relationship_id: REL-2022-0042
@@ -1191,6 +1192,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Ruben Bouman @rubinatorz
+  - Olaf Hartong @olafhartong
   attack:
     data_source: File
     data_component: file creation
@@ -1205,12 +1207,12 @@
     audit_category: FileCreate
     log_channel: Linux-Sysmon/Operational
     log_provider: Linux-Sysmon
-  - event_id: DeviceFileEvents
-    name: DeviceFileEvents
+  - event_id: FileCreated
+    name: FileCreated
     platform: Windows
     audit_category: null
-    log_channel: null
-    log_provider: Windows Defender Advanced Threat Protection
+    log_channel: DeviceFileEvents
+    log_provider: Microsoft Defender for Endpoint
   - event_id: 4663
     name: An attempt was made to access an object.
     platform: Windows
@@ -1676,6 +1678,34 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Network Traffic / network connection creation
+- relationship_id: REL-2022-0187
+  name: Logon Process Trusted
+  contributors:
+  - Hamza OUADIA @Cyb3rSn0rlax
+  attack:
+    data_source: null
+    data_component: null
+  behavior:
+    source: logon process
+    relationship: trusted
+    target: null
+  security_events:
+  - event_id: 4611
+    name: A trusted logon process has been registered with the Local Security Authority.
+    platform: Windows
+    audit_category: System
+    audit_sub_category: Security System Extension
+    log_channel: Security
+    log_provider: Microsoft-Windows-Security-Auditing
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4611
+  - https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4611
+  notes:
+  - This event indicates that a logon process has registered with the Local Security
+    Authority (LSA).
+  - At the technical level, the event does not come from the registration of a trusted
+    logon process, but from a confirmation that the process is a trusted logon process.
+    If it is a trusted logon process, the event generates.
 - relationship_id: REL-2022-0059
   name: User created logon session from Port
   contributors:
