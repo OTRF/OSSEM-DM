@@ -19,6 +19,6 @@ security_events:
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
   filter_in:
-    ObjectType: Key
+  - ObjectType: Key
 references:
 note:
