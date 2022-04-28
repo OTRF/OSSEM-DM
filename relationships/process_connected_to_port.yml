@@ -25,17 +25,20 @@ security_events:
   audit_category: NetworkConnect
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+  event_version: ['4.32']
 - event_id: 3
   name: Network connection.
   platform: Linux
   audit_category: NetworkConnect
   log_channel: Linux-Sysmon/Operational
   log_provider: Linux-Sysmon
+  event_version: ['4.81']
 - event_id: ConnectionSuccess
   name: ConnectionSuccess
   platform: Windows
   audit_category: null
   log_channel: DeviceNetworkEvents
   log_provider: Microsoft Defender for Endpoint
+  event_version: ['0']
 references:
 notes:

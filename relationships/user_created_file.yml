@@ -18,12 +18,14 @@ security_events:
   audit_category: FileCreate
   log_channel: Linux-Sysmon/Operational
   log_provider: Linux-Sysmon
+  event_version: ['4.81']
 - event_id: FileCreated
   name: FileCreated
   platform: Windows
   audit_category: null
   log_channel: DeviceFileEvents
   log_provider: Microsoft Defender for Endpoint
+  event_version: ['0']
 - event_id: 4663
   name: An attempt was made to access an object.
   platform: Windows

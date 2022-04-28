@@ -17,6 +17,7 @@ security_events:
   audit_sub_category: Security System Extension
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4611
 - https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4611

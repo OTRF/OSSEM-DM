@@ -17,6 +17,7 @@ security_events:
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
+  event_version: ['1.05']
 - event_id: DescribeFirewallPolicy
   name: DescribeFirewallPolicy
   platform: AWS
@@ -24,5 +25,6 @@ security_events:
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
+  event_version: ['1.05']
 references:
 notes:

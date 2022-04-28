@@ -18,12 +18,14 @@ security_events:
   audit_category: RegistryEvent
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+  event_version: ['4.32']
 - event_id: 14
   name: RegistryEvent (Key and Value Rename).
   platform: Windows
   audit_category: RegistryEvent
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+  event_version: ['4.32']
 - event_id: 4670
   name: Permissions on an object were changed.
   platform: Windows
@@ -37,5 +39,6 @@ security_events:
   audit_category: null
   log_channel: DeviceRegistryEvents
   log_provider: Microsoft Defender for Endpoint
+  event_version: ['0']
 references:
 notes:

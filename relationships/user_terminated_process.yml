@@ -25,11 +25,13 @@ security_events:
   audit_category: ProcessTerminate
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+  event_version: ['4.32']
 - event_id: 5
   name: Process terminated.
   platform: Linux
   audit_category: ProcessTerminate
   log_channel: Linux-Sysmon/Operational
   log_provider: Linux-Sysmon
+  event_version: ['4.81']
 references:
 notes:

@@ -19,11 +19,13 @@ security_events:
   audit_sub_category: Filtering Platform Connection
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['1']
 - event_id: FirewallOutboundConnectionBlocked
   name: FirewallOutboundConnectionBlocked
   platform: Windows
   audit_category: null
   log_channel: DeviceEvents
   log_provider: Microsoft Defender for Endpoint
+  event_version: ['0']
 references:
 notes:

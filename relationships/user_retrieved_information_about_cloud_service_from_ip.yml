@@ -17,6 +17,7 @@ security_events:
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
+  event_version: ['1.05']
 - event_id: GetTrailStatus
   name: GetTrailStatus
   platform: AWS
@@ -24,6 +25,7 @@ security_events:
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
+  event_version: ['1.05']
 - event_id: DescribeTrails
   name: DescribeTrails
   platform: AWS
@@ -31,6 +33,7 @@ security_events:
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
+  event_version: ['1.05']
 - event_id: GetEventSelectors
   name: GetEventSelectors
   platform: AWS
@@ -38,6 +41,7 @@ security_events:
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
+  event_version: ['1.05']
 - event_id: GetInsightSelectors
   name: GetInsightSelectors
   platform: AWS
@@ -45,6 +49,7 @@ security_events:
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
+  event_version: ['1.05']
 references:
 notes:
 - Potential contribution for ATT&CK - Cloud Service / cloud service metadata

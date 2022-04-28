@@ -19,18 +19,21 @@ security_events:
   audit_category: FileDelete
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+  event_version: ['4.32']
 - event_id: 23
   name: File Delete archived.
   platform: Linux
   audit_category: FileDelete
   log_channel: Linux-Sysmon/Operational
   log_provider: Linux-Sysmon
+  event_version: ['4.81']
 - event_id: 26
   name: File Delete logged.
   platform: Windows
   audit_category: FileDeleteDetected
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+  event_version: ['4.32']
 - event_id: 4660
   name: An object was deleted.
   platform: Windows
@@ -44,6 +47,7 @@ security_events:
   audit_category: null
   log_channel: DeviceFileEvents
   log_provider: Microsoft Defender for Endpoint
+  event_version: ['0']
 - event_id: 4663
   name: An attempt was made to access an object.
   platform: Windows

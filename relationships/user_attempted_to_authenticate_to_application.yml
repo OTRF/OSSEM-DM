@@ -17,6 +17,7 @@ security_events:
   audit_sub_category: null
   log_channel: null
   log_provider: CloudTrail
+  event_version: ['1.05']
 references:
 - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
 notes:

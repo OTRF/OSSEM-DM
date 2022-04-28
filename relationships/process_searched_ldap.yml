@@ -4,7 +4,7 @@ contributors:
   - Hamza OUADIÂ @Cyb3rSn0rlax
 attack:
   data_source: Process
-  data_component: null
+  data_component: process metadata
 behavior:
   source: process 
   relationship: searched
@@ -23,6 +23,7 @@ security_events:
     audit_category: null
     log_channel: DeviceEvents
     log_provider: Microsoft Defender for Endpoint
+    event_version: ['0']
 references:
   - 
 notes:

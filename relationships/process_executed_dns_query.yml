@@ -16,12 +16,14 @@ security_events:
   audit_category: DNSQuery
   log_channel: Microsoft-Windows-Sysmon/Operational
   log_provider: Microsoft-Windows-Sysmon
+  event_version: ['4.32']
 - event_id: DnsQueryResponse
   name: DnsQueryResponse
   platform: Windows
   audit_category: null
   log_channel: DeviceEvents
   log_provider: Microsoft Defender for Endpoint
+  event_version: ['0']
 references:
 notes:
 - Potential contribution for ATT&CK - Network Traffic / network traffic content
