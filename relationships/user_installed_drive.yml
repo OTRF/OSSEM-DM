@@ -17,6 +17,7 @@ security_events:
   audit_sub_category: PNP Activity
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['1']
 - event_id: 6424
   name: The installation of this device was allowed, after having previously been forbidden by policy.
   platform: Windows
@@ -24,6 +25,7 @@ security_events:
   audit_sub_category: PNP Activity
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6416
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6424

@@ -33,6 +33,7 @@ security_events:
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: RegistryKeyCreated
   name: RegistryKeyCreated
   platform: Windows

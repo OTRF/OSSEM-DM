@@ -19,6 +19,7 @@ security_events:
   audit_sub_category: Process Termination
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 5
   name: Process terminated.
   platform: Windows

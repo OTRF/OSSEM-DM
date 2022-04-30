@@ -66,6 +66,7 @@ security_events:
   audit_sub_category: Security State Change
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['1']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1100
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1102

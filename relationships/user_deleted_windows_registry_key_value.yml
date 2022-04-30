@@ -31,6 +31,7 @@ security_events:
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 references:
 notes:
 - Event ID 4657 is logged for Creation, Modification and Deletion of registry key values. Use "Operation Type=Registry value deleted" to look for deletions.

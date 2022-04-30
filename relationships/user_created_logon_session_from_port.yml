@@ -19,6 +19,7 @@ security_events:
   audit_sub_category: Logon
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['2']
 - event_id: LogonSuccess
   name: LogonSuccess
   platform: Windows

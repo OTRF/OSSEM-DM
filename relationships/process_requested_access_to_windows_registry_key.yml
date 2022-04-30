@@ -20,5 +20,6 @@ security_events:
   log_provider: Microsoft-Windows-Security-Auditing
   filter_in:
     - ObjectType: Key
+  event_version: ['1']
 references:
 notes:

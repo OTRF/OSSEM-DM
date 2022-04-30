@@ -26,6 +26,7 @@ security_events:
   audit_sub_category: Detailed File Share
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['1']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
 notes:

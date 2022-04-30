@@ -20,6 +20,7 @@ security_events:
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4781
   name: The name of an account was changed.
   platform: Windows
@@ -27,6 +28,7 @@ security_events:
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4742
   name: A computer account was changed.
   platform: Windows
@@ -34,6 +36,7 @@ security_events:
   audit_sub_category: Computer Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: UserAccountModified
   name: UserAccountModified
   platform: Windows

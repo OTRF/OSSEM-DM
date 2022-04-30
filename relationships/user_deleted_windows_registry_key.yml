@@ -26,6 +26,7 @@ security_events:
   audit_sub_category: Registry
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: RegistryKeyDeleted
   name: RegistryKeyDeleted
   platform: Windows

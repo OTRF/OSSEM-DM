@@ -19,6 +19,7 @@ security_events:
   audit_sub_category: Directory Service Changes
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 5139
   name: A directory service object was moved.
   platform: Windows
@@ -26,6 +27,7 @@ security_events:
   audit_sub_category: Directory Service Changes
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4719
   name: System audit policy was changed.
   platform: Windows
@@ -33,6 +35,7 @@ security_events:
   audit_sub_category: Policy Change
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5136
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5139

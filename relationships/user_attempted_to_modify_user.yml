@@ -19,6 +19,7 @@ security_events:
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4724
   name: An attempt was made to reset an account's password.
   platform: Windows
@@ -26,5 +27,6 @@ security_events:
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 references:
 notes:

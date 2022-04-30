@@ -19,6 +19,7 @@ security_events:
   audit_sub_category: File Share
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['1']
 - event_id: 5145
   name: A network share object was checked to see whether client can be granted desired access.
   platform: Windows
@@ -26,6 +27,7 @@ security_events:
   audit_sub_category: Detailed File Share
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: LogonSuccess
   name: LogonSuccess
   platform: Windows

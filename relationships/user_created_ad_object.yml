@@ -18,5 +18,6 @@ security_events:
   audit_sub_category: Directory Service Changes
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 references:
 notes:

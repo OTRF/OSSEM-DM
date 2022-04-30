@@ -17,6 +17,7 @@ security_events:
   audit_sub_category: Security Group Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4728
   name: A member was added to a security-enabled global group.
   platform: Windows
@@ -24,6 +25,7 @@ security_events:
   audit_sub_category: Security Group Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4729
   name: A member was removed from a security-enabled global group.
   platform: Windows
@@ -31,6 +33,7 @@ security_events:
   audit_sub_category: Security Group Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4732
   name: A member was added to a security-enabled local group.
   platform: Windows
@@ -38,6 +41,7 @@ security_events:
   audit_sub_category: Security Group Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4733
   name: A member was removed from a security-enabled local group.
   platform: Windows
@@ -45,6 +49,7 @@ security_events:
   audit_sub_category: Security Group Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4735
   name: A security-enabled local group was changed.
   platform: Windows
@@ -52,6 +57,7 @@ security_events:
   audit_sub_category: Security Group Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4764
   name: A groups type was changed.
   platform: Windows
@@ -59,6 +65,7 @@ security_events:
   audit_sub_category: Security Group Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4755
   name: A security-enabled universal group was changed.
   platform: Windows
@@ -66,6 +73,7 @@ security_events:
   audit_sub_category: Security Group Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4756
   name: A member was added to a security-enabled universal group.
   platform: Windows
@@ -73,6 +81,7 @@ security_events:
   audit_sub_category: Security Group Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4757
   name: A member was removed from a security-enabled universal group.
   platform: Windows
@@ -80,6 +89,7 @@ security_events:
   audit_sub_category: Security Group Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4732

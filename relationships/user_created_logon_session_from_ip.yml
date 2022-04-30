@@ -19,6 +19,7 @@ security_events:
   audit_sub_category: Logon
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['2']
 - event_id: 4778
   name: A session was reconnected to a Window Station.
   platform: Windows
@@ -26,6 +27,7 @@ security_events:
   audit_sub_category: Other Logon/Logoff Events
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: LogonSuccess
   name: LogonSuccess
   platform: Windows

@@ -18,5 +18,6 @@ security_events:
   audit_sub_category: Other Object Access Events
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['1']
 references:
 notes:

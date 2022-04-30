@@ -21,6 +21,7 @@ security_events:
   log_provider: Microsoft-Windows-Security-Auditing
   filter_in:
     - ObjectType: Process
+  event_version: ['1']
 - event_id: 10
   name: Process Access.
   platform: Windows

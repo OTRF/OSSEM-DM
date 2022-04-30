@@ -20,6 +20,7 @@ security_events:
   audit_sub_category: User Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: 4741
   name: A computer account was created.
   platform: Windows
@@ -27,6 +28,7 @@ security_events:
   audit_sub_category: Computer Account Management
   log_channel: Security
   log_provider: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
 - event_id: UserAccountCreated
   name: UserAccountCreated
   platform: Windows
