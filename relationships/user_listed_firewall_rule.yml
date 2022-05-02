@@ -10,13 +10,14 @@ behavior:
   relationship: listed
   target: firewall rule
 security_events:
-- event_id: ListRuleGroups
-  name: ListRuleGroups
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: ListRuleGroups
+    - eventType: AwsApiCall
   event_version: ['1.05']
 references:
 notes:

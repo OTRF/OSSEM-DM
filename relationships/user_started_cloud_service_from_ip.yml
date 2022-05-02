@@ -8,13 +8,14 @@ behavior:
   relationship: started cloud service from
   target: ip
 security_events:
-- event_id: StartLogging
-  name: StartLogging
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: StartLogging
+    - eventType: AwsApiCall
   event_version: ['1.05']
 references:
 notes:

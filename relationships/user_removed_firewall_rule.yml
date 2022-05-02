@@ -18,13 +18,14 @@ security_events:
   audit_sub_category: null
   log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
-- event_id: DeleteRuleGroup
-  name: DeleteRuleGroup
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: DeleteRuleGroup
+    - eventType: AwsApiCall
   event_version: ['1.05']
 - event_id: 2033
   name: All rules have been deleted from the Windows Firewall configuration on this computer.

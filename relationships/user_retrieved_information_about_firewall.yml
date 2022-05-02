@@ -10,21 +10,23 @@ behavior:
   relationship: retrieved information about
   target: firewall
 security_events:
-- event_id: DescribeFirewall
-  name: DescribeFirewall
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: DescribeFirewall
+    - eventType: AwsApiCall
   event_version: ['1.05']
-- event_id: DescribeFirewallPolicy
-  name: DescribeFirewallPolicy
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: DescribeFirewallPolicy
+    - eventType: AwsApiCall
   event_version: ['1.05']
 references:
 notes:

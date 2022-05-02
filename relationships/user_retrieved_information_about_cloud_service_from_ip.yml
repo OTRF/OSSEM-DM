@@ -10,45 +10,50 @@ behavior:
   relationship: retrieved information about cloud service from
   target: ip
 security_events:
-- event_id: GetTrail
-  name: GetTrail
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: GetTrail
+    - eventType: AwsApiCall
   event_version: ['1.05']
-- event_id: GetTrailStatus
-  name: GetTrailStatus
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: GetTrailStatus
+    - eventType: AwsApiCall
   event_version: ['1.05']
-- event_id: DescribeTrails
-  name: DescribeTrails
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: DescribeTrails
+    - eventType: AwsApiCall
   event_version: ['1.05']
-- event_id: GetEventSelectors
-  name: GetEventSelectors
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: GetEventSelectors
+    - eventType: AwsApiCall
   event_version: ['1.05']
-- event_id: GetInsightSelectors
-  name: GetInsightSelectors
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: GetInsightSelectors
+    - eventType: AwsApiCall
   event_version: ['1.05']
 references:
 notes:

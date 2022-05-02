@@ -10,15 +10,16 @@ behavior:
   relationship: attempted to authenticate
   target: user
 security_events:
-- event_id: ConsoleLogin
-  name: ConsoleLogin
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsConsoleSignin
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: ConsoleLogin
+    - eventType: AwsConsoleSignin
   event_version: ['1.05']
 references:
-- https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
+- https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.html
 notes:
 - Potential contribution for ATT&CK - User Account / user account authentication

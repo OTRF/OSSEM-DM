@@ -10,13 +10,14 @@ behavior:
   relationship: created instance from
   target: ip
 security_events:
-- event_id: RunInstances
-  name: RunInstances
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: RunInstances
+    - eventType: AwsApiCall
   event_version: ['1.05']
 references:
 notes:

@@ -8,13 +8,14 @@ behavior:
   relationship: modified firewall rule from
   target: ip
 security_events:
-- event_id: UpdateRuleGroup
-  name: UpdateRuleGroup
+- event_id: CloudTrail
+  name: CloudTrail
   platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
   log_provider: CloudTrail
+  log_source: CloudTrail
+  filter_in:
+    - eventName: UpdateRuleGroup
+    - eventType: AwsApiCall
   event_version: ['1.05']
 references:
 notes:
