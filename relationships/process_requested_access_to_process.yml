@@ -26,8 +26,8 @@ security_events:
   name: Process Access.
   platform: Windows
   audit_category: ProcessAccess
-  log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_provider: Microsoft-Windows-Sysmon/Operational
+  log_source: Sysmon
   event_version: ['4.32']
 - event_id: OpenProcessApiCall
   name: OpenProcessApiCall

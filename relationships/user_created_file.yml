@@ -16,8 +16,8 @@ security_events:
   name: FileCreate.
   platform: Linux
   audit_category: FileCreate
-  log_channel: Linux-Sysmon/Operational
-  log_provider: Linux-Sysmon
+  log_provider: Linux-Sysmon/Operational
+  log_source: Sysmon
   event_version: ['4.81']
 - event_id: FileCreated
   name: FileCreated
