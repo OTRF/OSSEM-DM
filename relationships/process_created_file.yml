@@ -17,14 +17,12 @@ security_events:
   name: FileCreate.
   platform: Windows
   audit_category: FileCreate
-  log_provider: Microsoft-Windows-Sysmon/Operational
   log_source: Sysmon
   event_version: ['4.32']
 - event_id: 11
   name: FileCreate.
   platform: Linux
   audit_category: FileCreate
-  log_provider: Linux-Sysmon/Operational
   log_source: Sysmon
   event_version: ['4.81']
 - event_id: FileCreated
@@ -39,8 +37,7 @@ security_events:
   platform: Windows
   audit_category: Object Access
   audit_sub_category: File System
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['1']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663

@@ -18,24 +18,21 @@ security_events:
   platform: Windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['2']
 - event_id: 4625
   name: An account failed to log on.
   platform: Windows
   audit_category: Logon/Logoff
   audit_sub_category: Account Lockout
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4648
   name: A logon was attempted using explicit credentials.
   platform: Windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: LogonSuccess
   name: LogonSuccess

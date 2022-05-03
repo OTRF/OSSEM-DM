@@ -15,16 +15,14 @@ security_events:
   platform: Windows
   audit_category: Account Management
   audit_sub_category: User Account Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4799
   name: A security-enabled local group membership was enumerated.
   platform: Windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4798

@@ -18,16 +18,14 @@ security_events:
   platform: Windows
   audit_category: Account Management
   audit_sub_category: User Account Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4743
   name: A computer account was deleted.
   platform: Windows
   audit_category: Account Management
   audit_sub_category: Computer Account Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: UserAccountDeleted
   name: UserAccountDeleted

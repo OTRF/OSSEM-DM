@@ -16,7 +16,6 @@ security_events:
   name: PipeEvent (Pipe Connected).
   platform: Windows
   audit_category: PipeEvent
-  log_provider: Microsoft-Windows-Sysmon/Operational
   log_source: Sysmon
   event_version: ['4.32']
 references:

@@ -16,8 +16,7 @@ security_events:
   platform: Windows
   audit_category: Object Access
   audit_sub_category: File Share
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 references:
 notes:

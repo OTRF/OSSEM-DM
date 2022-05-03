@@ -14,7 +14,6 @@ security_events:
   name: DNSEvent (DNS query).
   platform: Windows
   audit_category: DNSQuery
-  log_provider: Microsoft-Windows-Sysmon/Operational
   log_source: Sysmon
   event_version: ['4.32']
 - event_id: DnsQueryResponse

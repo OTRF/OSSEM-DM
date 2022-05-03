@@ -17,8 +17,7 @@ security_events:
   platform: Windows
   audit_category: Object Access
   audit_sub_category: Other Object Access Events
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: ScheduledTaskUpdated
   name: ScheduledTaskUpdated

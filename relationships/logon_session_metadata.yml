@@ -15,56 +15,49 @@ security_events:
   platform: Windows
   audit_category: Policy Change
   audit_sub_category: Authorization Policy Change
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4673
   name: A privileged service was called.
   platform: Windows
   audit_category: Privilege Use
   audit_sub_category: Sensitive Privilege Use
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4674
   name: An operation was attempted on a privileged object.
   platform: Windows
   audit_category: Privilege Use
   audit_sub_category: Sensitive Privilege Use
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4610
   name: An authentication package has been loaded by the Local Security Authority.
   platform: Windows
   audit_category: System
   audit_sub_category: Security System Extension
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4611
   name: A trusted logon process has been registered with the Local Security Authority.
   platform: Windows
   audit_category: System
   audit_sub_category: Security System Extension
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4614
   name: A notification package has been loaded by the Security Account Manager.
   platform: Windows
   audit_category: System
   audit_sub_category: Security System Extension
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4622
   name: A security package has been loaded by the Local Security Authority.
   platform: Windows
   audit_category: System
   audit_sub_category: Security System Extension
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4703

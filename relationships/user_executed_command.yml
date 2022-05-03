@@ -17,14 +17,12 @@ security_events:
   platform: Windows
   audit_category: Detailed Tracking
   audit_sub_category: Process Creation
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['2']
 - event_id: 1
   name: Process Creation.
   platform: Windows
   audit_category: ProcessCreate
-  log_provider: Microsoft-Windows-Sysmon/Operational
   log_source: Sysmon
   event_version: ['4.32']
 - event_id: 4103

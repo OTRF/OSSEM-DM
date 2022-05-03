@@ -13,7 +13,6 @@ security_events:
 - event_id: CloudTrail
   name: CloudTrail
   platform: AWS
-  log_provider: CloudTrail
   log_source: CloudTrail
   filter_in:
     - eventName: GetTrail
@@ -22,7 +21,6 @@ security_events:
 - event_id: CloudTrail
   name: CloudTrail
   platform: AWS
-  log_provider: CloudTrail
   log_source: CloudTrail
   filter_in:
     - eventName: GetTrailStatus
@@ -31,7 +29,6 @@ security_events:
 - event_id: CloudTrail
   name: CloudTrail
   platform: AWS
-  log_provider: CloudTrail
   log_source: CloudTrail
   filter_in:
     - eventName: DescribeTrails
@@ -40,7 +37,6 @@ security_events:
 - event_id: CloudTrail
   name: CloudTrail
   platform: AWS
-  log_provider: CloudTrail
   log_source: CloudTrail
   filter_in:
     - eventName: GetEventSelectors
@@ -49,7 +45,6 @@ security_events:
 - event_id: CloudTrail
   name: CloudTrail
   platform: AWS
-  log_provider: CloudTrail
   log_source: CloudTrail
   filter_in:
     - eventName: GetInsightSelectors

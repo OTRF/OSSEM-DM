@@ -13,7 +13,6 @@ security_events:
 - event_id: CloudTrail
   name: CloudTrail
   platform: AWS
-  log_provider: CloudTrail
   log_source: CloudTrail
   filter_in:
     - eventName: UpdateTrail

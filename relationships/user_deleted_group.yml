@@ -15,24 +15,21 @@ security_events:
   platform: Windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4734
   name: A security-enabled local group was deleted.
   platform: Windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4758
   name: A security-enabled universal group was deleted.
   platform: Windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management

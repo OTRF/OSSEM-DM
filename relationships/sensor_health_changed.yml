@@ -14,7 +14,6 @@ security_events:
   name: Sysmon service state changed.
   platform: Windows
   audit_category: ServiceStateChange
-  log_provider: Microsoft-Windows-Sysmon/Operational
   log_source: Sysmon
   event_version: ['4.32']
 - event_id: 1100
@@ -64,8 +63,7 @@ security_events:
   platform: Windows
   audit_category: System
   audit_sub_category: Security State Change
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['1']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1100
