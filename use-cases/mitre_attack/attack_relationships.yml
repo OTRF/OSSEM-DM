@@ -360,7 +360,7 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
     filter_in:
-      ObjectType: Key
+    - ObjectType: Key
   references: null
   note: null
 - relationship_id: REL-2022-0014
@@ -2232,7 +2232,7 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
     filter_in:
-      ObjectType: File
+    - ObjectType: File
   - event_id: 4661
     name: A handle to an object was requested.
     platform: Windows
@@ -2241,7 +2241,7 @@
     log_channel: Security
     log_provider: Microsoft-Windows-Security-Auditing
     filter_in:
-      ObjectType: SAM
+    - ObjectType: SAM
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4661
