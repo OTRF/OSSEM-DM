@@ -18,13 +18,13 @@ security_events:
   audit_category: RegistryEvent
   log_source: Sysmon
   event_version: ['4.32']
-- event_id: RegistryValueSet
-  name: RegistryValueSet
+- event_id: DeviceRegistryEvents
+  name: DeviceRegistryEvents
   platform: Windows
-  audit_category: null
-  log_channel: DeviceRegistryEvents
-  log_provider: Microsoft Defender for Endpoint
-  event_version: ['0']
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+    - ActionType: RegistryValueSet
+  event_version: ['0','1']
 - event_id: 4657
   name: A registry value was modified.
   platform: Windows

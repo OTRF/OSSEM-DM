@@ -24,12 +24,12 @@ security_events:
   audit_category: NetworkConnect
   log_source: Sysmon
   event_version: ['4.81']
-- event_id: ConnectionSuccess
-  name: ConnectionSuccess
+- event_id: DeviceNetworkEvents
+  name: DeviceNetworkEvents
   platform: Windows
-  audit_category: null
-  log_channel: DeviceNetworkEvents
-  log_provider: Microsoft Defender for Endpoint
-  event_version: ['0']
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+    - ActionType: ConnectionSuccess
+  event_version: ['0','1']
 references:
 notes:

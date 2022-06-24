@@ -24,12 +24,12 @@ security_events:
   platform: Windows
   log_channel: System
   log_provider: Service Control Manager
-- event_id: ServiceInstalled
-  name: ServiceInstalled
+- event_id: DeviceEvents
+  name: DeviceEvents
   platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-  event_version: ['0']
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+    - ActionType: ServiceInstalled
+  event_version: ['0','1']
 references:
 notes:

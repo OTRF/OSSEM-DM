@@ -27,13 +27,13 @@ security_events:
   audit_sub_category: Computer Account Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
-- event_id: UserAccountDeleted
-  name: UserAccountDeleted
+- event_id: DeviceEvents
+  name: DeviceEvents
   platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-  event_version: ['0']
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+    - ActionType: UserAccountDeleted
+  event_version: ['0','1']
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4726
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4743

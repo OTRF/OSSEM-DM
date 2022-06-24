@@ -17,12 +17,12 @@ security_events:
   audit_category: CreateRemoteThread
   log_source: Sysmon
   event_version: ['4.32']
-- event_id: CreateRemoteThreadApiCall
-  name: CreateRemoteThreadApiCall
+- event_id: DeviceEvents
+  name: DeviceEvents
   platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-  event_version: ['0']
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+    - ActionType: CreateRemoteThreadApiCall
+  event_version: ['0','1']
 references:
 notes:

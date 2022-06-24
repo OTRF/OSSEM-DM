@@ -19,12 +19,12 @@ security_events:
   audit_sub_category: Other Object Access Events
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
-- event_id: ScheduledTaskModified
-  name: ScheduledTaskModified
+- event_id: DeviceEvents
+  name: DeviceEvents
   platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-  event_version: ['0']
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+    - ActionType: ScheduledTaskModified
+  event_version: ['0','1']
 references:
 notes:

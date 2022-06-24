@@ -34,13 +34,13 @@ security_events:
   audit_sub_category: Logon
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
-- event_id: LogonSuccess
-  name: LogonSuccess
+- event_id: DeviceLogonEvents
+  name: DeviceLogonEvents
   platform: Windows
-  audit_category: null
-  log_channel: DeviceLogonEvents
-  log_provider: Microsoft Defender for Endpoint
-  event_version: ['0']
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+    - ActionType: LogonSuccess
+  event_version: ['0','1']
 - event_id: CloudTrail
   name: CloudTrail
   platform: AWS

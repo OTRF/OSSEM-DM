@@ -16,13 +16,13 @@ security_events:
   log_channel: Microsoft-Windows-WMI-Activity/Operational
   log_provider: Microsoft-Windows-WMI-Activity
   event_version: ['0']
-- event_id: WmiBindEventFilterToConsumer
-  name: WmiBindEventFilterToConsumer
+- event_id: DeviceEvents
+  name: DeviceEvents
   platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-  event_version: ['0']
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+    - ActionType: WmiBindEventFilterToConsumer
+  event_version: ['0','1']
 references:
 notes:
 - Potential contribution for ATT&CK - WMI / wmi metadata

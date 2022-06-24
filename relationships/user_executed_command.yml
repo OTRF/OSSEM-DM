@@ -32,12 +32,12 @@ security_events:
   log_channel: Microsoft-Windows-PowerShell/Operational
   log_provider: Microsoft-Windows-PowerShell
   event_version: ['0']
-- event_id: ProcessCreated
-  name: ProcessCreated
+- event_id: DeviceProcessEvents
+  name: DeviceProcessEvents
   platform: Windows
-  audit_category: null
-  log_channel: DeviceProcessEvents
-  log_provider: Microsoft Defender for Endpoint
-  event_version: ['0']
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+    - ActionType: ProcessCreated
+  event_version: ['0','1']
 references:
 notes:

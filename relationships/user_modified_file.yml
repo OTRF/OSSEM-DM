@@ -19,12 +19,12 @@ security_events:
   audit_sub_category: File System
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
-- event_id: FileModified
-  name: FileModified
+- event_id: DeviceFileEvents
+  name: DeviceFileEvents
   platform: Windows
-  audit_category: null
-  log_channel: DeviceFileEvents
-  log_provider: Microsoft Defender for Endpoint
-  event_version: ['0']
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+    - ActionType: FileModified
+  event_version: ['0','1']
 references:
 notes:
