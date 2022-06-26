@@ -1,7 +1,7 @@
 relationship_id: REL-2022-0077
 name: User accessed Windows registry key
 contributors:
-  - Reid Gilman @reidgilman
+- Reid Gilman @reidgilman
 attack:
   data_source: Windows Registry
   data_component: windows registry key access
@@ -10,16 +10,16 @@ behavior:
   relationship: accessed
   target: windows registry key
 security_events:
-  - event_id: 4663
-    name: An attempt was made to access an object.
-    platform: Windows
-    audit_category: Object Access
-    audit_sub_category: Registry
-    log_source: Microsoft-Windows-Security-Auditing
-    filter_in:
-      - ObjectType: Key
-    event_version: ['1']
+- event_id: 4663
+  name: An attempt was made to access an object.
+  platform: Windows
+  audit_category: Object Access
+  audit_sub_category: Registry
+  log_channel: Security
+  log_provider: Microsoft-Windows-Security-Auditing
+  filter_in:
+  - ObjectType: Key
 references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
-  - Event 4663 includes the following caveat "This event generates only if object’s SACL has required ACE to handle specific access right use."
+- Event 4663 includes the following caveat "This event generates only if object’s SACL has required ACE to handle specific access right use."

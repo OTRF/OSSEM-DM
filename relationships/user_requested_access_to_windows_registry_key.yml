@@ -18,7 +18,6 @@ security_events:
   audit_sub_category: Registry
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
-    ObjectType: Key
-  event_version: ['1']
+  - ObjectType: Key
 references:
 note:
