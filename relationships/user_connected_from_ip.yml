@@ -14,19 +14,19 @@ behavior:
 security_events:
 - event_id: 3
   name: Network connection.
-  platform: Windows
+  platform: windows
   audit_category: NetworkConnect
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 3
   name: Network connection.
-  platform: Linux
+  platform: linux
   audit_category: NetworkConnect
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.81']
 - event_id: DeviceNetworkEvents
   name: DeviceNetworkEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: InboundConnectionAccepted

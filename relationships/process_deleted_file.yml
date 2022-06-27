@@ -15,44 +15,40 @@ behavior:
 security_events:
 - event_id: 23
   name: File Delete archived.
-  platform: Windows
+  platform: windows
   audit_category: FileDelete
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 23
   name: File Delete archived.
-  platform: Linux
+  platform: linux
   audit_category: FileDelete
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.81']
 - event_id: 26
   name: File Delete logged.
-  platform: Windows
+  platform: windows
   audit_category: FileDeleteDetected
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 4660
   name: An object was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File System
-  log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: DeviceFileEvents
   name: DeviceFileEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: FileDeleted
   event_version: ['0','1']
 - event_id: 4663
   name: An attempt was made to access an object.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File System
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['1']
 references:
-- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
-notes:
-- Event ID 4663 logs attempts of accesses to objects. Look for files deletion by searching for "Accesses=Delete".

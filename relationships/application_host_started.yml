@@ -11,7 +11,7 @@ behavior:
 security_events:
 - event_id: 400
   name: Engine state is changed from None to Available.
-  platform: Windows
+  platform: windows
   audit_category: Engine Lifecycle
   log_channel: Windows PowerShell
   log_provider: PowerShell

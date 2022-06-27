@@ -14,14 +14,14 @@ behavior:
 security_events:
 - event_id: 5157
   name: The Windows Filtering Platform has blocked a connection.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Filtering Platform Connection
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['1']
 - event_id: DeviceNetworkEvents
   name: DeviceNetworkEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: ConnectionAttempt

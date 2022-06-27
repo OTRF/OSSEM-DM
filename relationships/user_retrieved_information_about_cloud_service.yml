@@ -10,42 +10,42 @@ behavior:
   relationship: retrieved information about
   target: cloud service
 security_events:
-- event_id: CloudTrail
-  name: CloudTrail
-  platform: AWS
-  log_source: CloudTrail
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
   filter_in:
     - eventName: GetTrail
     - eventType: AwsApiCall
   event_version: ['1.05']
-- event_id: CloudTrail
-  name: CloudTrail
-  platform: AWS
-  log_source: CloudTrail
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
   filter_in:
     - eventName: GetTrailStatus
     - eventType: AwsApiCall
   event_version: ['1.05']
-- event_id: CloudTrail
-  name: CloudTrail
-  platform: AWS
-  log_source: CloudTrail
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
   filter_in:
     - eventName: DescribeTrails
     - eventType: AwsApiCall
   event_version: ['1.05']
-- event_id: CloudTrail
-  name: CloudTrail
-  platform: AWS
-  log_source: CloudTrail
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
   filter_in:
     - eventName: GetEventSelectors
     - eventType: AwsApiCall
   event_version: ['1.05']
-- event_id: CloudTrail
-  name: CloudTrail
-  platform: AWS
-  log_source: CloudTrail
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
   filter_in:
     - eventName: GetInsightSelectors
     - eventType: AwsApiCall

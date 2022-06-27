@@ -14,22 +14,22 @@ behavior:
 security_events:
 - event_id: 4689
   name: A process has exited.
-  platform: Windows
+  platform: windows
   audit_category: Detailed Tracking
   audit_sub_category: Process Termination
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 5
   name: Process terminated.
-  platform: Windows
+  platform: windows
   audit_category: ProcessTerminate
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 5
   name: Process terminated.
-  platform: Linux
+  platform: linux
   audit_category: ProcessTerminate
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.81']
 references:
 notes:

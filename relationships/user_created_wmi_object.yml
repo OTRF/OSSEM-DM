@@ -14,32 +14,32 @@ behavior:
 security_events:
 - event_id: 19
   name: WmiEvent (WmiEventFilter activity detected).
-  platform: Windows
+  platform: windows
   audit_category: WmiEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 20
   name: WmiEvent (WmiEventConsumer activity detected).
-  platform: Windows
+  platform: windows
   audit_category: WmiEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 21
   name: WmiEvent (WmiEventConsumerToFilter activity detected).
-  platform: Windows
+  platform: windows
   audit_category: WmiEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: WmiBindEventFilterToConsumer
   event_version: ['0','1']
 - event_id: 5860
   name: WMI temporary event created.
-  platform: Windows
+  platform: windows
   audit_category: null
   audit_sub_category: null
   log_channel: Microsoft-Windows-WMI-Activity/Operational
@@ -47,7 +47,7 @@ security_events:
   event_version: ['0']
 - event_id: 5861
   name: WMI permanent event created.
-  platform: Windows
+  platform: windows
   audit_category: null
   audit_sub_category: null
   log_channel: Microsoft-Windows-WMI-Activity/Operational
@@ -55,7 +55,7 @@ security_events:
   event_version: ['0']
 - event_id: 5857
   name: WMIProv provider started.
-  platform: Windows
+  platform: windows
   audit_category: null
   audit_sub_category: null
   log_channel: Microsoft-Windows-WMI-Activity/Operational
@@ -63,7 +63,7 @@ security_events:
   event_version: ['0']
 - event_id: 5858
   name: WMI Query Error.
-  platform: Windows
+  platform: windows
   audit_category: null
   audit_sub_category: null
   log_channel: Microsoft-Windows-WMI-Activity/Operational
@@ -71,7 +71,7 @@ security_events:
   event_version: ['0']
 - event_id: 5859
   name: WMI Event.
-  platform: Windows
+  platform: windows
   audit_category: null
   audit_sub_category: null
   log_channel: Microsoft-Windows-WMI-Activity/Operational

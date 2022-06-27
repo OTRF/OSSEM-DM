@@ -12,13 +12,13 @@ behavior:
 security_events:
 - event_id: 22
   name: DNSEvent (DNS query).
-  platform: Windows
+  platform: windows
   audit_category: DNSQuery
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: DnsQueryResponse

@@ -13,13 +13,13 @@ behavior:
 security_events:
 - event_id: 4
   name: Sysmon service state changed.
-  platform: Windows
+  platform: windows
   audit_category: ServiceStateChange
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 6005
   name: The Event log service was started.
-  platform: Windows
+  platform: windows
   audit_category: null
   audit_sub_category: null
   log_channel: System

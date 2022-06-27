@@ -14,33 +14,33 @@ behavior:
 security_events:
 - event_id: 2
   name: A process changed a file creation time.
-  platform: Windows
+  platform: windows
   audit_category: FileCreateTime
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 11
   name: FileCreate.
-  platform: Windows
+  platform: windows
   audit_category: FileCreate
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 4670
   name: Permissions on an object were changed.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File System
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: DeviceFileEvents
   name: DeviceFileEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: FileModified
   event_version: ['0','1']
 - event_id: DeviceFileEvents
   name: DeviceFileEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: FileRenamed

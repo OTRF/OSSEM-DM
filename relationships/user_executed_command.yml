@@ -14,27 +14,27 @@ behavior:
 security_events:
 - event_id: 4688
   name: A new process has been created.
-  platform: Windows
+  platform: windows
   audit_category: Detailed Tracking
   audit_sub_category: Process Creation
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['2']
 - event_id: 1
   name: Process Creation.
-  platform: Windows
+  platform: windows
   audit_category: ProcessCreate
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 4103
   name: Module logging.
-  platform: Windows
+  platform: windows
   audit_category: Executing Pipeline
   log_channel: Microsoft-Windows-PowerShell/Operational
   log_provider: Microsoft-Windows-PowerShell
   event_version: ['0']
 - event_id: DeviceProcessEvents
   name: DeviceProcessEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: ProcessCreated

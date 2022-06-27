@@ -13,7 +13,7 @@ behavior:
 security_events:
 - event_id: 4717
   name: System security access was granted to an account.
-  platform: Windows
+  platform: windows
   audit_category: Policy Change
   audit_sub_category: Authentication Policy Change
   log_source: Microsoft-Windows-Security-Auditing

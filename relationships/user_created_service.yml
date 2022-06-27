@@ -14,19 +14,19 @@ behavior:
 security_events:
 - event_id: 4697
   name: A service was installed in the system.
-  platform: Windows
+  platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 7045
   name: A new service was installed in the system.
-  platform: Windows
+  platform: windows
   log_channel: System
   log_provider: Service Control Manager
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: ServiceInstalled

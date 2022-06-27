@@ -15,21 +15,21 @@ behavior:
 security_events:
 - event_id: 4720
   name: A user account was created.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4741
   name: A computer account was created.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Computer Account Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: UserAccountCreated

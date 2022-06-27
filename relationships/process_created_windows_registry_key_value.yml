@@ -15,20 +15,20 @@ behavior:
 security_events:
 - event_id: 12
   name: RegistryEvent (Object create and delete).
-  platform: Windows
+  platform: windows
   audit_category: RegistryEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: DeviceRegistryEvents
   name: DeviceRegistryEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: RegistryValueSet
   event_version: ['0','1']
 - event_id: 4657
   name: A registry value was modified.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
   log_source: Microsoft-Windows-Security-Auditing

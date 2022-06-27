@@ -13,7 +13,7 @@ behavior:
 security_events:
 - event_id: 5144
   name: A network share object was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File Share
   log_source: Microsoft-Windows-Security-Auditing

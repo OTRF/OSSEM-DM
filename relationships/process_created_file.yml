@@ -14,27 +14,27 @@ behavior:
   target: file
 security_events:
 - event_id: 11
-  name: FileCreate.
-  platform: Windows
+  name: FileCreate
+  platform: windows
   audit_category: FileCreate
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 11
-  name: FileCreate.
-  platform: Linux
+  name: FileCreate
+  platform: linux
   audit_category: FileCreate
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.81']
 - event_id: DeviceFileEvents
   name: DeviceFileEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: FileCreated
   event_version: ['0','1']
 - event_id: 4663
   name: An attempt was made to access an object.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File System
   log_source: Microsoft-Windows-Security-Auditing

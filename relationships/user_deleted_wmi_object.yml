@@ -13,21 +13,21 @@ behavior:
 security_events:
 - event_id: 19
   name: WmiEvent (WmiEventFilter activity detected).
-  platform: Windows
+  platform: windows
   audit_category: WmiEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 20
   name: WmiEvent (WmiEventConsumer activity detected).
-  platform: Windows
+  platform: windows
   audit_category: WmiEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 21
   name: WmiEvent (WmiEventConsumerToFilter activity detected).
-  platform: Windows
+  platform: windows
   audit_category: WmiEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 references:
 notes:

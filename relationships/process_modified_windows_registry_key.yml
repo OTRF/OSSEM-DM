@@ -14,26 +14,26 @@ behavior:
 security_events:
 - event_id: 13
   name: RegistryEvent (Value Set).
-  platform: Windows
+  platform: windows
   audit_category: RegistryEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 14
   name: RegistryEvent (Key and Value Rename).
-  platform: Windows
+  platform: windows
   audit_category: RegistryEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 4670
   name: Permissions on an object were changed.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: DeviceRegistryEvents
   name: DeviceRegistryEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: RegistryKeyCreated

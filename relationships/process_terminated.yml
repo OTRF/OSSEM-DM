@@ -13,15 +13,15 @@ behavior:
 security_events:
 - event_id: 5
   name: Process terminated.
-  platform: Windows
+  platform: windows
   audit_category: ProcessTerminate
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 5
   name: Process terminated.
-  platform: Linux
+  platform: linux
   audit_category: ProcessTerminate
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.81']
 references:
 notes:

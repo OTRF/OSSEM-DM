@@ -14,38 +14,36 @@ behavior:
 security_events:
 - event_id: 4103
   name: Module logging.
-  platform: Windows
+  platform: windows
   audit_category: Executing Pipeline
   log_channel: Microsoft-Windows-PowerShell/Operational
   log_provider: Microsoft-Windows-PowerShell
   event_version: ['0']
 - event_id: 4104
   name: Script Block Logging.
-  platform: Windows
+  platform: windows
   audit_category: Execute a Remote Command
   log_channel: Microsoft-Windows-PowerShell/Operational
   log_provider: Microsoft-Windows-PowerShell
-  event_version: ['0']
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: ScriptContent
   event_version: ['0','1']
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: PowerShellCommand
   event_version: ['0','1']
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: AmsiScriptDetection
   event_version: ['0','1']
 references:
-notes:

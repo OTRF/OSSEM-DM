@@ -10,14 +10,12 @@ behavior:
   relationship: attempted to authenticate to
   target: application
 security_events:
-- event_id: CloudTrail
-  name: CloudTrail
-  platform: AWS
-  log_source: CloudTrail
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
   filter_in:
     - eventName: ConsoleLogin
     - eventType: AwsConsoleSignin
   event_version: ['1.05']
 references:
-- https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
-notes:

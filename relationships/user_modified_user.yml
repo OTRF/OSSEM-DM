@@ -15,28 +15,28 @@ behavior:
 security_events:
 - event_id: 4738
   name: A user account was changed.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4781
   name: The name of an account was changed.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4742
   name: A computer account was changed.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Computer Account Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: UserAccountModified

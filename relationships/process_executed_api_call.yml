@@ -14,13 +14,13 @@ behavior:
 security_events:
 - event_id: 8
   name: CreateRemoteThread.
-  platform: Windows
+  platform: windows
   audit_category: CreateRemoteThread
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: CreateRemoteThreadApiCall

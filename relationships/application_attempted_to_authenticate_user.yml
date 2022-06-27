@@ -10,10 +10,10 @@ behavior:
   relationship: attempted to authenticate
   target: user
 security_events:
-- event_id: CloudTrail
-  name: CloudTrail
-  platform: AWS
-  log_source: CloudTrail
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
   filter_in:
     - eventName: ConsoleLogin
     - eventType: AwsConsoleSignin

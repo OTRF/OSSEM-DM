@@ -13,7 +13,7 @@ behavior:
 security_events:
 - event_id: 5137
   name: A directory service object was created.
-  platform: Windows
+  platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Changes
   log_source: Microsoft-Windows-Security-Auditing

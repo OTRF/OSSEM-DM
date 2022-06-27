@@ -14,14 +14,14 @@ behavior:
 security_events:
 - event_id: 4722
   name: A user account was enabled.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: UserAccountModified

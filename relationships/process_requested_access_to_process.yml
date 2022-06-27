@@ -14,7 +14,7 @@ behavior:
 security_events:
 - event_id: 4656
   name: A handle to an object was requested.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Kernel Object
   log_source: Microsoft-Windows-Security-Auditing
@@ -23,13 +23,13 @@ security_events:
   event_version: ['1']
 - event_id: 10
   name: Process Access.
-  platform: Windows
+  platform: windows
   audit_category: ProcessAccess
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: DeviceEvents
   name: DeviceEvents
-  platform: Windows
+  platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
     - ActionType: OpenProcessApiCall
