@@ -12,9 +12,8 @@ security_events:
 - event_id: 53504
   name: Windows PowerShell has started an IPC listening thread on a process in AppDomain.
   platform: windows
-  audit_category: PowerShell Named Pipe IPC
-  log_source: powershell
-  event_version: ['0']
+  log_source: Microsoft-Windows-PowerShell
+  event_version: ['1']
 references:
 notes:
 - Potential contribution for ATT&CK - Command / command context

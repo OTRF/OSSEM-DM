@@ -560,7 +560,6 @@
                 "event_id": 400,
                 "name": "Engine state is changed from None to Available.",
                 "platform": "windows",
-                "audit_category": "Engine Lifecycle",
                 "log_source": "powershell",
                 "event_version": [
                     "0"
@@ -752,7 +751,6 @@
                 "event_id": 4103,
                 "name": "Module logging.",
                 "platform": "windows",
-                "audit_category": "Executing Pipeline",
                 "log_source": "powershell",
                 "event_version": [
                     "0"
@@ -2466,10 +2464,9 @@
                 "event_id": 53504,
                 "name": "Windows PowerShell has started an IPC listening thread on a process in AppDomain.",
                 "platform": "windows",
-                "audit_category": "PowerShell Named Pipe IPC",
-                "log_source": "powershell",
+                "log_source": "Microsoft-Windows-PowerShell",
                 "event_version": [
-                    "0"
+                    "1"
                 ]
             }
         ],
@@ -2977,9 +2974,7 @@
                 "event_id": 4103,
                 "name": "Module logging.",
                 "platform": "windows",
-                "audit_category": "Executing Pipeline",
-                "log_channel": "Microsoft-Windows-PowerShell/Operational",
-                "log_provider": "Microsoft-Windows-PowerShell",
+                "log_source": "powershell",
                 "event_version": [
                     "0"
                 ]
@@ -2988,9 +2983,7 @@
                 "event_id": 4104,
                 "name": "Script Block Logging.",
                 "platform": "windows",
-                "audit_category": "Execute a Remote Command",
-                "log_channel": "Microsoft-Windows-PowerShell/Operational",
-                "log_provider": "Microsoft-Windows-PowerShell"
+                "log_source": "powershell"
             },
             {
                 "event_id": "DeviceEvents",
@@ -6017,9 +6010,7 @@
                 "event_id": 4103,
                 "name": "Module logging.",
                 "platform": "windows",
-                "audit_category": "Executing Pipeline",
-                "log_channel": "Microsoft-Windows-PowerShell/Operational",
-                "log_provider": "Microsoft-Windows-PowerShell",
+                "log_source": "powershell",
                 "event_version": [
                     "0"
                 ]

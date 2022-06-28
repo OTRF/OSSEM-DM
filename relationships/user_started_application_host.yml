@@ -12,7 +12,6 @@ security_events:
 - event_id: 4103
   name: Module logging.
   platform: windows
-  audit_category: Executing Pipeline
   log_source: powershell
   event_version: ['0']
 references:

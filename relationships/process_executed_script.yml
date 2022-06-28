@@ -15,16 +15,12 @@ security_events:
 - event_id: 4103
   name: Module logging.
   platform: windows
-  audit_category: Executing Pipeline
-  log_channel: Microsoft-Windows-PowerShell/Operational
-  log_provider: Microsoft-Windows-PowerShell
+  log_source: powershell
   event_version: ['0']
 - event_id: 4104
   name: Script Block Logging.
   platform: windows
-  audit_category: Execute a Remote Command
-  log_channel: Microsoft-Windows-PowerShell/Operational
-  log_provider: Microsoft-Windows-PowerShell
+  log_source: powershell
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
