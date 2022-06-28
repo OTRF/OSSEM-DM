@@ -3,7 +3,7 @@ name: Application attempted to authenticate User
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account authentication
 behavior:
   source: application
@@ -15,9 +15,10 @@ security_events:
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: ConsoleLogin
-    - eventType: AwsConsoleSignin
-  event_version: ['1.05']
+  - eventName: ConsoleLogin
+  - eventType: AwsConsoleSignin
+  event_version:
+  - '1.05'
 references:
 - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.html
 notes:

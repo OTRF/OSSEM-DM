@@ -3,7 +3,7 @@ name: User created Group
 contributors:
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Group
+  data_source: group
   data_component: group creation
 behavior:
   source: user
@@ -16,22 +16,25 @@ security_events:
   audit_category: Account Management
   audit_sub_category: Security Group Management
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4731
   name: A security-enabled local group was created.
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4754
   name: A security-enabled universal group was created.
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4731
-notes:
+notes: null

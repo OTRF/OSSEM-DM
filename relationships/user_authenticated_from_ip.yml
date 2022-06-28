@@ -2,7 +2,7 @@ relationship_id: REL-2022-0065
 name: User authenticated from Ip
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
-attack:
+attack: null
 behavior:
   source: user
   relationship: authenticated from
@@ -13,9 +13,10 @@ security_events:
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: ConsoleLogin
-    - eventType: AwsConsoleSignin
-  event_version: ['1.05']
+  - eventName: ConsoleLogin
+  - eventType: AwsConsoleSignin
+  event_version:
+  - '1.05'
 references:
 - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
 notes:

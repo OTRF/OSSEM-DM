@@ -3,7 +3,7 @@ name: User modified Firewall
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Firewall
+  data_source: firewall
   data_component: firewall metadata
 behavior:
   source: user
@@ -20,6 +20,7 @@ security_events:
   platform: windows
   log_source: Microsoft-Windows-Windows Firewall With Advanced Security
   event_version: []
-references:
+references: null
 notes:
-- Potential contribution for ATT&CK - Firewall / firewall modification (New data component and relationship)
+- Potential contribution for ATT&CK - Firewall / firewall modification (New data component
+  and relationship)

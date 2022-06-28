@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Service
+  data_source: service
   data_component: service metadata
 behavior:
   source: service
@@ -16,10 +16,11 @@ security_events:
   platform: windows
   audit_category: ServiceStateChange
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 6005
   name: The Event log service was started.
   platform: windows
   log_source: Eventlog / System
-references:
-notes:
+references: null
+notes: null

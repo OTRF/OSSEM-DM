@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Network Traffic
+  data_source: network traffic
   data_component: network connection creation
 behavior:
   source: user
@@ -17,19 +17,23 @@ security_events:
   platform: windows
   audit_category: NetworkConnect
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 3
   name: Network connection.
   platform: linux
   audit_category: NetworkConnect
   log_source: sysmon
-  event_version: ['4.81']
+  event_version:
+  - '4.81'
 - event_id: DeviceNetworkEvents
   name: DeviceNetworkEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: InboundConnectionAccepted
-  event_version: ['0','1']
-references:
-notes:
+  - ActionType: InboundConnectionAccepted
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

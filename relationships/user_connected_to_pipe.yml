@@ -3,7 +3,7 @@ name: User connected to Pipe
 contributors:
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Named Pipe
+  data_source: named pipe
   data_component: named pipe metadata
 behavior:
   source: user
@@ -15,7 +15,8 @@ security_events:
   platform: windows
   audit_category: PipeEvent
   log_source: sysmon
-  event_version: ['4.32']
-references:
+  event_version:
+  - '4.32'
+references: null
 notes:
 - Potential contribution for ATT&CK - Named Pipe / named pipe creation

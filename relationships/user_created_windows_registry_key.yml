@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Windows Registry
+  data_source: windows registry
   data_component: windows registry key creation
 behavior:
   source: user
@@ -16,14 +16,17 @@ security_events:
   platform: windows
   audit_category: RegistryEvent
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: DeviceRegistryEvents
   name: DeviceRegistryEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: RegistryKeyCreated
-  event_version: ['0','1']
-references:
+  - ActionType: RegistryKeyCreated
+  event_version:
+  - '0'
+  - '1'
+references: null
 notes:
 - Potential contribution for ATT&CK - Windows Registry / windows registry key creation

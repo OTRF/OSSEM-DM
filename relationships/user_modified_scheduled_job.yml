@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Scheduled Job
+  data_source: scheduled job
   data_component: scheduled job modification
 behavior:
   source: user
@@ -18,13 +18,16 @@ security_events:
   audit_category: Object Access
   audit_sub_category: Other Object Access Events
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: ScheduledTaskUpdated
-  event_version: ['0','1']
-references:
-notes:
+  - ActionType: ScheduledTaskUpdated
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

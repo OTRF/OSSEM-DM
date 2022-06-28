@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 - Reid Gilman @reidgilman
-attack:
+attack: null
 behavior:
   source: user
   relationship: attempted to authenticate to
@@ -16,21 +16,24 @@ security_events:
   audit_category: Logon/Logoff
   audit_sub_category: Logon
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['2']
+  event_version:
+  - '2'
 - event_id: 4625
   name: An account failed to log on.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Account Lockout
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4648
   name: A logon was attempted using explicit credentials.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
-references:
+  event_version:
+  - '0'
+references: null
 notes:
 - Potential contribution for ATT&CK - User Account / user account authentication

@@ -3,7 +3,7 @@ name: User attempted to log off from host
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
-attack:
+attack: null
 behavior:
   source: user
   relationship: attempted to log off from
@@ -15,7 +15,8 @@ security_events:
   audit_category: Logon/Logoff
   audit_sub_category: Logoff
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
-references:
+  event_version:
+  - '0'
+references: null
 notes:
 - Potential contribution for ATT&CK - Logon Session / logon session termination

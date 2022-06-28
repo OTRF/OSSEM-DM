@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Process
+  data_source: process
   data_component: process modification
 behavior:
   source: process
@@ -17,13 +17,16 @@ security_events:
   platform: windows
   audit_category: CreateRemoteThread
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: CreateRemoteThreadApiCall
-  event_version: ['0','1']
-references:
-notes:
+  - ActionType: CreateRemoteThreadApiCall
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

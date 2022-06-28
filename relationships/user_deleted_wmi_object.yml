@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: WMI
+  data_source: wmi
   data_component: wmi deletion
 behavior:
   source: user
@@ -16,18 +16,21 @@ security_events:
   platform: windows
   audit_category: WmiEvent
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 20
   name: WmiEvent (WmiEventConsumer activity detected).
   platform: windows
   audit_category: WmiEvent
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 21
   name: WmiEvent (WmiEventConsumerToFilter activity detected).
   platform: windows
   audit_category: WmiEvent
   log_source: sysmon
-  event_version: ['4.32']
-references:
-notes:
+  event_version:
+  - '4.32'
+references: null
+notes: null

@@ -3,7 +3,7 @@ name: User modified Firewall rule
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Firewall
+  data_source: firewall
   data_component: firewall rule modification
 behavior:
   source: user
@@ -20,8 +20,9 @@ security_events:
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: UpdateRuleGroup
-    - eventType: AwsApiCall
-  event_version: ['1.05']
-references:
-notes:
+  - eventName: UpdateRuleGroup
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
+notes: null

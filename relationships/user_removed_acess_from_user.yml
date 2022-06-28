@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account modification
 behavior:
   source: user
@@ -17,6 +17,7 @@ security_events:
   audit_category: Policy Change
   audit_sub_category: Authentication Policy Change
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
-references:
-notes:
+  event_version:
+  - '0'
+references: null
+notes: null

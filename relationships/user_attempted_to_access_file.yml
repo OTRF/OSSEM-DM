@@ -3,7 +3,7 @@ name: User attempted to access File
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
-attack:
+attack: null
 behavior:
   source: user
   relationship: attempted to access
@@ -15,7 +15,8 @@ security_events:
   audit_category: Detailed Tracking
   audit_sub_category: DPAPI Activity
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
-references:
+  event_version:
+  - '0'
+references: null
 notes:
 - Potential contribution for ATT&CK - File / file access

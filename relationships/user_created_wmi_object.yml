@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: WMI
+  data_source: wmi
   data_component: wmi creation
 behavior:
   source: user
@@ -17,65 +17,60 @@ security_events:
   platform: windows
   audit_category: WmiEvent
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 20
   name: WmiEvent (WmiEventConsumer activity detected).
   platform: windows
   audit_category: WmiEvent
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 21
   name: WmiEvent (WmiEventConsumerToFilter activity detected).
   platform: windows
   audit_category: WmiEvent
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: WmiBindEventFilterToConsumer
-  event_version: ['0','1']
+  - ActionType: WmiBindEventFilterToConsumer
+  event_version:
+  - '0'
+  - '1'
 - event_id: 5860
   name: WMI temporary event created.
   platform: windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Microsoft-Windows-WMI-Activity/Operational
-  log_provider: Microsoft-Windows-WMI-Activity
-  event_version: ['0']
+  log_source: Microsoft-Windows-WMI-Activity
+  event_version:
+  - '0'
 - event_id: 5861
   name: WMI permanent event created.
   platform: windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Microsoft-Windows-WMI-Activity/Operational
-  log_provider: Microsoft-Windows-WMI-Activity
-  event_version: ['0']
+  log_source: Microsoft-Windows-WMI-Activity
+  event_version:
+  - '0'
 - event_id: 5857
   name: WMIProv provider started.
   platform: windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Microsoft-Windows-WMI-Activity/Operational
-  log_provider: Microsoft-Windows-WMI-Activity
-  event_version: ['0']
+  log_source: Microsoft-Windows-WMI-Activity
+  event_version:
+  - '0'
 - event_id: 5858
   name: WMI Query Error.
   platform: windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Microsoft-Windows-WMI-Activity/Operational
-  log_provider: Microsoft-Windows-WMI-Activity
-  event_version: ['0']
+  log_source: Microsoft-Windows-WMI-Activity
+  event_version:
+  - '0'
 - event_id: 5859
   name: WMI Event.
   platform: windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Microsoft-Windows-WMI-Activity/Operational
-  log_provider: Microsoft-Windows-WMI-Activity
-  event_version: ['0']
-references:
-notes:
+  log_source: Microsoft-Windows-WMI-Activity
+  event_version:
+  - '0'
+references: null
+notes: null

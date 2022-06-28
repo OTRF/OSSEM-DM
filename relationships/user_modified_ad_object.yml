@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Active Directory
+  data_source: active directory
   data_component: active directory object modification
 behavior:
   source: user
@@ -18,23 +18,26 @@ security_events:
   audit_category: DS Access
   audit_sub_category: Directory Service Changes
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 5139
   name: A directory service object was moved.
   platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Changes
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4719
   name: System audit policy was changed.
   platform: windows
   audit_category: Policy Change
   audit_sub_category: Policy Change
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5136
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5139
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4719
-notes:
+notes: null

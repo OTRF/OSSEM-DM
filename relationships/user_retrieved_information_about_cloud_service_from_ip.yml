@@ -3,7 +3,7 @@ name: User retrieved information about cloud service from Ip
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Cloud Service
+  data_source: cloud service
   data_component: cloud service metadata
 behavior:
   source: user
@@ -15,41 +15,46 @@ security_events:
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: GetTrail
-    - eventType: AwsApiCall
-  event_version: ['1.05']
+  - eventName: GetTrail
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
 - event_id: cloudtrail
   name: cloudtrail
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: GetTrailStatus
-    - eventType: AwsApiCall
-  event_version: ['1.05']
+  - eventName: GetTrailStatus
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
 - event_id: cloudtrail
   name: cloudtrail
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: DescribeTrails
-    - eventType: AwsApiCall
-  event_version: ['1.05']
+  - eventName: DescribeTrails
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
 - event_id: cloudtrail
   name: cloudtrail
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: GetEventSelectors
-    - eventType: AwsApiCall
-  event_version: ['1.05']
+  - eventName: GetEventSelectors
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
 - event_id: cloudtrail
   name: cloudtrail
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: GetInsightSelectors
-    - eventType: AwsApiCall
-  event_version: ['1.05']
-references:
+  - eventName: GetInsightSelectors
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
 notes:
 - Potential contribution for ATT&CK - Cloud Service / cloud service metadata

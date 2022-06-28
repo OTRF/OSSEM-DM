@@ -3,7 +3,7 @@ name: User added Firewall rule
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Firewall
+  data_source: firewall
   data_component: firewall rule modification
 behavior:
   source: user
@@ -22,8 +22,9 @@ security_events:
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: CreateRuleGroup
-    - eventType: AwsApiCall
-  event_version: ['1.05']
-references:
-notes:
+  - eventName: CreateRuleGroup
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
+notes: null

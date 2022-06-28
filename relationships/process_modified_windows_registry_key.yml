@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Windows Registry
+  data_source: windows registry
   data_component: windows registry key modification
 behavior:
   source: process
@@ -17,26 +17,31 @@ security_events:
   platform: windows
   audit_category: RegistryEvent
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 14
   name: RegistryEvent (Key and Value Rename).
   platform: windows
   audit_category: RegistryEvent
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 4670
   name: Permissions on an object were changed.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: DeviceRegistryEvents
   name: DeviceRegistryEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: RegistryKeyCreated
-  event_version: ['0','1']
-references:
-notes:
+  - ActionType: RegistryKeyCreated
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

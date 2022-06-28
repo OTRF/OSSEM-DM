@@ -3,7 +3,7 @@ name: User created instance from Ip
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Instance
+  data_source: instance
   data_component: instance creation
 behavior:
   source: user
@@ -15,8 +15,9 @@ security_events:
   platform: aws
   log_source: cloudTrail
   filter_in:
-    - eventName: RunInstances
-    - eventType: AwsApiCall
-  event_version: ['1.05']
-references:
-notes:
+  - eventName: RunInstances
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
+notes: null

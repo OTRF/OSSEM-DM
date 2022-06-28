@@ -3,7 +3,7 @@ name: Process modified Firewall rule
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Firewall
+  data_source: firewall
   data_component: firewall rule modification
 behavior:
   source: process
@@ -15,5 +15,5 @@ security_events:
   platform: windows
   log_source: Microsoft-Windows-Windows Firewall With Advanced Security
   event_version: []
-references:
-notes:
+references: null
+notes: null

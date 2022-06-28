@@ -3,7 +3,7 @@ name: User retrieved information about Firewall
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Firewall
+  data_source: firewall
   data_component: firewall metadata
 behavior:
   source: user
@@ -15,16 +15,18 @@ security_events:
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: DescribeFirewall
-    - eventType: AwsApiCall
-  event_version: ['1.05']
+  - eventName: DescribeFirewall
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
 - event_id: cloudtrail
   name: cloudtrail
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: DescribeFirewallPolicy
-    - eventType: AwsApiCall
-  event_version: ['1.05']
-references:
-notes:
+  - eventName: DescribeFirewallPolicy
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
+notes: null

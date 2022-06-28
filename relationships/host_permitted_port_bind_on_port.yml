@@ -3,7 +3,7 @@ name: Host permitted port bind on Port
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
-attack:
+attack: null
 behavior:
   source: host
   relationship: permitted port bind on
@@ -15,7 +15,8 @@ security_events:
   audit_category: Object Access
   audit_sub_category: Filtering Platform Connection
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
-references:
+  event_version:
+  - '0'
+references: null
 notes:
 - Potential contribution for ATT&CK - Network Traffic / network connection creation

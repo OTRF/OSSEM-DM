@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: File
+  data_source: file
   data_component: file access
 behavior:
   source: user
@@ -31,4 +31,5 @@ references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4661
 notes:
-- 'Event 4656: This event generates only if object’s SACL has required ACE to handle specific access right use.'
+- "Event 4656: This event generates only if object\u2019s SACL has required ACE to\
+  \ handle specific access right use."

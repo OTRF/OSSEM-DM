@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Windows Registry
+  data_source: windows registry
   data_component: windows registry key modification
 behavior:
   source: user
@@ -18,13 +18,16 @@ security_events:
   audit_category: Object Access
   audit_sub_category: Registry
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: DeviceRegistryEvents
   name: DeviceRegistryEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: RegistryKeySet
-  event_version: ['0','1']
-references:
-notes:
+  - ActionType: RegistryKeySet
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

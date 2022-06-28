@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Windows Registry
+  data_source: windows registry
   data_component: windows registry key access
 behavior:
   source: user
@@ -19,5 +19,5 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - ObjectType: Key
-references:
-note:
+references: null
+note: null

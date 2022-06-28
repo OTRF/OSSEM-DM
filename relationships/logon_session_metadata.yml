@@ -3,7 +3,7 @@ name: Logon Session Metadata
 contributors:
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Logon Session
+  data_source: logon session
   data_component: logon session metadata
 behavior:
   source: logon session
@@ -16,49 +16,56 @@ security_events:
   audit_category: Policy Change
   audit_sub_category: Authorization Policy Change
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4673
   name: A privileged service was called.
   platform: windows
   audit_category: Privilege Use
   audit_sub_category: Sensitive Privilege Use
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4674
   name: An operation was attempted on a privileged object.
   platform: windows
   audit_category: Privilege Use
   audit_sub_category: Sensitive Privilege Use
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4610
   name: An authentication package has been loaded by the Local Security Authority.
   platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4611
   name: A trusted logon process has been registered with the Local Security Authority.
   platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4614
   name: A notification package has been loaded by the Security Account Manager.
   platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4622
   name: A security package has been loaded by the Local Security Authority.
   platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4703
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4673
@@ -67,4 +74,4 @@ references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4611
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4614
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4622
-notes:
+notes: null

@@ -3,7 +3,7 @@ name: User modified Instance
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Instance
+  data_source: instance
   data_component: instance modification
 behavior:
   source: user
@@ -15,8 +15,9 @@ security_events:
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: ModifyInstanceAttribute
-    - eventType: AwsApiCall
-  event_version: ['1.05']
-references:
-notes:
+  - eventName: ModifyInstanceAttribute
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
+notes: null

@@ -6,7 +6,7 @@ contributors:
 - Olaf Hartong @olafhartong
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account modification
 behavior:
   source: user
@@ -19,30 +19,35 @@ security_events:
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4781
   name: The name of an account was changed.
   platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4742
   name: A computer account was changed.
   platform: windows
   audit_category: Account Management
   audit_sub_category: Computer Account Management
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: UserAccountModified
-  event_version: ['0','1']
+  - ActionType: UserAccountModified
+  event_version:
+  - '0'
+  - '1'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4738
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4781
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4742
-notes:
+notes: null

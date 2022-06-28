@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Script
+  data_source: script
   data_component: script execution
 behavior:
   source: process
@@ -16,7 +16,8 @@ security_events:
   name: Module logging.
   platform: windows
   log_source: powershell
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4104
   name: Script Block Logging.
   platform: windows
@@ -26,20 +27,26 @@ security_events:
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: ScriptContent
-  event_version: ['0','1']
+  - ActionType: ScriptContent
+  event_version:
+  - '0'
+  - '1'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: PowerShellCommand
-  event_version: ['0','1']
+  - ActionType: PowerShellCommand
+  event_version:
+  - '0'
+  - '1'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: AmsiScriptDetection
-  event_version: ['0','1']
-references:
+  - ActionType: AmsiScriptDetection
+  event_version:
+  - '0'
+  - '1'
+references: null

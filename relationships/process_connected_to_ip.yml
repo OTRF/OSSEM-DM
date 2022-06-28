@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Network Traffic
+  data_source: network traffic
   data_component: network connection creation
 behavior:
   source: process
@@ -18,25 +18,30 @@ security_events:
   audit_category: Object Access
   audit_sub_category: Filtering Platform Connection
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['1']
+  event_version:
+  - '1'
 - event_id: 3
   name: Network connection.
   platform: windows
   audit_category: NetworkConnect
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 3
   name: Network connection.
   platform: linux
   audit_category: NetworkConnect
   log_source: sysmon
-  event_version: ['4.81']
+  event_version:
+  - '4.81'
 - event_id: DeviceNetworkEvents
   name: DeviceNetworkEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: ConnectionSuccess
-  event_version: ['0','1']
-references:
-notes:
+  - ActionType: ConnectionSuccess
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

@@ -2,9 +2,7 @@ relationship_id: REL-2022-0187
 name: Logon Process Trusted
 contributors:
 - Hamza OUADIA @Cyb3rSn0rlax
-attack:
-  data_source: null
-  data_component: null
+attack: null
 behavior:
   source: logon process
   relationship: trusted
@@ -16,10 +14,14 @@ security_events:
   audit_category: System
   audit_sub_category: Security System Extension
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4611
 - https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4611
 notes:
-- This event indicates that a logon process has registered with the Local Security Authority (LSA). 
-- At the technical level, the event does not come from the registration of a trusted logon process, but from a confirmation that the process is a trusted logon process. If it is a trusted logon process, the event generates.
+- This event indicates that a logon process has registered with the Local Security
+  Authority (LSA).
+- At the technical level, the event does not come from the registration of a trusted
+  logon process, but from a confirmation that the process is a trusted logon process.
+  If it is a trusted logon process, the event generates.

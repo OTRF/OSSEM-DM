@@ -6,7 +6,7 @@ contributors:
 - Olaf Hartong @olafhartong
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: File
+  data_source: file
   data_component: file creation
 behavior:
   source: process
@@ -18,28 +18,34 @@ security_events:
   platform: windows
   audit_category: FileCreate
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 11
   name: FileCreate
   platform: linux
   audit_category: FileCreate
   log_source: sysmon
-  event_version: ['4.81']
+  event_version:
+  - '4.81'
 - event_id: DeviceFileEvents
   name: DeviceFileEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: FileCreated
-  event_version: ['0','1']
+  - ActionType: FileCreated
+  event_version:
+  - '0'
+  - '1'
 - event_id: 4663
   name: An attempt was made to access an object.
   platform: windows
   audit_category: Object Access
   audit_sub_category: File System
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['1']
+  event_version:
+  - '1'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
-- Event ID 4663 logs attempts of accesses to objects. Look for file creations by searching for "Accesses=WriteData".
+- Event ID 4663 logs attempts of accesses to objects. Look for file creations by searching
+  for "Accesses=WriteData".

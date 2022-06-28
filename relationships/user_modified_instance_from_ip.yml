@@ -2,7 +2,7 @@ relationship_id: REL-2022-0171
 name: User modified instance from Ip
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
-attack:
+attack: null
 behavior:
   source: user
   relationship: modified instance from
@@ -13,9 +13,10 @@ security_events:
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: ModifyInstanceAttribute
-    - eventType: AwsApiCall
-  event_version: ['1.05']
-references:
+  - eventName: ModifyInstanceAttribute
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
 notes:
 - Potential contribution for ATT&CK - Instance / instance modification

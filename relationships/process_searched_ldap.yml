@@ -1,27 +1,29 @@
 relationship_id: REL-2022-0073
 name: Process searched LDAP
 contributors:
-  - Hamza OUADIÂ @Cyb3rSn0rlax
+- "Hamza OUADI\xC2 @Cyb3rSn0rlax"
 attack:
-  data_source: Process
+  data_source: process
   data_component: process metadata
 behavior:
-  source: process 
+  source: process
   relationship: searched
   target: ldap
 security_events:
-  - event_id: 30
-    name: EventID(30)
-    platform: windows
-    log_source: Microsoft-Windows-LDAP-Client/Debug
-  - event_id: DeviceEvents
-    name: DeviceEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-      - ActionType: LdapSearch
-    event_version: ['0','1']
+- event_id: 30
+  name: EventID(30)
+  platform: windows
+  log_source: Microsoft-Windows-LDAP-Client/Debug
+- event_id: DeviceEvents
+  name: DeviceEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: LdapSearch
+  event_version:
+  - '0'
+  - '1'
 references:
-  - 
+- null
 notes:
-  - Host-based ETW provieder for LDAP search filter performed by a process. This event provides valuable data like PID, search filter and attributes.
+- Host-based ETW provieder for LDAP search filter performed by a process. This event provides valuable data like PID, search filter and attributes.

@@ -3,7 +3,7 @@ name: Firewall Rule added
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Firewall
+  data_source: firewall
   data_component: firewall rule modification
 behavior:
   source: firewall rule
@@ -16,7 +16,8 @@ security_events:
   audit_category: Policy Change
   audit_sub_category: MPSSVC Rule-Level Policy Change
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4948
-notes:
+notes: null

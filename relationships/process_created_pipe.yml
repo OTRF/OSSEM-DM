@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Named Pipe
+  data_source: named pipe
   data_component: named pipe metadata
 behavior:
   source: process
@@ -17,16 +17,19 @@ security_events:
   platform: windows
   audit_category: PipeEvent
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 4656
   name: A handle to an object was requested.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Detailed File Share
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['1']
+  event_version:
+  - '1'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
 notes:
 - Potential contribution for ATT&CK - Named Pipe / named pipe creation
-- Event ID 4656 logs handles to objects. Look for named pipe creation by searching for "Accesses=CreatePipeInstance".
+- Event ID 4656 logs handles to objects. Look for named pipe creation by searching
+  for "Accesses=CreatePipeInstance".

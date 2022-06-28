@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Logon Session
+  data_source: logon session
   data_component: logon session modification
 behavior:
   source: logon session
@@ -17,6 +17,7 @@ security_events:
   audit_category: Logon/Logoff
   audit_sub_category: Special Logon
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
-references:
-notes:
+  event_version:
+  - '0'
+references: null
+notes: null

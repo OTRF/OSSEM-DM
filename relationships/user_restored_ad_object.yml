@@ -3,7 +3,7 @@ name: User restored AD Object
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
-attack:
+attack: null
 behavior:
   source: user
   relationship: restored
@@ -15,7 +15,8 @@ security_events:
   audit_category: DS Access
   audit_sub_category: Directory Service Changes
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
-references:
+  event_version:
+  - '0'
+references: null
 notes:
 - Potential contribution for ATT&CK - Active Directory / active directory object deletion

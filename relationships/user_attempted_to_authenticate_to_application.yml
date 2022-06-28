@@ -3,7 +3,7 @@ name: User attempted to authenticate to Application
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account authentication
 behavior:
   source: user
@@ -15,7 +15,8 @@ security_events:
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: ConsoleLogin
-    - eventType: AwsConsoleSignin
-  event_version: ['1.05']
-references:
+  - eventName: ConsoleLogin
+  - eventType: AwsConsoleSignin
+  event_version:
+  - '1.05'
+references: null

@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Network Traffic
+  data_source: network traffic
   data_component: network connection creation
 behavior:
   source: host
@@ -12,11 +12,13 @@ behavior:
   target: port
 security_events:
 - event_id: 5154
-  name: The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.
+  name: The Windows Filtering Platform has permitted an application or service to
+    listen on a port for incoming connections.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Filtering Platform Connection
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
-references:
-notes:
+  event_version:
+  - '0'
+references: null
+notes: null

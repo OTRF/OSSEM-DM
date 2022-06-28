@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
-attack:
+attack: null
 behavior:
   source: wmi object
   relationship: created
@@ -14,14 +14,17 @@ security_events:
   name: WMI permanent event created.
   platform: windows
   log_source: Microsoft-Windows-WMI-Activity
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: WmiBindEventFilterToConsumer
-  event_version: ['0','1']
-references:
+  - ActionType: WmiBindEventFilterToConsumer
+  event_version:
+  - '0'
+  - '1'
+references: null
 notes:
 - Potential contribution for ATT&CK - WMI / wmi metadata

@@ -3,7 +3,7 @@ name: User attempted to disable Drive
 contributors:
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Drive
+  data_source: drive
   data_component: drive modification
 behavior:
   source: user
@@ -16,7 +16,8 @@ security_events:
   audit_category: Detailed Tracking
   audit_sub_category: PNP Activity
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6419
-notes:
+notes: null

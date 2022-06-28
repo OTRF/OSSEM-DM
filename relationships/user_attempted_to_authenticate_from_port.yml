@@ -6,7 +6,7 @@ contributors:
 - Reid Gilman @reidgilman
 - Olaf Hartong @olafhartong
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account authentication
 behavior:
   source: user
@@ -19,27 +19,32 @@ security_events:
   audit_category: Logon/Logoff
   audit_sub_category: Logon
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['2']
+  event_version:
+  - '2'
 - event_id: 4625
   name: An account failed to log on.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Account Lockout
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: 4648
   name: A logon was attempted using explicit credentials.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: DeviceLogonEvents
   name: DeviceLogonEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: LogonSuccess
-  event_version: ['0','1']
-references:
-notes:
+  - ActionType: LogonSuccess
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

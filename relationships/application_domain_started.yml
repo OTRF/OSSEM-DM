@@ -3,7 +3,7 @@ name: Application domain started
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
-attack:
+attack: null
 behavior:
   source: application domain
   relationship: started
@@ -13,7 +13,8 @@ security_events:
   name: Windows PowerShell has started an IPC listening thread on a process in AppDomain.
   platform: windows
   log_source: Microsoft-Windows-PowerShell
-  event_version: ['1']
-references:
+  event_version:
+  - '1'
+references: null
 notes:
 - Potential contribution for ATT&CK - Command / command context

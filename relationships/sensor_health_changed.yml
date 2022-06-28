@@ -3,7 +3,7 @@ name: Sensor Health changed
 contributors:
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Sensor Health
+  data_source: sensor health
   data_component: host status
 behavior:
   source: sensor health
@@ -15,7 +15,8 @@ security_events:
   platform: windows
   audit_category: ServiceStateChange
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: 1100
   name: The event logging service has shut down.
   platform: windows
@@ -46,11 +47,12 @@ security_events:
   audit_category: System
   audit_sub_category: Security State Change
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['1']
+  event_version:
+  - '1'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1100
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1102
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1104
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1105
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4616
-notes:
+notes: null

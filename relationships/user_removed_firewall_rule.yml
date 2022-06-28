@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Firewall
+  data_source: firewall
   data_component: firewall rule modification
 behavior:
   source: user
@@ -21,13 +21,15 @@ security_events:
   platform: aws
   log_source: cloudtrail
   filter_in:
-    - eventName: DeleteRuleGroup
-    - eventType: AwsApiCall
-  event_version: ['1.05']
+  - eventName: DeleteRuleGroup
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
 - event_id: 2033
-  name: All rules have been deleted from the Windows Firewall configuration on this computer.
+  name: All rules have been deleted from the Windows Firewall configuration on this
+    computer.
   platform: windows
   log_source: Microsoft-Windows-Windows Firewall With Advanced Security
   event_version: []
-references:
-notes:
+references: null
+notes: null

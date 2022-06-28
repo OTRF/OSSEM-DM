@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account modification
 behavior:
   source: user
@@ -18,13 +18,16 @@ security_events:
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
+  event_version:
+  - '0'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: UserAccountModified
-  event_version: ['0','1']
-references:
-notes:
+  - ActionType: UserAccountModified
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

@@ -5,7 +5,7 @@ contributors:
 - Olaf Hartong @olafhartong
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Windows Registry
+  data_source: windows registry
   data_component: windows registry key creation
 behavior:
   source: user
@@ -17,22 +17,27 @@ security_events:
   platform: windows
   audit_category: RegistryEvent
   log_source: sysmon
-  event_version: ['4.32']
+  event_version:
+  - '4.32'
 - event_id: DeviceRegistryEvents
   name: DeviceRegistryEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: RegistryValueSet
-  event_version: ['0','1']
+  - ActionType: RegistryValueSet
+  event_version:
+  - '0'
+  - '1'
 - event_id: 4657
   name: A registry value was modified.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['0']
-references:
+  event_version:
+  - '0'
+references: null
 notes:
 - Potential contribution for ATT&CK - Windows Registry / windows registry key creation
-- Event ID 4657 is logged for Creation, Modification and Deletion of registry key values. Use "Operation Type=New registry value created" to look for creations.
+- Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+  values. Use "Operation Type=New registry value created" to look for creations.

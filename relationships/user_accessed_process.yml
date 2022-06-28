@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Process
+  data_source: process
   data_component: process access
 behavior:
   source: user
@@ -18,17 +18,21 @@ security_events:
   audit_sub_category: Kernel Object
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
-      - ObjectType: Process
-  event_version: ['1']
+  - ObjectType: Process
+  event_version:
+  - '1'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: OpenProcessApiCall
-  event_version: ['0','1']
+  - ActionType: OpenProcessApiCall
+  event_version:
+  - '0'
+  - '1'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
 - Potential contribution for ATT&CK - Process / process access
-- Event 4663, this event generates only if object’s SACL has required ACE to handle specific access right use.
+- "Event 4663, this event generates only if object\u2019s SACL has required ACE to\
+  \ handle specific access right use."

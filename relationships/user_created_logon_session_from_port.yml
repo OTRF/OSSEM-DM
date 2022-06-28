@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Logon Session
+  data_source: logon session
   data_component: logon session creation
 behavior:
   source: user
@@ -18,13 +18,16 @@ security_events:
   audit_category: Logon/Logoff
   audit_sub_category: Logon
   log_source: Microsoft-Windows-Security-Auditing
-  event_version: ['2']
+  event_version:
+  - '2'
 - event_id: DeviceLogonEvents
   name: DeviceLogonEvents
   platform: windows
   log_source: Microsoft Defender for Endpoint
   filter_in:
-    - ActionType: LogonSuccess
-  event_version: ['0','1']
-references:
-notes:
+  - ActionType: LogonSuccess
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

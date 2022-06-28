@@ -6,7 +6,7 @@
   - Reid Gilman @reidgilman
   - Olaf Hartong @olafhartong
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account authentication
   behavior:
     source: user
@@ -56,7 +56,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account creation
   behavior:
     source: user
@@ -100,7 +100,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account modification
   behavior:
     source: user
@@ -152,7 +152,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Process
+    data_source: process
     data_component: process termination
   behavior:
     source: user
@@ -212,7 +212,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Process
+    data_source: process
     data_component: process access
   behavior:
     source: user
@@ -251,7 +251,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -296,7 +296,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall metadata
   behavior:
     source: user
@@ -329,7 +329,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account modification
   behavior:
     source: user
@@ -352,7 +352,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -396,7 +396,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -428,7 +428,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key access
   behavior:
     source: user
@@ -451,7 +451,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Module
+    data_source: module
     data_component: module load
   behavior:
     source: user
@@ -483,7 +483,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Active Directory
+    data_source: active directory
     data_component: active directory object access
   behavior:
     source: user
@@ -527,7 +527,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -574,7 +574,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Command
+    data_source: command
     data_component: command execution
   behavior:
     source: user
@@ -619,7 +619,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account modification
   behavior:
     source: user
@@ -644,7 +644,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: File
+    data_source: file
     data_component: file deletion
   behavior:
     source: process
@@ -677,6 +677,7 @@
     platform: windows
     audit_category: Object Access
     audit_sub_category: File System
+    log_source: Microsoft-Windows-Security-Auditing
     event_version:
     - '0'
   - event_id: DeviceFileEvents
@@ -725,7 +726,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -772,7 +773,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account modification
   behavior:
     source: user
@@ -803,7 +804,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall rule modification
   behavior:
     source: firewall rule
@@ -826,7 +827,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Cloud Service
+    data_source: cloud service
     data_component: cloud service modification
   behavior:
     source: user
@@ -873,7 +874,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -905,7 +906,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Process
+    data_source: process
     data_component: process metadata
   behavior:
     source: process
@@ -935,7 +936,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Scheduled Job
+    data_source: scheduled job
     data_component: scheduled job creation
   behavior:
     source: user
@@ -988,7 +989,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall enumeration
   behavior:
     source: user
@@ -1013,7 +1014,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -1055,7 +1056,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Scheduled Job
+    data_source: scheduled job
     data_component: scheduled job deletion
   behavior:
     source: user
@@ -1087,7 +1088,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall disable
   behavior:
     source: firewall
@@ -1120,7 +1121,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: File
+    data_source: file
     data_component: file access
   behavior:
     source: process
@@ -1144,7 +1145,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Group
+    data_source: group
     data_component: group creation
   behavior:
     source: user
@@ -1184,7 +1185,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall rule modification
   behavior:
     source: process
@@ -1249,7 +1250,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: File
+    data_source: file
     data_component: file modification
   behavior:
     source: user
@@ -1281,7 +1282,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account modification
   behavior:
     source: user
@@ -1305,7 +1306,7 @@
   - Ruben Bouman @rubinatorz
   - Olaf Hartong @olafhartong
   attack:
-    data_source: File
+    data_source: file
     data_component: file creation
   behavior:
     source: user
@@ -1348,7 +1349,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Drive
+    data_source: drive
     data_component: drive modification
   behavior:
     source: user
@@ -1371,7 +1372,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Group
+    data_source: group
     data_component: group deletion
   behavior:
     source: user
@@ -1413,7 +1414,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Logon Session
+    data_source: logon session
     data_component: logon session creation
   behavior:
     source: user
@@ -1475,7 +1476,7 @@
   - Reid Gilman @reidgilman
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key access
   behavior:
     source: process
@@ -1502,7 +1503,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall metadata
   behavior:
     source: firewall
@@ -1525,7 +1526,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Logon Session
+    data_source: logon session
     data_component: logon session metadata
   behavior:
     source: logon session
@@ -1604,7 +1605,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -1641,7 +1642,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Drive
+    data_source: drive
     data_component: drive modification
   behavior:
     source: user
@@ -1708,7 +1709,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -1741,7 +1742,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: user
@@ -1799,9 +1800,7 @@
   name: Logon Process Trusted
   contributors:
   - Hamza OUADIA @Cyb3rSn0rlax
-  attack:
-    data_source: null
-    data_component: null
+  attack: null
   behavior:
     source: logon process
     relationship: trusted
@@ -1831,7 +1830,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Logon Session
+    data_source: logon session
     data_component: logon session creation
   behavior:
     source: user
@@ -1864,7 +1863,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Named Pipe
+    data_source: named pipe
     data_component: named pipe metadata
   behavior:
     source: process
@@ -1886,7 +1885,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Sensor Health
+    data_source: sensor health
     data_component: host status
   behavior:
     source: sensor health
@@ -1967,7 +1966,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Active Directory
+    data_source: active directory
     data_component: active directory object deletion
   behavior:
     source: user
@@ -1989,7 +1988,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Drive
+    data_source: drive
     data_component: drive modification
   behavior:
     source: user
@@ -2037,7 +2036,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Script
+    data_source: script
     data_component: script execution
   behavior:
     source: process
@@ -2087,7 +2086,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Drive
+    data_source: drive
     data_component: drive modification
   behavior:
     source: user
@@ -2112,7 +2111,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -2144,7 +2143,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Drive
+    data_source: drive
     data_component: drive creation
   behavior:
     source: user
@@ -2168,7 +2167,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key access
   behavior:
     source: process
@@ -2195,7 +2194,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key modification
   behavior:
     source: process
@@ -2242,7 +2241,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall rule modification
   behavior:
     source: firewall rule
@@ -2265,7 +2264,7 @@
   contributors:
   - "Hamza OUADI\xC2 @Cyb3rSn0rlax"
   attack:
-    data_source: Process
+    data_source: process
     data_component: process metadata
   behavior:
     source: process
@@ -2296,7 +2295,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -2319,7 +2318,7 @@
   - Reid Gilman @reidgilman
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: File
+    data_source: file
     data_component: file access
   behavior:
     source: user
@@ -2349,7 +2348,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Share
+    data_source: network share
     data_component: network share modification
   behavior:
     source: user
@@ -2371,7 +2370,7 @@
   contributors:
   - Reid Gilman @reidgilman
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key access
   behavior:
     source: user
@@ -2398,7 +2397,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Share
+    data_source: network share
     data_component: network share access
   behavior:
     source: user
@@ -2441,7 +2440,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -2474,7 +2473,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: WMI
+    data_source: wmi
     data_component: wmi creation
   behavior:
     source: user
@@ -2514,46 +2513,31 @@
   - event_id: 5860
     name: WMI temporary event created.
     platform: windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-WMI-Activity/Operational
-    log_provider: Microsoft-Windows-WMI-Activity
+    log_source: Microsoft-Windows-WMI-Activity
     event_version:
     - '0'
   - event_id: 5861
     name: WMI permanent event created.
     platform: windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-WMI-Activity/Operational
-    log_provider: Microsoft-Windows-WMI-Activity
+    log_source: Microsoft-Windows-WMI-Activity
     event_version:
     - '0'
   - event_id: 5857
     name: WMIProv provider started.
     platform: windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-WMI-Activity/Operational
-    log_provider: Microsoft-Windows-WMI-Activity
+    log_source: Microsoft-Windows-WMI-Activity
     event_version:
     - '0'
   - event_id: 5858
     name: WMI Query Error.
     platform: windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-WMI-Activity/Operational
-    log_provider: Microsoft-Windows-WMI-Activity
+    log_source: Microsoft-Windows-WMI-Activity
     event_version:
     - '0'
   - event_id: 5859
     name: WMI Event.
     platform: windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-WMI-Activity/Operational
-    log_provider: Microsoft-Windows-WMI-Activity
+    log_source: Microsoft-Windows-WMI-Activity
     event_version:
     - '0'
   references: null
@@ -2563,7 +2547,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall rule modification
   behavior:
     source: firewall rule
@@ -2587,7 +2571,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: WMI
+    data_source: wmi
     data_component: wmi deletion
   behavior:
     source: user
@@ -2623,7 +2607,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account modification
   behavior:
     source: user
@@ -2646,7 +2630,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -2669,7 +2653,7 @@
   - Reid Gilman @reidgilman
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Active Directory
+    data_source: active directory
     data_component: active directory object access
   behavior:
     source: user
@@ -2703,7 +2687,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account authentication
   behavior:
     source: application
@@ -2750,7 +2734,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall rule modification
   behavior:
     source: process
@@ -2832,7 +2816,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -2856,7 +2840,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -2880,7 +2864,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: File
+    data_source: file
     data_component: file access
   behavior:
     source: user
@@ -2916,7 +2900,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Named Pipe
+    data_source: named pipe
     data_component: named pipe metadata
   behavior:
     source: process
@@ -2950,7 +2934,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Service
+    data_source: service
     data_component: service metadata
   behavior:
     source: service
@@ -2975,7 +2959,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall rule modification
   behavior:
     source: process
@@ -3026,7 +3010,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Service
+    data_source: service
     data_component: service creation
   behavior:
     source: user
@@ -3061,7 +3045,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Named Pipe
+    data_source: named pipe
     data_component: named pipe metadata
   behavior:
     source: user
@@ -3106,7 +3090,7 @@
   contributors:
   - Reid Gilman @reidgilman
   attack:
-    data_source: Active Directory
+    data_source: active directory
     data_component: active directory credential request
   behavior:
     source: user
@@ -3166,7 +3150,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key deletion
   behavior:
     source: process
@@ -3208,7 +3192,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -3241,7 +3225,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: user
@@ -3280,7 +3264,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key creation
   behavior:
     source: user
@@ -3321,7 +3305,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account authentication
   behavior:
     source: user
@@ -3343,7 +3327,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Instance
+    data_source: instance
     data_component: instance creation
   behavior:
     source: user
@@ -3368,7 +3352,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: user
@@ -3407,7 +3391,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account modification
   behavior:
     source: user
@@ -3439,7 +3423,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Service
+    data_source: service
     data_component: service access
   behavior:
     source: user
@@ -3463,7 +3447,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Process
+    data_source: process
     data_component: process access
   behavior:
     source: process
@@ -3505,7 +3489,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -3538,7 +3522,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -3583,7 +3567,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Drive
+    data_source: drive
     data_component: drive creation
   behavior:
     source: user
@@ -3617,7 +3601,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -3662,7 +3646,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Instance
+    data_source: instance
     data_component: instance modification
   behavior:
     source: user
@@ -3686,7 +3670,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall rule modification
   behavior:
     source: user
@@ -3722,7 +3706,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Scheduled Job
+    data_source: scheduled job
     data_component: scheduled job modification
   behavior:
     source: user
@@ -3755,7 +3739,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key modification
   behavior:
     source: user
@@ -3788,7 +3772,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Process
+    data_source: process
     data_component: process access
   behavior:
     source: process
@@ -3831,7 +3815,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account authentication
   behavior:
     source: user
@@ -3857,7 +3841,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key deletion
   behavior:
     source: user
@@ -3896,7 +3880,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -3921,7 +3905,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key creation
   behavior:
     source: process
@@ -3963,7 +3947,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Driver
+    data_source: driver
     data_component: driver load
   behavior:
     source: driver
@@ -3993,7 +3977,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall metadata
   behavior:
     source: firewall
@@ -4013,7 +3997,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -4036,7 +4020,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Named Pipe
+    data_source: named pipe
     data_component: named pipe metadata
   behavior:
     source: user
@@ -4080,7 +4064,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key deletion
   behavior:
     source: user
@@ -4122,7 +4106,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Command
+    data_source: command
     data_component: command execution
   behavior:
     source: process
@@ -4197,7 +4181,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account modification
   behavior:
     source: user
@@ -4260,7 +4244,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: user
@@ -4298,7 +4282,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Active Directory
+    data_source: active directory
     data_component: active directory object creation
   behavior:
     source: user
@@ -4322,7 +4306,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -4355,7 +4339,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: user
@@ -4393,7 +4377,7 @@
   - Reid Gilman @reidgilman
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: File
+    data_source: file
     data_component: file access
   behavior:
     source: process
@@ -4444,7 +4428,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -4483,7 +4467,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key deletion
   behavior:
     source: process
@@ -4523,7 +4507,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Process
+    data_source: process
     data_component: process modification
   behavior:
     source: process
@@ -4556,7 +4540,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: File
+    data_source: file
     data_component: file deletion
   behavior:
     source: user
@@ -4622,7 +4606,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key modification
   behavior:
     source: user
@@ -4671,7 +4655,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Process
+    data_source: process
     data_component: process creation
   behavior:
     source: user
@@ -4741,7 +4725,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Scheduled Job
+    data_source: scheduled job
     data_component: scheduled job modification
   behavior:
     source: user
@@ -4773,7 +4757,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Logon Session
+    data_source: logon session
     data_component: logon session modification
   behavior:
     source: logon session
@@ -4797,7 +4781,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Process
+    data_source: process
     data_component: OS api execution
   behavior:
     source: process
@@ -4858,7 +4842,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall metadata
   behavior:
     source: user
@@ -4885,7 +4869,7 @@
   - Reid Gilman @reidgilman
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Process
+    data_source: process
     data_component: process creation
   behavior:
     source: process
@@ -4917,7 +4901,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key creation
   behavior:
     source: process
@@ -4949,7 +4933,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: File
+    data_source: file
     data_component: file modification
   behavior:
     source: process
@@ -5003,7 +4987,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Cloud Service
+    data_source: cloud service
     data_component: cloud service metadata
   behavior:
     source: user
@@ -5064,7 +5048,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key creation
   behavior:
     source: user
@@ -5095,7 +5079,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Instance
+    data_source: instance
     data_component: instance creation
   behavior:
     source: user
@@ -5119,7 +5103,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -5144,7 +5128,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -5177,7 +5161,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: user
@@ -5216,7 +5200,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Active Directory
+    data_source: active directory
     data_component: active directory object modification
   behavior:
     source: user
@@ -5257,7 +5241,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account authentication
   behavior:
     source: user
@@ -5282,7 +5266,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -5305,7 +5289,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Group
+    data_source: group
     data_component: group enumeration
   behavior:
     source: user
@@ -5339,7 +5323,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -5386,7 +5370,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Scheduled Job
+    data_source: scheduled job
     data_component: scheduled job modification
   behavior:
     source: user
@@ -5417,7 +5401,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall rule modification
   behavior:
     source: user
@@ -5448,7 +5432,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Share
+    data_source: network share
     data_component: network share creation
   behavior:
     source: user
@@ -5473,7 +5457,7 @@
   - Reid Gilman @reidgilman
   - Olaf Hartong @olafhartong
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account authentication
   behavior:
     source: user
@@ -5554,7 +5538,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Logon Session
+    data_source: logon session
     data_component: logon session termination
   behavior:
     source: user
@@ -5588,7 +5572,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: host
@@ -5620,7 +5604,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Share
+    data_source: network share
     data_component: network share deletion
   behavior:
     source: user
@@ -5644,7 +5628,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Process
+    data_source: process
     data_component: process creation
   behavior:
     source: process
@@ -5692,7 +5676,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: User Account
+    data_source: user account
     data_component: user account deletion
   behavior:
     source: user
@@ -5735,7 +5719,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Windows Registry
+    data_source: windows registry
     data_component: windows registry key modification
   behavior:
     source: process
@@ -5782,7 +5766,7 @@
   - Roberto Rodriguez @Cyb3rWard0g
   - Olaf Hartong @olafhartong
   attack:
-    data_source: Module
+    data_source: module
     data_component: module load
   behavior:
     source: process
@@ -5812,7 +5796,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall rule modification
   behavior:
     source: user
@@ -5840,7 +5824,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Firewall
+    data_source: firewall
     data_component: firewall metadata
   behavior:
     source: process
@@ -5867,7 +5851,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: File
+    data_source: file
     data_component: file creation
   behavior:
     source: process
@@ -5915,7 +5899,7 @@
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   attack:
-    data_source: Cloud Service
+    data_source: cloud service
     data_component: cloud service metadata
   behavior:
     source: user
@@ -5975,7 +5959,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Network Traffic
+    data_source: network traffic
     data_component: network connection creation
   behavior:
     source: process
@@ -5998,7 +5982,7 @@
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: Service
+    data_source: service
     data_component: service metadata
   behavior:
     source: service
@@ -6023,7 +6007,7 @@
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Group
+    data_source: group
     data_component: group modification
   behavior:
     source: user
@@ -6125,7 +6109,7 @@
   - Olaf Hartong @olafhartong
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: Logon Session
+    data_source: logon session
     data_component: logon session creation
   behavior:
     source: user
