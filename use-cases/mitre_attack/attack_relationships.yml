@@ -15,31 +15,37 @@
   security_events:
   - event_id: 4624
     name: An account was successfully logged on.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Logon
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
   - event_id: 4625
     name: An account failed to log on.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Account Lockout
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4648
     name: A logon was attempted using explicit credentials.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Logon
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: LogonSuccess
-    name: LogonSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceLogonEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceLogonEvents
+    name: DeviceLogonEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: LogonSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0002
@@ -59,24 +65,29 @@
   security_events:
   - event_id: 4720
     name: A user account was created.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4741
     name: A computer account was created.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Computer Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: UserAccountCreated
-    name: UserAccountCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: UserAccountCreated
+    event_version:
+    - '0'
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4720
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4741
@@ -98,31 +109,37 @@
   security_events:
   - event_id: 4738
     name: A user account was changed.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4781
     name: The name of an account was changed.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4742
     name: A computer account was changed.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Computer Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: UserAccountModified
-    name: UserAccountModified
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: UserAccountModified
+    event_version:
+    - '0'
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4738
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4781
@@ -144,23 +161,26 @@
   security_events:
   - event_id: 4689
     name: A process has exited.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: Process Termination
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 5
     name: Process terminated.
-    platform: Windows
+    platform: windows
     audit_category: ProcessTerminate
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 5
     name: Process terminated.
-    platform: Linux
+    platform: linux
     audit_category: ProcessTerminate
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.81'
   references: null
   notes: null
 - relationship_id: REL-2022-0006
@@ -178,19 +198,23 @@
   security_events:
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Kernel Object
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: Process
-  - event_id: OpenProcessApiCall
-    name: OpenProcessApiCall
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    event_version:
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: OpenProcessApiCall
+    event_version:
+    - '0'
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -213,29 +237,35 @@
   security_events:
   - event_id: 5156
     name: The Windows Filtering Platform has permitted a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: InboundConnectionAccepted
-    name: InboundConnectionAccepted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: InboundConnectionAccepted
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0008
@@ -250,20 +280,24 @@
     relationship: retrieved information about
     target: firewall
   security_events:
-  - event_id: DescribeFirewall
-    name: DescribeFirewall
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  - event_id: DescribeFirewallPolicy
-    name: DescribeFirewallPolicy
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: DescribeFirewall
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: DescribeFirewallPolicy
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   references: null
   notes: null
 - relationship_id: REL-2022-0009
@@ -281,11 +315,12 @@
   security_events:
   - event_id: 4740
     name: A user account was locked out.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0010
@@ -303,11 +338,12 @@
   security_events:
   - event_id: 5159
     name: The Windows Filtering Platform has blocked a bind to a local port.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0012
@@ -326,17 +362,21 @@
   security_events:
   - event_id: 5157
     name: The Windows Filtering Platform has blocked a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ConnectionAttempt
-    name: ConnectionAttempt
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionAttempt
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0013
@@ -354,11 +394,10 @@
   security_events:
   - event_id: 4656
     name: A handle to an object was requested.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: Key
   references: null
@@ -378,16 +417,20 @@
   security_events:
   - event_id: 7
     name: Image loaded.
-    platform: Windows
+    platform: windows
     audit_category: ImageLoad
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: ImageLoaded
-    name: ImageLoaded
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceImageLoadEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceImageLoadEvents
+    name: DeviceImageLoadEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ImageLoaded
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes:
   - Potential contribution for ATT&CK - Module / module load
@@ -406,11 +449,12 @@
   security_events:
   - event_id: 4661
     name: A handle to an object was requested.
-    platform: Windows
+    platform: windows
     audit_category: DS Access
     audit_sub_category: Directory Service Access
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0017
@@ -429,29 +473,35 @@
   security_events:
   - event_id: 5156
     name: The Windows Filtering Platform has permitted a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: ConnectionSuccess
-    name: ConnectionSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0018
@@ -470,29 +520,34 @@
   security_events:
   - event_id: 4688
     name: A new process has been created.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: Process Creation
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
   - event_id: 1
     name: Process Creation.
-    platform: Windows
+    platform: windows
     audit_category: ProcessCreate
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4103
     name: Module logging.
-    platform: Windows
-    audit_category: Executing Pipeline
-    log_channel: Microsoft-Windows-PowerShell/Operational
-    log_provider: Microsoft-Windows-PowerShell
-  - event_id: ProcessCreated
-    name: ProcessCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceProcessEvents
-    log_provider: Microsoft Defender for Endpoint
+    platform: windows
+    log_source: powershell
+    event_version:
+    - '0'
+  - event_id: DeviceProcessEvents
+    name: DeviceProcessEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ProcessCreated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0019
@@ -510,11 +565,12 @@
   security_events:
   - event_id: 4767
     name: A user account was unlocked.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0020
@@ -534,47 +590,50 @@
   security_events:
   - event_id: 23
     name: File Delete archived.
-    platform: Windows
+    platform: windows
     audit_category: FileDelete
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 23
     name: File Delete archived.
-    platform: Linux
+    platform: linux
     audit_category: FileDelete
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.81'
   - event_id: 26
     name: File Delete logged.
-    platform: Windows
+    platform: windows
     audit_category: FileDeleteDetected
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4660
     name: An object was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: FileDeleted
-    name: FileDeleted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceFileEvents
-    log_provider: Microsoft Defender for Endpoint
+    event_version:
+    - '0'
+  - event_id: DeviceFileEvents
+    name: DeviceFileEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FileDeleted
+    event_version:
+    - '0'
+    - '1'
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
-  notes:
-  - Event ID 4663 logs attempts of accesses to objects. Look for files deletion by
-    searching for "Accesses=Delete".
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  references: null
 - relationship_id: REL-2022-0022
   name: Host blocked listener on Ip
   contributors:
@@ -591,11 +650,12 @@
   - event_id: 5155
     name: The Windows Filtering Platform has blocked an application or service from
       listening on a port for incoming connections.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0024
@@ -614,17 +674,21 @@
   security_events:
   - event_id: 4722
     name: A user account was enabled.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: UserAccountModified
-    name: UserAccountModified
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: UserAccountModified
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0025
@@ -641,11 +705,12 @@
   security_events:
   - event_id: 4947
     name: A change has been made to Windows Firewall exception list. A rule was modified.
-    platform: Windows
+    platform: windows
     audit_category: Policy Change
     audit_sub_category: MPSSVC Rule-Level Policy Change
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4947
   notes: null
@@ -661,13 +726,15 @@
     relationship: modified
     target: cloud service
   security_events:
-  - event_id: UpdateTrail
-    name: UpdateTrail
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: UpdateTrail
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   references: null
   notes: null
 - relationship_id: REL-2022-0028
@@ -686,17 +753,50 @@
   security_events:
   - event_id: 5157
     name: The Windows Filtering Platform has blocked a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: FirewallInboundConnectionBlocked
-    name: FirewallInboundConnectionBlocked
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FirewallInboundConnectionBlocked
+    event_version:
+    - '0'
+    - '1'
+  references: null
+  notes: null
+- relationship_id: REL-2022-0029
+  name: Process terminated
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  attack:
+    data_source: Process
+    data_component: process metadata
+  behavior:
+    source: process
+    relationship: terminated
+    target: null
+  security_events:
+  - event_id: 5
+    name: Process terminated.
+    platform: windows
+    audit_category: ProcessTerminate
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: 5
+    name: Process terminated.
+    platform: linux
+    audit_category: ProcessTerminate
+    log_source: sysmon
+    event_version:
+    - '4.81'
   references: null
   notes: null
 - relationship_id: REL-2022-0030
@@ -715,17 +815,21 @@
   security_events:
   - event_id: 4698
     name: A scheduled task was created.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Other Object Access Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ScheduledTaskCreated
-    name: ScheduledTaskCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ScheduledTaskCreated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0032
@@ -740,13 +844,15 @@
     relationship: listed
     target: firewall rule
   security_events:
-  - event_id: ListRuleGroups
-    name: ListRuleGroups
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: ListRuleGroups
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   references: null
   notes: null
 - relationship_id: REL-2022-0033
@@ -765,25 +871,30 @@
   security_events:
   - event_id: 5157
     name: The Windows Filtering Platform has blocked a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   - event_id: 5031
     name: The Windows Firewall Service blocked an application from accepting incoming
       connections on the network.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: FirewallInboundConnectionToAppBlocked
-    name: FirewallInboundConnectionToAppBlocked
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FirewallInboundConnectionToAppBlocked
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0034
@@ -802,17 +913,21 @@
   security_events:
   - event_id: 4699
     name: A scheduled task was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Other Object Access Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ScheduledTaskDeleted
-    name: ScheduledTaskDeleted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ScheduledTaskDeleted
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0035
@@ -830,18 +945,20 @@
   security_events:
   - event_id: 5025
     name: The Windows Firewall Service has been stopped.
-    platform: Windows
+    platform: windows
     audit_category: System
     audit_sub_category: Other System Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 5034
     name: The Windows Firewall Driver was stopped.
-    platform: Windows
+    platform: windows
     audit_category: System
     audit_sub_category: Other System Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5025
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5034
@@ -861,13 +978,14 @@
   security_events:
   - event_id: 4656
     name: A handle to an object was requested.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: File
+    event_version:
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0037
@@ -884,25 +1002,28 @@
   security_events:
   - event_id: 4727
     name: A security-enabled global group was created.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4731
     name: A security-enabled local group was created.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4754
     name: A security-enabled universal group was created.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4731
@@ -923,17 +1044,21 @@
   security_events:
   - event_id: 4670
     name: Permissions on an object were changed.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: FileModified
-    name: FileModified
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceFileEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceFileEvents
+    name: DeviceFileEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FileModified
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0042
@@ -951,11 +1076,12 @@
   security_events:
   - event_id: 4717
     name: System security access was granted to an account.
-    platform: Windows
+    platform: windows
     audit_category: Policy Change
     audit_sub_category: Authentication Policy Change
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0043
@@ -974,23 +1100,28 @@
   security_events:
   - event_id: 11
     name: FileCreate.
-    platform: Linux
+    platform: linux
     audit_category: FileCreate
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: FileCreated
-    name: FileCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceFileEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceFileEvents
+    name: DeviceFileEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FileCreated
+    event_version:
+    - '0'
+    - '1'
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -1012,11 +1143,12 @@
   security_events:
   - event_id: 6422
     name: A device was enabled.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6422
   notes: null
@@ -1034,25 +1166,28 @@
   security_events:
   - event_id: 4730
     name: A security-enabled global group was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4734
     name: A security-enabled local group was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4758
     name: A security-enabled universal group was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4734
@@ -1073,24 +1208,29 @@
   security_events:
   - event_id: 4624
     name: An account was successfully logged on.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Logon
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
   - event_id: 4778
     name: A session was reconnected to a Window Station.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Other Logon/Logoff Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: LogonSuccess
-    name: LogonSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceLogonEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceLogonEvents
+    name: DeviceLogonEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: LogonSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0048
@@ -1108,13 +1248,14 @@
   security_events:
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: Key
+    event_version:
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -1134,11 +1275,12 @@
   security_events:
   - event_id: 5024
     name: The Windows Firewall Service has started successfully.
-    platform: Windows
+    platform: windows
     audit_category: System
     audit_sub_category: Other System Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall enable
@@ -1156,53 +1298,60 @@
   security_events:
   - event_id: 4703
     name: A token right was adjusted.
-    platform: Windows
+    platform: windows
     audit_category: Policy Change
     audit_sub_category: Authorization Policy Change
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4673
     name: A privileged service was called.
-    platform: Windows
+    platform: windows
     audit_category: Privilege Use
     audit_sub_category: Sensitive Privilege Use
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4674
     name: An operation was attempted on a privileged object.
-    platform: Windows
+    platform: windows
     audit_category: Privilege Use
     audit_sub_category: Sensitive Privilege Use
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4610
     name: An authentication package has been loaded by the Local Security Authority.
-    platform: Windows
+    platform: windows
     audit_category: System
     audit_sub_category: Security System Extension
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4611
     name: A trusted logon process has been registered with the Local Security Authority.
-    platform: Windows
+    platform: windows
     audit_category: System
     audit_sub_category: Security System Extension
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4614
     name: A notification package has been loaded by the Security Account Manager.
-    platform: Windows
+    platform: windows
     audit_category: System
     audit_sub_category: Security System Extension
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4622
     name: A security package has been loaded by the Local Security Authority.
-    platform: Windows
+    platform: windows
     audit_category: System
     audit_sub_category: Security System Extension
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4703
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4673
@@ -1228,22 +1377,27 @@
   security_events:
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: InboundConnectionAccepted
-    name: InboundConnectionAccepted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: InboundConnectionAccepted
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0053
@@ -1260,11 +1414,12 @@
   security_events:
   - event_id: 6419
     name: A request was made to disable a device.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6419
   notes: null
@@ -1284,17 +1439,21 @@
   security_events:
   - event_id: 5157
     name: The Windows Filtering Platform has blocked a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ConnectionAttempt
-    name: ConnectionAttempt
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionAttempt
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0057
@@ -1313,22 +1472,27 @@
   security_events:
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: ConnectionSuccess
-    name: ConnectionSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0187
@@ -1345,11 +1509,12 @@
   security_events:
   - event_id: 4611
     name: A trusted logon process has been registered with the Local Security Authority.
-    platform: Windows
+    platform: windows
     audit_category: System
     audit_sub_category: Security System Extension
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4611
   - https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4611
@@ -1375,17 +1540,21 @@
   security_events:
   - event_id: 4624
     name: An account was successfully logged on.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Logon
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: LogonSuccess
-    name: LogonSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceLogonEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
+  - event_id: DeviceLogonEvents
+    name: DeviceLogonEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: LogonSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0060
@@ -1404,10 +1573,11 @@
   security_events:
   - event_id: 18
     name: PipeEvent (Pipe Connected).
-    platform: Windows
+    platform: windows
     audit_category: PipeEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   references: null
   notes:
   - Potential contribution for ATT&CK - Named Pipe / named pipe connection
@@ -1425,59 +1595,43 @@
   security_events:
   - event_id: 4
     name: Sysmon service state changed.
-    platform: Windows
+    platform: windows
     audit_category: ServiceStateChange
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 1100
     name: The event logging service has shut down.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Security
-    log_provider: Eventlog
+    platform: windows
+    log_source: Microsoft-Windows-Eventlog
   - event_id: 1101
     name: Audit events have been dropped by the transport.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Security
-    log_provider: Eventlog
+    platform: windows
+    log_source: Microsoft-Windows-Eventlog
   - event_id: 1102
     name: The audit log was cleared.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Security
-    log_provider: Eventlog
+    platform: windows
+    log_source: Microsoft-Windows-Eventlog
   - event_id: 1104
     name: The security Log is now full.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Security
-    log_provider: Eventlog
+    platform: windows
+    log_source: Microsoft-Windows-Eventlog
   - event_id: 6005
     name: The Event log service was started.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: System
-    log_provider: Eventlog
+    platform: windows
+    log_source: Eventlog / System
   - event_id: 6006
     name: The Event log service was stopped.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: System
-    log_provider: Eventlog
+    platform: windows
+    log_source: Eventlog / System
   - event_id: 4616
     name: The system time was changed.
-    platform: Windows
+    platform: windows
     audit_category: System
     audit_sub_category: Security State Change
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1100
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-1102
@@ -1500,11 +1654,12 @@
   security_events:
   - event_id: 5141
     name: A directory service object was deleted.
-    platform: Windows
+    platform: windows
     audit_category: DS Access
     audit_sub_category: Directory Service Changes
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0064
@@ -1521,11 +1676,12 @@
   security_events:
   - event_id: 6420
     name: A device was disabled.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6420
   notes: null
@@ -1545,36 +1701,46 @@
   security_events:
   - event_id: 4103
     name: Module logging.
-    platform: Windows
+    platform: windows
     audit_category: Executing Pipeline
     log_channel: Microsoft-Windows-PowerShell/Operational
     log_provider: Microsoft-Windows-PowerShell
+    event_version:
+    - '0'
   - event_id: 4104
     name: Script Block Logging.
-    platform: Windows
+    platform: windows
     audit_category: Execute a Remote Command
     log_channel: Microsoft-Windows-PowerShell/Operational
     log_provider: Microsoft-Windows-PowerShell
-  - event_id: ScriptContent
-    name: ScriptContent
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
-  - event_id: PowerShellCommand
-    name: PowerShellCommand
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
-  - event_id: AmsiScriptDetection
-    name: AmsiScriptDetection
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ScriptContent
+    event_version:
+    - '0'
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: PowerShellCommand
+    event_version:
+    - '0'
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: AmsiScriptDetection
+    event_version:
+    - '0'
+    - '1'
   references: null
-  notes: null
 - relationship_id: REL-2022-0067
   name: User attempted to enable Drive
   contributors:
@@ -1589,11 +1755,12 @@
   security_events:
   - event_id: 6421
     name: A request was made to enable a device.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6421
   notes: null
@@ -1614,17 +1781,21 @@
   - event_id: 5154
     name: The Windows Filtering Platform has permitted an application or service to
       listen on a port for incoming connections.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ListeningConnectionCreated
-    name: ListeningConnectionCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ListeningConnectionCreated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0069
@@ -1641,11 +1812,12 @@
   security_events:
   - event_id: 6423
     name: The installation of this device is forbidden by system policy.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6423
   notes: null
@@ -1664,13 +1836,14 @@
   security_events:
   - event_id: 4656
     name: A handle to an object was requested.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: Key
+    event_version:
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0071
@@ -1690,29 +1863,35 @@
   security_events:
   - event_id: 13
     name: RegistryEvent (Value Set).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 14
     name: RegistryEvent (Key and Value Rename).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4657
     name: A registry value was modified.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: RegistryValueSet
-    name: RegistryValueSet
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueSet
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes:
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
@@ -1731,11 +1910,12 @@
   security_events:
   - event_id: 4948
     name: A change has been made to Windows Firewall exception list. A rule was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Policy Change
     audit_sub_category: MPSSVC Rule-Level Policy Change
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4948
   notes: null
@@ -1745,7 +1925,7 @@
   - "Hamza OUADI\xC2 @Cyb3rSn0rlax"
   attack:
     data_source: Process
-    data_component: null
+    data_component: process metadata
   behavior:
     source: process
     relationship: searched
@@ -1753,17 +1933,17 @@
   security_events:
   - event_id: 30
     name: EventID(30)
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-LDAP-Client/Debug
-    log_provider: Microsoft-Windows-LDAP-Client
-  - event_id: LdapSearch
-    name: LdapSearch
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    platform: windows
+    log_source: Microsoft-Windows-LDAP-Client/Debug
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: LdapSearch
+    event_version:
+    - '0'
+    - '1'
   references:
   - null
   notes:
@@ -1784,11 +1964,12 @@
   security_events:
   - event_id: 5157
     name: The Windows Filtering Platform has blocked a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0075
@@ -1806,13 +1987,14 @@
   security_events:
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: File
+    event_version:
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -1835,11 +2017,12 @@
   security_events:
   - event_id: 5143
     name: A network share object was modified.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File Share
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0077
@@ -1856,11 +2039,10 @@
   security_events:
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: Key
   references:
@@ -1884,25 +2066,30 @@
   security_events:
   - event_id: 5140
     name: A network share object was accessed.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File Share
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   - event_id: 5145
     name: A network share object was checked to see whether client can be granted
       desired access.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Detailed File Share
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: LogonSuccess
-    name: LogonSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceLogonEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceLogonEvents
+    name: DeviceLogonEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: LogonSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes:
   - Potential contribution for ATT&CK - Network Share / network share access
@@ -1922,17 +2109,21 @@
   security_events:
   - event_id: 5157
     name: The Windows Filtering Platform has blocked a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ConnectionRequest
-    name: ConnectionRequest
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionRequest
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0080
@@ -1951,63 +2142,79 @@
   security_events:
   - event_id: 19
     name: WmiEvent (WmiEventFilter activity detected).
-    platform: Windows
+    platform: windows
     audit_category: WmiEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 20
     name: WmiEvent (WmiEventConsumer activity detected).
-    platform: Windows
+    platform: windows
     audit_category: WmiEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 21
     name: WmiEvent (WmiEventConsumerToFilter activity detected).
-    platform: Windows
+    platform: windows
     audit_category: WmiEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: WmiBindEventFilterToConsumer
-    name: WmiBindEventFilterToConsumer
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: WmiBindEventFilterToConsumer
+    event_version:
+    - '0'
+    - '1'
   - event_id: 5860
     name: WMI temporary event created.
-    platform: Windows
+    platform: windows
     audit_category: null
     audit_sub_category: null
     log_channel: Microsoft-Windows-WMI-Activity/Operational
     log_provider: Microsoft-Windows-WMI-Activity
+    event_version:
+    - '0'
   - event_id: 5861
     name: WMI permanent event created.
-    platform: Windows
+    platform: windows
     audit_category: null
     audit_sub_category: null
     log_channel: Microsoft-Windows-WMI-Activity/Operational
     log_provider: Microsoft-Windows-WMI-Activity
+    event_version:
+    - '0'
   - event_id: 5857
     name: WMIProv provider started.
-    platform: Windows
+    platform: windows
     audit_category: null
     audit_sub_category: null
     log_channel: Microsoft-Windows-WMI-Activity/Operational
     log_provider: Microsoft-Windows-WMI-Activity
+    event_version:
+    - '0'
   - event_id: 5858
     name: WMI Query Error.
-    platform: Windows
+    platform: windows
     audit_category: null
     audit_sub_category: null
     log_channel: Microsoft-Windows-WMI-Activity/Operational
     log_provider: Microsoft-Windows-WMI-Activity
+    event_version:
+    - '0'
   - event_id: 5859
     name: WMI Event.
-    platform: Windows
+    platform: windows
     audit_category: null
     audit_sub_category: null
     log_channel: Microsoft-Windows-WMI-Activity/Operational
     log_provider: Microsoft-Windows-WMI-Activity
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0081
@@ -2024,11 +2231,12 @@
   security_events:
   - event_id: 4946
     name: A change has been made to Windows Firewall exception list. A rule was added.
-    platform: Windows
+    platform: windows
     audit_category: Policy Change
     audit_sub_category: MPSSVC Rule-Level Policy Change
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4946
   notes: null
@@ -2047,22 +2255,25 @@
   security_events:
   - event_id: 19
     name: WmiEvent (WmiEventFilter activity detected).
-    platform: Windows
+    platform: windows
     audit_category: WmiEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 20
     name: WmiEvent (WmiEventConsumer activity detected).
-    platform: Windows
+    platform: windows
     audit_category: WmiEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 21
     name: WmiEvent (WmiEventConsumerToFilter activity detected).
-    platform: Windows
+    platform: windows
     audit_category: WmiEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   references: null
   notes: null
 - relationship_id: REL-2022-0083
@@ -2080,11 +2291,12 @@
   security_events:
   - event_id: 4718
     name: System security access was removed from an account.
-    platform: Windows
+    platform: windows
     audit_category: Policy Change
     audit_sub_category: Authentication Policy Change
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0084
@@ -2102,11 +2314,12 @@
   security_events:
   - event_id: 5159
     name: The Windows Filtering Platform has blocked a bind to a local port.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0085
@@ -2124,18 +2337,20 @@
   security_events:
   - event_id: 4662
     name: An operation was performed on an object.
-    platform: Windows
+    platform: windows
     audit_category: DS Access
     audit_sub_category: Directory Service Access
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4932
     name: Synchronization of a replica of an Active Directory naming context has begun.
-    platform: Windows
+    platform: windows
     audit_category: DS Access
     audit_sub_category: Directory Service Replication
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4662
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4932
@@ -2154,15 +2369,17 @@
     relationship: attempted to authenticate
     target: user
   security_events:
-  - event_id: ConsoleLogin
-    name: ConsoleLogin
-    platform: AWS
-    audit_category: AwsConsoleSignin
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: ConsoleLogin
+    - eventType: AwsConsoleSignin
+    event_version:
+    - '1.05'
   references:
-  - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
+  - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.html
   notes:
   - Potential contribution for ATT&CK - User Account / user account authentication
 - relationship_id: REL-2022-0090
@@ -2181,11 +2398,12 @@
   - event_id: 5154
     name: The Windows Filtering Platform has permitted an application or service to
       listen on a port for incoming connections.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0091
@@ -2204,11 +2422,12 @@
   - event_id: 5155
     name: The Windows Filtering Platform has blocked an application or service from
       listening on a port for incoming connections.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0092
@@ -2226,20 +2445,18 @@
   security_events:
   - event_id: 4656
     name: A handle to an object was requested.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: File
   - event_id: 4661
     name: A handle to an object was requested.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: SAM
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: SAM
   references:
@@ -2264,17 +2481,19 @@
   security_events:
   - event_id: 17
     name: PipeEvent (Pipe Created).
-    platform: Windows
+    platform: windows
     audit_category: PipeEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4656
     name: A handle to an object was requested.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Detailed File Share
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
   notes:
@@ -2296,17 +2515,15 @@
   security_events:
   - event_id: 4
     name: Sysmon service state changed.
-    platform: Windows
+    platform: windows
     audit_category: ServiceStateChange
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 6006
     name: The Event log service was stopped.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: System
-    log_provider: Eventlog
+    platform: windows
+    log_source: Eventlog / System
   references: null
   notes: null
 - relationship_id: REL-2022-0097
@@ -2325,22 +2542,25 @@
   security_events:
   - event_id: 4697
     name: A service was installed in the system.
-    platform: Windows
+    platform: windows
     audit_category: System
     audit_sub_category: Security System Extension
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 7045
     name: A new service was installed in the system.
-    platform: Windows
-    log_channel: System
-    log_provider: Service Control Manager
-  - event_id: ServiceInstalled
-    name: ServiceInstalled
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    platform: windows
+    log_source: Service Control Manager / System
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ServiceInstalled
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0098
@@ -2357,10 +2577,11 @@
   security_events:
   - event_id: 18
     name: PipeEvent (Pipe Connected).
-    platform: Windows
+    platform: windows
     audit_category: PipeEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   references: null
   notes:
   - Potential contribution for ATT&CK - Named Pipe / named pipe creation
@@ -2378,18 +2599,20 @@
   security_events:
   - event_id: 4768
     name: A Kerberos authentication ticket (TGT) was requested.
-    platform: Windows
+    platform: windows
     audit_category: Account Logon
     audit_sub_category: Kerberos Authentication Service
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4769
     name: A Kerberos service ticket was requested.
-    platform: Windows
+    platform: windows
     audit_category: Account Logon
     audit_sub_category: Kerberos Service Ticket Operations
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4768
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4769
@@ -2413,23 +2636,28 @@
   security_events:
   - event_id: 12
     name: RegistryEvent (Object create and delete).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: RegistryValueDeleted
-    name: RegistryValueDeleted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueDeleted
+    event_version:
+    - '0'
+    - '1'
   - event_id: 4657
     name: A registry value was modified.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes:
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
@@ -2450,17 +2678,21 @@
   security_events:
   - event_id: 5158
     name: The Windows Filtering Platform has permitted a bind to a local port.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ListeningConnectionCreated
-    name: ListeningConnectionCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ListeningConnectionCreated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0104
@@ -2479,22 +2711,27 @@
   security_events:
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: ConnectionSuccess
-    name: ConnectionSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0105
@@ -2513,23 +2750,28 @@
   security_events:
   - event_id: 12
     name: RegistryEvent (Object create and delete).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: RegistryValueSet
-    name: RegistryValueSet
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueSet
+    event_version:
+    - '0'
+    - '1'
   - event_id: 4657
     name: A registry value was modified.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes:
   - Potential contribution for ATT&CK - Windows Registry / windows registry key creation
@@ -2547,16 +2789,16 @@
     relationship: attempted to authenticate to
     target: application
   security_events:
-  - event_id: ConsoleLogin
-    name: ConsoleLogin
-    platform: AWS
-    audit_category: AwsConsoleSignin
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  references:
-  - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
-  notes: null
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: ConsoleLogin
+    - eventType: AwsConsoleSignin
+    event_version:
+    - '1.05'
+  references: null
 - relationship_id: REL-2022-0107
   name: User created Instance
   contributors:
@@ -2569,13 +2811,15 @@
     relationship: created
     target: instance
   security_events:
-  - event_id: RunInstances
-    name: RunInstances
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: RunInstances
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   references: null
   notes: null
 - relationship_id: REL-2022-0108
@@ -2594,22 +2838,27 @@
   security_events:
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: InboundConnectionAccepted
-    name: InboundConnectionAccepted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: InboundConnectionAccepted
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0109
@@ -2628,17 +2877,21 @@
   security_events:
   - event_id: 4725
     name: A user account was disabled.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: UserAccountModified
-    name: UserAccountModified
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: UserAccountModified
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0110
@@ -2656,11 +2909,12 @@
   security_events:
   - event_id: 4656
     name: A handle to an object was requested.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Other Object Access Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0111
@@ -2679,25 +2933,30 @@
   security_events:
   - event_id: 4656
     name: A handle to an object was requested.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Kernel Object
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: Process
+    event_version:
+    - '1'
   - event_id: 10
     name: Process Access.
-    platform: Windows
+    platform: windows
     audit_category: ProcessAccess
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: OpenProcessApiCall
-    name: OpenProcessApiCall
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: OpenProcessApiCall
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0112
@@ -2716,17 +2975,21 @@
   security_events:
   - event_id: 5157
     name: The Windows Filtering Platform has blocked a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ConnectionRequest
-    name: ConnectionRequest
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionRequest
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0113
@@ -2745,29 +3008,35 @@
   security_events:
   - event_id: 5156
     name: The Windows Filtering Platform has permitted a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: ConnectionSuccess
-    name: ConnectionSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0114
@@ -2784,19 +3053,21 @@
   security_events:
   - event_id: 6416
     name: A new external device was recognized by the system.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   - event_id: 6424
     name: The installation of this device was allowed, after having previously been
       forbidden by policy.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: PNP Activity
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6416
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6424
@@ -2817,11 +3088,12 @@
   - event_id: 5154
     name: The Windows Filtering Platform has permitted an application or service to
       listen on a port for incoming connections.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0117
@@ -2836,13 +3108,15 @@
     relationship: modified
     target: instance
   security_events:
-  - event_id: ModifyInstanceAttribute
-    name: ModifyInstanceAttribute
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: ModifyInstanceAttribute
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   references: null
   notes: null
 - relationship_id: REL-2022-0118
@@ -2860,26 +3134,22 @@
   security_events:
   - event_id: 2006
     name: A rule has been deleted in the Windows Defender Firewall exception list
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-    log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
-  - event_id: DeleteRuleGroup
-    name: DeleteRuleGroup
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: DeleteRuleGroup
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   - event_id: 2033
     name: All rules have been deleted from the Windows Firewall configuration on this
       computer.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-    log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   references: null
   notes: null
 - relationship_id: REL-2022-0119
@@ -2898,17 +3168,21 @@
   security_events:
   - event_id: 4702
     name: A scheduled task was updated.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Other Object Access Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ScheduledTaskUpdated
-    name: ScheduledTaskUpdated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ScheduledTaskUpdated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0120
@@ -2927,17 +3201,21 @@
   security_events:
   - event_id: 4670
     name: Permissions on an object were changed.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: RegistryKeySet
-    name: RegistryKeySet
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeySet
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0121
@@ -2955,26 +3233,31 @@
     target: process
   security_events:
   - event_id: 10
-    name: ProcessAccess.
-    platform: Windows
+    name: ProcessAccess
+    platform: windows
     audit_category: ProcessAccess
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Kernel Object
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: Process
-  - event_id: OpenProcessApiCall
-    name: OpenProcessApiCall
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    event_version:
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: OpenProcessApiCall
+    event_version:
+    - '0'
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -2995,11 +3278,12 @@
   - event_id: 4776
     name: The domain controller or local computer attempted to validate the credentials
       for an account.
-    platform: Windows
+    platform: windows
     audit_category: Account Logon
     audit_sub_category: Credential Validation
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
   notes: null
@@ -3019,23 +3303,28 @@
   security_events:
   - event_id: 12
     name: RegistryEvent (Object create and delete).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4660
     name: An object was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: RegistryKeyDeleted
-    name: RegistryKeyDeleted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeyDeleted
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0124
@@ -3053,11 +3342,12 @@
   security_events:
   - event_id: 5159
     name: The Windows Filtering Platform has blocked a bind to a local port.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0125
@@ -3077,23 +3367,28 @@
   security_events:
   - event_id: 12
     name: RegistryEvent (Object create and delete).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: RegistryValueSet
-    name: RegistryValueSet
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueSet
+    event_version:
+    - '0'
+    - '1'
   - event_id: 4657
     name: A registry value was modified.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes:
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
@@ -3114,16 +3409,20 @@
   security_events:
   - event_id: 6
     name: Driver loaded.
-    platform: Windows
+    platform: windows
     audit_category: DriverLoad
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: DriverLoaded
-    name: DriverLoaded
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: DriverLoaded
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0127
@@ -3140,11 +3439,8 @@
   security_events:
   - event_id: 2009
     name: The Windows Firewall service failed to load Group Policy.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-    log_provider: Windows Firewall With Advanced Security
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   references: null
   notes: null
 - relationship_id: REL-2022-0128
@@ -3163,11 +3459,12 @@
   - event_id: 5155
     name: The Windows Filtering Platform has blocked an application or service from
       listening on a port for incoming connections.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0129
@@ -3184,25 +3481,28 @@
   security_events:
   - event_id: 17
     name: PipeEvent (Pipe Created).
-    platform: Windows
+    platform: windows
     audit_category: PipeEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4656
     name: A handle to an object was requested.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Detailed File Share
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   - event_id: 5145
     name: A network share object was checked to see whether client can be granted
       desired access.
-    platform: Windows
+    platform: windows
     audit_category: multiple
     audit_sub_category: multiple
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5145
@@ -3225,23 +3525,28 @@
   security_events:
   - event_id: 12
     name: RegistryEvent (Object create and delete).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
-  - event_id: RegistryValueDeleted
-    name: RegistryValueDeleted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueDeleted
+    event_version:
+    - '0'
+    - '1'
   - event_id: 4657
     name: A registry value was modified.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes:
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
@@ -3262,35 +3567,43 @@
   security_events:
   - event_id: 4688
     name: A new process has been created.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: Process Creation
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
   - event_id: 1
     name: Process Creation.
-    platform: Windows
+    platform: windows
     audit_category: ProcessCreate
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 1
     name: Process Creation.
-    platform: Linux
+    platform: linux
     audit_category: ProcessCreate
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.81'
   - event_id: 4103
     name: Module logging.
-    platform: Windows
+    platform: windows
     audit_category: Executing Pipeline
     log_channel: Microsoft-Windows-PowerShell/Operational
     log_provider: Microsoft-Windows-PowerShell
-  - event_id: ProcessCreated
-    name: ProcessCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceProcessEvents
-    log_provider: Microsoft Defender for Endpoint
+    event_version:
+    - '0'
+  - event_id: DeviceProcessEvents
+    name: DeviceProcessEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ProcessCreated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0133
@@ -3309,18 +3622,20 @@
   security_events:
   - event_id: 4723
     name: An attempt was made to change an account's password.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4724
     name: An attempt was made to reset an account's password.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0135
@@ -3339,22 +3654,27 @@
   security_events:
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: ConnectionSuccess
-    name: ConnectionSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0136
@@ -3372,11 +3692,12 @@
   security_events:
   - event_id: 5137
     name: A directory service object was created.
-    platform: Windows
+    platform: windows
     audit_category: DS Access
     audit_sub_category: Directory Service Changes
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0137
@@ -3395,17 +3716,21 @@
   security_events:
   - event_id: 5157
     name: The Windows Filtering Platform has blocked a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: FirewallOutboundConnectionBlocked
-    name: FirewallOutboundConnectionBlocked
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FirewallOutboundConnectionBlocked
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0138
@@ -3424,22 +3749,27 @@
   security_events:
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: InboundConnectionAccepted
-    name: InboundConnectionAccepted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: InboundConnectionAccepted
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0139
@@ -3457,11 +3787,12 @@
   security_events:
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -3485,22 +3816,27 @@
   security_events:
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: ConnectionSuccess
-    name: ConnectionSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0142
@@ -3519,23 +3855,28 @@
   security_events:
   - event_id: 12
     name: RegistryEvent (Object create and delete).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4660
     name: An object was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: RegistryKeyDeleted
-    name: RegistryKeyDeleted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeyDeleted
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0143
@@ -3554,16 +3895,20 @@
   security_events:
   - event_id: 8
     name: CreateRemoteThread.
-    platform: Windows
+    platform: windows
     audit_category: CreateRemoteThread
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: CreateRemoteThreadApiCall
-    name: CreateRemoteThreadApiCall
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: CreateRemoteThreadApiCall
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0144
@@ -3583,42 +3928,50 @@
   security_events:
   - event_id: 23
     name: File Delete archived.
-    platform: Windows
+    platform: windows
     audit_category: FileDelete
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 23
     name: File Delete archived.
-    platform: Linux
+    platform: linux
     audit_category: FileDelete
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.81'
   - event_id: 26
     name: File Delete logged.
-    platform: Windows
+    platform: windows
     audit_category: FileDeleteDetected
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4660
     name: An object was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: FileDeleted
-    name: FileDeleted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceFileEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceFileEvents
+    name: DeviceFileEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FileDeleted
+    event_version:
+    - '0'
+    - '1'
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -3641,29 +3994,35 @@
   security_events:
   - event_id: 13
     name: RegistryEvent (Value Set).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 14
     name: RegistryEvent (Key and Value Rename).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4657
     name: A registry value was modified.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: RegistryValueSet
-    name: RegistryValueSet
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueSet
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes:
   - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
@@ -3684,29 +4043,35 @@
   security_events:
   - event_id: 4688
     name: A new process has been created.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: Process Creation
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
   - event_id: 1
     name: Process Creation.
-    platform: Windows
+    platform: windows
     audit_category: ProcessCreate
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 1
     name: Process Creation.
-    platform: Windows
+    platform: linux
     audit_category: ProcessCreate
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: ProcessCreated
-    name: ProcessCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceProcessEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceProcessEvents
+    name: DeviceProcessEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ProcessCreated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0148
@@ -3725,17 +4090,21 @@
   security_events:
   - event_id: 4700
     name: A scheduled task was enabled.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Other Object Access Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ScheduledTaskModified
-    name: ScheduledTaskModified
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ScheduledTaskModified
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0149
@@ -3753,11 +4122,12 @@
   security_events:
   - event_id: 4672
     name: Special privileges assigned to new logon.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Special Logon
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0150
@@ -3776,16 +4146,20 @@
   security_events:
   - event_id: 8
     name: CreateRemoteThread.
-    platform: Windows
+    platform: windows
     audit_category: CreateRemoteThread
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: CreateRemoteThreadApiCall
-    name: CreateRemoteThreadApiCall
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: CreateRemoteThreadApiCall
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0153
@@ -3803,16 +4177,20 @@
   security_events:
   - event_id: 8
     name: CreateRemoteThread.
-    platform: Windows
+    platform: windows
     audit_category: CreateRemoteThread
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: CreateRemoteThreadApiCall
-    name: CreateRemoteThreadApiCall
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: CreateRemoteThreadApiCall
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0154
@@ -3831,16 +4209,20 @@
   security_events:
   - event_id: 12
     name: RegistryEvent (Object create and delete).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: RegistryKeyCreated
-    name: RegistryKeyCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeyCreated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0155
@@ -3859,35 +4241,44 @@
   security_events:
   - event_id: 2
     name: A process changed a file creation time.
-    platform: Windows
+    platform: windows
     audit_category: FileCreateTime
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 11
     name: FileCreate.
-    platform: Windows
+    platform: windows
     audit_category: FileCreate
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4670
     name: Permissions on an object were changed.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: FileModified
-    name: FileModified
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceFileEvents
-    log_provider: Microsoft Defender for Endpoint
-  - event_id: FileRenamed
-    name: FileRenamed
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceFileEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceFileEvents
+    name: DeviceFileEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FileModified
+    event_version:
+    - '0'
+    - '1'
+  - event_id: DeviceFileEvents
+    name: DeviceFileEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FileRenamed
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0156
@@ -3902,41 +4293,51 @@
     relationship: retrieved information about cloud service from
     target: ip
   security_events:
-  - event_id: GetTrail
-    name: GetTrail
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  - event_id: GetTrailStatus
-    name: GetTrailStatus
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  - event_id: DescribeTrails
-    name: DescribeTrails
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  - event_id: GetEventSelectors
-    name: GetEventSelectors
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  - event_id: GetInsightSelectors
-    name: GetInsightSelectors
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: GetTrail
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: GetTrailStatus
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: DescribeTrails
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: GetEventSelectors
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: GetInsightSelectors
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   references: null
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service metadata
@@ -3955,16 +4356,20 @@
   security_events:
   - event_id: 12
     name: RegistryEvent (Object create and delete).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: RegistryKeyCreated
-    name: RegistryKeyCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeyCreated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes:
   - Potential contribution for ATT&CK - Windows Registry / windows registry key creation
@@ -3980,13 +4385,15 @@
     relationship: created instance from
     target: ip
   security_events:
-  - event_id: RunInstances
-    name: RunInstances
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudTrail
+    filter_in:
+    - eventName: RunInstances
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   references: null
   notes: null
 - relationship_id: REL-2022-0159
@@ -4005,11 +4412,12 @@
   - event_id: 5155
     name: The Windows Filtering Platform has blocked an application or service from
       listening on a port for incoming connections.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0160
@@ -4028,17 +4436,21 @@
   security_events:
   - event_id: 5157
     name: The Windows Filtering Platform has blocked a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: FirewallInboundConnectionBlocked
-    name: FirewallInboundConnectionBlocked
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FirewallInboundConnectionBlocked
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0161
@@ -4057,22 +4469,27 @@
   security_events:
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: InboundConnectionAccepted
-    name: InboundConnectionAccepted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: InboundConnectionAccepted
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0162
@@ -4091,25 +4508,28 @@
   security_events:
   - event_id: 5136
     name: A directory service object was modified.
-    platform: Windows
+    platform: windows
     audit_category: DS Access
     audit_sub_category: Directory Service Changes
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 5139
     name: A directory service object was moved.
-    platform: Windows
+    platform: windows
     audit_category: DS Access
     audit_sub_category: Directory Service Changes
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4719
     name: System audit policy was changed.
-    platform: Windows
+    platform: windows
     audit_category: Policy Change
     audit_sub_category: Policy Change
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5136
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5139
@@ -4130,11 +4550,12 @@
   - event_id: 4776
     name: The domain controller or local computer attempted to validate the credentials
       for an account.
-    platform: Windows
+    platform: windows
     audit_category: Account Logon
     audit_sub_category: Credential Validation
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
   notes: null
@@ -4154,11 +4575,12 @@
   - event_id: 5154
     name: The Windows Filtering Platform has permitted an application or service to
       listen on a port for incoming connections.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0165
@@ -4175,18 +4597,20 @@
   security_events:
   - event_id: 4798
     name: A user's local group membership was enumerated.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4799
     name: A security-enabled local group membership was enumerated.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4798
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4799
@@ -4207,29 +4631,35 @@
   security_events:
   - event_id: 5156
     name: The Windows Filtering Platform has permitted a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   - event_id: 3
     name: Network connection.
-    platform: Windows
+    platform: windows
     audit_category: NetworkConnect
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 3
     name: Network connection.
-    platform: Linux
+    platform: linux
     audit_category: NetworkConnect
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: InboundConnectionAccepted
-    name: InboundConnectionAccepted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceNetworkEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: InboundConnectionAccepted
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0167
@@ -4248,17 +4678,21 @@
   security_events:
   - event_id: 4701
     name: A scheduled task was disabled.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Other Object Access Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: ScheduledTaskModified
-    name: ScheduledTaskModified
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ScheduledTaskModified
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0168
@@ -4275,18 +4709,19 @@
   security_events:
   - event_id: 2004
     name: A rule has been added to the Windows Defender Firewall exception list
-    platform: Windows
+    platform: windows
     audit_category: null
     audit_sub_category: null
-    log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-    log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
-  - event_id: CreateRuleGroup
-    name: CreateRuleGroup
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: CreateRuleGroup
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   references: null
   notes: null
 - relationship_id: REL-2022-0169
@@ -4304,11 +4739,12 @@
   security_events:
   - event_id: 5142
     name: A network share object was added.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File Share
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0170
@@ -4328,38 +4764,46 @@
   security_events:
   - event_id: 4624
     name: An account was successfully logged on.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Logon
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
   - event_id: 4625
     name: An account failed to log on.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Account Lockout
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4648
     name: A logon was attempted using explicit credentials.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Logon
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: LogonSuccess
-    name: LogonSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceLogonEvents
-    log_provider: Microsoft Defender for Endpoint
-  - event_id: ConsoleLogin
-    name: ConsoleLogin
-    platform: AWS
-    audit_category: AwsConsoleSignin
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceLogonEvents
+    name: DeviceLogonEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: LogonSuccess
+    event_version:
+    - '0'
+    - '1'
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: ConsoleLogin
+    - eventType: AwsConsoleSignin
+    event_version:
+    - '1.05'
   references:
   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
   notes: null
@@ -4379,18 +4823,20 @@
   security_events:
   - event_id: 4634
     name: An account was logged off.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Logoff
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4647
     name: User initiated logoff.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Logoff
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4634
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4647
@@ -4411,17 +4857,21 @@
   security_events:
   - event_id: 5157
     name: The Windows Filtering Platform has blocked a connection.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: FirewallOutboundConnectionBlocked
-    name: FirewallOutboundConnectionBlocked
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FirewallOutboundConnectionBlocked
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0174
@@ -4439,11 +4889,12 @@
   security_events:
   - event_id: 5144
     name: A network share object was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File Share
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0175
@@ -4462,29 +4913,35 @@
   security_events:
   - event_id: 4688
     name: A new process has been created.
-    platform: Windows
+    platform: windows
     audit_category: Detailed Tracking
     audit_sub_category: Process Creation
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
   - event_id: 1
     name: Process Creation.
-    platform: Windows
+    platform: windows
     audit_category: ProcessCreate
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 1
     name: Process Creation.
-    platform: Linux
+    platform: linux
     audit_category: ProcessCreate
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: ProcessCreated
-    name: ProcessCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceProcessEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceProcessEvents
+    name: DeviceProcessEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ProcessCreated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0176
@@ -4504,24 +4961,29 @@
   security_events:
   - event_id: 4726
     name: A user account was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: User Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4743
     name: A computer account was deleted.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Computer Account Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: UserAccountDeleted
-    name: UserAccountDeleted
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: UserAccountDeleted
+    event_version:
+    - '0'
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4726
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4743
@@ -4542,29 +5004,35 @@
   security_events:
   - event_id: 13
     name: RegistryEvent (Value Set).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 14
     name: RegistryEvent (Key and Value Rename).
-    platform: Windows
+    platform: windows
     audit_category: RegistryEvent
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 4670
     name: Permissions on an object were changed.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: RegistryKeyCreated
-    name: RegistryKeyCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceRegistryEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeyCreated
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0178
@@ -4583,16 +5051,20 @@
   security_events:
   - event_id: 7
     name: Image loaded.
-    platform: Windows
+    platform: windows
     audit_category: ImageLoad
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
-  - event_id: ImageLoaded
-    name: ImageLoaded
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceImageLoadEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceImageLoadEvents
+    name: DeviceImageLoadEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ImageLoaded
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0179
@@ -4609,18 +5081,17 @@
   security_events:
   - event_id: 2005
     name: A rule has been modified in the Windows Defender Firewall exception list.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-    log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
-  - event_id: UpdateRuleGroup
-    name: UpdateRuleGroup
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: UpdateRuleGroup
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   references: null
   notes: null
 - relationship_id: REL-2022-0181
@@ -4639,30 +5110,36 @@
     target: file
   security_events:
   - event_id: 11
-    name: FileCreate.
-    platform: Windows
+    name: FileCreate
+    platform: windows
     audit_category: FileCreate
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 11
-    name: FileCreate.
-    platform: Linux
+    name: FileCreate
+    platform: linux
     audit_category: FileCreate
-    log_channel: Linux-Sysmon/Operational
-    log_provider: Linux-Sysmon
-  - event_id: FileCreated
-    name: FileCreated
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceFileEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceFileEvents
+    name: DeviceFileEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FileCreated
+    event_version:
+    - '0'
+    - '1'
   - event_id: 4663
     name: An attempt was made to access an object.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: File System
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
   notes:
@@ -4680,41 +5157,51 @@
     relationship: retrieved information about
     target: cloud service
   security_events:
-  - event_id: GetTrail
-    name: GetTrail
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  - event_id: GetTrailStatus
-    name: GetTrailStatus
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  - event_id: DescribeTrails
-    name: DescribeTrails
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  - event_id: GetEventSelectors
-    name: GetEventSelectors
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
-  - event_id: GetInsightSelectors
-    name: GetInsightSelectors
-    platform: AWS
-    audit_category: AwsApiCall
-    audit_sub_category: null
-    log_channel: null
-    log_provider: CloudTrail
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: GetTrail
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: GetTrailStatus
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: DescribeTrails
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: GetEventSelectors
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
+  - event_id: cloudtrail
+    name: cloudtrail
+    platform: aws
+    log_source: cloudtrail
+    filter_in:
+    - eventName: GetInsightSelectors
+    - eventType: AwsApiCall
+    event_version:
+    - '1.05'
   references: null
   notes: null
 - relationship_id: REL-2022-0183
@@ -4732,11 +5219,12 @@
   security_events:
   - event_id: 5159
     name: The Windows Filtering Platform has blocked a bind to a local port.
-    platform: Windows
+    platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references: null
   notes: null
 - relationship_id: REL-2022-0184
@@ -4754,17 +5242,15 @@
   security_events:
   - event_id: 4
     name: Sysmon service state changed.
-    platform: Windows
+    platform: windows
     audit_category: ServiceStateChange
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
+    log_source: sysmon
+    event_version:
+    - '4.32'
   - event_id: 6005
     name: The Event log service was started.
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: System
-    log_provider: Eventlog
+    platform: windows
+    log_source: Eventlog / System
   references: null
   notes: null
 - relationship_id: REL-2022-0185
@@ -4781,74 +5267,84 @@
   security_events:
   - event_id: 4737
     name: A security-enabled global group was changed.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4728
     name: A member was added to a security-enabled global group.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4729
     name: A member was removed from a security-enabled global group.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4732
     name: A member was added to a security-enabled local group.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4733
     name: A member was removed from a security-enabled local group.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4735
     name: A security-enabled local group was changed.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4764
     name: A groups type was changed.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4755
     name: A security-enabled universal group was changed.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4756
     name: A member was added to a security-enabled universal group.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4757
     name: A member was removed from a security-enabled universal group.
-    platform: Windows
+    platform: windows
     audit_category: Account Management
     audit_sub_category: Security Group Management
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4732
@@ -4873,31 +5369,37 @@
   security_events:
   - event_id: 4624
     name: An account was successfully logged on.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Logon
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
   - event_id: 4778
     name: A session was reconnected to a Window Station.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Other Logon/Logoff Events
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
   - event_id: 4964
     name: Special groups have been assigned to a new logon.
-    platform: Windows
+    platform: windows
     audit_category: Logon/Logoff
     audit_sub_category: Special Logon
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: LogonSuccess
-    name: LogonSuccess
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceLogonEvents
-    log_provider: Microsoft Defender for Endpoint
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceLogonEvents
+    name: DeviceLogonEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: LogonSuccess
+    event_version:
+    - '0'
+    - '1'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4778

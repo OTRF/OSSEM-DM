@@ -12,14 +12,11 @@ behavior:
 security_events:
   - event_id: 30
     name: EventID(30)
-    platform: Windows
-    audit_category: null
-    audit_sub_category: null
-    log_channel: Microsoft-Windows-LDAP-Client/Debug
-    log_provider: Microsoft-Windows-LDAP-Client
+    platform: windows
+    log_source: Microsoft-Windows-LDAP-Client/Debug
   - event_id: DeviceEvents
     name: DeviceEvents
-    platform: Windows
+    platform: windows
     log_source: Microsoft Defender for Endpoint
     filter_in:
       - ActionType: LdapSearch

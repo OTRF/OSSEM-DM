@@ -12,14 +12,14 @@ behavior:
 security_events:
 - event_id: 4798
   name: A user's local group membership was enumerated.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4799
   name: A security-enabled local group membership was enumerated.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
   log_source: Microsoft-Windows-Security-Auditing

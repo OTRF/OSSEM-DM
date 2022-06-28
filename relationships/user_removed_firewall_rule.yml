@@ -14,10 +14,7 @@ security_events:
 - event_id: 2006
   name: A rule has been deleted in the Windows Defender Firewall exception list
   platform: windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-  log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
+  log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
 - event_id: cloudtrail
   name: cloudtrail
   platform: aws
@@ -29,9 +26,6 @@ security_events:
 - event_id: 2033
   name: All rules have been deleted from the Windows Firewall configuration on this computer.
   platform: windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-  log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
+  log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
 references:
 notes:

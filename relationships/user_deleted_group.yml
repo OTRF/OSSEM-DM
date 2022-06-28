@@ -12,21 +12,21 @@ behavior:
 security_events:
 - event_id: 4730
   name: A security-enabled global group was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4734
   name: A security-enabled local group was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4758
   name: A security-enabled universal group was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
   log_source: Microsoft-Windows-Security-Auditing

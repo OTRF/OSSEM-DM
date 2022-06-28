@@ -12,7 +12,7 @@ behavior:
 security_events:
 - event_id: 6422
   name: A device was enabled.
-  platform: Windows
+  platform: windows
   audit_category: Detailed Tracking
   audit_sub_category: PNP Activity
   log_source: Microsoft-Windows-Security-Auditing

@@ -20,7 +20,7 @@ security_events:
   event_version: ['0']
 - event_id: 5034
   name: The Windows Firewall Driver was stopped.
-  platform: Windows
+  platform: windows
   audit_category: System
   audit_sub_category: Other System Events
   log_source: Microsoft-Windows-Security-Auditing

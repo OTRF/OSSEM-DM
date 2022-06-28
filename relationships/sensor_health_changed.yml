@@ -12,55 +12,37 @@ behavior:
 security_events:
 - event_id: 4
   name: Sysmon service state changed.
-  platform: Windows
+  platform: windows
   audit_category: ServiceStateChange
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 1100
   name: The event logging service has shut down.
-  platform: Windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Security
-  log_provider: Eventlog
+  platform: windows
+  log_source: Microsoft-Windows-Eventlog
 - event_id: 1101
   name: Audit events have been dropped by the transport.
-  platform: Windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Security
-  log_provider: Eventlog
+  platform: windows
+  log_source: Microsoft-Windows-Eventlog
 - event_id: 1102
   name: The audit log was cleared.
-  platform: Windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Security
-  log_provider: Eventlog
+  platform: windows
+  log_source: Microsoft-Windows-Eventlog
 - event_id: 1104
   name: The security Log is now full.
-  platform: Windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Security
-  log_provider: Eventlog
+  platform: windows
+  log_source: Microsoft-Windows-Eventlog
 - event_id: 6005
   name: The Event log service was started.
-  platform: Windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: System
-  log_provider: Eventlog
+  platform: windows
+  log_source: Eventlog / System
 - event_id: 6006
   name: The Event log service was stopped.
-  platform: Windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: System
-  log_provider: Eventlog
+  platform: windows
+  log_source: Eventlog / System
 - event_id: 4616
   name: The system time was changed.
-  platform: Windows
+  platform: windows
   audit_category: System
   audit_sub_category: Security State Change
   log_source: Microsoft-Windows-Security-Auditing

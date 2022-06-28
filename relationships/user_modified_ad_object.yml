@@ -28,7 +28,7 @@ security_events:
   event_version: ['0']
 - event_id: 4719
   name: System audit policy was changed.
-  platform: Windows
+  platform: windows
   audit_category: Policy Change
   audit_sub_category: Policy Change
   log_source: Microsoft-Windows-Security-Auditing

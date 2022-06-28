@@ -13,8 +13,7 @@ security_events:
   name: Windows PowerShell has started an IPC listening thread on a process in AppDomain.
   platform: windows
   audit_category: PowerShell Named Pipe IPC
-  log_channel: Microsoft-Windows-PowerShell/Operational
-  log_provider: Microsoft-Windows-PowerShell
+  log_source: powershell
   event_version: ['0']
 references:
 notes:

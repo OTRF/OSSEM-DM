@@ -12,9 +12,9 @@ behavior:
 security_events:
 - event_id: 18
   name: PipeEvent (Pipe Connected).
-  platform: Windows
+  platform: windows
   audit_category: PipeEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 references:
 notes:

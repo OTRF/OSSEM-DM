@@ -111,23 +111,23 @@ for dr in attack_relationships_files:
         record['EventID'] = t['event_id']
         record['Event Name'] = t['name']
         record['Event Platform'] = t['platform']
-        record['Log Provider'] = t['log_provider']
-        record['Log Channel'] = t['log_channel']
+        record['Log Source'] = t.get('log_source', None)
+        record['Filter in Log'] = t.get('filter_in', None)
         record['Audit Category'] = t.get('audit_category', None)
         record['Audit Sub-Category'] = t.get('audit_sub_category', None)
-        if t['log_channel'] == "Security":
+        if t['platform'] == "windows" and t.get('log_source', None) == "Microsoft-Windows-Security-Auditing":
             record['Enable Commands'] = f"auditpol /set /subcategory:{t['audit_sub_category']} /success:enable /failure:enable"
-        elif t['log_channel'] == "Microsoft-Windows-Sysmon/Operational":
+        elif t['platform'] == "windows" and t.get('log_source', None) == "sysmon":
             record['Enable Commands'] = f"<{t['audit_category']} onmatch='exclude' />"
         else:
             record['Enable Commands'] = None
-        if t['log_channel'] == "Security":
+        if t.get('log_source', None) == "Microsoft-Windows-Security-Auditing":
             record['GPO Audit Policy'] = f"Computer Configuration -> Windows Settings -> Security Settings -> Advanced Audit Policy Configuration -> System Audit Policies -> {t['audit_category']} -> Audit {t['audit_sub_category']}"
         else:
             record['GPO Audit Policy'] = None
         processed_dr.append(record)
 
-header_fields = ['Data Source', 'Component', 'Source', 'Relationship', 'Target', 'OSSEM Id', 'EventID', 'Event Name', 'Event Platform', 'Log Provider', 'Log Channel', 'Audit Category', 'Audit Sub-Category', 'Enable Commands',  'GPO Audit Policy' ]
+header_fields = ['Data Source', 'Component', 'Source', 'Relationship', 'Target', 'OSSEM Id', 'EventID', 'Event Name', 'Event Platform', 'Log Source', 'Filter in Log', 'Audit Category', 'Audit Sub-Category', 'Enable Commands',  'GPO Audit Policy' ]
 with open(attack_events_mappings_file, 'w', newline='')  as output_file:
     dict_writer = csv.DictWriter(output_file, header_fields)
     dict_writer.writeheader()
@@ -171,13 +171,13 @@ attack = attck_mapping['attack'].apply(pd.Series)
 behavior = attck_mapping['behavior'].apply(pd.Series)
 security_events = attck_mapping['security_events'].apply(pd.Series).rename(columns={'name':'event_name','platform':'event_platform'})
 attck_mapping = pd.concat([attck_mapping,attack,behavior,security_events], axis = 1).drop(['attack','behavior','security_events'], axis = 1)
-attck_mapping = attck_mapping.reindex(columns = ['data_source', 'data_component','relationship_id','name','source', 'relationship','target', 'event_id', 'event_name', 'event_platform', 'audit_category','audit_sub_category','log_channel', 'log_provider','filter_in'])
+attck_mapping = attck_mapping.reindex(columns = ['data_source', 'data_component','relationship_id','name','source', 'relationship','target', 'event_id', 'event_name', 'event_platform', 'audit_category','audit_sub_category','log_source','filter_in'])
 attck_mapping['data_source'] = attck_mapping['data_source'].str.lower()
 attck_mapping['data_component'] = attck_mapping['data_component'].str.lower()
 
 # Merging dataframes
 technique_to_events = pd.merge(attck, attck_mapping, how = 'left', on = ['data_source','data_component']).dropna(axis=0,how='any',subset='name')
-technique_to_events['Event_Platform_In_Technique'] = technique_to_events[['platform','event_platform']].apply(lambda x: 'yes' if x['event_platform'] in x['platform'] else 'no', axis=1)
+technique_to_events['Event_Platform_In_Technique'] = technique_to_events[['platform','event_platform']].apply(lambda x: 'yes' if x['event_platform'] in list((map(lambda m: m.lower(),x['platform']))) else 'no', axis=1)
 technique_to_events = technique_to_events[technique_to_events['Event_Platform_In_Technique'] == 'yes']
 technique_to_events_dict = technique_to_events.drop(columns=['Event_Platform_In_Technique']).reset_index().to_dict(orient = 'records')
 

@@ -12,20 +12,20 @@ behavior:
 security_events:
 - event_id: 17
   name: PipeEvent (Pipe Created).
-  platform: Windows
+  platform: windows
   audit_category: PipeEvent
-  log_source: Sysmon
+  log_source: sysmon
   event_version: ['4.32']
 - event_id: 4656
   name: A handle to an object was requested.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Detailed File Share
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['1']
 - event_id: 5145
   name: A network share object was checked to see whether client can be granted desired access.
-  platform: Windows
+  platform: windows
   audit_category: multiple
   audit_sub_category: multiple
   log_source: Microsoft-Windows-Security-Auditing

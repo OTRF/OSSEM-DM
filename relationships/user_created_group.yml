@@ -12,21 +12,21 @@ behavior:
 security_events:
 - event_id: 4727
   name: A security-enabled global group was created.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4731
   name: A security-enabled local group was created.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
   log_source: Microsoft-Windows-Security-Auditing
   event_version: ['0']
 - event_id: 4754
   name: A security-enabled universal group was created.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
   log_source: Microsoft-Windows-Security-Auditing

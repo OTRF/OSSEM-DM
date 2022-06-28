@@ -13,8 +13,7 @@ security_events:
   name: Engine state is changed from None to Available.
   platform: windows
   audit_category: Engine Lifecycle
-  log_channel: Windows PowerShell
-  log_provider: PowerShell
+  log_source: powershell
   event_version: ['0']
 references:
 notes:

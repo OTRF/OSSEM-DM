@@ -20,7 +20,7 @@ security_events:
     event_version: ['0']
   - event_id: 4932
     name: Synchronization of a replica of an Active Directory naming context has begun.
-    platform: Windows
+    platform: windows
     audit_category: DS Access
     audit_sub_category: Directory Service Replication
     log_source: Microsoft-Windows-Security-Auditing

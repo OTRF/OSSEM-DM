@@ -20,9 +20,6 @@ security_events:
 - event_id: 6006
   name: The Event log service was stopped.
   platform: windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: System
-  log_provider: Eventlog
+  log_source: Eventlog / System
 references:
 notes:

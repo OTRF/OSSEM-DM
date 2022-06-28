@@ -21,7 +21,7 @@ security_events:
   event_version: ['0']
 - event_id: 4647
   name: User initiated logoff.
-  platform: Windows
+  platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logoff
   log_source: Microsoft-Windows-Security-Auditing
