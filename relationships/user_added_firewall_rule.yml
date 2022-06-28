@@ -15,7 +15,8 @@ security_events:
   platform: windows
   audit_category: null
   audit_sub_category: null
-  log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+  log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+  event_version: []
 - event_id: cloudtrail
   name: cloudtrail
   platform: aws

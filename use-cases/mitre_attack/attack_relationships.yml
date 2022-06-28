@@ -1028,6 +1028,25 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4731
   notes: null
+- relationship_id: REL-2022-0038
+  name: Process removed Firewall rule
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  attack:
+    data_source: Firewall
+    data_component: firewall rule modification
+  behavior:
+    source: process
+    relationship: removed
+    target: firewall rule
+  security_events:
+  - event_id: 2006
+    name: A rule has been deleted in the Windows Defender Firewall exception list
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
+  references: null
+  notes: null
 - relationship_id: REL-2022-0041
   name: User modified File
   contributors:
@@ -2378,6 +2397,25 @@
   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.html
   notes:
   - Potential contribution for ATT&CK - User Account / user account authentication
+- relationship_id: REL-2022-0088
+  name: Process added Firewall rule
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  attack:
+    data_source: Firewall
+    data_component: firewall rule modification
+  behavior:
+    source: process
+    relationship: added
+    target: firewall rule
+  security_events:
+  - event_id: 2004
+    name: A rule has been added to the Windows Defender Firewall exception list
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
+  references: null
+  notes: null
 - relationship_id: REL-2022-0090
   name: Host permitted listener on Ip
   contributors:
@@ -2520,6 +2558,25 @@
     name: The Event log service was stopped.
     platform: windows
     log_source: Eventlog / System
+  references: null
+  notes: null
+- relationship_id: REL-2022-0095
+  name: Process modified Firewall rule
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  attack:
+    data_source: Firewall
+    data_component: firewall rule modification
+  behavior:
+    source: process
+    relationship: modified
+    target: firewall rule
+  security_events:
+  - event_id: 2005
+    name: A rule has been modified in the Windows Defender Firewall exception list.
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
   references: null
   notes: null
 - relationship_id: REL-2022-0097
@@ -3131,7 +3188,8 @@
   - event_id: 2006
     name: A rule has been deleted in the Windows Defender Firewall exception list
     platform: windows
-    log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
   - event_id: cloudtrail
     name: cloudtrail
     platform: aws
@@ -3145,7 +3203,8 @@
     name: All rules have been deleted from the Windows Firewall configuration on this
       computer.
     platform: windows
-    log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
   references: null
   notes: null
 - relationship_id: REL-2022-0119
@@ -3436,7 +3495,8 @@
   - event_id: 2009
     name: The Windows Firewall service failed to load Group Policy.
     platform: windows
-    log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
   references: null
   notes: null
 - relationship_id: REL-2022-0128
@@ -4156,6 +4216,32 @@
     - '1'
   references: null
   notes: null
+- relationship_id: REL-2022-0152
+  name: User modified Firewall
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  attack:
+    data_source: Firewall
+    data_component: firewall metadata
+  behavior:
+    source: user
+    relationship: modified
+    target: firewall
+  security_events:
+  - event_id: 2002
+    name: A Windows Defender Firewall setting has changed.
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
+  - event_id: 2003
+    name: A Windows Defender Firewall setting in the Private profile has changed.
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
+  references: null
+  notes:
+  - Potential contribution for ATT&CK - Firewall / firewall modification (New data
+    component and relationship)
 - relationship_id: REL-2022-0153
   name: Process created Thread
   contributors:
@@ -4706,7 +4792,8 @@
     platform: windows
     audit_category: null
     audit_sub_category: null
-    log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
   - event_id: cloudtrail
     name: cloudtrail
     platform: aws
@@ -5076,7 +5163,8 @@
   - event_id: 2005
     name: A rule has been modified in the Windows Defender Firewall exception list.
     platform: windows
-    log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
   - event_id: cloudtrail
     name: cloudtrail
     platform: aws
@@ -5086,6 +5174,30 @@
     - eventType: AwsApiCall
     event_version:
     - '1.05'
+  references: null
+  notes: null
+- relationship_id: REL-2022-0180
+  name: Process modified Firewall
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  attack:
+    data_source: Firewall
+    data_component: firewall metadata
+  behavior:
+    source: process
+    relationship: modified
+    target: firewall
+  security_events:
+  - event_id: 2002
+    name: A Windows Defender Firewall setting has changed.
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
+  - event_id: 2003
+    name: A Windows Defender Firewall setting in the Private profile has changed.
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
   references: null
   notes: null
 - relationship_id: REL-2022-0181

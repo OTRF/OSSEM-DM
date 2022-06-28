@@ -3,6 +3,8 @@ name: User modified Firewall
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
+  data_source: Firewall
+  data_component: firewall metadata
 behavior:
   source: user
   relationship: modified
@@ -11,11 +13,13 @@ security_events:
 - event_id: 2002
   name: A Windows Defender Firewall setting has changed.
   platform: windows
-  log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+  log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+  event_version: []
 - event_id: 2003
   name: A Windows Defender Firewall setting in the Private profile has changed.
   platform: windows
-  log_source: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+  log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+  event_version: []
 references:
 notes:
 - Potential contribution for ATT&CK - Firewall / firewall modification (New data component and relationship)
