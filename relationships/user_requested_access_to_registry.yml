@@ -1,0 +1,23 @@
+relationship_id: REL-2022-0013
+name: User requested access to Registry
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: windows registry
+  data_component: windows registry key access
+behavior:
+  source: user
+  relationship: requested access to
+  target: registry
+security_events:
+- event_id: 4656
+  name: A handle to an object was requested.
+  platform: windows
+  audit_category: Object Access
+  audit_sub_category: Registry
+  log_source: Microsoft-Windows-Security-Auditing
+  filter_in:
+  - ObjectType: Key
+references: null
+note: null

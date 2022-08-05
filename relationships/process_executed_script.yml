@@ -10,7 +10,7 @@ attack:
 behavior:
   source: process
   relationship: executed
-  target: Script
+  target: script
 security_events:
 - event_id: 4103
   name: Module logging.

@@ -1,0 +1,54 @@
+relationship_id: REL-2022-0105
+name: User created Registry
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Olaf Hartong @olafhartong
+- Ruben Bouman @rubinatorz
+attack:
+  data_source: windows registry
+  data_component: windows registry key creation
+behavior:
+  source: user
+  relationship: created
+  target: registry
+security_events:
+- event_id: 12
+  name: RegistryEvent (Object create and delete).
+  platform: windows
+  audit_category: RegistryEvent
+  log_source: sysmon
+  filter_in:
+  - EventType: CreateKey
+  event_version:
+  - '4.32'
+- event_id: DeviceRegistryEvents
+  name: DeviceRegistryEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: RegistryValueSet
+  event_version:
+  - '0'
+  - '1'
+- event_id: DeviceRegistryEvents
+  name: DeviceRegistryEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: RegistryKeyCreated
+  event_version:
+  - '0'
+  - '1'
+- event_id: 4657
+  name: A registry value was modified.
+  platform: windows
+  audit_category: Object Access
+  audit_sub_category: Registry
+  log_source: Microsoft-Windows-Security-Auditing
+  filter_in:
+  - OperationType: New registry value created
+  event_version:
+  - '0'
+references: null
+notes:
+- Event ID 4657 is logged for Creation, Modification and Deletion of registry key values. Use "Operation Type=New registry value created" to look for creations.

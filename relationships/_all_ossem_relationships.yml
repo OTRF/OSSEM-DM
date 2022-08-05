@@ -346,27 +346,45 @@
     - '0'
   references: null
   notes: null
-- relationship_id: REL-2022-0010
-  name: Host blocked port bind on Port
+- relationship_id: REL-2022-0046
+  name: User created logon from Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
   attack:
-    data_source: network traffic
-    data_component: network connection creation
+    data_source: logon session
+    data_component: logon session creation
   behavior:
-    source: host
-    relationship: blocked port bind on
-    target: port
+    source: user
+    relationship: created logon from
+    target: ip
   security_events:
-  - event_id: 5159
-    name: The Windows Filtering Platform has blocked a bind to a local port.
+  - event_id: 4624
+    name: An account was successfully logged on.
     platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
+    audit_category: Logon/Logoff
+    audit_sub_category: Logon
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
+  - event_id: 4778
+    name: A session was reconnected to a Window Station.
+    platform: windows
+    audit_category: Logon/Logoff
+    audit_sub_category: Other Logon/Logoff Events
     log_source: Microsoft-Windows-Security-Auditing
     event_version:
     - '0'
+  - event_id: DeviceLogonEvents
+    name: DeviceLogonEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: LogonSuccess
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0011
@@ -422,29 +440,34 @@
     - '1'
   references: null
   notes: null
-- relationship_id: REL-2022-0013
-  name: User requested access to Windows registry key
+- relationship_id: REL-2022-0048
+  name: Process accessed Registry
   contributors:
+  - Reid Gilman @reidgilman
   - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
   attack:
     data_source: windows registry
     data_component: windows registry key access
   behavior:
-    source: user
-    relationship: requested access to
-    target: windows registry key
+    source: process
+    relationship: accessed
+    target: registry
   security_events:
-  - event_id: 4656
-    name: A handle to an object was requested.
+  - event_id: 4663
+    name: An attempt was made to access an object.
     platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
     log_source: Microsoft-Windows-Security-Auditing
     filter_in:
     - ObjectType: Key
-  references: null
-  note: null
+    event_version:
+    - '1'
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
+  notes:
+  - Event 4663 includes the following caveat \"This event generates only if object\u2019\s
+    SACL has required ACE to handle specific access right use.\"
 - relationship_id: REL-2022-0014
   name: User loaded Module
   contributors:
@@ -567,6 +590,68 @@
     - '1'
   references: null
   notes: null
+- relationship_id: REL-2022-0102
+  name: Process deleted Registry
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: windows registry
+    data_component: windows registry key deletion
+  behavior:
+    source: process
+    relationship: deleted
+    target: registry
+  security_events:
+  - event_id: 12
+    name: RegistryEvent (Object create and delete).
+    platform: windows
+    audit_category: RegistryEvent
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueDeleted
+    event_version:
+    - '0'
+    - '1'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeyDeleted
+    event_version:
+    - '0'
+    - '1'
+  - event_id: 4657
+    name: A registry value was modified.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_source: Microsoft-Windows-Security-Auditing
+    filter_in: null
+    -ActionType: Registry value deleted
+    event_version:
+    - '0'
+  - event_id: 4660
+    name: An object was deleted.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  references: null
+  notes:
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=Registry value deleted" to look for deletions.
 - relationship_id: REL-2022-0018
   name: User executed Command
   contributors:
@@ -720,8 +805,8 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service stop - new component
-- relationship_id: REL-2022-0022
-  name: Host blocked listener on Ip
+- relationship_id: REL-2022-0074
+  name: Device blocked connection from Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -729,43 +814,20 @@
     data_source: network traffic
     data_component: network connection creation
   behavior:
-    source: host
-    relationship: blocked listener on
-    target: ip
-  security_events:
-  - event_id: 5155
-    name: The Windows Filtering Platform has blocked an application or service from
-      listening on a port for incoming connections.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
-  notes: null
-- relationship_id: REL-2022-0023
-  name: Host permitted local bind on Process
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  attack: null
-  behavior:
-    source: host
-    relationship: permitted port bind on
+    source: device
+    relationship: blocked connection from
     target: process
   security_events:
-  - event_id: 5158
-    name: The Windows Filtering Platform has permitted a bind to a local port.
+  - event_id: 5157
+    name: The Windows Filtering Platform has blocked a connection.
     platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
     log_source: Microsoft-Windows-Security-Auditing
     event_version:
-    - '0'
+    - '1'
   references: null
-  notes:
-  - Potential contribution for ATT&CK - Network Traffic / network connection creation
+  notes: null
 - relationship_id: REL-2022-0024
   name: User enabled User
   contributors:
@@ -867,39 +929,6 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall rule modification
-- relationship_id: REL-2022-0028
-  name: Host blocked connection from Port
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
-  behavior:
-    source: host
-    relationship: blocked connection from
-    target: port
-  security_events:
-  - event_id: 5157
-    name: The Windows Filtering Platform has blocked a connection.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '1'
-  - event_id: DeviceEvents
-    name: DeviceEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: FirewallInboundConnectionBlocked
-    event_version:
-    - '0'
-    - '1'
-  references: null
-  notes: null
 - relationship_id: REL-2022-0029
   name: Process terminated
   contributors:
@@ -1005,48 +1034,6 @@
     - eventType: AwsApiCall
     event_version:
     - '1.05'
-  references: null
-  notes: null
-- relationship_id: REL-2022-0033
-  name: Host blocked connection to Process
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
-  behavior:
-    source: host
-    relationship: blocked connection to
-    target: process
-  security_events:
-  - event_id: 5157
-    name: The Windows Filtering Platform has blocked a connection.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '1'
-  - event_id: 5031
-    name: The Windows Firewall Service blocked an application from accepting incoming
-      connections on the network.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: DeviceEvents
-    name: DeviceEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: FirewallInboundConnectionToAppBlocked
-    event_version:
-    - '0'
-    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0034
@@ -1199,28 +1186,6 @@
     event_version: []
   references: null
   notes: null
-- relationship_id: REL-2022-0039
-  name: Host permitted port bind on Ip
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  attack: null
-  behavior:
-    source: host
-    relationship: permitted port bind on
-    target: ip
-  security_events:
-  - event_id: 5158
-    name: The Windows Filtering Platform has permitted a bind to a local port.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
-  notes:
-  - Potential contribution for ATT&CK - Network Traffic / network connection creation
 - relationship_id: REL-2022-0040
   name: User retrieved information about Firewall rule
   contributors:
@@ -1407,8 +1372,8 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4734
   notes: null
-- relationship_id: REL-2022-0046
-  name: User created logon session from Ip
+- relationship_id: REL-2022-0059
+  name: User created logon from Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -1418,8 +1383,8 @@
     data_component: logon session creation
   behavior:
     source: user
-    relationship: created logon session from
-    target: ip
+    relationship: created logon from
+    target: port
   security_events:
   - event_id: 4624
     name: An account was successfully logged on.
@@ -1429,14 +1394,6 @@
     log_source: Microsoft-Windows-Security-Auditing
     event_version:
     - '2'
-  - event_id: 4778
-    name: A session was reconnected to a Window Station.
-    platform: windows
-    audit_category: Logon/Logoff
-    audit_sub_category: Other Logon/Logoff Events
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
   - event_id: DeviceLogonEvents
     name: DeviceLogonEvents
     platform: windows
@@ -1470,34 +1427,6 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall enumeration
-- relationship_id: REL-2022-0048
-  name: Process accessed Windows registry key
-  contributors:
-  - Reid Gilman @reidgilman
-  - Jose Rodriguez @Cyb3rPandaH
-  attack:
-    data_source: windows registry
-    data_component: windows registry key access
-  behavior:
-    source: process
-    relationship: accessed
-    target: windows registry key
-  security_events:
-  - event_id: 4663
-    name: An attempt was made to access an object.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Registry
-    log_source: Microsoft-Windows-Security-Auditing
-    filter_in:
-    - ObjectType: Key
-    event_version:
-    - '1'
-  references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
-  notes:
-  - "Event 4663 includes the following caveat \"This event generates only if object\u2019\
-    s SACL has required ACE to handle specific access right use.\""
 - relationship_id: REL-2022-0049
   name: Firewall enabled
   contributors:
@@ -1521,83 +1450,53 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Firewall / firewall enable
-- relationship_id: REL-2022-0050
-  name: Logon Session Metadata
+- relationship_id: REL-2022-0058
+  name: Device permitted port bind on Port
   contributors:
-  - Ruben Bouman @rubinatorz
-  attack:
-    data_source: logon session
-    data_component: logon session metadata
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  attack: null
   behavior:
-    source: logon session
-    relationship: metadata
-    target: null
+    source: device
+    relationship: permitted port bind on
+    target: port
   security_events:
-  - event_id: 4703
-    name: A token right was adjusted.
+  - event_id: 5158
+    name: The Windows Filtering Platform has permitted a bind to a local port.
     platform: windows
-    audit_category: Policy Change
-    audit_sub_category: Authorization Policy Change
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
     log_source: Microsoft-Windows-Security-Auditing
     event_version:
     - '0'
-  - event_id: 4673
-    name: A privileged service was called.
+  references: null
+  notes:
+  - Potential contribution for ATT&CK - Network Traffic / network connection creation
+- relationship_id: REL-2022-0077
+  name: User accessed Registry
+  contributors:
+  - Reid Gilman @reidgilman
+  attack:
+    data_source: windows registry
+    data_component: windows registry key access
+  behavior:
+    source: user
+    relationship: accessed
+    target: registry
+  security_events:
+  - event_id: 4663
+    name: An attempt was made to access an object.
     platform: windows
-    audit_category: Privilege Use
-    audit_sub_category: Sensitive Privilege Use
+    audit_category: Object Access
+    audit_sub_category: Registry
     log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: 4674
-    name: An operation was attempted on a privileged object.
-    platform: windows
-    audit_category: Privilege Use
-    audit_sub_category: Sensitive Privilege Use
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: 4610
-    name: An authentication package has been loaded by the Local Security Authority.
-    platform: windows
-    audit_category: System
-    audit_sub_category: Security System Extension
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: 4611
-    name: A trusted logon process has been registered with the Local Security Authority.
-    platform: windows
-    audit_category: System
-    audit_sub_category: Security System Extension
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: 4614
-    name: A notification package has been loaded by the Security Account Manager.
-    platform: windows
-    audit_category: System
-    audit_sub_category: Security System Extension
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: 4622
-    name: A security package has been loaded by the Local Security Authority.
-    platform: windows
-    audit_category: System
-    audit_sub_category: Security System Extension
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
+    filter_in:
+    - ObjectType: Key
   references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4703
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4673
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4674
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4610
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4611
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4614
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4622
-  notes: null
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
+  notes:
+  - "Event 4663 includes the following caveat \"This event generates only if object\u2019\
+    s SACL has required ACE to handle specific access right use.\""
 - relationship_id: REL-2022-0051
   name: Process connected from Host
   contributors:
@@ -1659,6 +1558,30 @@
     - '0'
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6419
+  notes: null
+- relationship_id: REL-2022-0090
+  name: Device permitted listener on Ip
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: device
+    relationship: permitted listener on
+    target: ip
+  security_events:
+  - event_id: 5154
+    name: The Windows Filtering Platform has permitted an application or service to
+      listen on a port for incoming connections.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  references: null
   notes: null
 - relationship_id: REL-2022-0054
   name: User attempted to access File
@@ -1774,19 +1697,21 @@
     - '1'
   references: null
   notes: null
-- relationship_id: REL-2022-0058
-  name: Host permitted port bind on Port
+- relationship_id: REL-2022-0084
+  name: Device blocked port bind on Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
-  attack: null
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
   behavior:
-    source: host
-    relationship: permitted port bind on
-    target: port
+    source: device
+    relationship: blocked port bind on
+    target: process
   security_events:
-  - event_id: 5158
-    name: The Windows Filtering Platform has permitted a bind to a local port.
+  - event_id: 5159
+    name: The Windows Filtering Platform has blocked a bind to a local port.
     platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
@@ -1794,8 +1719,7 @@
     event_version:
     - '0'
   references: null
-  notes:
-  - Potential contribution for ATT&CK - Network Traffic / network connection creation
+  notes: null
 - relationship_id: REL-2022-0187
   name: Logon Process Trusted
   contributors:
@@ -1823,39 +1747,6 @@
   - At the technical level, the event does not come from the registration of a trusted
     logon process, but from a confirmation that the process is a trusted logon process.
     If it is a trusted logon process, the event generates.
-- relationship_id: REL-2022-0059
-  name: User created logon session from Port
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: logon session
-    data_component: logon session creation
-  behavior:
-    source: user
-    relationship: created logon session from
-    target: port
-  security_events:
-  - event_id: 4624
-    name: An account was successfully logged on.
-    platform: windows
-    audit_category: Logon/Logoff
-    audit_sub_category: Logon
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '2'
-  - event_id: DeviceLogonEvents
-    name: DeviceLogonEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: LogonSuccess
-    event_version:
-    - '0'
-    - '1'
-  references: null
-  notes: null
 - relationship_id: REL-2022-0060
   name: Process connected to Pipe
   contributors:
@@ -1880,6 +1771,59 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Named Pipe / named pipe connection
+- relationship_id: REL-2022-0186
+  name: User created Logon
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: logon session
+    data_component: logon session creation
+  behavior:
+    source: user
+    relationship: created
+    target: logon
+  security_events:
+  - event_id: 4624
+    name: An account was successfully logged on.
+    platform: windows
+    audit_category: Logon/Logoff
+    audit_sub_category: Logon
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '2'
+  - event_id: 4778
+    name: A session was reconnected to a Window Station.
+    platform: windows
+    audit_category: Logon/Logoff
+    audit_sub_category: Other Logon/Logoff Events
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: 4964
+    name: Special groups have been assigned to a new logon.
+    platform: windows
+    audit_category: Logon/Logoff
+    audit_sub_category: Special Logon
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceLogonEvents
+    name: DeviceLogonEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: LogonSuccess
+    event_version:
+    - '0'
+    - '1'
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4778
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4964
+  notes: null
 - relationship_id: REL-2022-0061
   name: Sensor Health changed
   contributors:
@@ -2029,6 +1973,30 @@
   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
   notes:
   - Potential contribution for ATT&CK - User Account / user account authentication
+- relationship_id: REL-2022-0022
+  name: Device blocked listener on Ip
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: device
+    relationship: blocked listener on
+    target: ip
+  security_events:
+  - event_id: 5155
+    name: The Windows Filtering Platform has blocked an application or service from
+      listening on a port for incoming connections.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  references: null
+  notes: null
 - relationship_id: REL-2022-0066
   name: Process executed Script
   contributors:
@@ -2041,7 +2009,7 @@
   behavior:
     source: process
     relationship: executed
-    target: Script
+    target: script
   security_events:
   - event_id: 4103
     name: Module logging.
@@ -2138,6 +2106,48 @@
     - '1'
   references: null
   notes: null
+- relationship_id: REL-2022-0033
+  name: Device blocked connection to Process
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: Device
+    relationship: blocked connection to
+    target: process
+  security_events:
+  - event_id: 5157
+    name: The Windows Filtering Platform has blocked a connection.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: 5031
+    name: The Windows Firewall Service blocked an application from accepting incoming
+      connections on the network.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FirewallInboundConnectionToAppBlocked
+    event_version:
+    - '0'
+    - '1'
+  references: null
+  notes: null
 - relationship_id: REL-2022-0069
   name: User attempted to install Drive
   contributors:
@@ -2161,81 +2171,29 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6423
   notes: null
-- relationship_id: REL-2022-0070
-  name: Process requested access to Windows registry key
+- relationship_id: REL-2022-0149
+  name: Logon modified
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: windows registry
-    data_component: windows registry key access
+    data_source: logon session
+    data_component: logon session modification
   behavior:
-    source: process
-    relationship: requested access to
-    target: windows registry key
+    source: logon
+    relationship: modified
+    target: null
   security_events:
-  - event_id: 4656
-    name: A handle to an object was requested.
+  - event_id: 4672
+    name: Special privileges assigned to new logon.
     platform: windows
-    audit_category: Object Access
-    audit_sub_category: Registry
+    audit_category: Logon/Logoff
+    audit_sub_category: Special Logon
     log_source: Microsoft-Windows-Security-Auditing
-    filter_in:
-    - ObjectType: Key
     event_version:
-    - '1'
+    - '0'
   references: null
   notes: null
-- relationship_id: REL-2022-0071
-  name: Process modified Windows registry key value
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  - Ruben Bouman @rubinatorz
-  attack:
-    data_source: windows registry
-    data_component: windows registry key modification
-  behavior:
-    source: process
-    relationship: modified
-    target: windows registry key value
-  security_events:
-  - event_id: 13
-    name: RegistryEvent (Value Set).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: 14
-    name: RegistryEvent (Key and Value Rename).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: 4657
-    name: A registry value was modified.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Registry
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryValueSet
-    event_version:
-    - '0'
-    - '1'
-  references: null
-  notes:
-  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
-    values. Use "Operation Type=Existing registry value modified" to look for modifications.
 - relationship_id: REL-2022-0072
   name: Firewall Rule added
   contributors:
@@ -2289,29 +2247,6 @@
   notes:
   - Host-based ETW provieder for LDAP search filter performed by a process. This event
     provides valuable data like PID, search filter and attributes.
-- relationship_id: REL-2022-0074
-  name: Host blocked connection from Process
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
-  behavior:
-    source: host
-    relationship: blocked connection from
-    target: process
-  security_events:
-  - event_id: 5157
-    name: The Windows Filtering Platform has blocked a connection.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '1'
-  references: null
-  notes: null
 - relationship_id: REL-2022-0075
   name: User accessed File
   contributors:
@@ -2365,31 +2300,6 @@
     - '0'
   references: null
   notes: null
-- relationship_id: REL-2022-0077
-  name: User accessed Windows registry key
-  contributors:
-  - Reid Gilman @reidgilman
-  attack:
-    data_source: windows registry
-    data_component: windows registry key access
-  behavior:
-    source: user
-    relationship: accessed
-    target: windows registry key
-  security_events:
-  - event_id: 4663
-    name: An attempt was made to access an object.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Registry
-    log_source: Microsoft-Windows-Security-Auditing
-    filter_in:
-    - ObjectType: Key
-  references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
-  notes:
-  - "Event 4663 includes the following caveat \"This event generates only if object\u2019\
-    s SACL has required ACE to handle specific access right use.\""
 - relationship_id: REL-2022-0078
   name: User attempted to access Network Share
   contributors:
@@ -2624,29 +2534,6 @@
     - '0'
   references: null
   notes: null
-- relationship_id: REL-2022-0084
-  name: Host blocked port bind on Process
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
-  behavior:
-    source: host
-    relationship: blocked port bind on
-    target: process
-  security_events:
-  - event_id: 5159
-    name: The Windows Filtering Platform has blocked a bind to a local port.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
-  notes: null
 - relationship_id: REL-2022-0085
   name: User accessed AD Object
   contributors:
@@ -2682,6 +2569,60 @@
   notes:
   - Events 4661 and 4662 require a SACL (https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists)
     to be for an object or they will not generate
+- relationship_id: REL-2022-0125
+  name: Process created Registry
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: windows registry
+    data_component: windows registry key creation
+  behavior:
+    source: process
+    relationship: created
+    target: registry
+  security_events:
+  - event_id: 12
+    name: RegistryEvent (Object create and delete).
+    platform: windows
+    audit_category: RegistryEvent
+    log_source: sysmon
+    filter_in:
+    - EventType: CreateKey
+    event_version:
+    - '4.32'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueSet
+    event_version:
+    - '0'
+    - '1'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeyCreated
+    event_version:
+    - '0'
+    - '1'
+  - event_id: 4657
+    name: A registry value was modified.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  references: null
+  notes:
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=New registry value created" to look for creations.
 - relationship_id: REL-2022-0086
   name: Application attempted to authenticate User
   contributors:
@@ -2810,28 +2751,37 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - User Account / user account authentication
-- relationship_id: REL-2022-0090
-  name: Host permitted listener on Ip
+- relationship_id: REL-2022-0028
+  name: Device blocked connection from Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
   attack:
     data_source: network traffic
     data_component: network connection creation
   behavior:
-    source: host
-    relationship: permitted listener on
-    target: ip
+    source: device
+    relationship: blocked connection from
+    target: port
   security_events:
-  - event_id: 5154
-    name: The Windows Filtering Platform has permitted an application or service to
-      listen on a port for incoming connections.
+  - event_id: 5157
+    name: The Windows Filtering Platform has blocked a connection.
     platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
     log_source: Microsoft-Windows-Security-Auditing
     event_version:
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FirewallInboundConnectionBlocked
+    event_version:
     - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0091
@@ -3142,49 +3092,6 @@
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service start - new
     component
-- relationship_id: REL-2022-0102
-  name: Process deleted Windows registry key value
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  - Ruben Bouman @rubinatorz
-  attack:
-    data_source: windows registry
-    data_component: windows registry key deletion
-  behavior:
-    source: process
-    relationship: deleted
-    target: windows registry key value
-  security_events:
-  - event_id: 12
-    name: RegistryEvent (Object create and delete).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryValueDeleted
-    event_version:
-    - '0'
-    - '1'
-  - event_id: 4657
-    name: A registry value was modified.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Registry
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
-  notes:
-  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
-    values. Use "Operation Type=Registry value deleted" to look for deletions.
 - relationship_id: REL-2022-0103
   name: Process bound to Port
   contributors:
@@ -3218,88 +3125,30 @@
     - '1'
   references: null
   notes: null
-- relationship_id: REL-2022-0104
-  name: User connected to Host
+- relationship_id: REL-2022-0115
+  name: Device permitted listener on Port
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
   attack:
     data_source: network traffic
     data_component: network connection creation
   behavior:
-    source: user
-    relationship: connected to
-    target: host
+    source: device
+    relationship: permitted listener on
+    target: port
   security_events:
-  - event_id: 3
-    name: Network connection.
-    platform: windows
-    audit_category: NetworkConnect
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: 3
-    name: Network connection.
-    platform: linux
-    audit_category: NetworkConnect
-    log_source: sysmon
-    event_version:
-    - '4.81'
-  - event_id: DeviceNetworkEvents
-    name: DeviceNetworkEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: ConnectionSuccess
-    event_version:
-    - '0'
-    - '1'
-  references: null
-  notes: null
-- relationship_id: REL-2022-0105
-  name: User created Windows registry key value
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Olaf Hartong @olafhartong
-  - Ruben Bouman @rubinatorz
-  attack:
-    data_source: windows registry
-    data_component: windows registry key creation
-  behavior:
-    source: user
-    relationship: created
-    target: windows registry key value
-  security_events:
-  - event_id: 12
-    name: RegistryEvent (Object create and delete).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryValueSet
-    event_version:
-    - '0'
-    - '1'
-  - event_id: 4657
-    name: A registry value was modified.
+  - event_id: 5154
+    name: The Windows Filtering Platform has permitted an application or service to
+      listen on a port for incoming connections.
     platform: windows
     audit_category: Object Access
-    audit_sub_category: Registry
+    audit_sub_category: Filtering Platform Connection
     log_source: Microsoft-Windows-Security-Auditing
     event_version:
     - '0'
   references: null
-  notes:
-  - Potential contribution for ATT&CK - Windows Registry / windows registry key creation
-  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
-    values. Use "Operation Type=New registry value created" to look for creations.
+  notes: null
 - relationship_id: REL-2022-0106
   name: User attempted to authenticate to Application
   contributors:
@@ -3562,6 +3411,62 @@
     - '1'
   references: null
   notes: null
+- relationship_id: REL-2022-0172
+  name: User terminated Logon
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: logon session
+    data_component: logon session termination
+  behavior:
+    source: user
+    relationship: terminated
+    target: logon
+  security_events:
+  - event_id: 4634
+    name: An account was logged off.
+    platform: windows
+    audit_category: Logon/Logoff
+    audit_sub_category: Logoff
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: 4647
+    name: User initiated logoff.
+    platform: windows
+    audit_category: Logon/Logoff
+    audit_sub_category: Logoff
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4634
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4647
+  notes: null
+- relationship_id: REL-2022-0039
+  name: Device permitted port bind on Ip
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  attack: null
+  behavior:
+    source: device
+    relationship: permitted port bind on
+    target: ip
+  security_events:
+  - event_id: 5158
+    name: The Windows Filtering Platform has permitted a bind to a local port.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  references: null
+  notes:
+  - Potential contribution for ATT&CK - Network Traffic / network connection creation
 - relationship_id: REL-2022-0114
   name: User installed Drive
   contributors:
@@ -3594,30 +3499,6 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6416
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6424
-  notes: null
-- relationship_id: REL-2022-0115
-  name: Host permitted listener on Port
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
-  behavior:
-    source: host
-    relationship: permitted listener on
-    target: port
-  security_events:
-  - event_id: 5154
-    name: The Windows Filtering Platform has permitted an application or service to
-      listen on a port for incoming connections.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
   notes: null
 - relationship_id: REL-2022-0116
   name: User removed firewall rule from Ip
@@ -3699,6 +3580,30 @@
     event_version: []
   references: null
   notes: null
+- relationship_id: REL-2022-0159
+  name: Device blocked listener on Port
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: device
+    relationship: blocked listener on
+    target: port
+  security_events:
+  - event_id: 5155
+    name: The Windows Filtering Platform has blocked an application or service from
+      listening on a port for incoming connections.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  references: null
+  notes: null
 - relationship_id: REL-2022-0119
   name: User modified Schedule job
   contributors:
@@ -3727,39 +3632,6 @@
     log_source: Microsoft Defender for Endpoint
     filter_in:
     - ActionType: ScheduledTaskUpdated
-    event_version:
-    - '0'
-    - '1'
-  references: null
-  notes: null
-- relationship_id: REL-2022-0120
-  name: User modified Windows registry key
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: windows registry
-    data_component: windows registry key modification
-  behavior:
-    source: user
-    relationship: modified
-    target: windows registry key
-  security_events:
-  - event_id: 4670
-    name: Permissions on an object were changed.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Registry
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryKeySet
     event_version:
     - '0'
     - '1'
@@ -3834,112 +3706,6 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
   notes: null
-- relationship_id: REL-2022-0123
-  name: User deleted Windows registry key
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: windows registry
-    data_component: windows registry key deletion
-  behavior:
-    source: user
-    relationship: deleted
-    target: windows registry key
-  security_events:
-  - event_id: 12
-    name: RegistryEvent (Object create and delete).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: 4660
-    name: An object was deleted.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Registry
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryKeyDeleted
-    event_version:
-    - '0'
-    - '1'
-  references: null
-  notes: null
-- relationship_id: REL-2022-0124
-  name: Host blocked port bind on Ip
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
-  behavior:
-    source: host
-    relationship: blocked port bind on
-    target: ip
-  security_events:
-  - event_id: 5159
-    name: The Windows Filtering Platform has blocked a bind to a local port.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
-  notes: null
-- relationship_id: REL-2022-0125
-  name: Process created Windows registry key value
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  - Ruben Bouman @rubinatorz
-  attack:
-    data_source: windows registry
-    data_component: windows registry key creation
-  behavior:
-    source: process
-    relationship: created
-    target: windows registry key value
-  security_events:
-  - event_id: 12
-    name: RegistryEvent (Object create and delete).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryValueSet
-    event_version:
-    - '0'
-    - '1'
-  - event_id: 4657
-    name: A registry value was modified.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Registry
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
-  notes:
-  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
-    values. Use "Operation Type=New registry value created" to look for creations.
 - relationship_id: REL-2022-0126
   name: Driver loaded
   contributors:
@@ -3972,27 +3738,151 @@
     - '1'
   references: null
   notes: null
-- relationship_id: REL-2022-0127
-  name: Firewall attempted to load Policy
+- relationship_id: REL-2022-0050
+  name: Logon Metadata
   contributors:
   - Ruben Bouman @rubinatorz
   attack:
-    data_source: firewall
-    data_component: firewall metadata
+    data_source: logon session
+    data_component: logon session metadata
   behavior:
-    source: firewall
-    relationship: attempted to load
-    target: policy
+    source: logon
+    relationship: metadata
+    target: null
   security_events:
-  - event_id: 2009
-    name: The Windows Firewall service failed to load Group Policy.
+  - event_id: 4703
+    name: A token right was adjusted.
     platform: windows
-    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
-    event_version: []
+    audit_category: Policy Change
+    audit_sub_category: Authorization Policy Change
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: 4673
+    name: A privileged service was called.
+    platform: windows
+    audit_category: Privilege Use
+    audit_sub_category: Sensitive Privilege Use
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: 4674
+    name: An operation was attempted on a privileged object.
+    platform: windows
+    audit_category: Privilege Use
+    audit_sub_category: Sensitive Privilege Use
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: 4610
+    name: An authentication package has been loaded by the Local Security Authority.
+    platform: windows
+    audit_category: System
+    audit_sub_category: Security System Extension
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: 4611
+    name: A trusted logon process has been registered with the Local Security Authority.
+    platform: windows
+    audit_category: System
+    audit_sub_category: Security System Extension
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: 4614
+    name: A notification package has been loaded by the Security Account Manager.
+    platform: windows
+    audit_category: System
+    audit_sub_category: Security System Extension
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: 4622
+    name: A security package has been loaded by the Local Security Authority.
+    platform: windows
+    audit_category: System
+    audit_sub_category: Security System Extension
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  references:
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4703
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4673
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4674
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4610
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4611
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4614
+  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4622
+  notes: null
+- relationship_id: REL-2022-0173
+  name: Device blocked connection to Ip
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: device
+    relationship: blocked connection to
+    target: ip
+  security_events:
+  - event_id: 5157
+    name: The Windows Filtering Platform has blocked a connection.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FirewallOutboundConnectionBlocked
+    event_version:
+    - '0'
+    - '1'
+  references: null
+  notes: null
+- relationship_id: REL-2022-0137
+  name: Device blocked connection to Port
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: device
+    relationship: blocked connection to
+    target: port
+  security_events:
+  - event_id: 5157
+    name: The Windows Filtering Platform has blocked a connection.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FirewallOutboundConnectionBlocked
+    event_version:
+    - '0'
+    - '1'
   references: null
   notes: null
 - relationship_id: REL-2022-0128
-  name: Host blocked listener on Process
+  name: Device blocked listener on Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
@@ -4000,13 +3890,37 @@
     data_source: network traffic
     data_component: network connection creation
   behavior:
-    source: host
+    source: device
     relationship: blocked listener on
     target: process
   security_events:
   - event_id: 5155
     name: The Windows Filtering Platform has blocked an application or service from
       listening on a port for incoming connections.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  references: null
+  notes: null
+- relationship_id: REL-2022-0164
+  name: Device permitted listener on Process
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: device
+    relationship: permitted listener on
+    target: process
+  security_events:
+  - event_id: 5154
+    name: The Windows Filtering Platform has permitted an application or service to
+      listen on a port for incoming connections.
     platform: windows
     audit_category: Object Access
     audit_sub_category: Filtering Platform Connection
@@ -4060,16 +3974,19 @@
     for "Accesses=CreatePipeInstance".
   - Event ID 4656 logs handles to objects. Look for named pipe by searching for "Accesses=CreatePipeInstance".
 - relationship_id: REL-2022-0130
-  name: User deleted Windows registry key value
+  name: User deleted Registry
   contributors:
   - Ruben Bouman @rubinatorz
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
   attack:
     data_source: windows registry
     data_component: windows registry key deletion
   behavior:
     source: user
     relationship: deleted
-    target: windows registry key value
+    target: registry
   security_events:
   - event_id: 12
     name: RegistryEvent (Object create and delete).
@@ -4087,8 +4004,27 @@
     event_version:
     - '0'
     - '1'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeyDeleted
+    event_version:
+    - '0'
+    - '1'
   - event_id: 4657
     name: A registry value was modified.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_source: Microsoft-Windows-Security-Auditing
+    filter_in:
+    - OperationType: Registry value deleted
+    event_version:
+    - '0'
+  - event_id: 4660
+    name: An object was deleted.
     platform: windows
     audit_category: Object Access
     audit_sub_category: Registry
@@ -4152,28 +4088,6 @@
     - '1'
   references: null
   notes: null
-- relationship_id: REL-2022-0132
-  name: User attempted to log off from host
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  attack: null
-  behavior:
-    source: user
-    relationship: attempted to log off from
-    target: host
-  security_events:
-  - event_id: 4647
-    name: User initiated logoff.
-    platform: windows
-    audit_category: Logon/Logoff
-    audit_sub_category: Logoff
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
-  notes:
-  - Potential contribution for ATT&CK - Logon Session / logon session termination
 - relationship_id: REL-2022-0133
   name: User attempted to modify User
   contributors:
@@ -4276,6 +4190,29 @@
     - '1'
   references: null
   notes: null
+- relationship_id: REL-2022-0010
+  name: Device blocked port bind on Port
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: device
+    relationship: blocked port bind on
+    target: port
+  security_events:
+  - event_id: 5159
+    name: The Windows Filtering Platform has blocked a bind to a local port.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  references: null
+  notes: null
 - relationship_id: REL-2022-0136
   name: User created AD Object
   contributors:
@@ -4299,78 +4236,28 @@
     - '0'
   references: null
   notes: null
-- relationship_id: REL-2022-0137
-  name: Host blocked connection to Port
+- relationship_id: REL-2022-0132
+  name: User attempted to log off from Device
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
-  behavior:
-    source: host
-    relationship: blocked connection to
-    target: port
-  security_events:
-  - event_id: 5157
-    name: The Windows Filtering Platform has blocked a connection.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '1'
-  - event_id: DeviceEvents
-    name: DeviceEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: FirewallOutboundConnectionBlocked
-    event_version:
-    - '0'
-    - '1'
-  references: null
-  notes: null
-- relationship_id: REL-2022-0138
-  name: User connected from Host
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
+  attack: null
   behavior:
     source: user
-    relationship: connected from
-    target: host
+    relationship: attempted to log off from
+    target: device
   security_events:
-  - event_id: 3
-    name: Network connection.
+  - event_id: 4647
+    name: User initiated logoff.
     platform: windows
-    audit_category: NetworkConnect
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: 3
-    name: Network connection.
-    platform: linux
-    audit_category: NetworkConnect
-    log_source: sysmon
-    event_version:
-    - '4.81'
-  - event_id: DeviceNetworkEvents
-    name: DeviceNetworkEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: InboundConnectionAccepted
+    audit_category: Logon/Logoff
+    audit_sub_category: Logoff
+    log_source: Microsoft-Windows-Security-Auditing
     event_version:
     - '0'
-    - '1'
   references: null
-  notes: null
+  notes:
+  - Potential contribution for ATT&CK - Logon Session / logon session termination
 - relationship_id: REL-2022-0139
   name: Process accessed File
   contributors:
@@ -4455,46 +4342,6 @@
     log_source: Microsoft Defender for Endpoint
     filter_in:
     - ActionType: ConnectionSuccess
-    event_version:
-    - '0'
-    - '1'
-  references: null
-  notes: null
-- relationship_id: REL-2022-0142
-  name: Process deleted Windows registry key
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: windows registry
-    data_component: windows registry key deletion
-  behavior:
-    source: process
-    relationship: deleted
-    target: windows registry key
-  security_events:
-  - event_id: 12
-    name: RegistryEvent (Object create and delete).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: 4660
-    name: An object was deleted.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Registry
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryKeyDeleted
     event_version:
     - '0'
     - '1'
@@ -4598,56 +4445,29 @@
   notes:
   - Event ID 4663 logs attempts of accesses to objects. Look for file creations by
     searching for "Accesses=Delete".
-- relationship_id: REL-2022-0145
-  name: User modified Windows registry key value
+- relationship_id: REL-2022-0124
+  name: Device blocked port bind on Ip
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  - Ruben Bouman @rubinatorz
   attack:
-    data_source: windows registry
-    data_component: windows registry key modification
+    data_source: network traffic
+    data_component: network connection creation
   behavior:
-    source: user
-    relationship: modified
-    target: windows registry key value
+    source: device
+    relationship: blocked port bind on
+    target: ip
   security_events:
-  - event_id: 13
-    name: RegistryEvent (Value Set).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: 14
-    name: RegistryEvent (Key and Value Rename).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: 4657
-    name: A registry value was modified.
+  - event_id: 5159
+    name: The Windows Filtering Platform has blocked a bind to a local port.
     platform: windows
     audit_category: Object Access
-    audit_sub_category: Registry
+    audit_sub_category: Filtering Platform Connection
     log_source: Microsoft-Windows-Security-Auditing
     event_version:
     - '0'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryValueSet
-    event_version:
-    - '0'
-    - '1'
   references: null
-  notes:
-  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
-    values. Use "Operation Type=Existing registry value modified" to look for modifications.
+  notes: null
 - relationship_id: REL-2022-0146
   name: User created Process
   contributors:
@@ -4718,6 +4538,25 @@
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service start - new
     component
+- relationship_id: REL-2022-0127
+  name: Firewall attempted to load Configuration
+  contributors:
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: firewall
+    data_component: firewall metadata
+  behavior:
+    source: firewall
+    relationship: attempted to load
+    target: configuration
+  security_events:
+  - event_id: 2009
+    name: The Windows Firewall service failed to load Group Policy.
+    platform: windows
+    log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+    event_version: []
+  references: null
+  notes: null
 - relationship_id: REL-2022-0148
   name: User enabled Scheduled job
   contributors:
@@ -4751,29 +4590,6 @@
     - '1'
   references: null
   notes: null
-- relationship_id: REL-2022-0149
-  name: Logon Session modified
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  attack:
-    data_source: logon session
-    data_component: logon session modification
-  behavior:
-    source: logon session
-    relationship: modified
-    target: null
-  security_events:
-  - event_id: 4672
-    name: Special privileges assigned to new logon.
-    platform: windows
-    audit_category: Logon/Logoff
-    audit_sub_category: Special Logon
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
-  notes: null
 - relationship_id: REL-2022-0150
   name: Process executed Api call
   contributors:
@@ -4801,6 +4617,78 @@
     log_source: Microsoft Defender for Endpoint
     filter_in:
     - ActionType: CreateRemoteThreadApiCall
+    event_version:
+    - '0'
+    - '1'
+  references: null
+  notes: null
+- relationship_id: REL-2022-0160
+  name: Device blocked connection from Ip
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: device
+    relationship: blocked connection from
+    target: ip
+  security_events:
+  - event_id: 5157
+    name: The Windows Filtering Platform has blocked a connection.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '1'
+  - event_id: DeviceEvents
+    name: DeviceEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: FirewallInboundConnectionBlocked
+    event_version:
+    - '0'
+    - '1'
+  references: null
+  notes: null
+- relationship_id: REL-2022-0138
+  name: User connected from Device
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: user
+    relationship: connected from
+    target: device
+  security_events:
+  - event_id: 3
+    name: Network connection.
+    platform: windows
+    audit_category: NetworkConnect
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: 3
+    name: Network connection.
+    platform: linux
+    audit_category: NetworkConnect
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: InboundConnectionAccepted
     event_version:
     - '0'
     - '1'
@@ -4837,6 +4725,31 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Network Traffic / network traffic content
+- relationship_id: REL-2022-0070
+  name: Process requested access to Registry
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  attack:
+    data_source: windows registry
+    data_component: windows registry key access
+  behavior:
+    source: process
+    relationship: requested access to
+    target: registry
+  security_events:
+  - event_id: 4656
+    name: A handle to an object was requested.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_source: Microsoft-Windows-Security-Auditing
+    filter_in:
+    - ObjectType: Key
+    event_version:
+    - '1'
+  references: null
+  notes: null
 - relationship_id: REL-2022-0152
   name: User modified Firewall
   contributors:
@@ -4889,38 +4802,6 @@
     log_source: Microsoft Defender for Endpoint
     filter_in:
     - ActionType: CreateRemoteThreadApiCall
-    event_version:
-    - '0'
-    - '1'
-  references: null
-  notes: null
-- relationship_id: REL-2022-0154
-  name: Process created Windows registry key
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: windows registry
-    data_component: windows registry key creation
-  behavior:
-    source: process
-    relationship: created
-    target: windows registry key
-  security_events:
-  - event_id: 12
-    name: RegistryEvent (Object create and delete).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryKeyCreated
     event_version:
     - '0'
     - '1'
@@ -4982,6 +4863,61 @@
     - '1'
   references: null
   notes: null
+- relationship_id: REL-2022-0105
+  name: User created Registry
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: windows registry
+    data_component: windows registry key creation
+  behavior:
+    source: user
+    relationship: created
+    target: registry
+  security_events:
+  - event_id: 12
+    name: RegistryEvent (Object create and delete).
+    platform: windows
+    audit_category: RegistryEvent
+    log_source: sysmon
+    filter_in:
+    - EventType: CreateKey
+    event_version:
+    - '4.32'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueSet
+    event_version:
+    - '0'
+    - '1'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeyCreated
+    event_version:
+    - '0'
+    - '1'
+  - event_id: 4657
+    name: A registry value was modified.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_source: Microsoft-Windows-Security-Auditing
+    filter_in:
+    - OperationType: New registry value created
+    event_version:
+    - '0'
+  references: null
+  notes:
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=New registry value created" to look for creations.
 - relationship_id: REL-2022-0156
   name: User retrieved information about cloud service from Ip
   contributors:
@@ -5042,38 +4978,28 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Cloud Service / cloud service metadata
-- relationship_id: REL-2022-0157
-  name: User created Windows registry key
+- relationship_id: REL-2022-0023
+  name: Device permitted local bind on Process
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: windows registry
-    data_component: windows registry key creation
+  - Roberto Rodriguez @Cyb3rWard0g
+  attack: null
   behavior:
-    source: user
-    relationship: created
-    target: windows registry key
+    source: device
+    relationship: permitted port bind on
+    target: process
   security_events:
-  - event_id: 12
-    name: RegistryEvent (Object create and delete).
+  - event_id: 5158
+    name: The Windows Filtering Platform has permitted a bind to a local port.
     platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryKeyCreated
+    audit_category: Object Access
+    audit_sub_category: Filtering Platform Connection
+    log_source: Microsoft-Windows-Security-Auditing
     event_version:
     - '0'
-    - '1'
   references: null
   notes:
-  - Potential contribution for ATT&CK - Windows Registry / windows registry key creation
+  - Potential contribution for ATT&CK - Network Traffic / network connection creation
 - relationship_id: REL-2022-0158
   name: User created instance from Ip
   contributors:
@@ -5097,63 +5023,29 @@
     - '1.05'
   references: null
   notes: null
-- relationship_id: REL-2022-0159
-  name: Host blocked listener on Port
+- relationship_id: REL-2022-0013
+  name: User requested access to Registry
   contributors:
   - Jose Rodriguez @Cyb3rPandaH
   - Roberto Rodriguez @Cyb3rWard0g
   attack:
-    data_source: network traffic
-    data_component: network connection creation
+    data_source: windows registry
+    data_component: windows registry key access
   behavior:
-    source: host
-    relationship: blocked listener on
-    target: port
+    source: user
+    relationship: requested access to
+    target: registry
   security_events:
-  - event_id: 5155
-    name: The Windows Filtering Platform has blocked an application or service from
-      listening on a port for incoming connections.
+  - event_id: 4656
+    name: A handle to an object was requested.
     platform: windows
     audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
+    audit_sub_category: Registry
     log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
-  notes: null
-- relationship_id: REL-2022-0160
-  name: Host blocked connection from Ip
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
-  behavior:
-    source: host
-    relationship: blocked connection from
-    target: ip
-  security_events:
-  - event_id: 5157
-    name: The Windows Filtering Platform has blocked a connection.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '1'
-  - event_id: DeviceEvents
-    name: DeviceEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
     filter_in:
-    - ActionType: FirewallInboundConnectionBlocked
-    event_version:
-    - '0'
-    - '1'
+    - ObjectType: Key
   references: null
-  notes: null
+  note: null
 - relationship_id: REL-2022-0161
   name: User connected from Ip
   contributors:
@@ -5260,30 +5152,6 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
   notes: null
-- relationship_id: REL-2022-0164
-  name: Host permitted listener on Process
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
-  behavior:
-    source: host
-    relationship: permitted listener on
-    target: process
-  security_events:
-  - event_id: 5154
-    name: The Windows Filtering Platform has permitted an application or service to
-      listen on a port for incoming connections.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references: null
-  notes: null
 - relationship_id: REL-2022-0165
   name: User enumerated Group
   contributors:
@@ -5316,6 +5184,75 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4798
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4799
   notes: null
+- relationship_id: REL-2022-0145
+  name: User modified Registry
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: windows registry
+    data_component: windows registry key modification
+  behavior:
+    source: user
+    relationship: modified
+    target: registry
+  security_events:
+  - event_id: 13
+    name: RegistryEvent (Value Set).
+    platform: windows
+    audit_category: RegistryEvent
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: 14
+    name: RegistryEvent (Key and Value Rename).
+    platform: windows
+    audit_category: RegistryEvent
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: 4657
+    name: A registry value was modified.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_source: Microsoft-Windows-Security-Auditing
+    filter_in:
+    - OperationType: Existing registry value modified
+    event_version:
+    - '0'
+  - event_id: 4670
+    name: Permissions on an object were changed.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueSet
+    event_version:
+    - '0'
+    - '1'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeySet
+    event_version:
+    - '0'
+    - '1'
+  references: null
+  notes:
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=Existing registry value modified" to look for modifications.
 - relationship_id: REL-2022-0166
   name: Process connected from Ip
   contributors:
@@ -5426,6 +5363,45 @@
     - '1.05'
   references: null
   notes: null
+- relationship_id: REL-2022-0104
+  name: User connected to Device
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  attack:
+    data_source: network traffic
+    data_component: network connection creation
+  behavior:
+    source: user
+    relationship: connected to
+    target: device
+  security_events:
+  - event_id: 3
+    name: Network connection.
+    platform: windows
+    audit_category: NetworkConnect
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: 3
+    name: Network connection.
+    platform: linux
+    audit_category: NetworkConnect
+    log_source: sysmon
+    event_version:
+    - '4.81'
+  - event_id: DeviceNetworkEvents
+    name: DeviceNetworkEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: ConnectionSuccess
+    event_version:
+    - '0'
+    - '1'
+  references: null
+  notes: null
 - relationship_id: REL-2022-0169
   name: User created Network Share
   contributors:
@@ -5449,6 +5425,77 @@
     - '0'
   references: null
   notes: null
+- relationship_id: REL-2022-0071
+  name: Process modified Registry
+  contributors:
+  - Jose Rodriguez @Cyb3rPandaH
+  - Roberto Rodriguez @Cyb3rWard0g
+  - Olaf Hartong @olafhartong
+  - Ruben Bouman @rubinatorz
+  attack:
+    data_source: windows registry
+    data_component: windows registry key modification
+  behavior:
+    source: process
+    relationship: modified
+    target: registry
+  security_events:
+  - event_id: 13
+    name: RegistryEvent (Value Set).
+    platform: windows
+    audit_category: RegistryEvent
+    log_source: sysmon
+    filter_in:
+    - EventType: SetValue
+    event_version:
+    - '4.32'
+  - event_id: 14
+    name: RegistryEvent (Key and Value Rename).
+    platform: windows
+    audit_category: RegistryEvent
+    log_source: sysmon
+    event_version:
+    - '4.32'
+  - event_id: 4657
+    name: A registry value was modified.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_source: Microsoft-Windows-Security-Auditing
+    filter_in:
+    - OperationType: Existing registry value modified
+    event_version:
+    - '0'
+  - event_id: 4670
+    name: Permissions on an object were changed.
+    platform: windows
+    audit_category: Object Access
+    audit_sub_category: Registry
+    log_source: Microsoft-Windows-Security-Auditing
+    event_version:
+    - '0'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryValueSet
+    event_version:
+    - '0'
+    - '1'
+  - event_id: DeviceRegistryEvents
+    name: DeviceRegistryEvents
+    platform: windows
+    log_source: Microsoft Defender for Endpoint
+    filter_in:
+    - ActionType: RegistryKeyCreated
+    event_version:
+    - '0'
+    - '1'
+  references: null
+  notes:
+  - Event ID 4657 is logged for Creation, Modification and Deletion of registry key
+    values. Use "Operation Type=Existing registry value modified" to look for modifications.
 - relationship_id: REL-2022-0170
   name: User attempted to authenticate from Ip
   contributors:
@@ -5531,73 +5578,6 @@
   references: null
   notes:
   - Potential contribution for ATT&CK - Instance / instance modification
-- relationship_id: REL-2022-0172
-  name: User terminated Logon session
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Ruben Bouman @rubinatorz
-  attack:
-    data_source: logon session
-    data_component: logon session termination
-  behavior:
-    source: user
-    relationship: terminated
-    target: logon session
-  security_events:
-  - event_id: 4634
-    name: An account was logged off.
-    platform: windows
-    audit_category: Logon/Logoff
-    audit_sub_category: Logoff
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: 4647
-    name: User initiated logoff.
-    platform: windows
-    audit_category: Logon/Logoff
-    audit_sub_category: Logoff
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4634
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4647
-  notes: null
-- relationship_id: REL-2022-0173
-  name: Host blocked connection to Ip
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: network traffic
-    data_component: network connection creation
-  behavior:
-    source: host
-    relationship: blocked connection to
-    target: ip
-  security_events:
-  - event_id: 5157
-    name: The Windows Filtering Platform has blocked a connection.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Filtering Platform Connection
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '1'
-  - event_id: DeviceEvents
-    name: DeviceEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: FirewallOutboundConnectionBlocked
-    event_version:
-    - '0'
-    - '1'
-  references: null
-  notes: null
 - relationship_id: REL-2022-0174
   name: User deleted Network share
   contributors:
@@ -5711,53 +5691,6 @@
   references:
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4726
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4743
-  notes: null
-- relationship_id: REL-2022-0177
-  name: Process modified Windows registry key
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  attack:
-    data_source: windows registry
-    data_component: windows registry key modification
-  behavior:
-    source: process
-    relationship: modified
-    target: windows registry key
-  security_events:
-  - event_id: 13
-    name: RegistryEvent (Value Set).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: 14
-    name: RegistryEvent (Key and Value Rename).
-    platform: windows
-    audit_category: RegistryEvent
-    log_source: sysmon
-    event_version:
-    - '4.32'
-  - event_id: 4670
-    name: Permissions on an object were changed.
-    platform: windows
-    audit_category: Object Access
-    audit_sub_category: Registry
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: DeviceRegistryEvents
-    name: DeviceRegistryEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: RegistryKeyCreated
-    event_version:
-    - '0'
-    - '1'
-  references: null
   notes: null
 - relationship_id: REL-2022-0178
   name: Process loaded Module
@@ -6100,57 +6033,4 @@
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4733
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4735
   - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4764
-  notes: null
-- relationship_id: REL-2022-0186
-  name: User created Logon session
-  contributors:
-  - Jose Rodriguez @Cyb3rPandaH
-  - Roberto Rodriguez @Cyb3rWard0g
-  - Olaf Hartong @olafhartong
-  - Ruben Bouman @rubinatorz
-  attack:
-    data_source: logon session
-    data_component: logon session creation
-  behavior:
-    source: user
-    relationship: created
-    target: logon session
-  security_events:
-  - event_id: 4624
-    name: An account was successfully logged on.
-    platform: windows
-    audit_category: Logon/Logoff
-    audit_sub_category: Logon
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '2'
-  - event_id: 4778
-    name: A session was reconnected to a Window Station.
-    platform: windows
-    audit_category: Logon/Logoff
-    audit_sub_category: Other Logon/Logoff Events
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: 4964
-    name: Special groups have been assigned to a new logon.
-    platform: windows
-    audit_category: Logon/Logoff
-    audit_sub_category: Special Logon
-    log_source: Microsoft-Windows-Security-Auditing
-    event_version:
-    - '0'
-  - event_id: DeviceLogonEvents
-    name: DeviceLogonEvents
-    platform: windows
-    log_source: Microsoft Defender for Endpoint
-    filter_in:
-    - ActionType: LogonSuccess
-    event_version:
-    - '0'
-    - '1'
-  references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4778
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4964
   notes: null
