@@ -3,7 +3,7 @@ name: User modified Group
 contributors:
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Group
+  data_source: group
   data_component: group modification
 behavior:
   source: user
@@ -12,78 +12,88 @@ behavior:
 security_events:
 - event_id: 4737
   name: A security-enabled global group was changed.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4728
   name: A member was added to a security-enabled global group.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4729
   name: A member was removed from a security-enabled global group.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4732
   name: A member was added to a security-enabled local group.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4733
   name: A member was removed from a security-enabled local group.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4735
   name: A security-enabled local group was changed.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4764
   name: A groups type was changed.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4755
   name: A security-enabled universal group was changed.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4756
   name: A member was added to a security-enabled universal group.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4757
   name: A member was removed from a security-enabled universal group.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/audit-security-group-management
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4732
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4733
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4735
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4764
-notes:
+notes: null

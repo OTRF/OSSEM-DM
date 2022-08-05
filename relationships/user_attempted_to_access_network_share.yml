@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Network Share
+  data_source: network share
   data_component: network share access
 behavior:
   source: user
@@ -14,24 +14,30 @@ behavior:
 security_events:
 - event_id: 5140
   name: A network share object was accessed.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File Share
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '1'
 - event_id: 5145
-  name: A network share object was checked to see whether client can be granted desired access.
-  platform: Windows
+  name: A network share object was checked to see whether client can be granted desired
+    access.
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Detailed File Share
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-- event_id: LogonSuccess
-  name: LogonSuccess
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceLogonEvents
-  log_provider: Microsoft Defender for Endpoint
-references:
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+- event_id: DeviceLogonEvents
+  name: DeviceLogonEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: LogonSuccess
+  event_version:
+  - '0'
+  - '1'
+references: null
 notes:
 - Potential contribution for ATT&CK - Network Share / network share access

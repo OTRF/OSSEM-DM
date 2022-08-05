@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: File
+  data_source: file
   data_component: file modification
 behavior:
   source: user
@@ -14,16 +14,20 @@ behavior:
 security_events:
 - event_id: 4670
   name: Permissions on an object were changed.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File System
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-- event_id: FileModified
-  name: FileModified
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceFileEvents
-  log_provider: Microsoft Defender for Endpoint
-references:
-notes:
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+- event_id: DeviceFileEvents
+  name: DeviceFileEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: FileModified
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

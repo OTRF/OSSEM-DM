@@ -3,7 +3,7 @@ name: User attempted to access File
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
-attack:
+attack: null
 behavior:
   source: user
   relationship: attempted to access
@@ -11,11 +11,12 @@ behavior:
 security_events:
 - event_id: 4692
   name: Backup of data protection master key was attempted.
-  platform: Windows
+  platform: windows
   audit_category: Detailed Tracking
   audit_sub_category: DPAPI Activity
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-references:
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+references: null
 notes:
 - Potential contribution for ATT&CK - File / file access

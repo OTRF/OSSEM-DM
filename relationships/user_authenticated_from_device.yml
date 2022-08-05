@@ -3,7 +3,7 @@ name: User authenticated from Device
 contributors:
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account authentication
 behavior:
   source: user
@@ -11,12 +11,14 @@ behavior:
   target: device
 security_events:
 - event_id: 4776
-  name: The domain controller or local computer attempted to validate the credentials for an account.
-  platform: Windows
+  name: The domain controller or local computer attempted to validate the credentials
+    for an account.
+  platform: windows
   audit_category: Account Logon
   audit_sub_category: Credential Validation
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
-notes:
+notes: null

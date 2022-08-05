@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account modification
 behavior:
   source: user
@@ -13,10 +13,11 @@ behavior:
 security_events:
 - event_id: 4717
   name: System security access was granted to an account.
-  platform: Windows
+  platform: windows
   audit_category: Policy Change
   audit_sub_category: Authentication Policy Change
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-references:
-notes:
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+references: null
+notes: null

@@ -3,19 +3,21 @@ name: User listed Firewall rule
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Firewall
+  data_source: firewall
   data_component: firewall enumeration
 behavior:
   source: user
   relationship: listed
   target: firewall rule
 security_events:
-- event_id: ListRuleGroups
-  name: ListRuleGroups
-  platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
-  log_provider: CloudTrail
-references:
-notes:
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
+  filter_in:
+  - eventName: ListRuleGroups
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
+notes: null

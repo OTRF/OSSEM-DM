@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Firewall
+  data_source: firewall
   data_component: firewall disable
 behavior:
   source: firewall
@@ -13,19 +13,21 @@ behavior:
 security_events:
 - event_id: 5025
   name: The Windows Firewall Service has been stopped.
-  platform: Windows
+  platform: windows
   audit_category: System
   audit_sub_category: Other System Events
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 5034
   name: The Windows Firewall Driver was stopped.
-  platform: Windows
+  platform: windows
   audit_category: System
   audit_sub_category: Other System Events
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5025
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5034
-notes:
+notes: null

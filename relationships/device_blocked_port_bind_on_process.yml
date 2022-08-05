@@ -1,0 +1,23 @@
+relationship_id: REL-2022-0084
+name: Device blocked port bind on Process
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+attack:
+  data_source: network traffic
+  data_component: network connection creation
+behavior:
+  source: device
+  relationship: blocked port bind on
+  target: process
+security_events:
+- event_id: 5159
+  name: The Windows Filtering Platform has blocked a bind to a local port.
+  platform: windows
+  audit_category: Object Access
+  audit_sub_category: Filtering Platform Connection
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+references: null
+notes: null

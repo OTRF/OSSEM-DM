@@ -5,42 +5,48 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Script
+  data_source: script
   data_component: script execution
 behavior:
   source: process
   relationship: executed
-  target: Script
+  target: script
 security_events:
 - event_id: 4103
   name: Module logging.
-  platform: Windows
-  audit_category: Executing Pipeline
-  log_channel: Microsoft-Windows-PowerShell/Operational
-  log_provider: Microsoft-Windows-PowerShell
+  platform: windows
+  log_source: powershell
+  event_version:
+  - '0'
 - event_id: 4104
   name: Script Block Logging.
-  platform: Windows
-  audit_category: Execute a Remote Command
-  log_channel: Microsoft-Windows-PowerShell/Operational
-  log_provider: Microsoft-Windows-PowerShell
-- event_id: ScriptContent
-  name: ScriptContent
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-- event_id: PowerShellCommand
-  name: PowerShellCommand
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-- event_id: AmsiScriptDetection
-  name: AmsiScriptDetection
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-references:
-notes:
+  platform: windows
+  log_source: powershell
+- event_id: DeviceEvents
+  name: DeviceEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: ScriptContent
+  event_version:
+  - '0'
+  - '1'
+- event_id: DeviceEvents
+  name: DeviceEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: PowerShellCommand
+  event_version:
+  - '0'
+  - '1'
+- event_id: DeviceEvents
+  name: DeviceEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: AmsiScriptDetection
+  event_version:
+  - '0'
+  - '1'
+references: null

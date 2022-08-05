@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account modification
 behavior:
   source: user
@@ -14,17 +14,19 @@ behavior:
 security_events:
 - event_id: 4723
   name: An attempt was made to change an account's password.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4724
   name: An attempt was made to reset an account's password.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-references:
-notes:
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+references: null
+notes: null

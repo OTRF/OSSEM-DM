@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Service
+  data_source: service
   data_component: service access
 behavior:
   source: user
@@ -13,10 +13,11 @@ behavior:
 security_events:
 - event_id: 4656
   name: A handle to an object was requested.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: Other Object Access Events
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-references:
-notes:
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '1'
+references: null
+notes: null

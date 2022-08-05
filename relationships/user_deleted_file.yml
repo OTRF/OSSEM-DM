@@ -6,7 +6,7 @@ contributors:
 - Olaf Hartong @olafhartong
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: File
+  data_source: file
   data_component: file deletion
 behavior:
   source: user
@@ -15,43 +15,52 @@ behavior:
 security_events:
 - event_id: 23
   name: File Delete archived.
-  platform: Windows
+  platform: windows
   audit_category: FileDelete
-  log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_source: sysmon
+  event_version:
+  - '4.32'
 - event_id: 23
   name: File Delete archived.
-  platform: Linux
+  platform: linux
   audit_category: FileDelete
-  log_channel: Linux-Sysmon/Operational
-  log_provider: Linux-Sysmon
+  log_source: sysmon
+  event_version:
+  - '4.81'
 - event_id: 26
   name: File Delete logged.
-  platform: Windows
+  platform: windows
   audit_category: FileDeleteDetected
-  log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_source: sysmon
+  event_version:
+  - '4.32'
 - event_id: 4660
   name: An object was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File System
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-- event_id: FileDeleted
-  name: FileDeleted
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceFileEvents
-  log_provider: Microsoft Defender for Endpoint
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+- event_id: DeviceFileEvents
+  name: DeviceFileEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: FileDeleted
+  event_version:
+  - '0'
+  - '1'
 - event_id: 4663
   name: An attempt was made to access an object.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File System
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '1'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
-- Event ID 4663 logs attempts of accesses to objects. Look for file creations by searching for "Accesses=Delete".
+- Event ID 4663 logs attempts of accesses to objects. Look for file creations by searching
+  for "Accesses=Delete".

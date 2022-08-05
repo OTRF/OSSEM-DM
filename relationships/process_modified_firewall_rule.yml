@@ -3,6 +3,8 @@ name: Process modified Firewall rule
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
+  data_source: firewall
+  data_component: firewall rule modification
 behavior:
   source: process
   relationship: modified
@@ -10,11 +12,8 @@ behavior:
 security_events:
 - event_id: 2005
   name: A rule has been modified in the Windows Defender Firewall exception list.
-  platform: Windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-  log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
-references:
-notes:
-- Potential contribution for ATT&CK - Firewall / firewall rule modification
+  platform: windows
+  log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+  event_version: []
+references: null
+notes: null

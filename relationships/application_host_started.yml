@@ -3,7 +3,7 @@ name: Application host started
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
-attack:
+attack: null
 behavior:
   source: application host
   relationship: started
@@ -11,10 +11,10 @@ behavior:
 security_events:
 - event_id: 400
   name: Engine state is changed from None to Available.
-  platform: Windows
-  audit_category: Engine Lifecycle
-  log_channel: Windows PowerShell
-  log_provider: PowerShell
-references:
+  platform: windows
+  log_source: powershell
+  event_version:
+  - '0'
+references: null
 notes:
 - Potential contribution for ATT&CK - Command / command context

@@ -3,7 +3,7 @@ name: User attempted to enable Drive
 contributors:
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: Drive
+  data_source: drive
   data_component: drive modification
 behavior:
   source: user
@@ -12,11 +12,12 @@ behavior:
 security_events:
 - event_id: 6421
   name: A request was made to enable a device.
-  platform: Windows
+  platform: windows
   audit_category: Detailed Tracking
   audit_sub_category: PNP Activity
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-6421
-notes:
+notes: null

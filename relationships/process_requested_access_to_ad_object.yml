@@ -3,7 +3,7 @@ name: Process requested access to AD Object
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
-attack:
+attack: null
 behavior:
   source: process
   relationship: requested access to
@@ -11,11 +11,12 @@ behavior:
 security_events:
 - event_id: 4661
   name: A handle to an object was requested.
-  platform: Windows
+  platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Access
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-references:
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+references: null
 notes:
 - Potential contribution for ATT&CK - Active Directory / active directory object access

@@ -2,19 +2,21 @@ relationship_id: REL-2022-0140
 name: User retrieved information about firewall rule from Ip
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
-attack:
+attack: null
 behavior:
   source: user
   relationship: retrieved information about firewall rule from
   target: ip
 security_events:
-- event_id: DescribeRuleGroup
-  name: DescribeRuleGroup
-  platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
-  log_provider: CloudTrail
-references:
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
+  filter_in:
+  - eventName: DescribeRuleGroup
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
 notes:
 - Potential contribution for ATT&CK - Firewall / firewall metadata

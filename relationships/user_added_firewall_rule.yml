@@ -3,7 +3,7 @@ name: User added Firewall rule
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
 attack:
-  data_source: Firewall
+  data_source: firewall
   data_component: firewall rule modification
 behavior:
   source: user
@@ -12,17 +12,19 @@ behavior:
 security_events:
 - event_id: 2004
   name: A rule has been added to the Windows Defender Firewall exception list
-  platform: Windows
+  platform: windows
   audit_category: null
   audit_sub_category: null
-  log_channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-  log_provider: Microsoft-Windows-Windows Firewall With Advanced Security
-- event_id: CreateRuleGroup
-  name: CreateRuleGroup
-  platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
-  log_provider: CloudTrail
-references:
-notes:
+  log_source: Microsoft-Windows-Windows Firewall With Advanced Security
+  event_version: []
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
+  filter_in:
+  - eventName: CreateRuleGroup
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
+notes: null

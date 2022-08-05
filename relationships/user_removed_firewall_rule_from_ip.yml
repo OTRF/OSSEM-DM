@@ -2,19 +2,21 @@ relationship_id: REL-2022-0116
 name: User removed firewall rule from Ip
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
-attack:
+attack: null
 behavior:
   source: user
   relationship: removed firewall rule from
   target: ip
 security_events:
-- event_id: DeleteRuleGroup
-  name: DeleteRuleGroup
-  platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
-  log_provider: CloudTrail
-references:
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
+  filter_in:
+  - eventName: DeleteRuleGroup
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
 notes:
 - Potential contribution for ATT&CK - Firewall / firewall rule modification

@@ -2,19 +2,21 @@ relationship_id: REL-2022-0101
 name: User started Cloud service
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
-attack:
+attack: null
 behavior:
   source: user
   relationship: started
   target: cloud service
 security_events:
-- event_id: StartLogging
-  name: StartLogging
-  platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
-  log_provider: CloudTrail
-references:
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
+  filter_in:
+  - eventName: StartLogging
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
 notes:
 - Potential contribution for ATT&CK - Cloud Service / cloud service start - new component

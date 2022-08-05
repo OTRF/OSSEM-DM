@@ -2,19 +2,21 @@ relationship_id: REL-2022-0005
 name: User modified
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
-attack:
+attack: null
 behavior:
   source: user
   relationship: modified
   target: null
 security_events:
-- event_id: PasswordUpdated
-  name: PasswordUpdated
-  platform: AWS
-  audit_category: AwsConsoleSignin
-  audit_sub_category: null
-  log_channel: null
-  log_provider: CloudTrail
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
+  filter_in:
+  - eventName: PasswordUpdated
+  - eventType: AwsConsoleSignin
+  event_version:
+  - '1.05'
 references:
 - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
 notes:

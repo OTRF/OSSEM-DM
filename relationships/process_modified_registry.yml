@@ -1,0 +1,70 @@
+relationship_id: REL-2022-0071
+name: Process modified Registry
+contributors:
+- Jose Rodriguez @Cyb3rPandaH
+- Roberto Rodriguez @Cyb3rWard0g
+- Olaf Hartong @olafhartong
+- Ruben Bouman @rubinatorz
+attack:
+  data_source: windows registry
+  data_component: windows registry key modification
+behavior:
+  source: process
+  relationship: modified
+  target: registry
+security_events:
+- event_id: 13
+  name: RegistryEvent (Value Set).
+  platform: windows
+  audit_category: RegistryEvent
+  log_source: sysmon
+  filter_in:
+  - EventType: SetValue
+  event_version:
+  - '4.32'
+- event_id: 14
+  name: RegistryEvent (Key and Value Rename).
+  platform: windows
+  audit_category: RegistryEvent
+  log_source: sysmon
+  event_version:
+  - '4.32'
+- event_id: 4657
+  name: A registry value was modified.
+  platform: windows
+  audit_category: Object Access
+  audit_sub_category: Registry
+  log_source: Microsoft-Windows-Security-Auditing
+  filter_in:
+  - OperationType: Existing registry value modified
+  event_version:
+  - '0'
+- event_id: 4670
+  name: Permissions on an object were changed.
+  platform: windows
+  audit_category: Object Access
+  audit_sub_category: Registry
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+- event_id: DeviceRegistryEvents
+  name: DeviceRegistryEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: RegistryValueSet
+  event_version:
+  - '0'
+  - '1'
+- event_id: DeviceRegistryEvents
+  name: DeviceRegistryEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: RegistryKeyCreated
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes:
+- Event ID 4657 is logged for Creation, Modification and Deletion of registry key values. Use "Operation Type=Existing registry value modified" to look for modifications.

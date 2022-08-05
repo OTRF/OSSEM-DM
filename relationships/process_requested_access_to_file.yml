@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: File
+  data_source: file
   data_component: file access
 behavior:
   source: process
@@ -13,12 +13,13 @@ behavior:
 security_events:
 - event_id: 4656
   name: A handle to an object was requested.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File System
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
   filter_in:
-    - ObjectType: File
-references:
-notes:
+  - ObjectType: File
+  event_version:
+  - '1'
+references: null
+notes: null

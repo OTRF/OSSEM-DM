@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Network Share
+  data_source: network share
   data_component: network share modification
 behavior:
   source: user
@@ -13,10 +13,11 @@ behavior:
 security_events:
 - event_id: 5143
   name: A network share object was modified.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File Share
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-references:
-notes:
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+references: null
+notes: null

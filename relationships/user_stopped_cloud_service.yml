@@ -2,19 +2,21 @@ relationship_id: REL-2022-0087
 name: User stopped Cloud service
 contributors:
 - Jose Rodriguez @Cyb3rPandaH
-attack:
+attack: null
 behavior:
   source: user
   relationship: stopped
   target: cloud service
 security_events:
-- event_id: StopLogging
-  name: StopLogging
-  platform: AWS
-  audit_category: AwsApiCall
-  audit_sub_category: null
-  log_channel: null
-  log_provider: CloudTrail
-references:
+- event_id: cloudtrail
+  name: cloudtrail
+  platform: aws
+  log_source: cloudtrail
+  filter_in:
+  - eventName: StopLogging
+  - eventType: AwsApiCall
+  event_version:
+  - '1.05'
+references: null
 notes:
 - Potential contribution for ATT&CK - Cloud Service / cloud service stop - new component

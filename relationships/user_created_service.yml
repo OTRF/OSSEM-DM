@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Service
+  data_source: service
   data_component: service creation
 behavior:
   source: user
@@ -14,21 +14,24 @@ behavior:
 security_events:
 - event_id: 4697
   name: A service was installed in the system.
-  platform: Windows
+  platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 7045
   name: A new service was installed in the system.
-  platform: Windows
-  log_channel: System
-  log_provider: Service Control Manager
-- event_id: ServiceInstalled
-  name: ServiceInstalled
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-references:
-notes:
+  platform: windows
+  log_source: Service Control Manager / System
+- event_id: DeviceEvents
+  name: DeviceEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: ServiceInstalled
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

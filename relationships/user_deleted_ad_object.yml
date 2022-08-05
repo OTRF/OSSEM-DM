@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Active Directory
+  data_source: active directory
   data_component: active directory object deletion
 behavior:
   source: user
@@ -13,10 +13,11 @@ behavior:
 security_events:
 - event_id: 5141
   name: A directory service object was deleted.
-  platform: Windows
+  platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Changes
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-references:
-notes:
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+references: null
+notes: null

@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: File
+  data_source: file
   data_component: file modification
 behavior:
   source: process
@@ -14,34 +14,43 @@ behavior:
 security_events:
 - event_id: 2
   name: A process changed a file creation time.
-  platform: Windows
+  platform: windows
   audit_category: FileCreateTime
-  log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_source: sysmon
+  event_version:
+  - '4.32'
 - event_id: 11
   name: FileCreate.
-  platform: Windows
+  platform: windows
   audit_category: FileCreate
-  log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_source: sysmon
+  event_version:
+  - '4.32'
 - event_id: 4670
   name: Permissions on an object were changed.
-  platform: Windows
+  platform: windows
   audit_category: Object Access
   audit_sub_category: File System
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-- event_id: FileModified
-  name: FileModified
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceFileEvents
-  log_provider: Microsoft Defender for Endpoint
-- event_id: FileRenamed
-  name: FileRenamed
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceFileEvents
-  log_provider: Microsoft Defender for Endpoint
-references:
-notes:
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+- event_id: DeviceFileEvents
+  name: DeviceFileEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: FileModified
+  event_version:
+  - '0'
+  - '1'
+- event_id: DeviceFileEvents
+  name: DeviceFileEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: FileRenamed
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

@@ -1,32 +1,35 @@
 relationship_id: REL-2022-0085
 name: User accessed AD Object
 contributors:
-  - Reid Gilman @reidgilman
-  - Ruben Bouman @rubinatorz
+- Reid Gilman @reidgilman
+- Ruben Bouman @rubinatorz
 attack:
-  data_source: Active Directory
+  data_source: active directory
   data_component: active directory object access
 behavior:
   source: user
   relationship: accessed
   target: ad object
 security_events:
-  - event_id: 4662
-    name: An operation was performed on an object.
-    platform: Windows
-    audit_category: DS Access
-    audit_sub_category: Directory Service Access
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
-  - event_id: 4932
-    name: Synchronization of a replica of an Active Directory naming context has begun.
-    platform: Windows
-    audit_category: DS Access
-    audit_sub_category: Directory Service Replication
-    log_channel: Security
-    log_provider: Microsoft-Windows-Security-Auditing
+- event_id: 4662
+  name: An operation was performed on an object.
+  platform: windows
+  audit_category: DS Access
+  audit_sub_category: Directory Service Access
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+- event_id: 4932
+  name: Synchronization of a replica of an Active Directory naming context has begun.
+  platform: windows
+  audit_category: DS Access
+  audit_sub_category: Directory Service Replication
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '1'
 references:
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4662
-  - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4932
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4662
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4932
 notes:
-  - Events 4661 and 4662 require a SACL (https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists) to be for an object or they will not generate
+- Events 4661 and 4662 require a SACL (https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists)
+  to be for an object or they will not generate

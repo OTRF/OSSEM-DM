@@ -6,7 +6,7 @@ contributors:
 - Olaf Hartong @olafhartong
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account deletion
 behavior:
   source: user
@@ -15,25 +15,30 @@ behavior:
 security_events:
 - event_id: 4726
   name: A user account was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4743
   name: A computer account was deleted.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Computer Account Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-- event_id: UserAccountDeleted
-  name: UserAccountDeleted
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+- event_id: DeviceEvents
+  name: DeviceEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: UserAccountDeleted
+  event_version:
+  - '0'
+  - '1'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4726
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4743
-notes:
+notes: null

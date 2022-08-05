@@ -1,27 +1,31 @@
 relationship_id: REL-2022-0153
 name: Process created Thread
 contributors:
-  - Reid Gilman @reidgilman
-  - Olaf Hartong @olafhartong
+- Reid Gilman @reidgilman
+- Olaf Hartong @olafhartong
 attack:
-  data_source: Process
+  data_source: process
   data_component: process creation
 behavior:
   source: process
   relationship: created
   target: thread
 security_events:
-  - event_id: 8
-    name: CreateRemoteThread.
-    platform: Windows
-    audit_category: CreateRemoteThread
-    log_channel: Microsoft-Windows-Sysmon/Operational
-    log_provider: Microsoft-Windows-Sysmon
-  - event_id: CreateRemoteThreadApiCall
-    name: CreateRemoteThreadApiCall
-    platform: Windows
-    audit_category: null
-    log_channel: DeviceEvents
-    log_provider: Microsoft Defender for Endpoint
-references:
-notes:
+- event_id: 8
+  name: CreateRemoteThread.
+  platform: windows
+  audit_category: CreateRemoteThread
+  log_source: sysmon
+  event_version:
+  - '4.32'
+- event_id: DeviceEvents
+  name: DeviceEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: CreateRemoteThreadApiCall
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

@@ -5,7 +5,7 @@ contributors:
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Process
+  data_source: process
   data_component: OS api execution
 behavior:
   source: process
@@ -14,15 +14,19 @@ behavior:
 security_events:
 - event_id: 8
   name: CreateRemoteThread.
-  platform: Windows
+  platform: windows
   audit_category: CreateRemoteThread
-  log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
-- event_id: CreateRemoteThreadApiCall
-  name: CreateRemoteThreadApiCall
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-references:
-notes:
+  log_source: sysmon
+  event_version:
+  - '4.32'
+- event_id: DeviceEvents
+  name: DeviceEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: CreateRemoteThreadApiCall
+  event_version:
+  - '0'
+  - '1'
+references: null
+notes: null

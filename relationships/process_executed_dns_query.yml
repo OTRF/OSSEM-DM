@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 - Olaf Hartong @olafhartong
-attack:
+attack: null
 behavior:
   source: process
   relationship: executed
@@ -12,16 +12,20 @@ behavior:
 security_events:
 - event_id: 22
   name: DNSEvent (DNS query).
-  platform: Windows
+  platform: windows
   audit_category: DNSQuery
-  log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
-- event_id: DnsQueryResponse
-  name: DnsQueryResponse
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
-references:
+  log_source: sysmon
+  event_version:
+  - '4.32'
+- event_id: DeviceEvents
+  name: DeviceEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: DnsQueryResponse
+  event_version:
+  - '0'
+  - '1'
+references: null
 notes:
 - Potential contribution for ATT&CK - Network Traffic / network traffic content

@@ -6,7 +6,7 @@ contributors:
 - Olaf Hartong @olafhartong
 - Ruben Bouman @rubinatorz
 attack:
-  data_source: User Account
+  data_source: user account
   data_component: user account creation
 behavior:
   source: user
@@ -15,25 +15,30 @@ behavior:
 security_events:
 - event_id: 4720
   name: A user account was created.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
 - event_id: 4741
   name: A computer account was created.
-  platform: Windows
+  platform: windows
   audit_category: Account Management
   audit_sub_category: Computer Account Management
-  log_channel: Security
-  log_provider: Microsoft-Windows-Security-Auditing
-- event_id: UserAccountCreated
-  name: UserAccountCreated
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceEvents
-  log_provider: Microsoft Defender for Endpoint
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+- event_id: DeviceEvents
+  name: DeviceEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: UserAccountCreated
+  event_version:
+  - '0'
+  - '1'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4720
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4741
-notes:
+notes: null

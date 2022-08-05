@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Roberto Rodriguez @Cyb3rWard0g
 attack:
-  data_source: Service
+  data_source: service
   data_component: service metadata
 behavior:
   source: service
@@ -13,16 +13,14 @@ behavior:
 security_events:
 - event_id: 4
   name: Sysmon service state changed.
-  platform: Windows
+  platform: windows
   audit_category: ServiceStateChange
-  log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
+  log_source: sysmon
+  event_version:
+  - '4.32'
 - event_id: 6006
   name: The Event log service was stopped.
-  platform: Windows
-  audit_category: null
-  audit_sub_category: null
-  log_channel: System
-  log_provider: Eventlog
-references:
-notes:
+  platform: windows
+  log_source: Eventlog / System
+references: null
+notes: null

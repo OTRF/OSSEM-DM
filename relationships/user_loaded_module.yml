@@ -4,7 +4,7 @@ contributors:
 - Jose Rodriguez @Cyb3rPandaH
 - Olaf Hartong @olafhartong
 attack:
-  data_source: Module
+  data_source: module
   data_component: module load
 behavior:
   source: user
@@ -13,16 +13,20 @@ behavior:
 security_events:
 - event_id: 7
   name: Image loaded.
-  platform: Windows
+  platform: windows
   audit_category: ImageLoad
-  log_channel: Microsoft-Windows-Sysmon/Operational
-  log_provider: Microsoft-Windows-Sysmon
-- event_id: ImageLoaded
-  name: ImageLoaded
-  platform: Windows
-  audit_category: null
-  log_channel: DeviceImageLoadEvents
-  log_provider: Microsoft Defender for Endpoint
-references:
+  log_source: sysmon
+  event_version:
+  - '4.32'
+- event_id: DeviceImageLoadEvents
+  name: DeviceImageLoadEvents
+  platform: windows
+  log_source: Microsoft Defender for Endpoint
+  filter_in:
+  - ActionType: ImageLoaded
+  event_version:
+  - '0'
+  - '1'
+references: null
 notes:
 - Potential contribution for ATT&CK - Module / module load
