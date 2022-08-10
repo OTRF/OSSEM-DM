@@ -8,7 +8,7 @@ behavior:
   relationship: added firewall rule from
   target: ip
 security_events:
-  event_id: cloudtrail
+- event_id: cloudtrail
   name: cloudtrail
   platform: aws
   log_source: cloudtrail
