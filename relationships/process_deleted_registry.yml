@@ -45,7 +45,7 @@ security_events:
   audit_sub_category: Registry
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
-  -ActionType: Registry value deleted
+  - ActionType: Registry value deleted
   event_version:
   - '0'
 - event_id: 4660
