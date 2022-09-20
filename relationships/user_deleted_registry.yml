@@ -17,7 +17,8 @@ security_events:
   name: RegistryEvent (Object create and delete).
   platform: windows
   audit_category: RegistryEvent
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
 - event_id: DeviceRegistryEvents

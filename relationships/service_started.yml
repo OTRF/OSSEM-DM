@@ -15,7 +15,8 @@ security_events:
   name: Sysmon service state changed.
   platform: windows
   audit_category: ServiceStateChange
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
 - event_id: 6005

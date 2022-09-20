@@ -16,7 +16,8 @@ security_events:
   name: Driver loaded.
   platform: windows
   audit_category: DriverLoad
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
 - event_id: DeviceEvents

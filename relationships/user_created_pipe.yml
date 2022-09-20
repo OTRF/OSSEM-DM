@@ -14,7 +14,8 @@ security_events:
   name: PipeEvent (Pipe Created).
   platform: windows
   audit_category: PipeEvent
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
 - event_id: 4656

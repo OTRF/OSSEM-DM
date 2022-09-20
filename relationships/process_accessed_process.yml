@@ -16,7 +16,8 @@ security_events:
   name: ProcessAccess
   platform: windows
   audit_category: ProcessAccess
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
 - event_id: 4663
@@ -41,5 +42,4 @@ security_events:
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
-- "Event 4663, this event generates only if object\u2019s SACL has required ACE to\
-  \ handle specific access right use."
+- Event 4663, this event generates only if object SACL has required ACE to handle specific access right use.

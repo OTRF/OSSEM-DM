@@ -17,7 +17,8 @@ security_events:
   name: RegistryEvent (Value Set).
   platform: windows
   audit_category: RegistryEvent
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   filter_in:
   - EventType: SetValue
   event_version:
@@ -26,7 +27,8 @@ security_events:
   name: RegistryEvent (Key and Value Rename).
   platform: windows
   audit_category: RegistryEvent
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
 - event_id: 4657

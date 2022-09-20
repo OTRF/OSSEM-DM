@@ -17,7 +17,8 @@ security_events:
   name: FileCreate
   platform: windows
   audit_category: FileCreate
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
 - event_id: 11
