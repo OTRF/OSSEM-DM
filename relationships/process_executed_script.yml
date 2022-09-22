@@ -15,13 +15,17 @@ security_events:
 - event_id: 4103
   name: Module logging.
   platform: windows
-  log_source: powershell
+  channel: Microsoft-Windows-PowerShell/Operational
+  log_source: Microsoft-Windows-PowerShell
   event_version:
-  - '0'
+  - '1'
 - event_id: 4104
   name: Script Block Logging.
   platform: windows
-  log_source: powershell
+  channel: Microsoft-Windows-PowerShell/Operational
+  log_source: Microsoft-Windows-PowerShell
+  event_version:
+  - '1'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows

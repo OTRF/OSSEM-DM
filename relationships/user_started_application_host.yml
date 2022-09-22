@@ -12,9 +12,10 @@ security_events:
 - event_id: 4103
   name: Module logging.
   platform: windows
-  log_source: powershell
+  channel: Microsoft-Windows-PowerShell/Operational
+  log_source: Microsoft-Windows-PowerShell
   event_version:
-  - '0'
+  - '1'
 references: null
 notes:
 - Potential contribution for ATT&CK - Command / command execution
