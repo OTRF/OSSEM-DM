@@ -10,7 +10,7 @@ behavior:
   relationship: enabled
   target: drive
 security_events:
-- event_id: 6422
+- event_id: '6422'
   name: A device was enabled.
   platform: windows
   audit_category: Detailed Tracking

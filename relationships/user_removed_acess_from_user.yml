@@ -11,7 +11,7 @@ behavior:
   relationship: removed access from
   target: user
 security_events:
-- event_id: 4718
+- event_id: '4718'
   name: System security access was removed from an account.
   platform: windows
   audit_category: Policy Change

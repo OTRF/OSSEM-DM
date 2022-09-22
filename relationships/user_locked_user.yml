@@ -11,7 +11,7 @@ behavior:
   relationship: locked
   target: user
 security_events:
-- event_id: 4740
+- event_id: '4740'
   name: A user account was locked out.
   platform: windows
   audit_category: Account Management

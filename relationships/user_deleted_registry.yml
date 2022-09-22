@@ -13,7 +13,7 @@ behavior:
   relationship: deleted
   target: registry
 security_events:
-- event_id: 12
+- event_id: '12'
   name: RegistryEvent (Object create and delete).
   platform: windows
   audit_category: RegistryEvent
@@ -39,7 +39,7 @@ security_events:
   event_version:
   - '0'
   - '1'
-- event_id: 4657
+- event_id: '4657'
   name: A registry value was modified.
   platform: windows
   audit_category: Object Access
@@ -50,7 +50,7 @@ security_events:
   - OperationType: Registry value deleted
   event_version:
   - '0'
-- event_id: 4660
+- event_id: '4660'
   name: An object was deleted.
   platform: windows
   audit_category: Object Access

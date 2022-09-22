@@ -12,7 +12,7 @@ behavior:
   relationship: deleted
   target: scheduled job
 security_events:
-- event_id: 4699
+- event_id: '4699'
   name: A scheduled task was deleted.
   platform: windows
   audit_category: Object Access

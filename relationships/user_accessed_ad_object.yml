@@ -11,7 +11,7 @@ behavior:
   relationship: accessed
   target: ad object
 security_events:
-- event_id: 4662
+- event_id: '4662'
   name: An operation was performed on an object.
   platform: windows
   audit_category: DS Access
@@ -20,7 +20,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4932
+- event_id: '4932'
   name: Synchronization of a replica of an Active Directory naming context has begun.
   platform: windows
   audit_category: DS Access

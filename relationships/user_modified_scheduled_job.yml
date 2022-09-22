@@ -12,7 +12,7 @@ behavior:
   relationship: modified
   target: schedule job
 security_events:
-- event_id: 4702
+- event_id: '4702'
   name: A scheduled task was updated.
   platform: windows
   audit_category: Object Access

@@ -9,7 +9,7 @@ behavior:
   relationship: requested access to
   target: ad object
 security_events:
-- event_id: 4661
+- event_id: '4661'
   name: A handle to an object was requested.
   platform: windows
   audit_category: DS Access

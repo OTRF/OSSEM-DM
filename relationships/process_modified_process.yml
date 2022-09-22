@@ -12,7 +12,7 @@ behavior:
   relationship: modified
   target: process
 security_events:
-- event_id: 8
+- event_id: '8'
   name: CreateRemoteThread.
   platform: windows
   audit_category: CreateRemoteThread

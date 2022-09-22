@@ -12,7 +12,7 @@ behavior:
   relationship: connected to
   target: pipe
 security_events:
-- event_id: 18
+- event_id: '18'
   name: PipeEvent (Pipe Connected).
   platform: windows
   audit_category: PipeEvent

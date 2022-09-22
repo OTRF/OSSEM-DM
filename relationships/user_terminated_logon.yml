@@ -12,7 +12,7 @@ behavior:
   relationship: terminated
   target: logon
 security_events:
-- event_id: 4634
+- event_id: '4634'
   name: An account was logged off.
   platform: windows
   audit_category: Logon/Logoff
@@ -21,7 +21,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4647
+- event_id: '4647'
   name: User initiated logoff.
   platform: windows
   audit_category: Logon/Logoff

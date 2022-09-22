@@ -11,7 +11,7 @@ behavior:
   relationship: stopped
   target: null
 security_events:
-- event_id: 4
+- event_id: '4'
   name: Sysmon service state changed.
   platform: windows
   audit_category: ServiceStateChange
@@ -19,7 +19,7 @@ security_events:
   log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
-- event_id: 6006
+- event_id: '6006'
   name: The Event log service was stopped.
   platform: windows
   channel: System

@@ -11,7 +11,7 @@ behavior:
   relationship: permitted listener on
   target: process
 security_events:
-- event_id: 5154
+- event_id: '5154'
   name: The Windows Filtering Platform has permitted an application or service to
     listen on a port for incoming connections.
   platform: windows

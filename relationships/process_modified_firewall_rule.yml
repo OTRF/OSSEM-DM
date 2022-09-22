@@ -10,7 +10,7 @@ behavior:
   relationship: modified
   target: firewall rule
 security_events:
-- event_id: 2005
+- event_id: '2005'
   name: A rule has been modified in the Windows Defender Firewall exception list.
   platform: windows
   channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall

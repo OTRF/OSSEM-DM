@@ -11,7 +11,7 @@ behavior:
   relationship: modified
   target: network share
 security_events:
-- event_id: 5143
+- event_id: '5143'
   name: A network share object was modified.
   platform: windows
   audit_category: Object Access

@@ -9,7 +9,7 @@ behavior:
   relationship: attempted to log off from
   target: device
 security_events:
-- event_id: 4647
+- event_id: '4647'
   name: User initiated logoff.
   platform: windows
   audit_category: Logon/Logoff

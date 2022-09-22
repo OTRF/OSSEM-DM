@@ -12,7 +12,7 @@ behavior:
   relationship: disabled
   target: user
 security_events:
-- event_id: 4725
+- event_id: '4725'
   name: A user account was disabled.
   platform: windows
   audit_category: Account Management

@@ -13,7 +13,7 @@ behavior:
   relationship: deleted
   target: user
 security_events:
-- event_id: 4726
+- event_id: '4726'
   name: A user account was deleted.
   platform: windows
   audit_category: Account Management
@@ -22,7 +22,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4743
+- event_id: '4743'
   name: A computer account was deleted.
   platform: windows
   audit_category: Account Management

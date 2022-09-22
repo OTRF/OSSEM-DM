@@ -10,7 +10,7 @@ behavior:
   relationship: enabled
   target: null
 security_events:
-- event_id: 5024
+- event_id: '5024'
   name: The Windows Firewall Service has started successfully.
   platform: windows
   audit_category: System

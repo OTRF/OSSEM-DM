@@ -13,7 +13,7 @@ behavior:
   relationship: modified
   target: registry
 security_events:
-- event_id: 13
+- event_id: '13'
   name: RegistryEvent (Value Set).
   platform: windows
   audit_category: RegistryEvent
@@ -23,7 +23,7 @@ security_events:
   - EventType: SetValue
   event_version:
   - '4.32'
-- event_id: 14
+- event_id: '14'
   name: RegistryEvent (Key and Value Rename).
   platform: windows
   audit_category: RegistryEvent
@@ -31,7 +31,7 @@ security_events:
   log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
-- event_id: 4657
+- event_id: '4657'
   name: A registry value was modified.
   platform: windows
   audit_category: Object Access
@@ -42,7 +42,7 @@ security_events:
   - OperationType: Existing registry value modified
   event_version:
   - '0'
-- event_id: 4670
+- event_id: '4670'
   name: Permissions on an object were changed.
   platform: windows
   audit_category: Object Access

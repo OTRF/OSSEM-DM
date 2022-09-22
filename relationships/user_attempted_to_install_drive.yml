@@ -10,7 +10,7 @@ behavior:
   relationship: attempted to install
   target: drive
 security_events:
-- event_id: 6423
+- event_id: '6423'
   name: The installation of this device is forbidden by system policy.
   platform: windows
   audit_category: Detailed Tracking

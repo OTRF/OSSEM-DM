@@ -11,7 +11,7 @@ behavior:
   relationship: deleted
   target: ad object
 security_events:
-- event_id: 5141
+- event_id: '5141'
   name: A directory service object was deleted.
   platform: windows
   audit_category: DS Access

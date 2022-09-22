@@ -10,7 +10,7 @@ behavior:
   relationship: disabled
   target: drive
 security_events:
-- event_id: 6420
+- event_id: '6420'
   name: A device was disabled.
   platform: windows
   audit_category: Detailed Tracking

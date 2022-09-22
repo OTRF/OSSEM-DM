@@ -10,7 +10,7 @@ behavior:
   relationship: attempted to enable
   target: drive
 security_events:
-- event_id: 6421
+- event_id: '6421'
   name: A request was made to enable a device.
   platform: windows
   audit_category: Detailed Tracking

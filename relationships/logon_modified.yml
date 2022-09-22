@@ -11,7 +11,7 @@ behavior:
   relationship: modified
   target: null
 security_events:
-- event_id: 4672
+- event_id: '4672'
   name: Special privileges assigned to new logon.
   platform: windows
   audit_category: Logon/Logoff

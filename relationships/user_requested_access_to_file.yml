@@ -11,7 +11,7 @@ behavior:
   relationship: requested access to
   target: file
 security_events:
-- event_id: 4656
+- event_id: '4656'
   name: A handle to an object was requested.
   platform: windows
   audit_category: Object Access
@@ -20,7 +20,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - ObjectType: File
-- event_id: 4661
+- event_id: '4661'
   name: A handle to an object was requested.
   platform: windows
   audit_category: Object Access

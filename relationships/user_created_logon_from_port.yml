@@ -12,7 +12,7 @@ behavior:
   relationship: created logon from
   target: port
 security_events:
-- event_id: 4624
+- event_id: '4624'
   name: An account was successfully logged on.
   platform: windows
   audit_category: Logon/Logoff

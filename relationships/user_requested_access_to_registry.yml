@@ -11,7 +11,7 @@ behavior:
   relationship: requested access to
   target: registry
 security_events:
-- event_id: 4656
+- event_id: '4656'
   name: A handle to an object was requested.
   platform: windows
   audit_category: Object Access

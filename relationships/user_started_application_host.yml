@@ -9,7 +9,7 @@ behavior:
   relationship: started
   target: application host
 security_events:
-- event_id: 4103
+- event_id: '4103'
   name: Module logging.
   platform: windows
   channel: Microsoft-Windows-PowerShell/Operational

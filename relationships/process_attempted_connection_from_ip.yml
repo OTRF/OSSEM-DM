@@ -12,7 +12,7 @@ behavior:
   relationship: attempted connection from
   target: ip
 security_events:
-- event_id: 5157
+- event_id: '5157'
   name: The Windows Filtering Platform has blocked a connection.
   platform: windows
   audit_category: Object Access

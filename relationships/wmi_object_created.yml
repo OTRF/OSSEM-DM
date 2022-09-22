@@ -10,7 +10,7 @@ behavior:
   relationship: created
   target: null
 security_events:
-- event_id: 5861
+- event_id: '5861'
   name: WMI permanent event created.
   platform: windows
   log_source: Microsoft-Windows-WMI-Activity

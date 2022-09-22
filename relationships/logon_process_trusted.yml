@@ -8,7 +8,7 @@ behavior:
   relationship: trusted
   target: null
 security_events:
-- event_id: 4611
+- event_id: '4611'
   name: A trusted logon process has been registered with the Local Security Authority.
   platform: windows
   audit_category: System

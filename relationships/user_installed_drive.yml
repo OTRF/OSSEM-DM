@@ -10,7 +10,7 @@ behavior:
   relationship: installed
   target: drive
 security_events:
-- event_id: 6416
+- event_id: '6416'
   name: A new external device was recognized by the system.
   platform: windows
   audit_category: Detailed Tracking
@@ -19,7 +19,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '1'
-- event_id: 6424
+- event_id: '6424'
   name: The installation of this device was allowed, after having previously been
     forbidden by policy.
   platform: windows

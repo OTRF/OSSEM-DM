@@ -9,7 +9,7 @@ behavior:
   relationship: permitted port bind on
   target: process
 security_events:
-- event_id: 5158
+- event_id: '5158'
   name: The Windows Filtering Platform has permitted a bind to a local port.
   platform: windows
   audit_category: Object Access

@@ -10,7 +10,7 @@ behavior:
   relationship: metadata
   target: null
 security_events:
-- event_id: 4703
+- event_id: '4703'
   name: A token right was adjusted.
   platform: windows
   audit_category: Policy Change
@@ -19,7 +19,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4673
+- event_id: '4673'
   name: A privileged service was called.
   platform: windows
   audit_category: Privilege Use
@@ -28,7 +28,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4674
+- event_id: '4674'
   name: An operation was attempted on a privileged object.
   platform: windows
   audit_category: Privilege Use
@@ -37,7 +37,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4610
+- event_id: '4610'
   name: An authentication package has been loaded by the Local Security Authority.
   platform: windows
   audit_category: System
@@ -46,7 +46,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4611
+- event_id: '4611'
   name: A trusted logon process has been registered with the Local Security Authority.
   platform: windows
   audit_category: System
@@ -55,7 +55,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4614
+- event_id: '4614'
   name: A notification package has been loaded by the Security Account Manager.
   platform: windows
   audit_category: System
@@ -64,7 +64,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4622
+- event_id: '4622'
   name: A security package has been loaded by the Local Security Authority.
   platform: windows
   audit_category: System

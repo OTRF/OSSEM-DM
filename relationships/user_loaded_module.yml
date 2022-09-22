@@ -11,7 +11,7 @@ behavior:
   relationship: loaded
   target: module
 security_events:
-- event_id: 7
+- event_id: '7'
   name: Image loaded.
   platform: windows
   audit_category: ImageLoad

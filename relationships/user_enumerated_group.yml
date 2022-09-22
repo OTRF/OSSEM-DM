@@ -10,7 +10,7 @@ behavior:
   relationship: enumerated
   target: group
 security_events:
-- event_id: 4798
+- event_id: '4798'
   name: A user's local group membership was enumerated.
   platform: windows
   audit_category: Account Management
@@ -19,7 +19,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4799
+- event_id: '4799'
   name: A security-enabled local group membership was enumerated.
   platform: windows
   audit_category: Account Management

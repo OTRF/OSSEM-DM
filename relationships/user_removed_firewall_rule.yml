@@ -20,14 +20,14 @@ security_events:
   - eventType: AwsApiCall
   event_version:
   - '1.05'
-- event_id: 2006
+- event_id: '2006'
   name: A rule has been deleted in the Windows Defender Firewall exception list
   platform: windows
   channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   log_source: Microsoft-Windows-Windows Firewall With Advanced Security
   event_version:
   - '0'
-- event_id: 2033
+- event_id: '2033'
   name: All rules have been deleted from the Windows Firewall configuration on this
     computer.
   platform: windows

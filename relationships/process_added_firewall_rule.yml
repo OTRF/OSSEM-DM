@@ -10,7 +10,7 @@ behavior:
   relationship: added
   target: firewall rule
 security_events:
-- event_id: 2004
+- event_id: '2004'
   name: A rule has been added to the Windows Defender Firewall exception list
   platform: windows
   channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall

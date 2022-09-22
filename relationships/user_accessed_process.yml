@@ -11,7 +11,7 @@ behavior:
   relationship: accessed
   target: process
 security_events:
-- event_id: 4663
+- event_id: '4663'
   name: An attempt was made to access an object.
   platform: windows
   audit_category: Object Access

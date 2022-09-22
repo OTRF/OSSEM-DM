@@ -10,7 +10,7 @@ behavior:
   relationship: searched
   target: ldap
 security_events:
-- event_id: 30
+- event_id: '30'
   name: EventID(30)
   platform: windows
   log_source: Microsoft-Windows-LDAP-Client/Debug

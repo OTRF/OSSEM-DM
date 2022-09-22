@@ -11,7 +11,7 @@ behavior:
   relationship: created
   target: ad object
 security_events:
-- event_id: 5137
+- event_id: '5137'
   name: A directory service object was created.
   platform: windows
   audit_category: DS Access

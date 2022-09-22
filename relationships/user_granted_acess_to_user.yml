@@ -11,7 +11,7 @@ behavior:
   relationship: granted access to
   target: user
 security_events:
-- event_id: 4717
+- event_id: '4717'
   name: System security access was granted to an account.
   platform: windows
   audit_category: Policy Change

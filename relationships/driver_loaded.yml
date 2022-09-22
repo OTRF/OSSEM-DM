@@ -12,7 +12,7 @@ behavior:
   relationship: loaded
   target: null
 security_events:
-- event_id: 6
+- event_id: '6'
   name: Driver loaded.
   platform: windows
   audit_category: DriverLoad
@@ -29,5 +29,6 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-6-driver-loaded
 notes: null

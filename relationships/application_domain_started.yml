@@ -9,7 +9,7 @@ behavior:
   relationship: started
   target: null
 security_events:
-- event_id: 53504
+- event_id: '53504'
   name: Windows PowerShell has started an IPC listening thread on a process in AppDomain.
   platform: windows
   channel: Microsoft-Windows-PowerShell/Operational

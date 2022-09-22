@@ -12,7 +12,7 @@ behavior:
   relationship: modified
   target: file
 security_events:
-- event_id: 4670
+- event_id: '4670'
   name: Permissions on an object were changed.
   platform: windows
   audit_category: Object Access

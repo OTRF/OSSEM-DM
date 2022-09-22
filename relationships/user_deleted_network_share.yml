@@ -11,7 +11,7 @@ behavior:
   relationship: deleted
   target: network share
 security_events:
-- event_id: 5144
+- event_id: '5144'
   name: A network share object was deleted.
   platform: windows
   audit_category: Object Access

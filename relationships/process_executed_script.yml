@@ -12,14 +12,14 @@ behavior:
   relationship: executed
   target: script
 security_events:
-- event_id: 4103
+- event_id: '4103'
   name: Module logging.
   platform: windows
   channel: Microsoft-Windows-PowerShell/Operational
   log_source: Microsoft-Windows-PowerShell
   event_version:
   - '1'
-- event_id: 4104
+- event_id: '4104'
   name: Script Block Logging.
   platform: windows
   channel: Microsoft-Windows-PowerShell/Operational

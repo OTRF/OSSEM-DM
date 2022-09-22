@@ -9,7 +9,7 @@ behavior:
   relationship: restored
   target: ad object
 security_events:
-- event_id: 5138
+- event_id: '5138'
   name: A directory service object was undeleted.
   platform: windows
   audit_category: DS Access

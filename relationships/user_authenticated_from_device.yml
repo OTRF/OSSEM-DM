@@ -10,7 +10,7 @@ behavior:
   relationship: authenticated from
   target: device
 security_events:
-- event_id: 4776
+- event_id: '4776'
   name: The domain controller or local computer attempted to validate the credentials
     for an account.
   platform: windows

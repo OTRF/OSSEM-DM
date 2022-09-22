@@ -12,7 +12,7 @@ behavior:
   relationship: created
   target: scheduled job
 security_events:
-- event_id: 4698
+- event_id: '4698'
   name: A scheduled task was created.
   platform: windows
   audit_category: Object Access

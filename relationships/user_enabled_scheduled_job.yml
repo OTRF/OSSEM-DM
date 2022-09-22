@@ -12,7 +12,7 @@ behavior:
   relationship: enabled
   target: scheduled job
 security_events:
-- event_id: 4700
+- event_id: '4700'
   name: A scheduled task was enabled.
   platform: windows
   audit_category: Object Access

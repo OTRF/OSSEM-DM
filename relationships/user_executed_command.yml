@@ -12,7 +12,7 @@ behavior:
   relationship: executed
   target: command
 security_events:
-- event_id: 4688
+- event_id: '4688'
   name: A new process has been created.
   platform: windows
   audit_category: Detailed Tracking
@@ -21,7 +21,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '2'
-- event_id: 1
+- event_id: '1'
   name: Process Creation.
   platform: windows
   audit_category: ProcessCreate
@@ -29,7 +29,7 @@ security_events:
   log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
-- event_id: 4103
+- event_id: '4103'
   name: Module logging.
   platform: windows
   channel: Microsoft-Windows-PowerShell/Operational

@@ -10,7 +10,7 @@ behavior:
   relationship: modified
   target: group
 security_events:
-- event_id: 4728
+- event_id: '4728'
   name: A member was added to a security-enabled global group.
   platform: windows
   audit_category: Account Management
@@ -19,7 +19,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4729
+- event_id: '4729'
   name: A member was removed from a security-enabled global group.
   platform: windows
   audit_category: Account Management
@@ -28,7 +28,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4732
+- event_id: '4732'
   name: A member was added to a security-enabled local group.
   platform: windows
   audit_category: Account Management
@@ -37,7 +37,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4733
+- event_id: '4733'
   name: A member was removed from a security-enabled local group.
   platform: windows
   audit_category: Account Management
@@ -46,7 +46,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4735
+- event_id: '4735'
   name: A security-enabled local group was changed.
   platform: windows
   audit_category: Account Management
@@ -55,7 +55,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4737
+- event_id: '4737'
   name: A security-enabled global group was changed.
   platform: windows
   audit_category: Account Management
@@ -64,7 +64,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4755
+- event_id: '4755'
   name: A security-enabled universal group was changed.
   platform: windows
   audit_category: Account Management
@@ -73,7 +73,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4756
+- event_id: '4756'
   name: A member was added to a security-enabled universal group.
   platform: windows
   audit_category: Account Management
@@ -82,7 +82,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4757
+- event_id: '4757'
   name: A member was removed from a security-enabled universal group.
   platform: windows
   audit_category: Account Management
@@ -91,7 +91,7 @@ security_events:
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4764
+- event_id: '4764'
   name: A groups type was changed.
   platform: windows
   audit_category: Account Management

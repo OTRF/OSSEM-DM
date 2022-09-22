@@ -11,7 +11,7 @@ behavior:
   relationship: blocked listener on
   target: ip
 security_events:
-- event_id: 5155
+- event_id: '5155'
   name: The Windows Filtering Platform has blocked an application or service from
     listening on a port for incoming connections.
   platform: windows

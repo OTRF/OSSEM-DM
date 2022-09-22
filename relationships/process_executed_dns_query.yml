@@ -10,7 +10,7 @@ behavior:
   relationship: executed
   target: dns query
 security_events:
-- event_id: 22
+- event_id: '22'
   name: DNSEvent (DNS query).
   platform: windows
   audit_category: DNSQuery

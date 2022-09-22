@@ -10,7 +10,7 @@ behavior:
   relationship: removed
   target: firewall rule
 security_events:
-- event_id: 2006
+- event_id: '2006'
   name: A rule has been deleted in the Windows Defender Firewall exception list
   platform: windows
   channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall

@@ -10,7 +10,7 @@ behavior:
   relationship: added
   target: null
 security_events:
-- event_id: 4946
+- event_id: '4946'
   name: A change has been made to Windows Firewall exception list. A rule was added.
   platform: windows
   audit_category: Policy Change

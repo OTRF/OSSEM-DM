@@ -12,7 +12,7 @@ behavior:
   relationship: enabled
   target: user
 security_events:
-- event_id: 4722
+- event_id: '4722'
   name: A user account was enabled.
   platform: windows
   audit_category: Account Management

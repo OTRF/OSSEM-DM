@@ -12,7 +12,7 @@ behavior:
   relationship: modified
   target: file
 security_events:
-- event_id: 2
+- event_id: '2'
   name: A process changed a file creation time.
   platform: windows
   audit_category: FileCreateTime
@@ -20,7 +20,7 @@ security_events:
   log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
-- event_id: 11
+- event_id: '11'
   name: FileCreate.
   platform: windows
   audit_category: FileCreate
@@ -28,7 +28,7 @@ security_events:
   log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
-- event_id: 4670
+- event_id: '4670'
   name: Permissions on an object were changed.
   platform: windows
   audit_category: Object Access

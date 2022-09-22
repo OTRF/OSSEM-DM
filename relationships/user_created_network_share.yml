@@ -11,7 +11,7 @@ behavior:
   relationship: created
   target: network share
 security_events:
-- event_id: 5142
+- event_id: '5142'
   name: A network share object was added.
   platform: windows
   audit_category: Object Access
