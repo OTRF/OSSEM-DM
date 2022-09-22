@@ -22,7 +22,8 @@ security_events:
 - event_id: 6005
   name: The Event log service was started.
   platform: windows
-  log_source: Eventlog / System
+  channel: System
+  log_source: EventLog
 references:
 - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-4-sysmon-service-state-changed
 notes: null

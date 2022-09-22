@@ -37,11 +37,13 @@ security_events:
 - event_id: 6005
   name: The Event log service was started.
   platform: windows
-  log_source: Eventlog / System
+  channel: System
+  log_source: EventLog
 - event_id: 6006
   name: The Event log service was stopped.
   platform: windows
-  log_source: Eventlog / System
+  channel: System
+  log_source: EventLog
 - event_id: 4616
   name: The system time was changed.
   platform: windows
