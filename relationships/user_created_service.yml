@@ -24,7 +24,10 @@ security_events:
 - event_id: 7045
   name: A new service was installed in the system.
   platform: windows
-  log_source: Service Control Manager / System
+  channel: System
+  log_source: Service Control Manager
+  event_version:
+  - '0'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
