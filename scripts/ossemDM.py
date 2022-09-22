@@ -118,7 +118,7 @@ for dr in attack_relationships_files:
         record['Channel'] = t.get('channel', None)
         if t['platform'] == "windows" and t.get('log_source', None) == "Microsoft-Windows-Security-Auditing":
             record['Enable Commands'] = f"auditpol /set /subcategory:{t['audit_sub_category']} /success:enable /failure:enable"
-        elif t['platform'] == "windows" and t.get('log_source', None) == "sysmon":
+        elif t['platform'] == "windows" and t.get('log_source', None) == "Microsoft-Windows-Sysmon":
             record['Enable Commands'] = f"<{t['audit_category']} onmatch='exclude' />"
         else:
             record['Enable Commands'] = None
