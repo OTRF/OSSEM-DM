@@ -14,9 +14,11 @@ security_events:
   platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Changes
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5138
 notes:
 - Potential contribution for ATT&CK - Active Directory / active directory object deletion

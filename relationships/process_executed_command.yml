@@ -17,6 +17,7 @@ security_events:
   platform: windows
   audit_category: Detailed Tracking
   audit_sub_category: Process Creation
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '2'
@@ -50,5 +51,8 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4688
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-1-process-creation
+- 
 notes: null

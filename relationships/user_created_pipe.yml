@@ -22,24 +22,25 @@ security_events:
   name: A handle to an object was requested.
   platform: windows
   audit_category: Object Access
-  audit_sub_category: Detailed File Share
+  audit_sub_category: File System
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '1'
 - event_id: 5145
-  name: A network share object was checked to see whether client can be granted desired
-    access.
+  name: A network share object was checked to see whether client can be granted desired access.
   platform: windows
-  audit_category: multiple
-  audit_sub_category: multiple
+  audit_category: Object Access
+  audit_sub_category: Detailed File Share
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5145
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-17-pipeevent-pipe-created
 notes:
 - Potential contribution for ATT&CK - Named Pipe / named pipe creation
-- Event ID 5145 logs accesses of network share objects. Look for named pipe by searching
-  for "Accesses=CreatePipeInstance".
+- Event ID 5145 logs accesses of network share objects. Look for named pipe by searching for "Accesses=CreatePipeInstance".
 - Event ID 4656 logs handles to objects. Look for named pipe by searching for "Accesses=CreatePipeInstance".

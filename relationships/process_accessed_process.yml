@@ -25,6 +25,7 @@ security_events:
   platform: windows
   audit_category: Object Access
   audit_sub_category: Kernel Object
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - ObjectType: Process

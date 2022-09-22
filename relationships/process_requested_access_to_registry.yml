@@ -16,10 +16,12 @@ security_events:
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - ObjectType: Key
   event_version:
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
 notes: null

@@ -25,12 +25,13 @@ security_events:
   platform: windows
   audit_category: Object Access
   audit_sub_category: Detailed File Share
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '1'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-17-pipeevent-pipe-created
 notes:
 - Potential contribution for ATT&CK - Named Pipe / named pipe creation
-- Event ID 4656 logs handles to objects. Look for named pipe creation by searching
-  for "Accesses=CreatePipeInstance".
+- Event ID 4656 logs handles to objects. Look for named pipe creation by searching for "Accesses=CreatePipeInstance".

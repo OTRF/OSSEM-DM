@@ -14,9 +14,11 @@ security_events:
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logoff
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4647
 notes:
 - Potential contribution for ATT&CK - Logon Session / logon session termination

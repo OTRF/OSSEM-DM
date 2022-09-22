@@ -17,6 +17,7 @@ security_events:
   platform: windows
   audit_category: Object Access
   audit_sub_category: File Share
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '1'
@@ -26,6 +27,7 @@ security_events:
   platform: windows
   audit_category: Object Access
   audit_sub_category: Detailed File Share
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -38,6 +40,8 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5140
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5145
 notes:
 - Potential contribution for ATT&CK - Network Share / network share access

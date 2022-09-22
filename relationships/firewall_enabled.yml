@@ -15,9 +15,11 @@ security_events:
   platform: windows
   audit_category: System
   audit_sub_category: Other System Events
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5024
 notes:
 - Potential contribution for ATT&CK - Firewall / firewall enable

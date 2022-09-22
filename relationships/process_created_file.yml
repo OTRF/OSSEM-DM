@@ -42,11 +42,12 @@ security_events:
   platform: windows
   audit_category: Object Access
   audit_sub_category: File System
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '1'
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-11-filecreate
 notes:
-- Event ID 4663 logs attempts of accesses to objects. Look for file creations by searching
-  for "Accesses=WriteData".
+- Event ID 4663 logs attempts of accesses to objects. Look for file creations by searching for "Accesses=WriteData".

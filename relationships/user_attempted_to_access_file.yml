@@ -14,9 +14,11 @@ security_events:
   platform: windows
   audit_category: Detailed Tracking
   audit_sub_category: DPAPI Activity
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4692
 notes:
 - Potential contribution for ATT&CK - File / file access

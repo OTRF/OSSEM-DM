@@ -16,9 +16,10 @@ security_events:
   platform: windows
   audit_category: Account Logon
   audit_sub_category: Credential Validation
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
 references:
-- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4776
 notes: null

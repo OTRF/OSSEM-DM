@@ -41,9 +41,19 @@ security_events:
   platform: windows
   audit_category: Object Access
   audit_sub_category: File System
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
+- event_id: 4663
+  name: An attempt was made to access an object.
+  platform: windows
+  audit_category: Object Access
+  audit_sub_category: File System
+  channel: Security
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '1'
 - event_id: DeviceFileEvents
   name: DeviceFileEvents
   platform: windows
@@ -53,16 +63,11 @@ security_events:
   event_version:
   - '0'
   - '1'
-- event_id: 4663
-  name: An attempt was made to access an object.
-  platform: windows
-  audit_category: Object Access
-  audit_sub_category: File System
-  log_source: Microsoft-Windows-Security-Auditing
-  event_version:
-  - '1'
 references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4660
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-23-filedelete-file-delete-archived
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-26-filedeletedetected-file-delete-logged
 notes:
 - Event ID 4663 logs attempts of accesses to objects. Look for file creations by searching
   for "Accesses=Delete".

@@ -23,5 +23,6 @@ security_events:
   name: The Event log service was stopped.
   platform: windows
   log_source: Eventlog / System
-references: null
+references:
+- - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-4-sysmon-service-state-changed
 notes: null

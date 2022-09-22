@@ -15,6 +15,7 @@ security_events:
   platform: windows
   audit_category: Policy Change
   audit_sub_category: Authorization Policy Change
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -23,6 +24,7 @@ security_events:
   platform: windows
   audit_category: Privilege Use
   audit_sub_category: Sensitive Privilege Use
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -31,6 +33,7 @@ security_events:
   platform: windows
   audit_category: Privilege Use
   audit_sub_category: Sensitive Privilege Use
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -39,6 +42,7 @@ security_events:
   platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -47,6 +51,7 @@ security_events:
   platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -55,6 +60,7 @@ security_events:
   platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -63,6 +69,7 @@ security_events:
   platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'

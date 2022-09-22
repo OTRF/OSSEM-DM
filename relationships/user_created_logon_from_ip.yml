@@ -17,6 +17,7 @@ security_events:
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '2'
@@ -25,6 +26,7 @@ security_events:
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Other Logon/Logoff Events
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -37,5 +39,7 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4778
 notes: null

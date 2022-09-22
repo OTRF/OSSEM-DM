@@ -10,19 +10,12 @@ behavior:
   relationship: modified
   target: group
 security_events:
-- event_id: 4737
-  name: A security-enabled global group was changed.
-  platform: windows
-  audit_category: Account Management
-  audit_sub_category: Security Group Management
-  log_source: Microsoft-Windows-Security-Auditing
-  event_version:
-  - '0'
 - event_id: 4728
   name: A member was added to a security-enabled global group.
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -31,6 +24,7 @@ security_events:
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -39,6 +33,7 @@ security_events:
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -47,6 +42,7 @@ security_events:
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -55,14 +51,16 @@ security_events:
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4764
-  name: A groups type was changed.
+- event_id: 4737
+  name: A security-enabled global group was changed.
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -71,6 +69,7 @@ security_events:
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -79,6 +78,7 @@ security_events:
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -87,6 +87,16 @@ security_events:
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version:
+  - '0'
+- event_id: 4764
+  name: A groups type was changed.
+  platform: windows
+  audit_category: Account Management
+  audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'

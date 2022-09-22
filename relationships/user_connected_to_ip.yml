@@ -36,5 +36,6 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-3-network-connection
 notes: null

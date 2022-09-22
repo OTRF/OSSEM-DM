@@ -16,6 +16,7 @@ security_events:
   platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Access
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -24,6 +25,7 @@ security_events:
   platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Replication
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '1'
@@ -31,5 +33,4 @@ references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4662
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4932
 notes:
-- Events 4661 and 4662 require a SACL (https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists)
-  to be for an object or they will not generate
+- Events 4661 and 4662 require a SACL (https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists) to be for an object or they will not generate

@@ -34,6 +34,7 @@ security_events:
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - OperationType: Existing registry value modified
@@ -44,6 +45,7 @@ security_events:
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -65,6 +67,10 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4657
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4670
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-13-registryevent-value-set
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-14-registryevent-key-and-value-rename
 notes:
 - Event ID 4657 is logged for Creation, Modification and Deletion of registry key values. Use "Operation Type=Existing registry value modified" to look for modifications.

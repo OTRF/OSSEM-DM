@@ -13,6 +13,7 @@ security_events:
   platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'

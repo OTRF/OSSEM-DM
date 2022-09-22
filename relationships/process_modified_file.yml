@@ -33,6 +33,7 @@ security_events:
   platform: windows
   audit_category: Object Access
   audit_sub_category: File System
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -54,5 +55,8 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-2-a-process-changed-a-file-creation-time
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-11-filecreate
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4670
 notes: null

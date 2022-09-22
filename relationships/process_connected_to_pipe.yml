@@ -23,3 +23,4 @@ security_events:
 references: null
 notes:
 - Potential contribution for ATT&CK - Named Pipe / named pipe connection
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-18-pipeevent-pipe-connected
