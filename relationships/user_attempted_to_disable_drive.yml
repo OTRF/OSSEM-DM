@@ -10,11 +10,12 @@ behavior:
   relationship: attempted to disable
   target: drive
 security_events:
-- event_id: 6419
+- event_id: '6419'
   name: A request was made to disable a device.
   platform: windows
   audit_category: Detailed Tracking
   audit_sub_category: PNP Activity
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'

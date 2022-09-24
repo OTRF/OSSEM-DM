@@ -11,13 +11,15 @@ behavior:
   relationship: requested access to
   target: ad object
 security_events:
-- event_id: 4661
+- event_id: '4661'
   name: A handle to an object was requested.
   platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Access
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4661
 notes: null

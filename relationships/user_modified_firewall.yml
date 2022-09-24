@@ -10,17 +10,20 @@ behavior:
   relationship: modified
   target: firewall
 security_events:
-- event_id: 2002
+- event_id: '2002'
   name: A Windows Defender Firewall setting has changed.
   platform: windows
+  channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   log_source: Microsoft-Windows-Windows Firewall With Advanced Security
-  event_version: []
-- event_id: 2003
+  event_version:
+  - '0'
+- event_id: '2003'
   name: A Windows Defender Firewall setting in the Private profile has changed.
   platform: windows
+  channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   log_source: Microsoft-Windows-Windows Firewall With Advanced Security
-  event_version: []
+  event_version:
+  - '0'
 references: null
 notes:
-- Potential contribution for ATT&CK - Firewall / firewall modification (New data component
-  and relationship)
+- Potential contribution for ATT&CK - Firewall / firewall modification (New data component and relationship)

@@ -11,13 +11,15 @@ behavior:
   relationship: modified
   target: null
 security_events:
-- event_id: 4672
+- event_id: '4672'
   name: Special privileges assigned to new logon.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Special Logon
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4672
 notes: null

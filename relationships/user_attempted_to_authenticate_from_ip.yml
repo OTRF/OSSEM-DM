@@ -13,27 +13,30 @@ behavior:
   relationship: attempted to authenticate from
   target: ip
 security_events:
-- event_id: 4624
+- event_id: '4624'
   name: An account was successfully logged on.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '2'
-- event_id: 4625
+- event_id: '4625'
   name: An account failed to log on.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Account Lockout
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4648
+- event_id: '4648'
   name: A logon was attempted using explicit credentials.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -56,5 +59,8 @@ security_events:
   event_version:
   - '1.05'
 references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4648
 - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-non-api-events.html
 notes: null

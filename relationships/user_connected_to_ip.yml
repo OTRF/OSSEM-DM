@@ -12,14 +12,15 @@ behavior:
   relationship: connected to
   target: ip
 security_events:
-- event_id: 3
+- event_id: '3'
   name: Network connection.
   platform: windows
   audit_category: NetworkConnect
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
-- event_id: 3
+- event_id: '3'
   name: Network connection.
   platform: linux
   audit_category: NetworkConnect
@@ -35,5 +36,6 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-3-network-connection
 notes: null

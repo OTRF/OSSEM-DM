@@ -9,10 +9,11 @@ behavior:
   relationship: started
   target: null
 security_events:
-- event_id: 400
+- event_id: '400'
   name: Engine state is changed from None to Available.
   platform: windows
-  log_source: powershell
+  channel: Windows PowerShell
+  log_source: PowerShell
   event_version:
   - '0'
 references: null

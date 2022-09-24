@@ -11,13 +11,15 @@ behavior:
   relationship: locked
   target: user
 security_events:
-- event_id: 4740
+- event_id: '4740'
   name: A user account was locked out.
   platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4740
 notes: null

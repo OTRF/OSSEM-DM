@@ -115,9 +115,10 @@ for dr in attack_relationships_files:
         record['Filter in Log'] = t.get('filter_in', None)
         record['Audit Category'] = t.get('audit_category', None)
         record['Audit Sub-Category'] = t.get('audit_sub_category', None)
+        record['Channel'] = t.get('channel', None)
         if t['platform'] == "windows" and t.get('log_source', None) == "Microsoft-Windows-Security-Auditing":
             record['Enable Commands'] = f"auditpol /set /subcategory:{t['audit_sub_category']} /success:enable /failure:enable"
-        elif t['platform'] == "windows" and t.get('log_source', None) == "sysmon":
+        elif t['platform'] == "windows" and t.get('log_source', None) == "Microsoft-Windows-Sysmon":
             record['Enable Commands'] = f"<{t['audit_category']} onmatch='exclude' />"
         else:
             record['Enable Commands'] = None
@@ -127,7 +128,7 @@ for dr in attack_relationships_files:
             record['GPO Audit Policy'] = None
         processed_dr.append(record)
 
-header_fields = ['Data Source', 'Component', 'Source', 'Relationship', 'Target', 'OSSEM Id', 'EventID', 'Event Name', 'Event Platform', 'Log Source', 'Filter in Log', 'Audit Category', 'Audit Sub-Category', 'Enable Commands',  'GPO Audit Policy' ]
+header_fields = ['Data Source', 'Component', 'Source', 'Relationship', 'Target', 'OSSEM Id', 'EventID', 'Event Name', 'Event Platform', 'Log Source', 'Filter in Log', 'Audit Category', 'Audit Sub-Category','Channel', 'Enable Commands',  'GPO Audit Policy' ]
 with open(attack_events_mappings_file, 'w', newline='')  as output_file:
     dict_writer = csv.DictWriter(output_file, header_fields)
     dict_writer.writeheader()
@@ -171,7 +172,7 @@ attack = attck_mapping['attack'].apply(pd.Series)
 behavior = attck_mapping['behavior'].apply(pd.Series)
 security_events = attck_mapping['security_events'].apply(pd.Series).rename(columns={'name':'event_name','platform':'event_platform'})
 attck_mapping = pd.concat([attck_mapping,attack,behavior,security_events], axis = 1).drop(['attack','behavior','security_events'], axis = 1)
-attck_mapping = attck_mapping.reindex(columns = ['data_source', 'data_component','relationship_id','name','source', 'relationship','target', 'event_id', 'event_name', 'event_platform', 'audit_category','audit_sub_category','log_source','filter_in'])
+attck_mapping = attck_mapping.reindex(columns = ['data_source', 'data_component','relationship_id','name','source', 'relationship','target', 'event_id', 'event_name', 'event_platform', 'audit_category','audit_sub_category','channel','log_source','filter_in'])
 attck_mapping['data_source'] = attck_mapping['data_source'].str.lower()
 attck_mapping['data_component'] = attck_mapping['data_component'].str.lower()
 

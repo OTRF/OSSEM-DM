@@ -12,20 +12,22 @@ behavior:
   relationship: attempted to access
   target: network share
 security_events:
-- event_id: 5140
+- event_id: '5140'
   name: A network share object was accessed.
   platform: windows
   audit_category: Object Access
   audit_sub_category: File Share
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '1'
-- event_id: 5145
+- event_id: '5145'
   name: A network share object was checked to see whether client can be granted desired
     access.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Detailed File Share
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -38,6 +40,8 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5140
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5145
 notes:
 - Potential contribution for ATT&CK - Network Share / network share access

@@ -13,27 +13,30 @@ behavior:
   relationship: created
   target: logon
 security_events:
-- event_id: 4624
+- event_id: '4624'
   name: An account was successfully logged on.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Logon
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '2'
-- event_id: 4778
+- event_id: '4778'
   name: A session was reconnected to a Window Station.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Other Logon/Logoff Events
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4964
+- event_id: '4964'
   name: Special groups have been assigned to a new logon.
   platform: windows
   audit_category: Logon/Logoff
   audit_sub_category: Special Logon
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'

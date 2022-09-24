@@ -11,16 +11,19 @@ behavior:
   relationship: started
   target: null
 security_events:
-- event_id: 4
+- event_id: '4'
   name: Sysmon service state changed.
   platform: windows
   audit_category: ServiceStateChange
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
-- event_id: 6005
+- event_id: '6005'
   name: The Event log service was started.
   platform: windows
-  log_source: Eventlog / System
-references: null
+  channel: System
+  log_source: EventLog
+references:
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-4-sysmon-service-state-changed
 notes: null

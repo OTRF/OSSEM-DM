@@ -11,15 +11,17 @@ behavior:
   relationship: requested access to
   target: file
 security_events:
-- event_id: 4656
+- event_id: '4656'
   name: A handle to an object was requested.
   platform: windows
   audit_category: Object Access
   audit_sub_category: File System
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - ObjectType: File
   event_version:
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
 notes: null

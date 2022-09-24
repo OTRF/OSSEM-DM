@@ -12,18 +12,22 @@ behavior:
   relationship: created
   target: service
 security_events:
-- event_id: 4697
+- event_id: '4697'
   name: A service was installed in the system.
   platform: windows
   audit_category: System
   audit_sub_category: Security System Extension
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 7045
+- event_id: '7045'
   name: A new service was installed in the system.
   platform: windows
-  log_source: Service Control Manager / System
+  channel: System
+  log_source: Service Control Manager
+  event_version:
+  - '0'
 - event_id: DeviceEvents
   name: DeviceEvents
   platform: windows
@@ -33,5 +37,6 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4697
 notes: null

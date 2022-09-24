@@ -13,19 +13,21 @@ behavior:
   relationship: created
   target: user
 security_events:
-- event_id: 4720
+- event_id: '4720'
   name: A user account was created.
   platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4741
+- event_id: '4741'
   name: A computer account was created.
   platform: windows
   audit_category: Account Management
   audit_sub_category: Computer Account Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'

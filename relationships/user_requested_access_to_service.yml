@@ -11,13 +11,15 @@ behavior:
   relationship: requested access to
   target: service
 security_events:
-- event_id: 4656
+- event_id: '4656'
   name: A handle to an object was requested.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Other Object Access Events
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '1'
-references: null
+references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4656
 notes: null

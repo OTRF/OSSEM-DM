@@ -12,18 +12,20 @@ behavior:
   relationship: accessed
   target: process
 security_events:
-- event_id: 10
+- event_id: '10'
   name: ProcessAccess
   platform: windows
   audit_category: ProcessAccess
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
-- event_id: 4663
+- event_id: '4663'
   name: An attempt was made to access an object.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Kernel Object
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - ObjectType: Process
@@ -41,5 +43,4 @@ security_events:
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
-- "Event 4663, this event generates only if object\u2019s SACL has required ACE to\
-  \ handle specific access right use."
+- Event 4663, this event generates only if object SACL has required ACE to handle specific access right use.

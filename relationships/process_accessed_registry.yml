@@ -11,11 +11,12 @@ behavior:
   relationship: accessed
   target: registry
 security_events:
-- event_id: 4663
+- event_id: '4663'
   name: An attempt was made to access an object.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - ObjectType: Key

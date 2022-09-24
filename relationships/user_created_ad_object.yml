@@ -11,13 +11,15 @@ behavior:
   relationship: created
   target: ad object
 security_events:
-- event_id: 5137
+- event_id: '5137'
   name: A directory service object was created.
   platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Changes
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5137
 notes: null

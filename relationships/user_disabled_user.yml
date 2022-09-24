@@ -12,11 +12,12 @@ behavior:
   relationship: disabled
   target: user
 security_events:
-- event_id: 4725
+- event_id: '4725'
   name: A user account was disabled.
   platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -29,5 +30,6 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4725
 notes: null

@@ -11,19 +11,21 @@ behavior:
   relationship: disabled
   target: null
 security_events:
-- event_id: 5025
+- event_id: '5025'
   name: The Windows Firewall Service has been stopped.
   platform: windows
   audit_category: System
   audit_sub_category: Other System Events
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 5034
+- event_id: '5034'
   name: The Windows Firewall Driver was stopped.
   platform: windows
   audit_category: System
   audit_sub_category: Other System Events
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'

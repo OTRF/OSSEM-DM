@@ -10,27 +10,30 @@ behavior:
   relationship: deleted
   target: group
 security_events:
-- event_id: 4730
+- event_id: '4730'
   name: A security-enabled global group was deleted.
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4734
+- event_id: '4734'
   name: A security-enabled local group was deleted.
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4758
+- event_id: '4758'
   name: A security-enabled universal group was deleted.
   platform: windows
   audit_category: Account Management
   audit_sub_category: Security Group Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'

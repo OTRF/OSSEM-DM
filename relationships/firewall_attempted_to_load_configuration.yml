@@ -10,9 +10,10 @@ behavior:
   relationship: attempted to load
   target: configuration
 security_events:
-- event_id: 2009
+- event_id: '2009'
   name: The Windows Firewall service failed to load Group Policy.
   platform: windows
+  channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   log_source: Microsoft-Windows-Windows Firewall With Advanced Security
   event_version: []
 references: null

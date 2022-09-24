@@ -12,11 +12,12 @@ behavior:
   relationship: modified
   target: file
 security_events:
-- event_id: 4670
+- event_id: '4670'
   name: Permissions on an object were changed.
   platform: windows
   audit_category: Object Access
   audit_sub_category: File System
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -29,5 +30,6 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4670
 notes: null

@@ -10,11 +10,12 @@ behavior:
   relationship: executed
   target: dns query
 security_events:
-- event_id: 22
+- event_id: '22'
   name: DNSEvent (DNS query).
   platform: windows
   audit_category: DNSQuery
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
 - event_id: DeviceEvents
@@ -26,6 +27,7 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-22-dnsevent-dns-query
 notes:
 - Potential contribution for ATT&CK - Network Traffic / network traffic content

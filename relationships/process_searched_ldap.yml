@@ -1,7 +1,7 @@
 relationship_id: REL-2022-0073
 name: Process searched LDAP
 contributors:
-- "Hamza OUADI\xC2 @Cyb3rSn0rlax"
+- Hamza OUADI @Cyb3rSn0rlax
 attack:
   data_source: process
   data_component: process metadata
@@ -10,7 +10,7 @@ behavior:
   relationship: searched
   target: ldap
 security_events:
-- event_id: 30
+- event_id: '30'
   name: EventID(30)
   platform: windows
   log_source: Microsoft-Windows-LDAP-Client/Debug

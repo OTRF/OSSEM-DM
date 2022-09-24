@@ -10,16 +10,16 @@ behavior:
   relationship: accessed
   target: registry
 security_events:
-- event_id: 4663
+- event_id: '4663'
   name: An attempt was made to access an object.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - ObjectType: Key
 references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4663
 notes:
-- "Event 4663 includes the following caveat \"This event generates only if object\u2019\
-  s SACL has required ACE to handle specific access right use.\""
+- Event 4663 includes the following caveat "This event generates only if object's SACL has required ACE to handle specific access right use".

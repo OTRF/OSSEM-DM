@@ -10,13 +10,13 @@ behavior:
   relationship: added
   target: firewall rule
 security_events:
-- event_id: 2004
+- event_id: '2004'
   name: A rule has been added to the Windows Defender Firewall exception list
   platform: windows
-  audit_category: null
-  audit_sub_category: null
+  channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   log_source: Microsoft-Windows-Windows Firewall With Advanced Security
-  event_version: []
+  event_version:
+  - '0'
 - event_id: cloudtrail
   name: cloudtrail
   platform: aws

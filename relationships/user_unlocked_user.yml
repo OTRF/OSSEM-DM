@@ -11,13 +11,15 @@ behavior:
   relationship: unlocked
   target: user
 security_events:
-- event_id: 4767
+- event_id: '4767'
   name: A user account was unlocked.
   platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4767
 notes: null

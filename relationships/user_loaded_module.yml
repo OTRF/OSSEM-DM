@@ -11,11 +11,12 @@ behavior:
   relationship: loaded
   target: module
 security_events:
-- event_id: 7
+- event_id: '7'
   name: Image loaded.
   platform: windows
   audit_category: ImageLoad
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
 - event_id: DeviceImageLoadEvents
@@ -27,6 +28,7 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-7-image-loaded
 notes:
 - Potential contribution for ATT&CK - Module / module load

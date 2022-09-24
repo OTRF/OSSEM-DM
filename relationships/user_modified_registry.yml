@@ -13,35 +13,39 @@ behavior:
   relationship: modified
   target: registry
 security_events:
-- event_id: 13
+- event_id: '13'
   name: RegistryEvent (Value Set).
   platform: windows
   audit_category: RegistryEvent
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
-- event_id: 14
+- event_id: '14'
   name: RegistryEvent (Key and Value Rename).
   platform: windows
   audit_category: RegistryEvent
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
-- event_id: 4657
+- event_id: '4657'
   name: A registry value was modified.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - OperationType: Existing registry value modified
   event_version:
   - '0'
-- event_id: 4670
+- event_id: '4670'
   name: Permissions on an object were changed.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
@@ -63,6 +67,10 @@ security_events:
   event_version:
   - '0'
   - '1'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4657
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4670
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-13-registryevent-value-set
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-14-registryevent-key-and-value-rename
 notes:
 - Event ID 4657 is logged for Creation, Modification and Deletion of registry key values. Use "Operation Type=Existing registry value modified" to look for modifications.

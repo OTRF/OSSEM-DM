@@ -10,11 +10,12 @@ behavior:
   relationship: removed
   target: null
 security_events:
-- event_id: 4948
+- event_id: '4948'
   name: A change has been made to Windows Firewall exception list. A rule was deleted.
   platform: windows
   audit_category: Policy Change
   audit_sub_category: MPSSVC Rule-Level Policy Change
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'

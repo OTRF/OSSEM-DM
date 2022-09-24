@@ -12,21 +12,25 @@ behavior:
   relationship: attempted to modify
   target: user
 security_events:
-- event_id: 4723
+- event_id: '4723'
   name: An attempt was made to change an account's password.
   platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4724
+- event_id: '4724'
   name: An attempt was made to reset an account's password.
   platform: windows
   audit_category: Account Management
   audit_sub_category: User Account Management
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4723
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4724
 notes: null

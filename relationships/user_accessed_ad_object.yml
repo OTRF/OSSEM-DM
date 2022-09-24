@@ -11,19 +11,21 @@ behavior:
   relationship: accessed
   target: ad object
 security_events:
-- event_id: 4662
+- event_id: '4662'
   name: An operation was performed on an object.
   platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Access
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-- event_id: 4932
+- event_id: '4932'
   name: Synchronization of a replica of an Active Directory naming context has begun.
   platform: windows
   audit_category: DS Access
   audit_sub_category: Directory Service Replication
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '1'
@@ -31,5 +33,4 @@ references:
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4662
 - https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4932
 notes:
-- Events 4661 and 4662 require a SACL (https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists)
-  to be for an object or they will not generate
+- Events 4661 and 4662 require a SACL (https://docs.microsoft.com/en-us/windows/win32/secauthz/access-control-lists) to be for an object or they will not generate

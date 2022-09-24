@@ -13,11 +13,12 @@ behavior:
   relationship: deleted
   target: registry
 security_events:
-- event_id: 12
+- event_id: '12'
   name: RegistryEvent (Object create and delete).
   platform: windows
   audit_category: RegistryEvent
-  log_source: sysmon
+  channel: Microsoft-Windows-Sysmon/Operational
+  log_source: Microsoft-Windows-Sysmon
   event_version:
   - '4.32'
 - event_id: DeviceRegistryEvents
@@ -38,24 +39,29 @@ security_events:
   event_version:
   - '0'
   - '1'
-- event_id: 4657
+- event_id: '4657'
   name: A registry value was modified.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   filter_in:
   - ActionType: Registry value deleted
   event_version:
   - '0'
-- event_id: 4660
+- event_id: '4660'
   name: An object was deleted.
   platform: windows
   audit_category: Object Access
   audit_sub_category: Registry
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4657
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4660
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-12-registryevent-object-create-and-delete
 notes:
 - Event ID 4657 is logged for Creation, Modification and Deletion of registry key values. Use "Operation Type=Registry value deleted" to look for deletions.

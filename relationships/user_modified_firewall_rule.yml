@@ -10,11 +10,13 @@ behavior:
   relationship: modified
   target: firewall rule
 security_events:
-- event_id: 2005
+- event_id: '2005'
   name: A rule has been modified in the Windows Defender Firewall exception list.
   platform: windows
+  channel: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
   log_source: Microsoft-Windows-Windows Firewall With Advanced Security
-  event_version: []
+  event_version:
+  - '0'
 - event_id: cloudtrail
   name: cloudtrail
   platform: aws

@@ -11,13 +11,15 @@ behavior:
   relationship: removed access from
   target: user
 security_events:
-- event_id: 4718
+- event_id: '4718'
   name: System security access was removed from an account.
   platform: windows
   audit_category: Policy Change
   audit_sub_category: Authentication Policy Change
+  channel: Security
   log_source: Microsoft-Windows-Security-Auditing
   event_version:
   - '0'
-references: null
+references:
+- https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4718
 notes: null
