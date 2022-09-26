@@ -37,5 +37,5 @@ security_events:
   - '0'
   - '1'
 references:
-- - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-3-network-connection
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-3-network-connection
 notes: null
