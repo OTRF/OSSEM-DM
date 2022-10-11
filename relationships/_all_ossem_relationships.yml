@@ -3095,7 +3095,7 @@
     channel: System
     log_source: EventLog
   references:
-  - - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-4-sysmon-service-state-changed
+  - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-4-sysmon-service-state-changed
   notes: null
 - relationship_id: REL-2022-0095
   name: Process modified Firewall rule
@@ -4636,7 +4636,7 @@
     - '0'
     - '1'
   references:
-  - - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-3-network-connection
+  - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-3-network-connection
   notes: null
 - relationship_id: REL-2022-0143
   name: Process modified Process
