@@ -1,0 +1,30 @@
+name: IP called RPC Method
+contributors:
+- Hamza OUADIÂ @Cyb3rSn0rlax
+attack:
+  data_source: Network Traffic
+  data_component: network connection creation
+behavior:
+  source: ip
+  relationship: called
+  target: rpc method
+security_events:
+- event_id: dce_rpc
+  name: DCE-RPC Log
+  platform: zeek
+  log_source: network-protocols
+  filter_in:
+  - operation: request
+  event_version: ['0']
+- event_id: 5712
+  name: A Remote Procedure Call (RPC) was attempted.
+  platform: windows
+  audit_category: Detailed Tracking
+  audit_sub_category: RPC Events
+  log_source: Microsoft-Windows-Security-Auditing
+  event_version: ['0']
+refenrences:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-5712
+- https://www.windows-security.org/windows-event-id/5712-a-remote-procedure-call-rpc-was-attempted
+notes:
+- It appears that the event id 5712 event never occurs.
